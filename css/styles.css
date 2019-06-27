@@ -1,0 +1,21 @@
+body {
+    background-color: black;
+}
+
+#map {
+    text-align: center;
+    float: left;
+    width: 100%;
+    font-size: xx-large;
+    color:white;
+    line-height: 12px;
+}
+
+#plot {
+/*    background-image: url('bg.png');*/
+    background-position: center;
+    background-size: cover;
+    width: 98.5%;
+    height: 85%;
+}
+

@@ -1,0 +1,433 @@
+<!--Original credit goes to Kirito for v1.0 of the map. It has since been updated to 2.0 by Yamamushi-->
+<!DOCTYPE html >
+<html >
+<head>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>3D Dual Universe Map</title>
+	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+	<script type="text/javascript" src="http://x3dom.org/x3dom/dist/x3dom-full.js"></script>
+	<script type="text/javascript">
+
+		// GLOBAL
+		var scene;
+		var rows;
+		var sphereRadius = 1;
+		var labelscale = 1.5;
+		var tourRadius = 3;
+
+		var planets = [
+					{
+						"id": 1,
+						"name": "Madis",
+						"class": "hT",
+						"radius": 45000,
+						"pos": [17465536.000, 22665536.000, -34464.000],
+						"type": "Planet",
+						"distances": [0.000, 143.072, 83.087, 225.740, 390.593, 315.464, 358.246, 355.113, 560.465, 445.450, 541.766, 612.876]
+					},
+			{
+				"id": 10,
+				"name": "Madis Moon 1",
+				"radius": 10000,
+				"pos": [17448118.860, 22966848.030, 143079.980],
+				"type": "Moon",
+			},
+					{
+						"id": 2,
+						"name": "Alioth",
+						"class": "M",
+						"radius": 60000,
+						"type": "Planet",
+						"pos": [-4.000, -4.000, -60534.000],
+						"distances": [143.072, 0.000, 155.622, 286.584, 345.807, 394.947, 439.090, 488.063, 475.296, 498.956, 434.009, 495.395]
+					},
+			{
+				"id": 21,
+				"name": "Alioth Moon 1",
+				"class": "",
+				"radius": 30000,
+				"type": "Moon",
+				"pos": [x=-564185.780, y=233791.000, z=-167448.000]
+			},
+					{
+						"id": 3,
+						"name": "Thades",
+						"class": "T",
+						"radius": 56000,
+						"pos": [29165536.000, 10865536.000, 65536.000],
+						"distances": [83.087, 155.622, 0.000, 308.785, 441.968, 296.926, 339.088, 338.827, 616.836, 369.265, 488.315, 565.034]
+					},
+					{
+						"id": 4,
+						"name": "Talemai",
+						"class": "M",
+						"radius": 58000,
+						"pos": [-13234464.000, 55765536.000, 465536.000],
+						"distances": [225.740, 286.584, 308.785, 0.000, 333.572, 442.621, 479.064, 470.577, 458.525, 658.988, 720.181, 778.202]
+					},
+					{
+						"id": 5,
+						"name": "Feli",
+						"class": "M",
+						"radius": 60000,
+						"pos": [-43534464.000, 22565536.000, -48934464.000],
+						"distances": [390.593, 345.807, 441.968, 333.572, 0.000, 697.776, 740.680, 685.744, 343.092, 772.738, 658.417, 693.605]
+					},
+					{
+						"id": 6,
+						"name": "Sicari",
+						"class": "M",
+						"radius": 51000,
+						"pos": [52765536.000, 27165536.000, 52065536.000],
+						"distances": [315.464, 394.947, 296.926, 442.621, 697.776, 0.000, 44.235, 329.555, 788.643, 405.589, 652.154, 728.266]
+					},
+					{
+						"id": 7,
+						"name": "Sinnen",
+						"class": "hT",
+						"radius": 55000,
+						"pos": [58665536.000, 29665536.000, 58165536.000],
+						"distances": [358.246, 439.090, 339.088, 479.064, 740.680, 44.235, 0.000, 339.074, 828.256, 417.231, 684.751, 760.893]
+					},
+					{
+						"id": 8,
+						"name": "Teoma",
+						"class": "M",
+						"radius": 62000,
+						"pos": [80865536.000, 54665536.000, -934464.000],
+						"distances": [355.113, 488.063, 338.827, 470.577, 685.744, 329.555, 339.074, 0.000, 899.832, 352.677, 776.740, 861.796]
+					},
+					{
+						"id": 9,
+						"name": "Jago",
+						"class": "M",
+						"radius": 63000,
+						"pos": [-94134464.000, 12765536.000, -3634464.000],
+						"distances": [560.465, 475.296, 616.836, 458.525, 343.092, 788.643, 828.256, 899.832, 0.000, 974.012, 731.757, 740.195]
+					},
+					{
+						"id": 100,
+						"name": "Lacobus",
+						"class": "hP",
+						"radius": 57000,
+						"pos": [98865536.000, -13534464.000, -934464.000],
+						"distances": [445.450, 498.956, 369.265, 658.988, 772.738, 405.589, 417.231, 352.677, 974.012, 0.000, 556.159, 642.772]
+					},
+					{
+						"id": 110,
+						"name": "Symeon",
+						"class": "hP",
+						"radius": 49000,
+						"pos": [14165536.000, -85634464.000, -934464.000],
+						"distances": [541.766, 434.009, 488.315, 720.181, 658.417, 652.154, 684.751, 776.740, 731.757, 556.159, 0.000, 87.643]
+					},
+					{
+						"id": 120,
+						"name": "Ion",
+						"class": "hP",
+						"radius": 45000,
+						"pos": [2865536.000, -99034464.000, -934464.000],
+						"distances": [612.876, 495.395, 565.034, 778.202, 693.605, 728.266, 760.893, 861.796, 740.195, 642.772, 87.643, 0.000]
+					}
+				]
+
+		function updateDistances(event,i) {
+			console.log(event)
+			var source = i;
+
+			var datalabels = scene.selectAll(".dynlabel")
+					.remove()
+
+			var shapelabel = scene.selectAll(".dynshape")
+
+			shapelabel
+					.append("Text")
+
+					.attr("string", function(d,i) {
+
+						destination = i;
+
+						distance = Math.round(planets[source].distances[destination]);
+
+						if (distance>0) labeldist = '"'+distance+' su"';
+						else labeldist = ' "You are HERE" '
+
+						return '"'+planets[i].name+'"'+' "" '+' "" '+labeldist
+					})
+					.append("fontstyle")
+					.attr("family", "arial")
+					//		.attr("style", "BOLD")
+					.attr("quality", "3")
+
+			var newDatalabels = shapelabel
+					.append("appearance")
+					.append("material")
+					.attr("diffuseColor", function(d,i) {
+
+						destination = i;
+
+						if (source==destination)
+							return "green";
+						else
+							return "white";
+					})
+		}
+
+		class MapVector {
+			constructor(x, y, z) {
+				this.x = x;
+				this.y = y;
+				this.z = z;
+			}
+		}
+
+		function CalculateDistance( loc1, loc2 )
+		{
+			var dx = loc1.pos[0] - loc2.pos[0];
+			var dy = loc1.pos[1] - loc2.pos[1];
+			var dz = loc1.pos[2] - loc2.pos[2];
+
+			return (Math.sqrt( dx * dx + dy * dy + dz * dz )/200000).toFixed(3);
+		}
+
+		function logdistances() {
+			//// Using the array from the question
+			//var x = findElement(arr, "name", "k2"); // x is {"name":"k2", "value":"hi"}
+			//alert(x["value"]); // displays "hi"
+
+			distance = CalculateDistance(planets[0],planets[1])
+			console.log("Distance Between "+planets[0].name+" and "+planets[1].name+": " + distance)
+		}
+
+		function scatterPlot3d( parent )
+		{
+			var x3d = parent
+					.append("x3d")
+					.style( "width", parseInt(parent.style("width"))+"px" )
+					.style( "height", parseInt(parent.style("height"))+"px" )
+					.style( "border", "inset" )
+
+// GLOBAL	
+			scene = x3d.append("scene");
+
+			var view = scene.append("viewpoint")
+					.attr( "fieldOfView", 0.7)
+					.attr( "centerOfRotation", [0, 0, 0])
+					.attr( "orientation", [1,1,1,-0.5])
+					.attr( "position", [-22,27,80])
+
+//GLOBAL 
+			rows = initializeDataGrid();
+
+			var axisRange = [0, 10];
+			var scales = [];
+			var initialDuration = 0;
+			var defaultDuration = 800;
+			var ease = 'linear';
+			var time = 0;
+			var axisKeys = ["x", "y", "z"]
+
+			// Helper functions for initializeAxis() and drawAxis()
+			// -- ? --
+			// Initialize the axes lines and labels.
+			function initializePlot() {
+				initializeAxis(0);
+				initializeAxis(1);
+				initializeAxis(2);
+			}
+
+			function initializeAxis( axisIndex )
+			{
+				var key = axisKeys[axisIndex];
+				drawAxis( axisIndex, key, initialDuration );
+			}
+
+			// Assign key to axis, creating or updating its ticks, grid lines, and labels.
+			function drawAxis( axisIndex, key, duration ) {
+
+				var scale = d3.scale.linear()
+						.domain( [-1000,1000] ) // demo data range
+						.range( axisRange )
+
+				scales[axisIndex] = scale;
+
+				var numTicks = 8;
+				var tickSize = 0.1;
+				var tickFontSize = 0.5;
+			}
+
+			// Update the data points (spheres) and stems.
+			function plotData( duration ) {
+
+				if (!rows) {
+					console.log("no rows to plot.")
+					return;
+				}
+
+				var x = scales[0], y = scales[1], z = scales[2];
+
+				// Draw a sphere at each x,y,z coordinate.
+				var datapoints = scene.selectAll(".datapoint").data( rows );
+
+				datapoints.exit().remove()
+				var newDatapoints = datapoints.enter()
+						.append("transform")
+						.attr("class", "datapoint")
+						.attr("scale", function(d,i) {
+							if (planets[i].type === "Moon") {
+								return [planets[i].radius/100000,planets[i].radius/100000,planets[i].radius/100000]
+							} else {
+								return [planets[i].radius/100000,planets[i].radius/100000,planets[i].radius/100000]
+							}
+						})
+						.append("shape")
+
+				newDatapoints
+						.append("appearance")
+						.append("material")
+
+				newDatapoints
+						.append("sphere")
+
+				// Draw a sphere at each x,y,z coordinate.
+				var datatours = scene.selectAll(".datatour").data( rows );
+
+				datatours.exit().remove()
+				var newDataTours = datatours.enter()
+						.append("transform")
+						.attr("class", "datatour")
+						.attr("scale", [tourRadius, tourRadius, tourRadius])
+						.append("shape")
+						.attr("onclick", function(d,i) { return "updateDistances(event,"+i+");"})
+
+				newDataTours
+						.append("appearance")
+						.append("material")
+
+				newDataTours
+						.append("sphere")
+
+				var datalabels = scene.selectAll(".datalabel").data( rows );
+
+				datalabels.exit().remove()
+
+				var shapelabel =
+						datalabels.enter()
+								.append("transform")
+								.attr("class", "datalabel")
+								.attr("scale", [sphereRadius*labelscale, sphereRadius*labelscale, sphereRadius*labelscale])
+								.append("billboard")
+								.attr("render", 'true')
+								.attr("axisOfRotation", '0,0,0')
+
+								.append("shape")
+								.attr("class", 'dynshape')
+
+				shapelabel
+						.append("Text")
+						.attr("string", function(d,i) {
+
+							return '"'+planets[i].name+'"'+'""'+'""'+'""'
+						})
+						.attr("class", 'dynlabel')
+						.append("fontstyle")
+						.attr("family", "arial")
+						//		.attr("style", "BOLD")
+						.attr("quality", "3")
+//		.attr("size", "2")
+
+
+				var newDatalabels = shapelabel
+						.append("appearance")
+						.append("material")
+						.attr("diffuseColor", "white")
+
+				newDatalabels
+						.append("box")
+
+				newDatapoints.selectAll("material")
+						.attr("diffuseColor", 'steelblue' )
+						.attr("transparency", '0')
+
+				newDataTours.selectAll("material")
+						.attr("transparency", '0.98')
+
+				tranpoints =	datapoints.transition()
+				tranlabels =	datalabels.transition()
+				trantours =	datatours.transition()
+
+				tranpoints.ease(ease).duration(duration)
+						.attr("translation", function(row) {
+							return +row[0]+", "+row[1]+", "+row[2]})
+
+
+				tranlabels.ease(ease).duration(duration)
+						.attr("translation", function(row) {
+							return +row[0]+", "+row[1]+", "+row[2]})
+
+				trantours.ease(ease).duration(duration)
+						.attr("translation", function(row) {
+							return +row[0]+", "+row[1]+", "+row[2]})
+
+			}
+
+			function initializeDataGrid() {
+
+				var miniscale = 3500000;
+
+				var coords = []
+				planets.forEach(function(planet) {
+							if (planet.type === "Moon"){
+								var x=planet.pos[0]/(miniscale);
+								var y=planet.pos[1]/(miniscale);
+								var z=planet.pos[2]/(miniscale);
+								var little = [x,y,z]
+								coords.push(little)
+							} else {
+								var x=planet.pos[0]/(miniscale);
+								var y=planet.pos[1]/(miniscale);
+								var z=planet.pos[2]/(miniscale);
+								var little = [x,y,z]
+								coords.push(little)
+							}
+						}
+				)
+
+				return coords;
+			}
+
+			initializePlot();
+			plotData(1000);
+		}
+
+	</script>
+
+	<link rel="stylesheet" type="text/css" href="http://www.x3dom.org/download/dev/x3dom.css"/>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<div id="map" >
+	Alioth System Map
+</div>
+<br><br>
+<div id="plot">
+</div>
+
+<div id="divLegend" style="text-align: center; color: white; margin-top: 10px">
+	Display : click - Center : double-click - Rotate : drag - Zoom : Scroll or right-drag
+</div>
+<div id="credits">
+	Original credit goes to Kirito for v1.0 of the map. Modifications by Yamamushi (2019).
+</div>
+
+<script>
+	logdistances()
+	d3.select('html').style('height','100%').style('width','100%')
+	d3.select('body').style('height','100%').style('width','100%')
+	d3.select('#divText').style('width', "500px").style('height', "5px")
+	d3.select('#plot').style('width', "98.5%").style('height', "85%")
+	scatterPlot3d( d3.select('#plot'));
+</script>
+</body>
+</html>
