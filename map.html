@@ -24,12 +24,12 @@
 		var rows_Moon;
 		var rows_Orbit;
 		var rows_Star;
-		var axisKeys = ["x", "y", "z"];
-		var axisRange = [0, 10];
+		const axisKeys = ["x", "y", "z"];
+		const axisRange = [0, 10];
 		var scales = [];
-		var initialDuration = 0;
-		var defaultDuration = 800;
-		var ease = 'linear';
+		const initialDuration = 0;
+		const defaultDuration = 800;
+		const ease = 'linear';
 		var time = 0;
 		var mRadius;
 		var sRadius;
@@ -44,45 +44,42 @@
 		var newDatapoints_Orbit;
 		var datapoints_Star;
 		var newDatapoints_Star;
-		var sphereRadius = 0.5; // Not worth changing since scaling handles this
-		var labelscale = 1.5;
-		var moon_Distance_Scale = 5; //how much the distance between the moon and planet is multiplied by
-		var tourRadius = 1.0; // The fuzzy sphere around planets
+		const sphereRadius = 0.5; // Not worth changing since scaling handles this
+		const labelscale = 1.5;
+		const moon_Distance_Scale = 5; //how much the distance between the moon and planet is multiplied by
+		const tourRadius = 1.0; // The fuzzy sphere around planets
 
-		var hide_Orbitals = false;
+		let hide_Orbitals = false;
 
 		// Scaling
-		var miniscale = 3000000;
-		var moonScaling = 100000;
-		var starScaling = 50000;
-		var planetScaling = 200000;	//was 1 million for all 3 scaling
-		var ringScaling = 3000000;	//keep same as miniscale for the same scaling as the planets
-		var moonDistanceScaling = 1;
-		var planetDistanceScaling = 1;
-		var ringDistanceScaling = 1;
+		const miniscale = 3000000;
+		const moonScaling = 100000;
+		const starScaling = 50000;
+		const planetScaling = 200000;	//was 1 million for all 3 scaling
+		const ringScaling = 3000000;	//keep same as miniscale for the same scaling as the planets
 
 		// Colors
-		var planetsDiffuse = "0 0 1";
-		var planetsEmissive = "0 0 0";
+		const planetsDiffuse = "0 0 1";
+		const planetsEmissive = "0 0 0";
 
-		var moonDiffuse = "1 0 0";
-		var moonEmissive = "0 0 0";
+		const moonDiffuse = "1 0 0";
+		const moonEmissive = "0 0 0";
 
-		var fuzzySpheresDiffuse = "0 0 0";
-		var fuzzySpheresEmissive = "0 1 0";
-		var fuzzySpheresTransparency = 0.9; // The transparency of those spheres
+		const fuzzySpheresDiffuse = "0 0 0";
+		const fuzzySpheresEmissive = "0 1 0";
+		const fuzzySpheresTransparency = 0.9; // The transparency of those spheres
 
-		var ringDiffuse = "0 0 0";
-		var ringEmmissive = "0.05 0.05 0.05";
-		var ringTransparency = 0.4;
+		const ringDiffuse = "0 0 0";
+		const ringEmmissive = "0.05 0.05 0.05";
+		const ringTransparency = 0.4;
 
-		var starDiffuse = "0 0 0"
-		var starEmissive = "1 1 0"
+		const starDiffuse = "0 0 0"
+		const starEmissive = "1 1 0"
 
 		// Camera
 		var cameraCenterOfRotation = [0, 8, 0];
-		var cameraOrientation = [10, 10, 10, -0.5]//[10,10,10,-0.5];
-		var cameraPosition = [-25,27,80];
+		var cameraOrientation = [-0.1, 0.1, 0.1, -0.5]//[10,10,10,-0.5];
+		var cameraPosition = [-40,-21,100];//[-35,-20,90];
 
 		var planet_Data = [
 			{"id": 1,	"name": "Madis",		"type": "Planet",	"radius": 45000, "pos": [17465536, 22665536, -34464], "class": "hT"},
@@ -216,8 +213,7 @@
 					labeldist = ' "You are HERE" ';
 				}
 				return '"' + planet_Data[i].name + '"' + ' "" ' + ' "" ' + labeldist;
-			});
-			shapelabel.append("fontstyle").attr("family", "arial").attr("quality", "3").attr("size", "0.75");
+			}).append("fontstyle").attr("family", "arial").attr("quality", "5").attr("size", "1.5");
 
 			console.log()
 
@@ -389,8 +385,8 @@
 				.attr("class", 'dynlabel')
 				.append("fontstyle")
 				.attr("family", "arial")
-				.attr("quality", "3")
-				.attr("size", "0.75");
+				.attr("quality", "5")
+				.attr("size", "1.5");
 
 			//color / transparency
 			newDatapoints.selectAll("material")
