@@ -1,6 +1,6 @@
 
 <!--Original credit goes to Kirito for v1.0 of the map. It has since been updated to 2.0 by Yamamushi and Drystion-->
-<!DOCTYPE html>
+<!DOCtype html>
 
 <html lang="en">
 
@@ -70,8 +70,8 @@
 		const fuzzySpheresTransparency = 0.9; // The transparency of those spheres
 
 		const ringDiffuse = "0 0 0";
-		const ringEmmissive = "0.05 0.05 0.05";
-		const ringTransparency = 0.4;
+		var ringEmmissive = "0.05 0.05 0.05";
+		var ringTransparency = 0.6;
 
 		const starDiffuse = "0 0 0"
 		const starEmissive = "1 1 0"
@@ -187,7 +187,6 @@
 		move_Moons_Further_Away();
 
 		function updateDistances(event,i) {
-			//console.log(event);
 			var source = i;
 
 			var datalabels = scene.selectAll(".dynlabel").remove();
@@ -215,7 +214,7 @@
 				return '"' + planet_Data[i].name + '"' + ' "" ' + ' "" ' + labeldist;
 			}).append("fontstyle").attr("family", "arial").attr("quality", "5").attr("size", "1.5");
 
-			console.log()
+			console.log(scene.getKey("background"))
 
 			var newDatalabels = shapelabel;
 			newDatalabels.append("appearance").append("material").attr("diffuseColor", function(d,i) {
@@ -534,15 +533,26 @@
 			}
 			show_Hide_Orbitals(hide_Orbitals);
 		}
-		
+
 		function show_Hide_Orbitals(boo) {
 			if (boo === true) {
 				newDatapoints_Orbit.selectAll("material").attr("transparency", 1);
 			} else
 			if (boo === false) {
-				newDatapoints_Orbit.selectAll("material").attr("transparency", 0.6);
+				newDatapoints_Orbit.selectAll("material").attr("transparency", ringTransparency);
 			}
 		}
+
+		function orbitals_Visibility() {
+			var temp_orbitDarkness_Value = document.getElementById("orbitals_Visibility");
+			set_orbitVisibility(temp_orbitDarkness_Value.value);
+		}
+
+		function set_orbitVisibility(value) {
+			ringTransparency = value * 0.01;
+			newDatapoints_Orbit.selectAll("material").attr("transparency", ringTransparency);
+		}
+
 	</script>
 
 </head>
@@ -563,8 +573,11 @@
 	Original credit goes to Kirito for v1.0 of the map. Modifications by Yamamushi and Drystion (2019).
 </div>
 <div id="menu">
-	Hide Orbitals
-	<INPUT TYPE="checkbox" id="orbitals_Checkbox" OnClick="orbitals_Check()" />
+	Hide Orbits
+	<input type="checkbox" id="orbitals_Checkbox" OnClick="orbitals_Check()" />
+	<br>
+	Orbit Visibility
+	<input type="range" min="1" max="100" value="60" id="orbitals_Visibility" OnClick="orbitals_Visibility()" />
 	<br>
 </div>
 
