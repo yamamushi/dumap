@@ -214,7 +214,7 @@
 				return '"' + planet_Data[i].name + '"' + ' "" ' + ' "" ' + labeldist;
 			}).append("fontstyle").attr("family", "arial").attr("quality", "5").attr("size", "1.5");
 
-			console.log(scene.getKey("background"))
+			//console.log(scene.getKey("background"))	//this is preventing the rest of the function from running, so no text changes to green
 
 			var newDatalabels = shapelabel;
 			newDatalabels.append("appearance").append("material").attr("diffuseColor", function(d,i) {
