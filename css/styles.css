@@ -43,6 +43,19 @@ body {
     font-size: medium;
 }
 
+#info_Panel {
+    position: absolute;
+    color: white;
+    background-color: gray;
+    font-size: medium;
+}
+
+#Exit_Button {
+    cursor: pointer;
+    float: right;
+    background-color: #111111;
+}
+
 #options {
     font-size: medium;
     color: white;

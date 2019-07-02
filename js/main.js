@@ -92,18 +92,18 @@ var moon_Data = [
     {"id": 12,	"name": "Moon 3",		"type": "Moon",		"radius": 10000, "pos": [17520617, 22184726, -309986], "home": "Madis"},
     {"id": 20,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [-564185, 233791, -167448], "home": "Alioth"},
     {"id": 21,	"name": "Moon 3",		"type": "Moon",		"radius": 10000, "pos": [-895203, 358389, -225602], "home": "Alioth"},
-    {"id": 10,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [29214403, 10907080, 433861], "home": "Thades"},
-    {"id": 10,	"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [29404194, 10432766, 19553], "home": "Thades"},
-    {"id": 10,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [-13058408, 55781856, 740177], "home": "Talemai"},
-    {"id": 10,	"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [-13503090, 55594324, 769836], "home": "Talemai"},
-    {"id": 10,	"name": "Moon 3",		"type": "Moon",		"radius": 10000, "pos": [-12800514, 55700257, 325207], "home": "Talemai"},
-    {"id": 10,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [-43902841, 22261034, -48862386], "home": "Feli"},
-    {"id": 10,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [58969618, 29797943, 57969448], "home": "Sinnen"},
-    {"id": 10,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [99180967, -13783860, -926156], "home": "Lacobus"},
-    {"id": 10,	"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [99250054, -13629215, -1059341], "home": "Lacobus"},
-    {"id": 10,	"name": "Moon 3",		"type": "Moon",		"radius": 10000, "pos": [98905290, -13950923, -647589], "home": "Lacobus"},
-    {"id": 10,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [2472917, -99133746, -1133581], "home": "Ion"},
-    {"id": 10,	"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [2995424, -99275008, -1378482], "home": "Ion"}
+    {"id": 30,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [29214403, 10907080, 433861], "home": "Thades"},
+    {"id": 31,	"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [29404194, 10432766, 19553], "home": "Thades"},
+    {"id": 40,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [-13058408, 55781856, 740177], "home": "Talemai"},
+    {"id": 41,	"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [-13503090, 55594324, 769836], "home": "Talemai"},
+    {"id": 42,	"name": "Moon 3",		"type": "Moon",		"radius": 10000, "pos": [-12800514, 55700257, 325207], "home": "Talemai"},
+    {"id": 50,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [-43902841, 22261034, -48862386], "home": "Feli"},
+    {"id": 70,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [58969618, 29797943, 57969448], "home": "Sinnen"},
+    {"id": 1000,"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [99180967, -13783860, -926156], "home": "Lacobus"},
+    {"id": 1001,"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [99250054, -13629215, -1059341], "home": "Lacobus"},
+    {"id": 1002,"name": "Moon 3",		"type": "Moon",		"radius": 10000, "pos": [98905290, -13950923, -647589], "home": "Lacobus"},
+    {"id": 1200,"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [2472917, -99133746, -1133581], "home": "Ion"},
+    {"id": 1201,"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [2995424, -99275008, -1378482], "home": "Ion"}
 ];
 
 var orbit_Data = [
@@ -206,6 +206,7 @@ function updateDistances(event,i) {
     newDatalabels.append("appearance").append("material").attr("diffuseColor", function(d,i) {
         destination = i;
         if (source === destination) {
+        	set_HTML_For_Info_Panel(i);//update the info panel before returning
             return "green";
         } else {
             return "white";
@@ -554,7 +555,12 @@ function start_Up() {
     document.getElementById("menu").style.display = "none";	//start the menu hidden
     document.getElementById("menu").style.position = "absolute";
     document.getElementById("menu").style.left = "12px";
-    document.getElementById("menu").style.top = "46px";
+    document.getElementById("menu").style.top = "46px";//info_Panel
+
+    document.getElementById("info_Panel").style.display = "none";
+    document.getElementById("info_Panel").style.position = "absolute";
+    document.getElementById("info_Panel").style.left = "12px";
+    document.getElementById("info_Panel").style.top = "50px";
 }
 
 function orbitals_Check() {
@@ -575,6 +581,37 @@ function show_Hide_Orbitals(boo) {
     if (boo === false) {
         newDatapoints_Orbit.selectAll("material").attr("transparency", ringTransparency);
     }
+}
+
+function set_HTML_For_Info_Panel(i) {
+    document.getElementById("info_Panel").style.display = "initial";
+    let temp_List_Of_Moons = [];
+    for (let af = 0; af < moon_Data.length; af++) {
+    	if (moon_Data[af].home === planet_Data[i].name) {
+    		temp_List_Of_Moons.push(moon_Data[af].name);
+    	}
+    }
+    let temp_Num_Of_Moons = temp_List_Of_Moons.length;
+    let temp_HTML_Text = '<table width="300"><tr><th>' + planet_Data[i].name + '<span id="Exit_Button" onclick="hide_Info_Panel()">X</span></th></tr>';
+    temp_HTML_Text = temp_HTML_Text + '<tr><td>Class: ' + planet_Data[i].class + '</td></tr>';
+    temp_HTML_Text = temp_HTML_Text + '<tr><td>Orbit distance: ' + orbit_Data[i].radius + '</td></tr>';
+    if (temp_List_Of_Moons.length == 0) {
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Moons: none</td></tr>';
+    } else {
+    	for (let ag = 0; ag < temp_List_Of_Moons.length; ag++) {
+    		if (ag === 0) {
+    			temp_HTML_Text = temp_HTML_Text + '<tr><td>Moons: ' + temp_List_Of_Moons[ag] + '</td></tr>';
+    		} else {
+                temp_HTML_Text = temp_HTML_Text + '<tr><td>&emsp;&emsp;&emsp; ' + temp_List_Of_Moons[ag] + '</td></tr>';
+            }
+        }
+    }
+    temp_HTML_Text = temp_HTML_Text + '</table>';
+    document.getElementById("info_Panel").innerHTML = temp_HTML_Text;
+}
+
+function hide_Info_Panel() {
+    document.getElementById("info_Panel").style.display = "none";
 }
 
 function orbitals_Visibility() {
