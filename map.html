@@ -6,12 +6,12 @@
 
 <head>
 
-	<META http-equiv="X-UA-Compatible" content="chrome=1" />
-	<META http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
-	<TITLE>
+	<title>
 		3D Dual Universe Map
-	</TITLE>
+	</title>
 
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
@@ -19,44 +19,26 @@
 	<script type="text/javascript">
 
 		// GLOBAL
-		var scene; // Global Scene view
-		var rows_Planet;
-		var rows_Moon;
-		var rows_Orbit;
-		var rows_Star;
-		const axisKeys = ["x", "y", "z"];
-		const axisRange = [0, 10];
-		var scales = [];
-		const initialDuration = 0;
-		const defaultDuration = 800;
-		const ease = 'linear';
-		var time = 0;
-		var mRadius;
-		var sRadius;
-		var pRadius;
-		var datapoints;
-		var newDatapoints;
-		var datatours;
-		var newDataTours;
-		var datapoints_Moon;
-		var newDatapoints_Moon;
-		var datapoints_Orbit;
-		var newDatapoints_Orbit;
-		var datapoints_Star;
-		var newDatapoints_Star;
-		const sphereRadius = 0.5; // Not worth changing since scaling handles this
-		const labelscale = 1.5;
-		const moon_Distance_Scale = 5; //how much the distance between the moon and planet is multiplied by
-		const tourRadius = 1.0; // The fuzzy sphere around planets
 
-		let hide_Orbitals = false;
+		// Global Scene view
+		var scene;
+
+		// Options (Do not edit these by hand!)
+		var hide_Orbitals = false;
 
 		// Scaling
+		var scales = [];
 		const miniscale = 3000000;
 		const moonScaling = 100000;
 		const starScaling = 50000;
 		const planetScaling = 200000;	//was 1 million for all 3 scaling
 		const ringScaling = 3000000;	//keep same as miniscale for the same scaling as the planets
+		const sphereRadius = 0.5; // Not worth changing since scaling handles this
+		const labelscale = 1.5;
+		const moon_Distance_Scale = 5; //how much the distance between the moon and planet is multiplied by
+		const tourRadius = 1.0; // The fuzzy sphere around planets
+		var mRadius;
+		var pRadius;
 
 		// Colors
 		const planetsDiffuse = "0 0 1";
@@ -78,8 +60,36 @@
 
 		// Camera
 		var cameraCenterOfRotation = [0, 8, 0];
-		var cameraOrientation = [-0.1, 0.1, 0.1, -0.5]//[10,10,10,-0.5];
-		var cameraPosition = [-40,-21,100];//[-35,-20,90];
+		var cameraOrientation = [1, 0, 0, -0.51]//[10,10,10,-0.5];
+		var cameraPosition = [0, 50, 75];//[-35,-20,90];
+
+
+		// Datapoints
+		var datapoints;
+		var newDatapoints;
+		var datatours;
+		var newDataTours;
+		var datapoints_Moon;
+		var newDatapoints_Moon;
+		var datapoints_Orbit;
+		var newDatapoints_Orbit;
+		var datapoints_Star;
+		var newDatapoints_Star;
+
+		// Data rows
+		var rows_Planet;
+		var rows_Moon;
+		var rows_Orbit;
+		var rows_Star;
+
+		// Axis
+		const axisKeys = ["x", "y", "z"];
+		const axisRange = [0, 10];
+
+		// Plotting
+		const initialDuration = 0;
+		const ease = 'linear';
+
 
 		var planet_Data = [
 			{"id": 1,	"name": "Madis",		"type": "Planet",	"radius": 45000, "pos": [17465536, 22665536, -34464], "class": "hT"},
@@ -184,8 +194,6 @@
 			}
 		}
 
-		move_Moons_Further_Away();
-
 		function updateDistances(event,i) {
 			var source = i;
 
@@ -212,9 +220,7 @@
 					labeldist = ' "You are HERE" ';
 				}
 				return '"' + planet_Data[i].name + '"' + ' "" ' + ' "" ' + labeldist;
-			}).append("fontstyle").attr("family", "arial").attr("quality", "5").attr("size", "1.5");
-
-			//console.log(scene.getKey("background"))	//this is preventing the rest of the function from running, so no text changes to green
+			}).append("fontstyle").attr("family", "arial").attr("quality", "3").attr("size", "1.5");
 
 			var newDatalabels = shapelabel;
 			newDatalabels.append("appearance").append("material").attr("diffuseColor", function(d,i) {
@@ -227,6 +233,9 @@
 			});
 		}
 
+		/**
+		 * @return {string}
+		 */
 		function CalculateDistance(loc1, loc2) {
 			var dx = loc1.pos[0] - loc2.pos[0];
 			var dy = loc1.pos[1] - loc2.pos[1];
@@ -287,17 +296,8 @@
 			var tickFontSize = 0.5;
 		}
 
-		// Update the data points (spheres) and stems.
-		function plotData(duration) {
-
-			if (!rows_Planet) {
-				console.log("no planets to plot.");
-				return;
-			}
-
-			var x = scales[0], y = scales[1], z = scales[2];
-
-			//planets
+		// Function for generating planet datapoints based on scaling
+		function planetDatapoints() {
 			datapoints = scene.selectAll("datapoint").data(rows_Planet);
 			datapoints.exit().remove();
 			newDatapoints = datapoints.enter().append("transform").attr("class", "datapoint").attr("scale", function(d,i) {
@@ -306,9 +306,11 @@
 			}).append("shape")
 			newDatapoints.append("appearance").append("material")
 			newDatapoints.append("sphere")
+			return newDatapoints
+		}
 
-
-			//transparent sphere around planets
+		// Generate our fuzzy sphere datapoints (clickable spheres)
+		function fuzzySphereDatapoints() {
 			datatours = scene.selectAll("datatour").data(rows_Planet);
 			datatours.exit().remove();
 			newDataTours = datatours.enter().append("transform").attr("class", "datatour").attr("scale", function(d,i) {
@@ -320,10 +322,11 @@
 			}).append("shape").attr("onclick", function(d,i) { return "updateDistances(event,"+i+");"});
 			newDataTours.append("appearance").append("material");
 			newDataTours.append("sphere");
+			return newDataTours
+		}
 
-			//console.log(scene.view.orientation)
-
-			//moons
+		// Generate the moon datapoints
+		function moonDatapoints() {
 			datapoints_Moon = scene.selectAll("datapoint_Moon").data(rows_Moon);
 			datapoints_Moon.exit().remove();
 			newDatapoints_Moon = datapoints_Moon.enter().append("transform").attr("class", "datapoint_Moon").attr("scale", function(d,i) {
@@ -332,8 +335,11 @@
 			}).append("shape")
 			newDatapoints_Moon.append("appearance").append("material")
 			newDatapoints_Moon.append("sphere")
+			return newDatapoints_Moon
+		}
 
-			//orbit
+		// Generate the orbit datapoints
+		function orbitDatapoints() {
 			datapoints_Orbit = scene.selectAll("datapoint_Orbit").data(rows_Orbit);
 			datapoints_Orbit.exit().remove();
 			newDatapoints_Orbit = datapoints_Orbit.enter().append("transform").attr("scale", function(d,i) {
@@ -351,76 +357,87 @@
 			})*/
 			newDatapoints_Orbit.append("appearance").append("material")
 			newDatapoints_Orbit.append("circle2d")
+			return newDatapoints_Orbit
+		}
 
-			//the star
+		// Generate our star datapoint
+		function starDatapoint() {
 			datapoints_Star = scene.selectAll("datapoint_Star").data(rows_Star);
 			datapoints_Star.exit().remove();
 			newDatapoints_Star = datapoints_Star.enter().append("transform").attr("class", "datapoint_Star").attr("scale", [star_Data[0].radius/starScaling, star_Data[0].radius/starScaling, star_Data[0].radius/starScaling]).append("shape")
 			newDatapoints_Star.append("appearance").append("material")
 			newDatapoints_Star.append("sphere")
+			return newDatapoints_Star
+		}
 
-			//labels and other stuff like that
+		// Apply globally configured colors to objects
+		function setDatapointColors(planet, fuzzy, moons, orbits, star) {
+			planet.selectAll("material")
+					.attr("diffuseColor", planetsDiffuse)
+					.attr("emissiveColor", planetsEmissive)
+
+			fuzzy.selectAll("material")
+					.attr("diffuseColor", fuzzySpheresDiffuse)
+					.attr("emissiveColor", fuzzySpheresEmissive)
+					.attr("transparency", fuzzySpheresTransparency)
+
+			moons.selectAll("material")
+					.attr("diffuseColor", moonDiffuse)
+					.attr("emissiveColor", moonEmissive)
+
+			orbits.selectAll("material")
+					.attr("diffuseColor", ringDiffuse)
+					.attr("emissiveColor", ringEmmissive)
+					.attr("transparency", ringTransparency)
+
+			star.selectAll("material")
+					.attr("diffuseColor", starDiffuse)
+					.attr("emissiveColor", starEmissive)
+
+		}
+
+		// Generate initial labels for planets
+		function generateLabels(){
 			var datalabels = scene.selectAll("datalabel").data(rows_Planet);
 
 			datalabels.exit().remove();
 
 			var shapelabel = datalabels.enter().append("transform")
-				.attr("class", "datalabel")
-				.attr("scale", [sphereRadius*labelscale, sphereRadius*labelscale, sphereRadius*labelscale])
-				.append("billboard")
-				.attr("render", 'true')
-				.attr("axisOfRotation", '0,0,0')
-				.append("shape")
-				.attr("class", 'dynshape')
+					.attr("class", "datalabel")
+					.attr("scale", [sphereRadius*labelscale, sphereRadius*labelscale, sphereRadius*labelscale])
+					.append("billboard")
+					.attr("render", 'true')
+					.attr("axisOfRotation", '0,0,0')
+					.append("shape")
+					.attr("class", 'dynshape')
 
 			shapelabel.append("Text")
-				.attr("string", function(d,i) {
-					if (planet_Data[i].type === "Moon") {
-						return;
-					} else if (planet_Data[i].type === "Planet") {
-						return '"' + planet_Data[i].name + '"' + '""' + '""' + '""';
-					}
-				})
-				.attr("class", 'dynlabel')
-				.append("fontstyle")
-				.attr("family", "arial")
-				.attr("quality", "5")
-				.attr("size", "1.5");
+					.attr("string", function(d,i) {
+						if (planet_Data[i].type === "Moon") {
+							return;
+						} else if (planet_Data[i].type === "Planet") {
+							return '"' + planet_Data[i].name + '"' + '""' + '""' + '""';
+						}
+					})
+					.attr("class", 'dynlabel')
+					.append("fontstyle")
+					.attr("family", "arial")
+					.attr("quality", "3")
+					.attr("size", "1.5");
 
-			//color / transparency
-			newDatapoints.selectAll("material")
-					.attr("diffuseColor", planetsDiffuse)
-					.attr("emissiveColor", planetsEmissive)
+			return datalabels;
+		}
 
-			newDataTours.selectAll("material")
-					.attr("diffuseColor", fuzzySpheresDiffuse)
-					.attr("emissiveColor", fuzzySpheresEmissive)
-					.attr("transparency", fuzzySpheresTransparency)
-
-			newDatapoints_Moon.selectAll("material")
-					.attr("diffuseColor", moonDiffuse)
-					.attr("emissiveColor", moonEmissive)
-
-			newDatapoints_Orbit.selectAll("material")
-					.attr("diffuseColor", ringDiffuse)
-					.attr("emissiveColor", ringEmmissive)
-					.attr("transparency", ringTransparency)
-
-			newDatapoints_Star.selectAll("material")
-				.attr("diffuseColor", starDiffuse)
-				.attr("emissiveColor", starEmissive)
-
-			tranpoints = datapoints.transition();
-			tranlabels = datalabels.transition();
-			trantours =	datatours.transition();
-			tranpoints_Moon = datapoints_Moon.transition();
-			tranpoints_Orbit = datapoints_Orbit.transition();
-			tranpoints_Star = datapoints_Star.transition();
+		// Plot Translations
+		function plotTranslation(duration, planets, fuzzy, moons, orbits, star, labels) {
+			tranpoints = planets.transition();
+			trantours =	fuzzy.transition();
+			tranpoints_Moon = moons.transition();
+			tranpoints_Orbit = orbits.transition();
+			tranpoints_Star = star.transition();
+			tranlabels = labels.transition();
 
 			tranpoints.ease(ease).duration(duration).attr("translation", function(row) {
-				return row[0] + ", " + row[1] + ", " + row[2]});
-
-			tranlabels.ease(ease).duration(duration).attr("translation", function(row) {
 				return row[0] + ", " + row[1] + ", " + row[2]});
 
 			trantours.ease(ease).duration(duration).attr("translation", function(row) {
@@ -433,7 +450,42 @@
 				return row[0] + ", " + row[1] + ", " + row[2]});
 
 			tranpoints_Star.ease(ease).duration(duration).attr("translation", function(row) {
-				return 0 + ", " + 8 + ", " + 0});	//not sure why this wasnt working with row[0] &ect, was just undefined.
+				return 0 + ", " + 8 + ", " + 0});	//not sure why this wasn't working with row[0] &ect, was just undefined.
+			tranlabels.ease(ease).duration(duration).attr("translation", function(row) {
+				return row[0] + ", " + row[1] + ", " + row[2]});
+		}
+
+		// Update the data points (spheres) and stems.
+		function plotData(duration) {
+
+			if (!rows_Planet) {
+				console.log("no planets to plot.");
+				return;
+			}
+
+			//planets
+			newDatapoints = planetDatapoints();
+
+			//transparent spheres around planets
+			newDataTours = fuzzySphereDatapoints();
+
+			//moons
+			newDatapoints_Moon = moonDatapoints();
+
+			//orbit
+			newDatapoints_Orbit = orbitDatapoints();
+
+			//the star
+			newDatapoints_Star = starDatapoint();
+
+			//labels and other stuff like that
+			datalabels = generateLabels();
+
+			//color / transparency
+			setDatapointColors(newDatapoints, newDataTours, newDatapoints_Moon, newDatapoints_Orbit, newDatapoints_Star);
+
+			// Translation
+			plotTranslation(duration, datapoints, datatours, datapoints_Moon, datapoints_Orbit, datapoints_Star, datalabels);
 		}
 
 		function initializeDataGrid_Planet() {
@@ -497,6 +549,8 @@
 			view.attr("orientation", cameraOrientation);
 			view.attr("position", cameraPosition); // <-> || ^ down || forward back
 
+			move_Moons_Further_Away();
+
 			rows_Planet = initializeDataGrid_Planet(); //planet data
 			rows_Moon = initializeDataGrid_Moon(); //moon data
 			rows_Orbit = initializeDataGrid_Orbit(); //orbit data
@@ -554,7 +608,6 @@
 		}
 
 	</script>
-
 </head>
 
 <body>
