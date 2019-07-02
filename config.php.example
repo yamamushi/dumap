@@ -1,0 +1,6 @@
+<?php
+define('OAUTH2_CLIENT_ID', 'putyourclientidhere');
+define('OAUTH2_CLIENT_SECRET', 'putyourclientsecrethere');
+define('BOT_TOKEN', 'bottoken');
+define('ALPHA_AUTHORIZED_ROLE_ID', 'alpharoleid');
+?>

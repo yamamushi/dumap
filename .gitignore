@@ -2,3 +2,4 @@
 *.zip
 *.backup
 *.DS_Store
+config.php
