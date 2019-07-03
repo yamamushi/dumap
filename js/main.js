@@ -150,9 +150,7 @@ function updateDistances(event,i) {
     }).append("fontstyle").attr("family", "arial").attr("quality", "3").attr("size", "1.5");
 
     shapelabel.append("appearance").append("material").attr("diffuseColor", function(d, i) {
-        let destination;
-        destination = i;
-        if (source === destination) {
+        if (source === i) {
         	set_HTML_For_Info_Panel(i);//update the info panel before returning
             return "green";
         } else {

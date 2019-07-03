@@ -1,6 +1,6 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 ini_set('max_execution_time', 300); //300 seconds = 5 minutes. In case if your CURL is slow and is loading too much (Can be IPv6 problem)
 
 error_reporting(E_ALL);
@@ -21,13 +21,13 @@ if(get('action') == 'login') {
 
   $params = array(
     'client_id' => OAUTH2_CLIENT_ID,
-    'redirect_uri' => 'http://dual.sh/index.php',
+    'redirect_uri' => 'http://dual.sh',
     'response_type' => 'code',
     'scope' => 'identify guilds'
   );
 
   // Redirect the user to Discord's authorization page
-  header('Location: https://discordapp.com/api/oauth2/authorize' . '?' . http_build_query($params) . "&scope=identify%20guilds");
+  header('Location: https://discordapp.com/api/oauth2/authorize' . '?' . http_build_query($params));
   die();
 }
 
@@ -40,7 +40,7 @@ if(get('code')) {
     "grant_type" => "authorization_code",
     'client_id' => OAUTH2_CLIENT_ID,
     'client_secret' => OAUTH2_CLIENT_SECRET,
-    'redirect_uri' => 'http://dual.sh/index.php',
+    'redirect_uri' => 'http://dual.sh',
     'code' => get('code')
   ));
   $logout_token = $token->access_token;
@@ -62,6 +62,7 @@ if(session('access_token')) {
     if($field == ALPHA_AUTHORIZED_ROLE_ID) {
           $found = TRUE;
 echo <<<EOL
+
 
 <!--Original credit goes to Kirito for v1.0 of the map. It has since been updated to 2.0 by Yamamushi and Drystion-->
 <!DOCtype html>
@@ -93,7 +94,7 @@ echo <<<EOL
 </span></td></tr></table>
 <div id="plot"></div>
 <div id="legend">
-	Display : click - Center : double-click - Rotate : drag - Zoom : Scroll or right-drag
+	Display : click - Center : double-click - Rotate : drag - Zoom : Scroll or right-drag - <a href="?action=logout">Log Out</a>
 </div>
 <div id="credits">
 	Original credit goes to Kirito for v1.0 of the map. Modifications by Yamamushi and Drystion (2019).
@@ -106,12 +107,15 @@ echo <<<EOL
 	<input type="range" min="1" max="100" value="60" id="orbitals_Visibility" OnClick="orbitals_Visibility()" />
 	<br>
 </div>
+<div id="info_Panel">
+</div>
 
 <script>
 	window.onload = start_Up();
 </script>
 </body>
 </html>
+
 
 EOL;
     }
@@ -120,6 +124,8 @@ EOL;
 
   if ($found == FALSE) {
     echo '<h3>Unauthorized</h3>';
+    echo '<p><a href="?action=logout">Log Out</a></p>';
+
   }
 } else {
   echo '<h3>Not logged in</h3>';
@@ -129,7 +135,7 @@ EOL;
 
 if(get('action') == 'logout') {
   // This must to logout you, but it didn't worked(
-
+/*
   $params = array(
     'access_token' => $logout_token
   );
@@ -137,6 +143,9 @@ if(get('action') == 'logout') {
   // Redirect the user to Discord's revoke page
   header('Location: https://discordapp.com/api/oauth2/token/revoke' . '?' . http_build_query($params));
   die();
+*/
+    session_destroy();
+    header("Refresh:0; url=http://dual.sh/");
 }
 
 function apiRequest($url, $post=FALSE, $headers=array()) {
