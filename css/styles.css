@@ -35,16 +35,21 @@ body {
 }
 
 #menu {
-    margin-left: 89%;
     position: absolute;
+    right: 10px;
+    top: 48px;
     color: white;
     background-color: gray;
     margin-top: 4px;
     font-size: medium;
+    display: none;
 }
 
 #info_Panel {
     position: absolute;
+    left: 12px;
+    top: 50px;
+    display: none;
     color: white;
     background-color: gray;
     font-size: medium;
