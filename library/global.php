@@ -59,7 +59,7 @@ if(get('action') == 'login') {
         'client_id' => OAUTH2_CLIENT_ID,
         'redirect_uri' => 'http://dual.sh',
         'response_type' => 'code',
-        'scope' => 'identify guilds'
+        'scope' => 'identify'
     );
 
     // Redirect the user to Discord's authorization page

@@ -3,7 +3,7 @@ include 'config.php';
 include 'library/vars.php';
 include 'library/global.php';
 
-session_start();
+//session_start();  // This is handled in global.php now
 
 if(session('access_token')) {
     $user = apiRequest($apiURLBase);
@@ -36,7 +36,7 @@ if(session('access_token')) {
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
 	<script type="text/javascript" src="http://x3dom.org/x3dom/dist/x3dom-full.js"></script>
-	<script type="text/javascript" src="./js/main.js"></script>
+	<script type="text/javascript" src="js/map.js"></script>
 </head>
 
 <body>
@@ -49,7 +49,7 @@ if(session('access_token')) {
 </span></td></tr></table>
 <div id="plot"></div>
 <div id="legend">
-	Display : click - Center : double-click - Rotate : drag - Zoom : Scroll or right-drag - <a href="?action=logout">Log Out</a>
+	Display : click - Center : double-click - Rotate : drag - Zoom : Scroll or right-drag - <a href="?action=logout">Log Out</a> - <button onclick="history.go(-1);">Back </button>
 </div>
 <div id="credits">
 	Original credit goes to Kirito for v1.0 of the map. Modifications by Yamamushi and Drystion (2019).

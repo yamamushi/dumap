@@ -37,6 +37,8 @@ if(session('access_token')) {
             echo '<h3>Welcome</h3>';
             echo '<br>';
             echo '<a href="map.php">Map Page</a>';
+            echo '<br>';
+            echo '<a href="./wiki/index.php">Wiki</a>';
             echo '<p><a href="?action=logout">Log Out</a></p>';
         }
     }
