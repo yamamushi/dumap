@@ -508,15 +508,6 @@ function start_Up() {
     });
 
     scatterPlot3d(d3.select('#plot'));
-    document.getElementById("menu").style.display = "none";	//start the menu hidden
-    document.getElementById("menu").style.position = "absolute";
-    document.getElementById("menu").style.left = "12px";
-    document.getElementById("menu").style.top = "46px";//info_Panel
-
-    document.getElementById("info_Panel").style.display = "none";
-    document.getElementById("info_Panel").style.position = "absolute";
-    document.getElementById("info_Panel").style.left = "12px";
-    document.getElementById("info_Panel").style.top = "50px";
 }
 
 function orbitals_Check() {
