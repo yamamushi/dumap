@@ -67,6 +67,10 @@ body {
     position: absolute;
 }
 
+#orbitals_Visibility {
+    direction: rtl;
+}
+
 #plot {
     /*    background-image: url('bg.png');*/
     /*background-position: center;*/

@@ -1,0 +1,14 @@
+[
+  {"id": -1,	"name": "Madis Orbit",	"type": "Orbit",	"radius": 17516475, "pos": [0,24000000,0], "rotate": 0},
+  {"id": -2,	"name": "Alioth Orbit",	"type": "Orbit",	"radius": 24000080, "pos": [0,24000000,0], "rotate": 0},
+  {"id": -3,	"name": "Thades Orbit",	"type": "Orbit",	"radius": 31986667, "pos": [0,24000000,0], "rotate": 0},
+  {"id": -4,	"name": "Talemai Orbit","type": "Orbit",	"radius": 34415360, "pos": [0,24000000,0], "rotate": 0},
+  {"id": -5,	"name": "Feli Orbit",	"type": "Orbit",	"radius": 65512510, "pos": [0,24000000,0], "rotate": 5.26},
+  {"id": -6,	"name": "Sicari Orbit",	"type": "Orbit",	"radius": 74195973, "pos": [0,24000000,0], "rotate": 5.31},
+  {"id": -7,	"name": "Sinnen Orbit",	"type": "Orbit",	"radius": 82806841, "pos": [0,24000000,0], "rotate": 5.28},
+  {"id": -8,	"name": "Teoma Orbit",	"type": "Orbit",	"radius": 86489786, "pos": [0,24000000,0], "rotate": 0},
+  {"id": -9,	"name": "Jago Orbit",	"type": "Orbit",	"radius": 94872123, "pos": [0,24000000,0], "rotate": 0},
+  {"id": -100,"name": "Lacobus Orbit","type": "Orbit",	"radius": 105754921, "pos": [0,24000000,0], "rotate": 0},
+  {"id": -110,"name": "Symeon Orbit",	"type": "Orbit",	"radius": 110549768, "pos": [0,24000000,0], "rotate": 0},
+  {"id": -120,"name": "Ion Orbit",	"type": "Orbit",	"radius": 123071377, "pos": [0,24000000,0], "rotate": 0}
+]
