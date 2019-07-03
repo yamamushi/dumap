@@ -33,7 +33,7 @@ const fuzzySpheresTransparency = 0.9; // The transparency of those spheres
 
 const ringDiffuse = "0 0 0";
 var ringEmmissive = "0.05 0.05 0.05";
-var ringTransparency = 0.6;
+var ringTransparency = 0.4;
 
 const starDiffuse = "0 0 0"
 const starEmissive = "1 1 0"
@@ -42,6 +42,12 @@ const starEmissive = "1 1 0"
 var cameraCenterOfRotation = [0, 8, 0];
 var cameraOrientation = [1, 0, 0, -0.51]//[10,10,10,-0.5];
 var cameraPosition = [0, 50, 75];//[-35,-20,90];
+
+// Data
+var planet_Data;
+var moon_Data;
+var orbit_Data;
+var star_Data;
 
 
 // Datapoints
@@ -70,60 +76,22 @@ const axisRange = [0, 10];
 const initialDuration = 0;
 const ease = 'linear';
 
+function loadJSON(path, callback) {
 
-var planet_Data = [
-    {"id": 1,	"name": "Madis",		"type": "Planet",	"radius": 45000, "pos": [17465536, 22665536, -34464], "class": "hT"},
-    {"id": 2,	"name": "Alioth",		"type": "Planet",	"radius": 60000, "pos": [-4, -4, -60534], "class": "M"},
-    {"id": 3,	"name": "Thades",		"type": "Planet",	"radius": 56000, "pos": [29165536, 10865536, 65536], "class": "T"},
-    {"id": 4,	"name": "Talemai",		"type": "Planet",	"radius": 58000, "pos": [-13234464, 55765536, 465536], "class": "M"},
-    {"id": 5,	"name": "Feli",			"type": "Planet",	"radius": 60000, "pos": [-43534464, 22565536, -48934464], "class": "M"},
-    {"id": 6,	"name": "Sicari",		"type": "Planet",	"radius": 51000, "pos": [52765536, 27165536, 52065536], "class": "M"},
-    {"id": 7,	"name": "Sinnen",		"type": "Planet",	"radius": 55000, "pos": [58665536, 29665536, 58165536], "class": "hT"},
-    {"id": 8,	"name": "Teoma",		"type": "Planet",	"radius": 62000, "pos": [80865536, 54665536, -934464], "class": "M"},
-    {"id": 9,	"name": "Jago",			"type": "Planet",	"radius": 63000, "pos": [-94134464, 12765536, -3634464], "class": "M"},
-    {"id": 100,	"name": "Lacobus",		"type": "Planet",	"radius": 57000, "pos": [98865536, -13534464, -934464], "class": "hP"},
-    {"id": 110,	"name": "Symeon",		"type": "Planet",	"radius": 49000, "pos": [14165536, -85634464, -934464], "class": "hP"},
-    {"id": 120,	"name": "Ion",			"type": "Planet",	"radius": 45000, "pos": [2865536, -99034464, -934464], "class": "hP"}
-];
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', path, false); // Replace 'my_data' with the path to your file
+    xobj.onreadystatechange = function () {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            callback(xobj.responseText);
+        }
+    };
+    xobj.send(null);
+}
 
-var moon_Data = [
-    {"id": 10,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [17448118, 22966848, 143079], "home": "Madis"},
-    {"id": 11,	"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [17194626, 22243633, -214962], "home": "Madis"},
-    {"id": 12,	"name": "Moon 3",		"type": "Moon",		"radius": 10000, "pos": [17520617, 22184726, -309986], "home": "Madis"},
-    {"id": 20,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [-564185, 233791, -167448], "home": "Alioth"},
-    {"id": 21,	"name": "Moon 3",		"type": "Moon",		"radius": 10000, "pos": [-895203, 358389, -225602], "home": "Alioth"},
-    {"id": 30,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [29214403, 10907080, 433861], "home": "Thades"},
-    {"id": 31,	"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [29404194, 10432766, 19553], "home": "Thades"},
-    {"id": 40,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [-13058408, 55781856, 740177], "home": "Talemai"},
-    {"id": 41,	"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [-13503090, 55594324, 769836], "home": "Talemai"},
-    {"id": 42,	"name": "Moon 3",		"type": "Moon",		"radius": 10000, "pos": [-12800514, 55700257, 325207], "home": "Talemai"},
-    {"id": 50,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [-43902841, 22261034, -48862386], "home": "Feli"},
-    {"id": 70,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [58969618, 29797943, 57969448], "home": "Sinnen"},
-    {"id": 1000,"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [99180967, -13783860, -926156], "home": "Lacobus"},
-    {"id": 1001,"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [99250054, -13629215, -1059341], "home": "Lacobus"},
-    {"id": 1002,"name": "Moon 3",		"type": "Moon",		"radius": 10000, "pos": [98905290, -13950923, -647589], "home": "Lacobus"},
-    {"id": 1200,"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [2472917, -99133746, -1133581], "home": "Ion"},
-    {"id": 1201,"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [2995424, -99275008, -1378482], "home": "Ion"}
-];
 
-var orbit_Data = [
-    {"id": -1,	"name": "Madis Orbit",	"type": "Orbit",	"radius": 17516475, "pos": [0,24000000,0], "rotate": 0},
-    {"id": -2,	"name": "Alioth Orbit",	"type": "Orbit",	"radius": 24000080, "pos": [0,24000000,0], "rotate": 0},
-    {"id": -3,	"name": "Thades Orbit",	"type": "Orbit",	"radius": 31986667, "pos": [0,24000000,0], "rotate": 0},
-    {"id": -4,	"name": "Talemai Orbit","type": "Orbit",	"radius": 34415360, "pos": [0,24000000,0], "rotate": 0},
-    {"id": -5,	"name": "Feli Orbit",	"type": "Orbit",	"radius": 65512510, "pos": [0,24000000,0], "rotate": 5.26},
-    {"id": -6,	"name": "Sicari Orbit",	"type": "Orbit",	"radius": 74195973, "pos": [0,24000000,0], "rotate": 5.31},
-    {"id": -7,	"name": "Sinnen Orbit",	"type": "Orbit",	"radius": 82806841, "pos": [0,24000000,0], "rotate": 5.28},
-    {"id": -8,	"name": "Teoma Orbit",	"type": "Orbit",	"radius": 86489786, "pos": [0,24000000,0], "rotate": 0},
-    {"id": -9,	"name": "Jago Orbit",	"type": "Orbit",	"radius": 94872123, "pos": [0,24000000,0], "rotate": 0},
-    {"id": -100,"name": "Lacobus Orbit","type": "Orbit",	"radius": 105754921, "pos": [0,24000000,0], "rotate": 0},
-    {"id": -110,"name": "Symeon Orbit",	"type": "Orbit",	"radius": 110549768, "pos": [0,24000000,0], "rotate": 0},
-    {"id": -120,"name": "Ion Orbit",	"type": "Orbit",	"radius": 123071377, "pos": [0,24000000,0], "rotate": 0}
-];
 
-var star_Data = [
-    {"id": 0,	"name": "Helios",		"type": "Star",		"radius": 60000, "pos": [0, 24000000, 0]}
-];
 
 function move_Moons(cX, cY, cZ, home_Name) {
     //function not being used
@@ -551,6 +519,23 @@ function open_Options() {
 }
 
 function start_Up() {
+
+    loadJSON("data/planets.json",function(response) {
+        planet_Data = JSON.parse(response)
+    });
+
+    loadJSON("data/moons.json",function(response) {
+        moon_Data = JSON.parse(response)
+    });
+
+    loadJSON("data/orbits.json",function(response) {
+        orbit_Data = JSON.parse(response)
+    });
+
+    loadJSON("data/stars.json",function(response) {
+        star_Data = JSON.parse(response)
+    });
+
     scatterPlot3d(d3.select('#plot'));
     document.getElementById("menu").style.display = "none";	//start the menu hidden
     document.getElementById("menu").style.position = "absolute";

@@ -1,0 +1,19 @@
+[
+  {"id": 10,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [17448118, 22966848, 143079], "home": "Madis"},
+  {"id": 11,	"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [17194626, 22243633, -214962], "home": "Madis"},
+  {"id": 12,	"name": "Moon 3",		"type": "Moon",		"radius": 10000, "pos": [17520617, 22184726, -309986], "home": "Madis"},
+  {"id": 20,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [-564185, 233791, -167448], "home": "Alioth"},
+  {"id": 21,	"name": "Moon 3",		"type": "Moon",		"radius": 10000, "pos": [-895203, 358389, -225602], "home": "Alioth"},
+  {"id": 30,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [29214403, 10907080, 433861], "home": "Thades"},
+  {"id": 31,	"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [29404194, 10432766, 19553], "home": "Thades"},
+  {"id": 40,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [-13058408, 55781856, 740177], "home": "Talemai"},
+  {"id": 41,	"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [-13503090, 55594324, 769836], "home": "Talemai"},
+  {"id": 42,	"name": "Moon 3",		"type": "Moon",		"radius": 10000, "pos": [-12800514, 55700257, 325207], "home": "Talemai"},
+  {"id": 50,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [-43902841, 22261034, -48862386], "home": "Feli"},
+  {"id": 70,	"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [58969618, 29797943, 57969448], "home": "Sinnen"},
+  {"id": 1000,"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [99180967, -13783860, -926156], "home": "Lacobus"},
+  {"id": 1001,"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [99250054, -13629215, -1059341], "home": "Lacobus"},
+  {"id": 1002,"name": "Moon 3",		"type": "Moon",		"radius": 10000, "pos": [98905290, -13950923, -647589], "home": "Lacobus"},
+  {"id": 1200,"name": "Moon 1",		"type": "Moon",		"radius": 10000, "pos": [2472917, -99133746, -1133581], "home": "Ion"},
+  {"id": 1201,"name": "Moon 2",		"type": "Moon",		"radius": 10000, "pos": [2995424, -99275008, -1378482], "home": "Ion"}
+]
