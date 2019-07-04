@@ -41,8 +41,8 @@ const starEmissive = "1 1 0";
 
 // Camera
 let cameraCenterOfRotation = [0, 8, 0];
-let cameraOrientation = [1, 0, 0, -0.51]; //[10,10,10,-0.5];
-let cameraPosition = [0, 50, 75]; //[-35,-20,90];
+let cameraOrientation = [0.75363, -0.48068, -0.44833, 1.15527]; //[10,10,10,-0.5];
+let cameraPosition = [-67.29499, -52.52143, 52.12010]; //[-35,-20,90];
 
 // Data
 let planet_Data;
