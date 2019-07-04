@@ -3,20 +3,14 @@ Map
 - Need to fix the camera orientation
 - Need more toggle options/sliders whatever
 - Need to draw lines between two points
-- Need info boxes for planets (info panel?)
+(Demo working) - Need info boxes for planets (info panel?)
 - Need live data functionality
 
 
 Auth
 
 - Auth needs a real landing page and failure page
-- Logout button?
-
-
-
-Pack
-
-- Need to modify pack.sh to take options like "prod" "public" etc, so that index.php isn't bundled
+(Demo working) - Logout button?
 
 
 Service
