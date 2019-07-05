@@ -50,7 +50,7 @@ if(session('access_token')) {
                 echo '<br>';
                 echo '<a href="./wiki/index.php">Wiki</a>';
                 echo '<p><a href="?action=logout">Log Out</a></p>';
-                echo 'ID: '.$user->id.'<br>';
+                //echo 'ID: '.$user->id.'<br>';
             }
         }
     }

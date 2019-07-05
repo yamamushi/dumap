@@ -269,8 +269,10 @@ function getSidebar($page = BASE_PAGE){
 
     return <<<PAGE_SIDEBAR
 <p id="title"><a href="./">$title</a></p>
-
+$toc
+<br>
 <ul class="sidebar-list">
+<h3>Page Tools</h3>
   <li class="edit-link"><a href="./?edit=$id">Edit Page</a></li>
   $bl
   $historylink
@@ -278,7 +280,7 @@ function getSidebar($page = BASE_PAGE){
   <li class="create-new-link"><a href="./?edit=">Create New Page</a></li>
   <li class="recent-changes-link"><a href="./?recent=10">Recent Changes</a></li>
 </ul>
-$toc
+
 PAGE_SIDEBAR;
 }
 
