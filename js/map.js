@@ -195,10 +195,8 @@ function set_Size_Of_Fuzz() {
         //calculate pos points for the two planets
         let p1 = planet_Data[current_Planet].pos[0]/miniscale + " " + planet_Data[current_Planet].pos[1]/miniscale + " " + planet_Data[current_Planet].pos[2]/miniscale;
         let p2 = planet_Data[previous_Planet].pos[0]/miniscale + " " + planet_Data[previous_Planet].pos[1]/miniscale + " " + planet_Data[previous_Planet].pos[2]/miniscale;
-        //alert("it is: " + p1 + " 2: " + p2 )
         document.getElementById("line_Between_Two").setAttribute('point', p1 + ", " + p2);
     }
-    //attr("point", "0 8 0, 0 8 0")
 }
 
 /**
@@ -339,7 +337,6 @@ function polylineDatapoints() {
     newDatapoints_Polyline = datapoints_Polyline.enter().append("transform").attr("class", "datapoint_Polyline").attr("id", "datapoint_Polyline_Coord").append("shape")
     newDatapoints_Polyline.append("appearance").append("material")
     newDatapoints_Polyline.append("IndexedLineSet").attr("coordIndex", "0 1 -1").append("Coordinate").attr("id", function(d,i) { return "line_Between_Two";}).attr("point", "0 8 0, 0 8 0")
-    //newDatapoints_Polyline.append("appearance").append("material").append("IndexedLineSet").attr("coordIndex", "0, 1, 2, 3, -1").append("Coordinate").attr("point", "0 4 0, 3 9 3, 3 9 0, 1 5 12")
     return newDatapoints_Polyline;
 }
 
