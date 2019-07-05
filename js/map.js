@@ -151,7 +151,7 @@ function updateDistances(event,i) {
 
     shapelabel.append("appearance").append("material").attr("diffuseColor", function(d, i) {
         if (source === i) {
-        	set_HTML_For_Info_Panel(i);//update the info panel before returning
+        	set_HTML_For_Info_Panel(i, "Planet");//update the info panel before returning
             return "green";
         } else {
             return "white";
@@ -530,33 +530,140 @@ function show_Hide_Orbitals(boo) {
     }
 }
 
-function set_HTML_For_Info_Panel(i) {
-    document.getElementById("info_Panel").style.display = "initial";
-    let temp_List_Of_Moons = [];
-    for (let af = 0; af < moon_Data.length; af++) {
-    	// noinspection JSUnresolvedVariable
-        if (moon_Data[af].home === planet_Data[i].name) {
-    		temp_List_Of_Moons.push(moon_Data[af].name);
-    	}
+function set_HTML_For_Info_Panel(i, body, home) {
+    //if coming from a planet, i = index of array and body = "Planet", home is not sent
+    //if coming from a moon then body is "Moon", i is the moon name, and home is the moons home planet
+    if (body === "Moon") {
+        //get got a moon so need to find its index
+        for (an = 0; an < moon_Data.length; an++) {
+            if (moon_Data[an].home === home && moon_Data[an].name === i) {
+                i = an; //set new index
+                break;
+            }
+        }
     }
-    //let temp_Num_Of_Moons = temp_List_Of_Moons.length;
-    let temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + planet_Data[i].name + '<span id="Exit_Button" onclick="hide_Info_Panel()">X</span></th></tr>';
+    let temp_List_Of_Moons = [];
+    if (body === "Planet") {
+        for (let af = 0; af < moon_Data.length; af++) {
+            // noinspection JSUnresolvedVariable
+            if (moon_Data[af].home === planet_Data[i].name) {
+                temp_List_Of_Moons.push(moon_Data[af].name);
+            }
+        }
+    }
+    let temp_HTML_Text = "";
     // noinspection JSUnresolvedVariable
-    temp_HTML_Text = temp_HTML_Text + '<tr><td>Class: ' + planet_Data[i].class + '</td></tr>';
-    temp_HTML_Text = temp_HTML_Text + '<tr><td>Orbit distance: ' + orbit_Data[i].radius + '</td></tr>';
-    if (temp_List_Of_Moons.length === 0) {
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Moons: none</td></tr>';
+    if (body === "Planet") {
+        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + planet_Data[i].name + '<span id="Exit_Button" onclick="hide_Info_Panel()">X</span></th></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Class: ' + planet_Data[i].class + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Orbit distance: ' + orbit_Data[i].radius + '</td></tr>';
+    } else
+    if (body === "Moon") {
+        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + moon_Data[i].name + ' of ' + home + '<span id="Exit_Button" onclick="hide_Info_Panel()">X</span></th></tr>';
+    }
+    temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
+    if (body === "Moon") {
+        temp_HTML_Text = temp_HTML_Text + Create_Ore_HTML_For_Info_Panal(i, "Moon");//adds ore html
     } else {
-    	for (let ag = 0; ag < temp_List_Of_Moons.length; ag++) {
-    		if (ag === 0) {
-    			temp_HTML_Text = temp_HTML_Text + '<tr><td>Moons: ' + temp_List_Of_Moons[ag] + '</td></tr>';
-    		} else {
-                temp_HTML_Text = temp_HTML_Text + '<tr><td>&emsp;&emsp;&emsp; ' + temp_List_Of_Moons[ag] + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + Create_Ore_HTML_For_Info_Panal(i, "Planet");//adds ore html
+    }
+    if (body === "Planet") {
+        if (temp_List_Of_Moons.length === 0) {
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Moons: none</td></tr>';
+        } else {
+            for (let ag = 0; ag < temp_List_Of_Moons.length; ag++) {
+                if (ag === 0) {
+                    temp_HTML_Text = temp_HTML_Text + '<tr><td onclick="set_HTML_For_Info_Panel(' + "'" + temp_List_Of_Moons[ag] + "'" + ", 'Moon', " + "'" + planet_Data[i].name + "'" + ')">Moons: ' + temp_List_Of_Moons[ag] + '</td></tr>';
+                } else {
+                    temp_HTML_Text = temp_HTML_Text + '<tr><td onclick="set_HTML_For_Info_Panel(' + "'" + temp_List_Of_Moons[ag] + "'" + ", 'Moon', " + "'" + planet_Data[i].name + "'" + ')">&emsp;&emsp;&emsp; ' + temp_List_Of_Moons[ag] + '</td></tr>';
+                }
             }
         }
     }
     temp_HTML_Text = temp_HTML_Text + '</table>';
     document.getElementById("info_Panel").innerHTML = temp_HTML_Text;
+    document.getElementById("info_Panel").style.display = "initial";
+}
+
+function Create_Ore_HTML_For_Info_Panal(i, body) {
+    let t1o = [];
+    let t2o = [];
+    let t3o = [];
+    let t4o = [];
+    let t5o = [];
+    if (body === "Moon") {
+        t1o = moon_Data[i].t1ore;
+        t2o = moon_Data[i].t2ore;
+        t3o = moon_Data[i].t3ore;
+        t4o = moon_Data[i].t4ore;
+        t5o = moon_Data[i].t5ore;
+    } else
+    if (body === "Planet") {
+        t1o = planet_Data[i].t1ore;
+        t2o = planet_Data[i].t2ore;
+        t3o = planet_Data[i].t3ore;
+        t4o = planet_Data[i].t4ore;
+        t5o = planet_Data[i].t5ore;
+    }
+    let temp_Ore_Text = "";
+    let tier1ore = "";
+    let tier2ore = "";
+    let tier3ore = "";
+    let tier4ore = "";
+    let tier5ore = "";
+    temp_Ore_Text = '<tr><td align="center">Ores:</td></tr>';
+    for (let ah = 0; ah < t1o.length; ah++) {
+        tier1ore = tier1ore +  t1o[ah] + ", ";
+    }
+    if (tier1ore.length > 2) {
+        tier1ore = tier1ore.slice(0, -2);
+    } else
+    if (tier1ore.length === 0) {
+        tier1ore = "none";
+    }
+    for (let aj = 0; aj < t2o.length; aj++) {
+        tier2ore = tier2ore +  t2o[aj] + ", ";
+    }
+    if (tier2ore.length > 2) {
+        tier2ore = tier2ore.slice(0, -2);
+    } else
+    if (tier2ore.length === 0) {
+        tier2ore = "none";
+    }
+    for (let ak = 0; ak < t3o.length; ak++) {
+        tier3ore = tier3ore +  t3o[ak] + ", ";
+    }
+    if (tier3ore.length > 2) {
+        tier3ore = tier3ore.slice(0, -2);
+    } else
+    if (tier3ore.length === 0) {
+        tier3ore = "none";
+    }
+    for (let al = 0; al < t4o.length; al++) {
+        tier4ore = tier4ore +  t4o[al] + ", ";
+    }
+    if (tier4ore.length > 2) {
+        tier4ore = tier4ore.slice(0, -2);
+    } else
+    if (tier4ore.length === 0) {
+        tier4ore = "none";
+    }
+    for (let am = 0; am < t5o.length; am++) {
+        tier5ore = tier5ore +  t5o[am] + ", ";
+    }
+    if (tier5ore.length > 2) {
+        tier5ore = tier5ore.slice(0, -2);
+    } else
+    if (tier5ore.length === 0) {
+        tier5ore = "none";
+    }
+    temp_Ore_Text = temp_Ore_Text + '<tr><td>t1: ' + tier1ore + '</td></tr>';
+    temp_Ore_Text = temp_Ore_Text + '<tr><td>t2: ' + tier2ore + '</td></tr>';
+    temp_Ore_Text = temp_Ore_Text + '<tr><td>t3: ' + tier3ore + '</td></tr>';
+    temp_Ore_Text = temp_Ore_Text + '<tr><td>t4: ' + tier4ore + '</td></tr>';
+    temp_Ore_Text = temp_Ore_Text + '<tr><td>t5: ' + tier5ore + '</td></tr>';
+    temp_Ore_Text = temp_Ore_Text + '<tr><td><hr></td></tr>';
+    return temp_Ore_Text;
 }
 
 function hide_Info_Panel() {
