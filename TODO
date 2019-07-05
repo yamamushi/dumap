@@ -1,10 +1,15 @@
+Site
+
+(Done) - Need to add a blacklist function to ban specific Discord IDs if necessary
+
+
 Map
 
-- Need to fix the camera orientation
+(Done) - Need to fix the camera orientation
 - Need more toggle options/sliders whatever
 - Need to draw lines between two points
 (Demo working) - Need info boxes for planets (info panel?)
-- Need live data functionality
+(Deprecated) - Need live data functionality
 
 
 Auth
@@ -12,7 +17,7 @@ Auth
 - Auth needs a real landing page and failure page
 (Demo working) - Logout button?
 
+Wiki
 
-Service
-
-- Need to actually write the passthrough service for the game data -> map (a separate repo will be made for this)
+- Need to add a backup job for the wiki content.
+- Need to add logging functionality to record who is editing what pages (in case of vandalism)

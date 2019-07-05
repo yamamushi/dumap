@@ -3,21 +3,22 @@ body {
     padding: 0;
     font: .8em/1.6 Verdana, Arial, sans-serif;
     text-align: center;
+    background-color: #d0d0d0;
 }
 
 #container {
     margin: 1em auto;
     text-align: left;
-    width: 980px;
+    #width: 980px;
 }
 
 a {
-    color: #09f;
+    color: #007cd4;
     text-decoration: underline;
 }
 
 a:hover {
-    color: #059;
+    color: #00478a;
     text-decoration: none;
 }
 
@@ -36,14 +37,14 @@ a.new:hover {
 
 #main {
     float: right;
-    width: 750px;
+    width: 85%;
     padding: 0 0 0 20px;
-    border-left: 1px solid #eee;
+    border-left: 1px solid #aeaeae;
 }
 
 #sidebar {
-    float: right;
-    width: 189px;
+    #float: right;
+    width: 15%;
     padding: 0 20px 20px 0;
 }
 
@@ -56,7 +57,7 @@ a.new:hover {
     text-align: center;
     font-size: .8em;
     padding: 20px 0;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #aeaeae;
 }
 
 p#title, h1, h2, h3, h4, h5, h6 {
@@ -67,10 +68,12 @@ p#title {
     font-size: 30px;
     margin-top: .5em;
     font-weight: bold;
+    padding: 0 0 0 5px;
+
 }
 
 p#title a, p#title a:hover {
-    color: #09f;
+    color: #00478a;
     text-decoration: none;
 }
 
@@ -94,7 +97,7 @@ p#title a, p#title a:hover {
 }
 
 #to c {
-    border-top: 1px solid #eee;
+    border-top: 1px solid #aeaeae;
     margin: 20px 0 0;
     padding: 20px 0 0;
     font-size: .95em;
@@ -143,4 +146,13 @@ form button {
 
 form div.edit-block {
     padding: 1em 0;
+}
+
+/*noinspection CssOverwrittenProperties*/
+.diff td{
+    vertical-align : top;
+    /* The two white-space rules are required for correct display in Internet Explorer prior to version 8 */
+    white-space    : pre;
+    white-space    : pre-wrap;
+    font-family    : monospace;
 }

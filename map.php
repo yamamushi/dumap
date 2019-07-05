@@ -10,13 +10,22 @@ if(session('access_token')) {
     $guilds = apiRequest($apiURLGuilds);
     $guildmember = apiBotRequest($apiURLGuildMember, $user->id);
     $data = json_decode($guildmember);
+    $blacklistfile = file_get_contents('./data/blacklist.json');
+    $blacklist = json_decode($blacklistfile, false);
+
+    $isbanned = false;
+    foreach($blacklist as $banned){
+        if($banned->id == $user->id) {
+            $isbanned = true;
+        }
+    }
 
     $found = FALSE;
-
-    foreach($data->roles as $field) {
-        if($field == ALPHA_AUTHORIZED_ROLE_ID) {
-            $found = TRUE;
-            echo <<<EOL
+    if($isbanned == false) {
+        foreach ($data->roles as $field) {
+            if ($field == ALPHA_AUTHORIZED_ROLE_ID) {
+                $found = TRUE;
+                echo <<<EOL
 
 
 <!--Original credit goes to Kirito for v1.0 of the map. It has since been updated to 2.0 by Yamamushi and Drystion-->
@@ -73,8 +82,8 @@ if(session('access_token')) {
 
 
 EOL;
+            }
         }
-        //echo $field;
     }
 
     if ($found == FALSE) {

@@ -28,25 +28,36 @@ if(session('access_token')) {
     $guilds = apiRequest($apiURLGuilds);
     $guildmember = apiBotRequest($apiURLGuildMember, $user->id);
     $data = json_decode($guildmember);
+    $blacklistfile = file_get_contents('./data/blacklist.json');
+    $blacklist = json_decode($blacklistfile, false);
 
-    $found = FALSE;
+    $isbanned = false;
 
-    foreach($data->roles as $field) {
-        if($field == ALPHA_AUTHORIZED_ROLE_ID) {
-            $found = TRUE;
-            echo '<h3>Welcome</h3>';
-            echo '<br>';
-            echo '<a href="map.php">Map Page</a>';
-            echo '<br>';
-            echo '<a href="./wiki/index.php">Wiki</a>';
-            echo '<p><a href="?action=logout">Log Out</a></p>';
+    foreach($blacklist as $banned){
+        if($banned->id == $user->id) {
+            $isbanned = true;
         }
     }
 
-    if ($found == FALSE) {
+    $found = false;
+    if($isbanned == false){
+        foreach($data->roles as $field) {
+            if($field == ALPHA_AUTHORIZED_ROLE_ID) {
+                $found = true;
+                echo '<h3>Welcome '.$user->username.'!</h3>';
+                echo '<br>';
+                echo '<a href="map.php">Map Page</a>';
+                echo '<br>';
+                echo '<a href="./wiki/index.php">Wiki</a>';
+                echo '<p><a href="?action=logout">Log Out</a></p>';
+                echo 'ID: '.$user->id.'<br>';
+            }
+        }
+    }
+
+    if ($found == false) {
         echo '<h3>Unauthorized</h3>';
         echo '<p><a href="?action=logout">Log Out</a></p>';
-
     }
 } else {
     echo '<h3>Welcome to Dual.sh</h3>';
