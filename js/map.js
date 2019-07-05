@@ -39,6 +39,9 @@ let ringTransparency = 0.4;
 const starDiffuse = "0 0 0";
 const starEmissive = "1 1 0";
 
+const polylineDiffuse = "0 0 0";
+const polylineEmissive = "1 0 0";
+
 // Camera
 let cameraCenterOfRotation = [0, 8, 0];
 let cameraOrientation = [0.75363, -0.48068, -0.44833, 1.15527]; //[10,10,10,-0.5];
@@ -62,6 +65,8 @@ let datapoints_Orbit;
 let newDatapoints_Orbit;
 let datapoints_Star;
 let newDatapoints_Star;
+let datapoints_Polyline;
+let newDatapoints_Polyline;
 let datalabels;
 
 // Data rows
@@ -69,6 +74,7 @@ let rows_Planet;
 let rows_Moon;
 let rows_Orbit;
 let rows_Star;
+var rows_Polyline;
 
 //planet selection
 let current_Planet = -1;//-1 is none selected
@@ -174,11 +180,25 @@ function updateDistances(event,i) {
     });
 }
 
+function mouseover(e, i) {
+    //alert("test " + i)
+}
+
+function mouseout(e, i) {
+    //alert("test" + i);
+}
+
 function set_Size_Of_Fuzz() {
     document.getElementById("fuzzy_" + current_Planet).setAttribute('scale', '2 2 2');
     if (previous_Planet >= 0) {
         document.getElementById("fuzzy_" + previous_Planet).setAttribute('scale', '1 1 1');
+        //calculate pos points for the two planets
+        let p1 = planet_Data[current_Planet].pos[0]/miniscale + " " + planet_Data[current_Planet].pos[1]/miniscale + " " + planet_Data[current_Planet].pos[2]/miniscale;
+        let p2 = planet_Data[previous_Planet].pos[0]/miniscale + " " + planet_Data[previous_Planet].pos[1]/miniscale + " " + planet_Data[previous_Planet].pos[2]/miniscale;
+        //alert("it is: " + p1 + " 2: " + p2 )
+        document.getElementById("line_Between_Two").setAttribute('point', p1 + ", " + p2);
     }
+    //attr("point", "0 8 0, 0 8 0")
 }
 
 /**
@@ -312,8 +332,26 @@ function starDatapoint() {
     return newDatapoints_Star
 }
 
+// Generate the polyline datapoints
+function polylineDatapoints() {
+    datapoints_Polyline = scene.selectAll("datapoint_Polyline").data("0 40 0, 0 0 0");
+    datapoints_Polyline.exit().remove();
+    newDatapoints_Polyline = datapoints_Polyline.enter().append("transform").attr("class", "datapoint_Polyline").attr("id", "datapoint_Polyline_Coord").append("shape")
+    newDatapoints_Polyline.append("appearance").append("material")
+    newDatapoints_Polyline.append("IndexedLineSet").attr("coordIndex", "0 1 -1").append("Coordinate").attr("id", function(d,i) { return "line_Between_Two";}).attr("point", "0 8 0, 0 8 0")
+    //newDatapoints_Polyline.append("appearance").append("material").append("IndexedLineSet").attr("coordIndex", "0, 1, 2, 3, -1").append("Coordinate").attr("point", "0 4 0, 3 9 3, 3 9 0, 1 5 12")
+    return newDatapoints_Polyline;
+}
+
+function set_Line_Locations() {
+    //d3.select(#plot)
+    let temp_Point_A = "" + current_Planet_Selected_Data[0]/miniscale + " " + current_Planet_Selected_Data[1]/miniscale + " " + current_Planet_Selected_Data[2]/miniscale;
+    let temp_Point_B = "" + previous_Planet_Selected_Data[0]/miniscale + " " + previous_Planet_Selected_Data[1]/miniscale + " " + previous_Planet_Selected_Data[2]/miniscale;
+
+}
+
 // Apply globally configured colors to objects
-function setDatapointColors(planet, fuzzy, moons, orbits, star) {
+function setDatapointColors(planet, fuzzy, moons, orbits, star, polyline) {
     planet.selectAll("material")
         .attr("diffuseColor", planetsDiffuse)
         .attr("emissiveColor", planetsEmissive);
@@ -335,6 +373,10 @@ function setDatapointColors(planet, fuzzy, moons, orbits, star) {
     star.selectAll("material")
         .attr("diffuseColor", starDiffuse)
         .attr("emissiveColor", starEmissive);
+
+    polyline.selectAll("material")
+        .attr("diffuseColor", polylineDiffuse)
+        .attr("emissiveColor", polylineEmissive)
 
 }
 
@@ -371,13 +413,14 @@ function generateLabels(){
 }
 
 // Plot Translations
-function plotTranslation(duration, planets, fuzzy, moons, orbits, star, labels) {
+function plotTranslation(duration, planets, fuzzy, moons, orbits, star, labels, polyline) {
     let tranpoints = planets.transition();
     let trantours =	fuzzy.transition();
     let tranpoints_Moon = moons.transition();
     let tranpoints_Orbit = orbits.transition();
     let tranpoints_Star = star.transition();
     let tranlabels = labels.transition();
+    let tranpoints_Polyline = polyline.transition();
 
     tranpoints.ease(ease).duration(duration).attr("translation", function(row) {
         return row[0] + ", " + row[1] + ", " + row[2]});
@@ -394,6 +437,9 @@ function plotTranslation(duration, planets, fuzzy, moons, orbits, star, labels) 
     tranpoints_Star.ease(ease).duration(duration).attr("translation", function() {
         return 0 + ", " + 8 + ", " + 0});	//not sure why this wasn't working with row[0] &ect, was just undefined.
     tranlabels.ease(ease).duration(duration).attr("translation", function(row) {
+        return row[0] + ", " + row[1] + ", " + row[2]});
+
+    tranpoints_Polyline.ease(ease).duration(duration).attr("translation", function(row) {
         return row[0] + ", " + row[1] + ", " + row[2]});
 }
 
@@ -420,14 +466,17 @@ function plotData(duration) {
     //the star
     newDatapoints_Star = starDatapoint();
 
+    //polyline
+    newDatapoints_Polyline = polylineDatapoints();
+
     //labels and other stuff like that
     datalabels = generateLabels();
 
     //color / transparency
-    setDatapointColors(newDatapoints, newDataTours, newDatapoints_Moon, newDatapoints_Orbit, newDatapoints_Star);
+    setDatapointColors(newDatapoints, newDataTours, newDatapoints_Moon, newDatapoints_Orbit, newDatapoints_Star, newDatapoints_Polyline);
 
     // Translation
-    plotTranslation(duration, datapoints, datatours, datapoints_Moon, datapoints_Orbit, datapoints_Star, datalabels);
+    plotTranslation(duration, datapoints, datatours, datapoints_Moon, datapoints_Orbit, datapoints_Star, datalabels, datapoints_Polyline);
 }
 
 function initializeDataGrid_Planet() {
