@@ -5,11 +5,14 @@
  *
  * Licensed under the terms and conditions of
  * the MIT License (http://www.opensource.org/licenses/mit-license.php)
+ *
+ * Modified work Copyright 2019 - Yamamushi
+ *
  */
 
-define('PAGE_TITLE', 'WikWiki');
+define('PAGE_TITLE', 'Dual.sh');
 define('BASE_PAGE', 'Home Page');
-define('FOOTER_TEXT', 'Copyright %Y Martin Srank. | Powered by <a href="https://github.com/smasty/WikWiki">WikWiki</a>.');
+define('FOOTER_TEXT', '<a href="http://dual.sh/">Click here</a> to go back to the Dual.sh main menu || <a href="?action=logout">Click here</a> to log out || Powered by <a href="https://github.com/smasty/WikWiki">WikWiki</a>.');
 
 include '../config.php';
 include '../library/vars.php';
@@ -48,7 +51,7 @@ if(session('access_token')) {
         $texy->encoding = 'utf-8';
         $texy->headingModule->top = 2;
         $texy->headingModule->generateID = true;
-        $texy->allowed['image'] = FALSE;
+        $texy->allowed['image'] = true;
         $texy->registerLinePattern('parseWikiLinks', '~\[([^|\]]+)(?:\s*\|\s*([^\]]+)\s*)?\]~', 'wikilinks');
 
 
