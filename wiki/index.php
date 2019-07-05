@@ -16,6 +16,7 @@ define('BASE_PAGE', 'Home Page');
 include '../config.php';
 include '../library/vars.php';
 include '../library/global.php';
+require_once '../library/class.Diff.php';
 
 @set_magic_quotes_runtime(false);
 
@@ -73,7 +74,7 @@ if(session('access_token')) {
 
 // Save content.
             if (!empty($_POST)) {
-                if (!savePageContent($_POST)) {
+                if (!savePageContent($_POST, $user)) {
                     $msg = 'Edit failed. Please, try again.';
                 }
             }
@@ -439,12 +440,15 @@ function getContent($page){
  * @param array $fields
  * @return bool
  */
-function savePageContent($fields){
+function savePageContent($fields, $user){
     if(@get_magic_quotes_gpc()){
         $fields = array_map(stripslashes, $fields);
     }
 
     $file = getFilePath($fields['title']);
+
+    $content = trim($fields['content']);
+    saveDiffContent($fields['title'], $file, $content, $user);
 
     $do = file_put_contents($file, trim($fields['content']));
     if($do){
@@ -453,6 +457,41 @@ function savePageContent($fields){
     } else{
         return false;
     }
+}
+
+/**
+ * Get file path for page.
+ * @param string $page
+ * @return string
+ */
+function getDiffFilePath($page){
+    return dirname(__FILE__) . '/wikdata/' . titleToId($page) . '-history.json';
+}
+
+function saveDiffContent($title, $file, $content, $user) {
+    $filecontents = file_get_contents($file);
+    $contentDiff = Diff::toTable(Diff::compare($filecontents, $content));
+
+    $record = (object) [
+        'username' => $user->username,
+        'id' => $user->id,
+        'timestamp' => date('m/d/Y h:i:s a', time()),
+        'diff' => $contentDiff,
+    ];
+    $formattedHistory = $record; //json_encode($record);
+
+    $difffilepath = getDiffFilePath($title);
+    if (file_exists($difffilepath)) {
+        $inp = file_get_contents($difffilepath);
+        $tempArray = json_decode($inp);
+        array_unshift($tempArray, $record);
+        $jsonData = json_encode($tempArray);
+        $formattedHistory = $jsonData;
+    } else {
+        $formattedHistory = "[".json_encode($formattedHistory)."]";
+    }
+
+    file_put_contents($difffilepath, $formattedHistory);
 }
 
 

@@ -147,3 +147,12 @@ form button {
 form div.edit-block {
     padding: 1em 0;
 }
+
+/*noinspection CssOverwrittenProperties*/
+.diff td{
+    vertical-align : top;
+    /* The two white-space rules are required for correct display in Internet Explorer prior to version 8 */
+    white-space    : pre;
+    white-space    : pre-wrap;
+    font-family    : monospace;
+}
