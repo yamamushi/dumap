@@ -34,12 +34,13 @@ if(session('access_token')) {
     foreach($data->roles as $field) {
         if($field == ALPHA_AUTHORIZED_ROLE_ID) {
             $found = TRUE;
-            echo '<h3>Welcome</h3>';
+            echo '<h3>Welcome '.$user->username.'!</h3>';
             echo '<br>';
             echo '<a href="map.php">Map Page</a>';
             echo '<br>';
             echo '<a href="./wiki/index.php">Wiki</a>';
             echo '<p><a href="?action=logout">Log Out</a></p>';
+            echo 'ID: '.$user->id;
         }
     }
 

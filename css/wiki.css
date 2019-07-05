@@ -9,7 +9,7 @@ body {
 #container {
     margin: 1em auto;
     text-align: left;
-    width: 980px;
+    #width: 980px;
 }
 
 a {
@@ -37,14 +37,14 @@ a.new:hover {
 
 #main {
     float: right;
-    width: 750px;
+    width: 85%;
     padding: 0 0 0 20px;
     border-left: 1px solid #aeaeae;
 }
 
 #sidebar {
-    float: right;
-    width: 189px;
+    #float: right;
+    width: 15%;
     padding: 0 20px 20px 0;
 }
 
@@ -68,6 +68,8 @@ p#title {
     font-size: 30px;
     margin-top: .5em;
     font-weight: bold;
+    padding: 0 0 0 5px;
+
 }
 
 p#title a, p#title a:hover {

@@ -12,7 +12,6 @@
 
 define('PAGE_TITLE', 'Dual.sh');
 define('BASE_PAGE', 'Home Page');
-define('FOOTER_TEXT', '<a href="http://dual.sh/">Click here</a> to go back to the Dual.sh main menu || <a href="?action=logout">Click here</a> to log out || Powered by <a href="https://github.com/smasty/WikWiki">WikWiki</a>.');
 
 include '../config.php';
 include '../library/vars.php';
@@ -26,6 +25,7 @@ if(session('access_token')) {
     $guilds = apiRequest($apiURLGuilds);
     $guildmember = apiBotRequest($apiURLGuildMember, $user->id);
     $data = json_decode($guildmember);
+    define('FOOTER_TEXT', 'Currently logged in as <b>'.$user->username.'</b> || <a href="http://dual.sh/">Click here</a> to go back to the Dual.sh main menu || <a href="?action=logout">Click here</a> to log out || Powered by <a href="https://github.com/smasty/WikWiki">WikWiki</a>.');
 
     $found = FALSE;
 
