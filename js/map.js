@@ -559,7 +559,14 @@ function set_HTML_For_Info_Panel(i, body, home) {
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Orbit distance: ' + orbit_Data[i].radius + '</td></tr>';
     } else
     if (body === "Moon") {
-        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + moon_Data[i].name + ' of ' + home + '<span id="Exit_Button" onclick="hide_Info_Panel()">X</span></th></tr>';
+        let planetid = 0;
+        for (let ao = 0; ao < planet_Data.length; ao++) {
+            if (planet_Data[ao].name === home) {
+                planetid = ao;
+                break;
+            }
+        }
+        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + moon_Data[i].name + ' of <span onclick="set_HTML_For_Info_Panel(' + planetid + ', ' + "'Planet'" + ')">' + home + '</span><span id="Exit_Button" onclick="hide_Info_Panel()">X</span></th></tr>';
     }
     temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
     if (body === "Moon") {
