@@ -340,13 +340,6 @@ function polylineDatapoints() {
     return newDatapoints_Polyline;
 }
 
-function set_Line_Locations() {
-    //d3.select(#plot)
-    let temp_Point_A = "" + current_Planet_Selected_Data[0]/miniscale + " " + current_Planet_Selected_Data[1]/miniscale + " " + current_Planet_Selected_Data[2]/miniscale;
-    let temp_Point_B = "" + previous_Planet_Selected_Data[0]/miniscale + " " + previous_Planet_Selected_Data[1]/miniscale + " " + previous_Planet_Selected_Data[2]/miniscale;
-
-}
-
 // Apply globally configured colors to objects
 function setDatapointColors(planet, fuzzy, moons, orbits, star, polyline) {
     planet.selectAll("material")
