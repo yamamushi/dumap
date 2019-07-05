@@ -70,6 +70,10 @@ let rows_Moon;
 let rows_Orbit;
 let rows_Star;
 
+//planet selection
+let current_Planet = -1;//-1 is none selected
+let previous_Planet = -1;
+
 // Axis
 const axisKeys = ["x", "y", "z"];
 const axisRange = [0, 10];
@@ -122,6 +126,17 @@ function move_Moons_Further_Away() {
 // noinspection JSUnusedGlobalSymbols
 function updateDistances(event,i) {
     let source = i;
+    if (current_Planet === -1) {
+        //first selection
+        current_Planet = i;
+        set_Size_Of_Fuzz();
+    } else 
+    if (i != current_Planet) {
+        //already had a selection
+        previous_Planet = current_Planet;
+        current_Planet = i;
+        set_Size_Of_Fuzz();
+    }
 
     //let datalabels = scene.selectAll(".dynlabel").remove();
 
@@ -157,6 +172,13 @@ function updateDistances(event,i) {
             return "white";
         }
     });
+}
+
+function set_Size_Of_Fuzz() {
+    document.getElementById("fuzzy_" + current_Planet).setAttribute('scale', '2 2 2');
+    if (previous_Planet >= 0) {
+        document.getElementById("fuzzy_" + previous_Planet).setAttribute('scale', '1 1 1');
+    }
 }
 
 /**
@@ -220,7 +242,7 @@ function drawAxis(axisIndex) {
 function planetDatapoints() {
     datapoints = scene.selectAll("datapoint").data(rows_Planet);
     datapoints.exit().remove();
-    newDatapoints = datapoints.enter().append("transform").attr("class", "datapoint").attr("scale", function(d,i) {
+    newDatapoints = datapoints.enter().append("transform").attr("id", function(d,i) { return "planet_" + i;}).attr("class", "datapoint").attr("scale", function(d,i) {
         pRadius = planet_Data[i].radius/planetScaling;
         return [pRadius, pRadius, pRadius];
     }).append("shape");
@@ -233,7 +255,7 @@ function planetDatapoints() {
 function fuzzySphereDatapoints() {
     datatours = scene.selectAll("datatour").data(rows_Planet);
     datatours.exit().remove();
-    newDataTours = datatours.enter().append("transform").attr("class", "datatour").attr("scale", function(d,i) {
+    newDataTours = datatours.enter().append("transform").attr("id", function(d,i) { return "fuzzy_" + i;}).attr("class", "datatour").attr("scale", function(d,i) {
         if (planet_Data[i].type === "Planet") {
             return [tourRadius, tourRadius, tourRadius];
         } else {
@@ -249,7 +271,7 @@ function fuzzySphereDatapoints() {
 function moonDatapoints() {
     datapoints_Moon = scene.selectAll("datapoint_Moon").data(rows_Moon);
     datapoints_Moon.exit().remove();
-    newDatapoints_Moon = datapoints_Moon.enter().append("transform").attr("class", "datapoint_Moon").attr("scale", function(d,i) {
+    newDatapoints_Moon = datapoints_Moon.enter().append("transform").attr("id", function(d,i) { return "moon_" + i;}).attr("class", "datapoint_Moon").attr("scale", function(d,i) {
         mRadius = moon_Data[i].radius/moonScaling;
         return [mRadius, mRadius, mRadius];
     }).append("shape");
@@ -262,7 +284,7 @@ function moonDatapoints() {
 function orbitDatapoints() {
     datapoints_Orbit = scene.selectAll("datapoint_Orbit").data(rows_Orbit);
     datapoints_Orbit.exit().remove();
-    newDatapoints_Orbit = datapoints_Orbit.enter().append("transform").attr("scale", function(d,i) {
+    newDatapoints_Orbit = datapoints_Orbit.enter().append("transform").attr("id", function(d,i) { return "orbit_" + i;}).attr("scale", function(d,i) {
         let oDistance = (orbit_Data[i].radius/ringScaling);
         return [oDistance, oDistance, oDistance];
     }).attr("rotation", function(d,i) {
@@ -284,7 +306,7 @@ function orbitDatapoints() {
 function starDatapoint() {
     datapoints_Star = scene.selectAll("datapoint_Star").data(rows_Star);
     datapoints_Star.exit().remove();
-    newDatapoints_Star = datapoints_Star.enter().append("transform").attr("class", "datapoint_Star").attr("scale", [star_Data[0].radius/starScaling, star_Data[0].radius/starScaling, star_Data[0].radius/starScaling]).append("shape");
+    newDatapoints_Star = datapoints_Star.enter().append("transform").attr("id", function(d,i) { return "star_" + i;}).attr("class", "datapoint_Star").attr("scale", [star_Data[0].radius/starScaling, star_Data[0].radius/starScaling, star_Data[0].radius/starScaling]).append("shape");
     newDatapoints_Star.append("appearance").append("material");
     newDatapoints_Star.append("sphere");
     return newDatapoints_Star
