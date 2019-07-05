@@ -25,97 +25,96 @@ if(session('access_token')) {
     $guilds = apiRequest($apiURLGuilds);
     $guildmember = apiBotRequest($apiURLGuildMember, $user->id);
     $data = json_decode($guildmember);
+    $blacklistfile = file_get_contents('../data/blacklist.json');
+    $blacklist = json_decode($blacklistfile, false);
     define('FOOTER_TEXT', 'Currently logged in as <b>'.$user->username.'</b> || <a href="http://dual.sh/">Click here</a> to go back to the Dual.sh main menu || <a href="?action=logout">Click here</a> to log out || Powered by <a href="https://github.com/smasty/WikWiki">WikWiki</a>.');
 
+    $isbanned = false;
+    foreach($blacklist as $banned){
+        if($banned->id == $user->id) {
+            $isbanned = true;
+        }
+    }
+
     $found = FALSE;
-
-    foreach($data->roles as $field) {
-        if($field == ALPHA_AUTHORIZED_ROLE_ID) {
-            $found = TRUE;
-        }
-        // INIT HERE
-
-        if(!@file_exists(dirname(__FILE__) . '/wikdata') || !@is_writable(dirname(__FILE__) . '/wikdata')){
-            $ok = @mkdir(dirname(__FILE__) . '/wikdata');
-            if(!$ok){
-                die('WikWiki cannot access the data directory ./wikdata/.
-             Please create the directory and make it writeable by PHP.');
+    if($isbanned == false) {
+        foreach ($data->roles as $field) {
+            if ($field == ALPHA_AUTHORIZED_ROLE_ID) {
+                $found = TRUE;
             }
-        }
+            // INIT HERE
 
-        $msg = '';
+            if (!@file_exists(dirname(__FILE__) . '/wikdata') || !@is_writable(dirname(__FILE__) . '/wikdata')) {
+                $ok = @mkdir(dirname(__FILE__) . '/wikdata');
+                if (!$ok) {
+                    die('WikWiki cannot access the data directory ./wikdata/!
+                         Please create the directory and make it writeable by PHP.');
+                }
+            }
+
+            $msg = '';
 
 // Instantiate Texy parser.
-        require dirname(__FILE__) . '/../library/texy.min.php';
-        $texy = new Texy();
-        $texy->encoding = 'utf-8';
-        $texy->headingModule->top = 2;
-        $texy->headingModule->generateID = true;
-        $texy->allowed['image'] = true;
-        $texy->registerLinePattern('parseWikiLinks', '~\[([^|\]]+)(?:\s*\|\s*([^\]]+)\s*)?\]~', 'wikilinks');
+            require dirname(__FILE__) . '/../library/texy.min.php';
+            $texy = new Texy();
+            $texy->encoding = 'utf-8';
+            $texy->headingModule->top = 2;
+            $texy->headingModule->generateID = true;
+            $texy->allowed['image'] = true;
+            $texy->registerLinePattern('parseWikiLinks', '~\[([^|\]]+)(?:\s*\|\s*([^\]]+)\s*)?\]~', 'wikilinks');
 
 
-        // texy init path
-        $page = parseQueryString(@$_SERVER['QUERY_STRING']);
-        if(empty($_GET)){
-            $page = titleToId(BASE_PAGE);
-        }
+            // texy init path
+            $page = parseQueryString(@$_SERVER['QUERY_STRING']);
+            if (empty($_GET)) {
+                $page = titleToId(BASE_PAGE);
+            }
 
 
 // Save content.
-        if(!empty($_POST)){
-            if(!savePageContent($_POST)){
-                $msg = 'Edit failed. Please, try again.';
+            if (!empty($_POST)) {
+                if (!savePageContent($_POST)) {
+                    $msg = 'Edit failed. Please, try again.';
+                }
             }
-        }
 
 
 // Edit/create page
-        if(array_key_exists('edit', $_GET)){
-            $title = idToTitle($_GET['edit']);
-            printHeader(!$title ? "Create new page" : "Edit page '$title'");
-            printEdit($title);
-            printFooter($title);
-            exit;
-        }
-
-
-// Backlinks
-        elseif(isset($_GET['backlinks']) && pageExists($_GET['backlinks'])){
-            $title = idToTitle($_GET['backlinks']);
-            printHeader("Backlinks for '$title'");
-            printBacklinks($title);
-            printFooter($title);
-            exit;
-        }
-
-
-        elseif(isset($_GET['recent'])){
-            $count = $_GET['recent'];
-            if(!is_numeric($count)){
-                $count = 10;
+            if (array_key_exists('edit', $_GET)) {
+                $title = idToTitle($_GET['edit']);
+                printHeader(!$title ? "Create new page" : "Edit page '$title'");
+                printEdit($title);
+                printFooter($title);
+                exit;
+            } // Backlinks
+            elseif (isset($_GET['backlinks']) && pageExists($_GET['backlinks'])) {
+                $title = idToTitle($_GET['backlinks']);
+                printHeader("Backlinks for '$title'");
+                printBacklinks($title);
+                printFooter($title);
+                exit;
+            } elseif (isset($_GET['recent'])) {
+                $count = $_GET['recent'];
+                if (!is_numeric($count)) {
+                    $count = 10;
+                }
+                printHeader("$count Most Recent Changes");
+                printRecentChanges($count);
+                printFooter();
+                exit;
+            } // Show page
+            elseif ($page) {
+                $title = idToTitle($page);
+                printHeader($title);
+                printContent($title);
+                printFooter($title);
+                exit;
+            } else {
+                header('Location: ./?Special:NotFound');
+                exit;
             }
-            printHeader("$count Most Recent Changes");
-            printRecentChanges($count);
-            printFooter();
-            exit;
+
         }
-
-
-// Show page
-        elseif($page){
-            $title = idToTitle($page);
-            printHeader($title);
-            printContent($title);
-            printFooter($title);
-            exit;
-        }
-
-        else{
-            header('Location: ./?Special:NotFound');
-            exit;
-        }
-
     }
 
     if ($found == FALSE) {
