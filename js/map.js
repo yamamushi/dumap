@@ -200,7 +200,9 @@ function set_Size_Of_Fuzz() {
         let p1 = planet_Data[current_Planet].pos[0]/miniscale + " " + planet_Data[current_Planet].pos[1]/miniscale + " " + planet_Data[current_Planet].pos[2]/miniscale;
         let p2 = planet_Data[previous_Planet].pos[0]/miniscale + " " + planet_Data[previous_Planet].pos[1]/miniscale + " " + planet_Data[previous_Planet].pos[2]/miniscale;
         document.getElementById("line_Between_Two").setAttribute('point', p1 + ", " + p2);
+    	document.getElementById("orbit_Mats_" + previous_Planet).setAttribute('emissiveColor', ringEmmissive);
     }
+    document.getElementById("orbit_Mats_" + current_Planet).setAttribute('emissiveColor', '0 1 0');
 }
 
 /**
@@ -314,7 +316,7 @@ function orbitDatapoints() {
     	} 
     	return [0,1,0,temp_orbitMath];
     }).append("shape");
-    newDatapoints_Orbit.append("appearance").append("material").attr("diffuseColor", ringDiffuse).attr("emissiveColor", ringEmmissive).attr("transparency", ringTransparency);
+    newDatapoints_Orbit.append("appearance").append("material").attr("id", function(d,i) { return "orbit_Mats_" + i;}).attr("diffuseColor", ringDiffuse).attr("emissiveColor", ringEmmissive).attr("transparency", ringTransparency);
     newDatapoints_Orbit.append("circle2d");
     return newDatapoints_Orbit
 }
