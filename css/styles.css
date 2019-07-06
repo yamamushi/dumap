@@ -11,6 +11,11 @@ body {
     height: 100%;
 }
 
+.link {
+    color: blue;
+    text-decoration: underline;
+}
+
 #credits {
     text-align: center;
     color: white;
