@@ -264,7 +264,7 @@ function planetDatapoints() {
         pRadius = planet_Data[i].radius/planetScaling;
         return [pRadius, pRadius, pRadius];
     }).append("shape");
-    newDatapoints.append("appearance").append("material");
+    newDatapoints.append("appearance").append("material").attr("diffuseColor", planetsDiffuse).attr("emissiveColor", planetsEmissive);
     newDatapoints.append("sphere");
     return newDatapoints
 }
@@ -280,7 +280,7 @@ function fuzzySphereDatapoints() {
             return [0, 0, 0]; //0 radius, or nothing basically
         }
     }).append("shape").attr("onclick", function(d,i) { return "updateDistances(event,"+i+");"});
-    newDataTours.append("appearance").append("material");
+    newDataTours.append("appearance").append("material").attr("diffuseColor", fuzzySpheresDiffuse).attr("emissiveColor", fuzzySpheresEmissive).attr("transparency", fuzzySpheresTransparency);
     newDataTours.append("sphere");
     return newDataTours
 }
@@ -293,7 +293,7 @@ function moonDatapoints() {
         mRadius = moon_Data[i].radius/moonScaling;
         return [mRadius, mRadius, mRadius];
     }).append("shape");
-    newDatapoints_Moon.append("appearance").append("material");
+    newDatapoints_Moon.append("appearance").append("material").attr("diffuseColor", moonDiffuse).attr("emissiveColor", moonEmissive);
     newDatapoints_Moon.append("sphere");
     return newDatapoints_Moon
 }
@@ -315,7 +315,7 @@ function orbitDatapoints() {
     }).attr("rotation", function(d,i) {
         return [0,0,1,orbit_Data[i].rotate[2]]
     })*/
-    newDatapoints_Orbit.append("appearance").append("material");
+    newDatapoints_Orbit.append("appearance").append("material").attr("diffuseColor", ringDiffuse).attr("emissiveColor", ringEmmissive).attr("transparency", ringTransparency);
     newDatapoints_Orbit.append("circle2d");
     return newDatapoints_Orbit
 }
@@ -325,7 +325,7 @@ function starDatapoint() {
     datapoints_Star = scene.selectAll("datapoint_Star").data(rows_Star);
     datapoints_Star.exit().remove();
     newDatapoints_Star = datapoints_Star.enter().append("transform").attr("id", function(d,i) { return "star_" + i;}).attr("class", "datapoint_Star").attr("scale", [star_Data[0].radius/starScaling, star_Data[0].radius/starScaling, star_Data[0].radius/starScaling]).append("shape");
-    newDatapoints_Star.append("appearance").append("material");
+    newDatapoints_Star.append("appearance").append("material").attr("diffuseColor", starDiffuse).attr("emissiveColor", starEmissive);
     newDatapoints_Star.append("sphere");
     return newDatapoints_Star
 }
@@ -335,39 +335,9 @@ function polylineDatapoints() {
     datapoints_Polyline = scene.selectAll("datapoint_Polyline").data("0 40 0, 0 0 0");
     datapoints_Polyline.exit().remove();
     newDatapoints_Polyline = datapoints_Polyline.enter().append("transform").attr("class", "datapoint_Polyline").attr("id", "datapoint_Polyline_Coord").append("shape")
-    newDatapoints_Polyline.append("appearance").append("material")
+    newDatapoints_Polyline.append("appearance").append("material").attr("diffuseColor", polylineDiffuse).attr("emissiveColor", polylineEmissive)
     newDatapoints_Polyline.append("IndexedLineSet").attr("coordIndex", "0 1 -1").append("Coordinate").attr("id", function(d,i) { return "line_Between_Two";}).attr("point", "0 8 0, 0 8 0")
     return newDatapoints_Polyline;
-}
-
-// Apply globally configured colors to objects
-function setDatapointColors(planet, fuzzy, moons, orbits, star, polyline) {
-    planet.selectAll("material")
-        .attr("diffuseColor", planetsDiffuse)
-        .attr("emissiveColor", planetsEmissive);
-
-    fuzzy.selectAll("material")
-        .attr("diffuseColor", fuzzySpheresDiffuse)
-        .attr("emissiveColor", fuzzySpheresEmissive)
-        .attr("transparency", fuzzySpheresTransparency);
-
-    moons.selectAll("material")
-        .attr("diffuseColor", moonDiffuse)
-        .attr("emissiveColor", moonEmissive);
-
-    orbits.selectAll("material")
-        .attr("diffuseColor", ringDiffuse)
-        .attr("emissiveColor", ringEmmissive)
-        .attr("transparency", ringTransparency);
-
-    star.selectAll("material")
-        .attr("diffuseColor", starDiffuse)
-        .attr("emissiveColor", starEmissive);
-
-    polyline.selectAll("material")
-        .attr("diffuseColor", polylineDiffuse)
-        .attr("emissiveColor", polylineEmissive)
-
 }
 
 // Generate initial labels for planets
@@ -461,9 +431,6 @@ function plotData(duration) {
 
     //labels and other stuff like that
     datalabels = generateLabels();
-
-    //color / transparency
-    setDatapointColors(newDatapoints, newDataTours, newDatapoints_Moon, newDatapoints_Orbit, newDatapoints_Star, newDatapoints_Polyline);
 
     // Translation
     plotTranslation(duration, datapoints, datatours, datapoints_Moon, datapoints_Orbit, datapoints_Star, datalabels, datapoints_Polyline);
