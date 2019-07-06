@@ -6,7 +6,7 @@ function calculateDistance(distance, speed) {
     if (distance <= 0) {
         return "Calculator expects a distance value greather than zero.";
     }
-    if (speed == "max"){
+    if (speed === "max"){
         speed = 30000;
     }
     if (!isNumber(speed)){
@@ -20,7 +20,7 @@ function calculateDistance(distance, speed) {
     }
 
     distance = distance * 200; // Scaling
-    return (distance/speed) * 3600; // Seconds scaling
+    return (distance/speed) * 3600;
 }
 
 function isNumber(n) {
@@ -28,8 +28,18 @@ function isNumber(n) {
 }
 
 
-function formatTime(seconds) {
-    return new Date(seconds * 1000).toISOString().substr(11, 8);
+function secondsToDhms(seconds) {
+    seconds = Number(seconds);
+    var d = Math.floor(seconds / (3600*24));
+    var h = Math.floor(seconds % (3600*24) / 3600);
+    var m = Math.floor(seconds % 3600 / 60);
+    var s = Math.floor(seconds % 60);
+
+    var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+    var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+    var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+    var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+    return dDisplay + hDisplay + mDisplay + sDisplay;
 }
 
 function updateOutput(output) {
@@ -56,7 +66,7 @@ $(function() {
             updateOutput(time.fontcolor("red"));
         }
 
-        updateOutput("Estimated Travel Time: "+formatTime(time));
+        updateOutput("Estimated Travel Time: "+secondsToDhms(time));
     });
 });
 
