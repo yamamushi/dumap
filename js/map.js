@@ -516,12 +516,12 @@ function scatterPlot3d(parent) {
 
     scene.append("Background")
         .attr("crossOrigin","anonymous")
-        .attr("leftUrl", "images/bg.png")
-        .attr("rightUrl", "images/bg.png")
-        .attr("bottomUrl", "images/bg.png")
-        .attr("topUrl", "images/bg.png")
-        .attr("frontUrl", "images/bg.png")
-        .attr("backUrl", "images/bg.png");
+        .attr("leftUrl", "../images/bg.png")
+        .attr("rightUrl", "../images/bg.png")
+        .attr("bottomUrl", "../images/bg.png")
+        .attr("topUrl", "../images/bg.png")
+        .attr("frontUrl", "../images/bg.png")
+        .attr("backUrl", "../images/bg.png");
 
     // Camera
     let view = scene.append("viewpoint");
@@ -552,19 +552,19 @@ function open_Options() {
 
 function start_Up() {
 
-    loadJSON("data/planets.json",function(response) {
+    loadJSON("../data/planets.json",function(response) {
         planet_Data = JSON.parse(response)
     });
 
-    loadJSON("data/moons.json",function(response) {
+    loadJSON("../data/moons.json",function(response) {
         moon_Data = JSON.parse(response)
     });
 
-    loadJSON("data/orbits.json",function(response) {
+    loadJSON("../data/orbits.json",function(response) {
         orbit_Data = JSON.parse(response)
     });
 
-    loadJSON("data/stars.json",function(response) {
+    loadJSON("../data/stars.json",function(response) {
         star_Data = JSON.parse(response)
     });
 

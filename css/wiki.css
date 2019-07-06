@@ -87,6 +87,11 @@ p#title a, p#title a:hover {
     margin-left: 10px;
 }
 
+#sidebar .sidebar-list h3{
+    /*margin: 0 0 0 0px;*/
+    font-size: 1.3em
+}
+
 #sidebar .sidebar-list li {
     margin: .5em 0;
     font-size: .92em;

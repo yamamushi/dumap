@@ -48,7 +48,9 @@ if(session('access_token')) {
                 echo '<br>';
                 echo '<a href="./craft/index.php">Crafting Calculator</a>';
                 echo '<br>';
-                echo '<a href="map.php">Map Page</a>';
+                echo '<a href="./map/map.php">Solar System Map</a>';
+                echo '<br>';
+                echo '<a href="./sutime/index.php">Travel Time Calculator</a>';
                 echo '<br>';
                 echo '<a href="./wiki/index.php">Wiki</a>';
                 echo '<br>';
