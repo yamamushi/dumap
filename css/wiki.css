@@ -37,15 +37,16 @@ a.new:hover {
 
 #main {
     float: right;
-    width: 85%;
-    padding: 0 0 0 20px;
-    border-left: 1px solid #aeaeae;
+    width: 80%;
+    padding: 25px 20px 20px 20px;
+    /* border-left: 1px solid #aeaeae; */
 }
 
 #sidebar {
     #float: right;
     width: 15%;
-    padding: 0 20px 20px 0;
+    padding: 5px 0px 20px 7px;
+    border-right: 1px solid #aeaeae;
 }
 
 #content {
@@ -55,8 +56,8 @@ a.new:hover {
 #footer {
     clear: both;
     text-align: center;
-    font-size: .8em;
-    padding: 20px 0;
+    font-size: .7em;
+    padding: 5px 0;
     border-top: 1px solid #aeaeae;
 }
 
@@ -98,7 +99,15 @@ p#title a, p#title a:hover {
 }
 
 #sidebar .modified em {
-    font-size: .95em;
+    font-size: .65em;
+}
+
+#modified em {
+    font-size: .65em;
+}
+
+div#loggedin em {
+    font-size: .65em;
 }
 
 #to c {

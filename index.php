@@ -41,21 +41,65 @@ if(session('access_token')) {
 
     $found = false;
     if($isbanned == false){
-        foreach($data->roles as $field) {
-            if($field == ALPHA_AUTHORIZED_ROLE_ID) {
+        foreach ($data->roles as $field) {
+            if ($field == ALPHA_AUTHORIZED_ROLE_ID) {
                 $found = true;
-                echo '<h3>Welcome '.$user->username.'!</h3>';
-                echo '<br>';
-                echo '<a href="./craft/index.php">Crafting Calculator</a>';
-                echo '<br>';
-                echo '<a href="./map/map.php">Solar System Map</a>';
-                echo '<br>';
-                echo '<a href="./sutime/index.php">Travel Time Calculator</a>';
-                echo '<br>';
-                echo '<a href="./wiki/index.php">Wiki</a>';
-                echo '<br>';
-                echo '<p><a href="?action=logout">Log Out</a></p>';
-                //echo 'ID: '.$user->id.'<br>';
+
+                echo <<<EOL
+
+    <html>
+    <head>
+    <link rel="stylesheet" type="text/css" href="./css/mainmenu.css">
+    <script type="text/javascript" src="./js/mainmenu.js"></script>
+    </head>
+    <body>
+    <h3>Welcome to Dual.sh</h3>
+    <div class="tab">
+        <button class="tablinks" onmouseover="hoverMenuItem(event, 'Wiki')" onclick="window.location='http://dual.sh/wiki/index.php'">Wiki</button>
+        <button class="tablinks" onmouseover="hoverMenuItem(event, 'Map')" onclick="window.location='http://dual.sh/map/map.php'">Map</button>
+        <button class="tablinks" onmouseover="hoverMenuItem(event, 'Crafting')" onclick="window.location='http://dual.sh/craft/craft.php'">Crafting Calculator</button>
+        <button class="tablinks" onmouseover="hoverMenuItem(event, 'Travel')" onclick="window.location='http://dual.sh/sutime/index.php'">Travel Time Calculator</button>
+        <button class="tablinks" onmouseover="hoverMenuItem(event, 'Logout')" onclick="window.location='http://dual.sh/index.php?action=logout'">Logout</button>
+    </div>
+
+    <div id="Wiki" class="tabcontent">
+        <h2>Wiki</h2>
+        <p>A Wiki for Lua, Voxelmancy, and many other Dual Universe player topics</p>
+    </div>
+
+    <div id="Map" class="tabcontent">
+        <h2>Map</h2>
+        <p>An interactive 3D map of the Helios (Alioth) Solar System</p> 
+    </div>
+
+    <div id="Crafting" class="tabcontent">
+        <h2>Crafting Calculator</h2>
+         <p>A crafting calculator for queue planning and estimating total completion times</p>
+    </div>
+        <div id="Travel" class="tabcontent">
+        <h2>Travel Time Calculator</h2>
+        <p>A calculator that provides an estimated travel time based on Distance (SU) and Speed (km/h)</p>
+    </div>
+
+    <div id="Logout" class="tabcontent">
+        <h2>Logout</h2>
+        <p>Logout and return to the homepage</p> 
+    </div>
+
+    <div class="clearfix"></div>
+       
+    </div>
+    
+    <p><em>Currently logged in as $user->username - 
+    <script type="text/javascript">
+    var x = new Date();
+    document.write(x);
+    </script><em></p>
+    </body>
+    </html>
+                
+EOL;
+
             }
         }
     }
