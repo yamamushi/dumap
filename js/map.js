@@ -628,7 +628,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Orbit distance: ' + orbit_Data[i].radius + '</td></tr>';
         if (previous_Planet >= 0) {
         	let tempDistance =  getDistanceBetween(planet_Data[previous_Planet].name, planet_Data[i].name);
-        	temp_HTML_Text = temp_HTML_Text + '<tr><td>Distance to <span onclick="updateDistances(event, ' + previous_Planet + ');">' + planet_Data[previous_Planet].name + '</span>: ' + tempDistance + ' SU</td></tr>';
+        	temp_HTML_Text = temp_HTML_Text + '<tr><td>Distance to <span class="link" onclick="updateDistances(event, ' + previous_Planet + ');">' + planet_Data[previous_Planet].name + '</span>: ' + tempDistance + ' SU</td></tr>';
         }
     } else
     if (body === "Moon") {
@@ -639,7 +639,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
                 break;
             }
         }
-        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + moon_Data[i].name + ' of <span onclick="set_HTML_For_Info_Panel(' + planetid + ', ' + "'Planet'" + ')">' + home + '</span><span id="Exit_Button" onclick="hide_Info_Panel()">X</span></th></tr>';
+        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + moon_Data[i].name + ' of <span class="link" onclick="set_HTML_For_Info_Panel(' + planetid + ', ' + "'Planet'" + ')">' + home + '</span><span id="Exit_Button" onclick="hide_Info_Panel()">X</span></th></tr>';
     }
     temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
     if (body === "Moon") {
@@ -653,9 +653,9 @@ function set_HTML_For_Info_Panel(i, body, home) {
         } else {
             for (let ag = 0; ag < temp_List_Of_Moons.length; ag++) {
                 if (ag === 0) {
-                    temp_HTML_Text = temp_HTML_Text + '<tr><td onclick="set_HTML_For_Info_Panel(' + "'" + temp_List_Of_Moons[ag] + "'" + ", 'Moon', " + "'" + planet_Data[i].name + "'" + ')">Moons: ' + temp_List_Of_Moons[ag] + '</td></tr>';
+                    temp_HTML_Text = temp_HTML_Text + '<tr><td onclick="set_HTML_For_Info_Panel(' + "'" + temp_List_Of_Moons[ag] + "'" + ", 'Moon', " + "'" + planet_Data[i].name + "'" + ')">Moons: <span class="link">' + temp_List_Of_Moons[ag] + '</span></td></tr>';
                 } else {
-                    temp_HTML_Text = temp_HTML_Text + '<tr><td onclick="set_HTML_For_Info_Panel(' + "'" + temp_List_Of_Moons[ag] + "'" + ", 'Moon', " + "'" + planet_Data[i].name + "'" + ')">&emsp;&emsp;&emsp; ' + temp_List_Of_Moons[ag] + '</td></tr>';
+                    temp_HTML_Text = temp_HTML_Text + '<tr><td onclick="set_HTML_For_Info_Panel(' + "'" + temp_List_Of_Moons[ag] + "'" + ", 'Moon', " + "'" + planet_Data[i].name + "'" + ')">&emsp;&emsp;&emsp; <span class="link">' + temp_List_Of_Moons[ag] + '</span></td></tr>';
                 }
             }
         }
