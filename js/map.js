@@ -306,15 +306,14 @@ function orbitDatapoints() {
         let oDistance = (orbit_Data[i].radius/ringScaling);
         return [oDistance, oDistance, oDistance];
     }).attr("rotation", function(d,i) {
-        return [1,1,0,orbit_Data[i].rotate];
-    }).attr("class", "datapoint_Orbit").append("shape");
-    /*attr("rotation", function(d,i) {
-        return [1,0,0,orbit_Data[i].rotate[0]]
-    }).attr("rotation", function(d,i) {
-        return [0,1,0,orbit_Data[i].rotate[1]]
-    }).attr("rotation", function(d,i) {
-        return [0,0,1,orbit_Data[i].rotate[2]]
-    })*/
+    		return [0,0,1,Math.asin(((planet_Data[i].pos[0] / miniscale) / (Math.sqrt((planet_Data[i].pos[0] / miniscale) * (planet_Data[i].pos[0] / miniscale) + (planet_Data[i].pos[1] / miniscale) * (planet_Data[i].pos[1] / miniscale)))) * 180 / Math.PI)];
+    }).attr("class", "datapoint_Orbit").append("transform").attr("rotation", function(d,i) {
+    	let temp_orbitMath = Math.asin(((planet_Data[i].pos[2] / miniscale) / (orbit_Data[i].radius / miniscale)));
+    	if (planet_Data[i].pos[0] >= 0) {
+    		temp_orbitMath = temp_orbitMath * -1;
+    	} 
+    	return [0,1,0,temp_orbitMath];
+    }).append("shape");
     newDatapoints_Orbit.append("appearance").append("material").attr("diffuseColor", ringDiffuse).attr("emissiveColor", ringEmmissive).attr("transparency", ringTransparency);
     newDatapoints_Orbit.append("circle2d");
     return newDatapoints_Orbit
