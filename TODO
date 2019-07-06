@@ -1,0 +1,23 @@
+Site
+
+(Done) - Need to add a blacklist function to ban specific Discord IDs if necessary
+
+
+Map
+
+(Done) - Need to fix the camera orientation
+- Need more toggle options/sliders whatever
+- Need to draw lines between two points
+(Demo working) - Need info boxes for planets (info panel?)
+(Deprecated) - Need live data functionality
+
+
+Auth
+
+- Auth needs a real landing page and failure page
+(Demo working) - Logout button?
+
+Wiki
+
+- Need to add a backup job for the wiki content.
+- Need to add logging functionality to record who is editing what pages (in case of vandalism)

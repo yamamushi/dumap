@@ -1,0 +1,178 @@
+body {
+    margin: 0;
+    padding: 0;
+    font: .8em/1.6 Verdana, Arial, sans-serif;
+    text-align: center;
+    background-color: #d0d0d0;
+}
+
+#container {
+    margin: 1em auto;
+    text-align: left;
+    #width: 980px;
+}
+
+a {
+    color: #007cd4;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #00478a;
+    text-decoration: none;
+}
+
+a.new {
+    color: #c00;
+}
+
+a.new:hover {
+    color: #900;
+}
+
+#clear {
+    display: block;
+    clear: both;
+}
+
+#main {
+    float: right;
+    width: 85%;
+    padding: 0 0 0 20px;
+    border-left: 1px solid #aeaeae;
+}
+
+#sidebar {
+    #float: right;
+    width: 15%;
+    padding: 0 20px 20px 0;
+}
+
+#content {
+    padding-bottom: 40px;
+}
+
+#footer {
+    clear: both;
+    text-align: center;
+    font-size: .8em;
+    padding: 20px 0;
+    border-top: 1px solid #aeaeae;
+}
+
+p#title, h1, h2, h3, h4, h5, h6 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, FreeSerif, serif;
+}
+
+p#title {
+    font-size: 30px;
+    margin-top: .5em;
+    font-weight: bold;
+    padding: 0 0 0 5px;
+
+}
+
+p#title a, p#title a:hover {
+    color: #00478a;
+    text-decoration: none;
+}
+
+#sidebar ul.sidebar-list, #sidebar .sidebar-list li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#sidebar ul.sidebar-list {
+    margin-left: 10px;
+}
+
+#sidebar .sidebar-list li {
+    margin: .5em 0;
+    font-size: .92em;
+}
+
+#sidebar .modified em {
+    font-size: .95em;
+}
+
+#to c {
+    border-top: 1px solid #aeaeae;
+    margin: 20px 0 0;
+    padding: 20px 0 0;
+    font-size: .95em;
+}
+
+#toc h3 {
+    margin: 0 0 0 10px;
+    font-size: 1.3em
+}
+
+#toc ul, #toc li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#toc li {
+    margin: 5px 0;
+}
+
+#toc ul {
+    margin-left: 15px;
+}
+
+form label {
+    display: block;
+    margin: 0 0 5px 0;
+}
+
+form input {
+    font-size: 22px;
+    width: 100%;
+    display: block;
+}
+
+form textarea {
+    width: 100%;
+    height: 260px;
+    font-family: monospace;
+}
+
+form button {
+    padding: 5px 25px;
+    margin-right: 5px;
+}
+
+form div.edit-block {
+    padding: 1em 0;
+}
+
+/*noinspection CssOverwrittenProperties*/
+.diff td{
+    padding: 0 0.667em;
+    vertical-align : top;
+    /* The two white-space rules are required for correct display in Internet Explorer prior to version 8 */
+    white-space    : pre;
+    white-space    : pre-wrap;
+    font-family: Consolas,'Courier New',Courier,monospace;
+    font-size: 0.75em;
+    line-height: 1.333;
+}
+
+.diff span {
+    display: block;
+    min-height: 1.333em;
+    margin-top: -1px;
+    padding: 0 3px;
+}
+
+.diffInserted span {
+    border: 1px solid rgb(192,255,192);
+    background: rgb(224,255,224);
+}
+
+.diffDeleted span {
+    border: 1px solid rgb(255,192,192);
+    background: rgb(255,224,224);
+}
