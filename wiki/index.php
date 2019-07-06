@@ -87,6 +87,13 @@ if(session('access_token')) {
                 printEdit($title);
                 printFooter($title);
                 exit;
+            } // History
+            elseif (array_key_exists('history', $_GET)) {
+                $title = idToTitle($_GET['history']);
+                printHeader("Modification History for '$title'");
+                printHistory($title);
+                printFooter($title);
+                exit;
             } // Backlinks
             elseif (isset($_GET['backlinks']) && pageExists($_GET['backlinks'])) {
                 $title = idToTitle($_GET['backlinks']);
@@ -248,23 +255,32 @@ function getSidebar($page = BASE_PAGE){
     $id = titleToId($page);
     $mod = 'not yet.';
     $toc = $bl = '';
+    $historylink = '';
     if(pageExists($page)){
         $mod = date('d.m.Y, H:i:s', filemtime(getFilePath($page)));
         $toc = generateToc();
         $bl = "<li class=\"backlinks\"><a href=\"./?backlinks=$id\">Backlinks</a></li>";
     }
 
+    $difffilepath = getDiffFilePath($page);
+    if (file_exists($difffilepath)) {
+        $historylink = "<li class=\"create-new-link\"><a href=\"./?history=$id\">View Page History</a></li>";
+    }
+
     return <<<PAGE_SIDEBAR
 <p id="title"><a href="./">$title</a></p>
-
-<ul class="sidebar-list">
-  <li class="edit-link"><a href="./?edit=$id">Edit page</a></li>
-  $bl
-  <li class="modified">Last modified: <em>$mod</em></li>
-  <li class="create-new-link"><a href="./?edit=">Create new page</a></li>
-  <li class="recent-changes-link"><a href="./?recent=10">Recent changes</a></li>
-</ul>
 $toc
+<br>
+<ul class="sidebar-list">
+<h3>Page Tools</h3>
+  <li class="edit-link"><a href="./?edit=$id">Edit Page</a></li>
+  $bl
+  $historylink
+  <li class="modified">Last Updated: <em>$mod</em></li>
+  <li class="create-new-link"><a href="./?edit=">Create New Page</a></li>
+  <li class="recent-changes-link"><a href="./?recent=10">Recent Changes</a></li>
+</ul>
+
 PAGE_SIDEBAR;
 }
 
@@ -459,41 +475,6 @@ function savePageContent($fields, $user){
     }
 }
 
-/**
- * Get file path for page.
- * @param string $page
- * @return string
- */
-function getDiffFilePath($page){
-    return dirname(__FILE__) . '/wikdata/' . titleToId($page) . '-history.json';
-}
-
-function saveDiffContent($title, $file, $content, $user) {
-    $filecontents = file_get_contents($file);
-    $contentDiff = Diff::toTable(Diff::compare($filecontents, $content));
-
-    $record = (object) [
-        'username' => $user->username,
-        'id' => $user->id,
-        'timestamp' => date('m/d/Y h:i:s a', time()),
-        'diff' => $contentDiff,
-    ];
-    $formattedHistory = $record; //json_encode($record);
-
-    $difffilepath = getDiffFilePath($title);
-    if (file_exists($difffilepath)) {
-        $inp = file_get_contents($difffilepath);
-        $tempArray = json_decode($inp);
-        array_unshift($tempArray, $record);
-        $jsonData = json_encode($tempArray);
-        $formattedHistory = $jsonData;
-    } else {
-        $formattedHistory = "[".json_encode($formattedHistory)."]";
-    }
-
-    file_put_contents($difffilepath, $formattedHistory);
-}
-
 
 /**
  * Generate table of contents HTML blockz.
@@ -539,3 +520,71 @@ function generateToc(){
     }
     return $block->toHtml($texy);
 }
+
+
+/**
+ * Get file path for page.
+ * @param string $page
+ * @return string
+ */
+function getDiffFilePath($page){
+    return dirname(__FILE__) . '/wikdata/' . titleToId($page) . '-history.json';
+}
+
+/**
+ * Get save diff content for history
+ */
+function saveDiffContent($title, $file, $content, $user) {
+    $filecontents = file_get_contents($file);
+    $contentDiff = Diff::toTable(Diff::compare($filecontents, $content));
+
+    $record = (object) [
+        'username' => $user->username,
+        'id' => $user->id,
+        'timestamp' => date('m/d/Y h:i:s a', time()),
+        'diff' => $contentDiff,
+    ];
+    $formattedHistory = $record; //json_encode($record);
+
+    $difffilepath = getDiffFilePath($title);
+    if (file_exists($difffilepath)) {
+        $inp = file_get_contents($difffilepath);
+        $tempArray = json_decode($inp);
+        array_unshift($tempArray, $record);
+        $jsonData = json_encode($tempArray);
+        $formattedHistory = $jsonData;
+    } else {
+        $formattedHistory = "[".json_encode($formattedHistory)."]";
+    }
+
+    file_put_contents($difffilepath, $formattedHistory);
+}
+
+/**
+ * Print page for History
+ * @param string $page
+ * @return void
+ */
+function printHistory($page){
+    $title = $content = $id = '';
+    if($page){
+        $title = trim($page);
+        $id = titleToId($page);
+        if(pageExists($page)){
+            $file = file_get_contents(getDiffFilePath($page));
+            $decodedfile = json_decode($file);
+            foreach ($decodedfile as $entry) {
+                $content = $content.$entry->timestamp." - ".$entry->username." (".$entry->id.")<br><p>".$entry->diff."</p><br>";
+            }
+        }
+    }
+
+
+    echo <<<HISTORY
+$content
+<br>
+<a href="http://dual.sh/wiki/?$title">Return to article</a>
+HISTORY;
+}
+
+

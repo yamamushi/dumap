@@ -46,11 +46,14 @@ if(session('access_token')) {
                 $found = true;
                 echo '<h3>Welcome '.$user->username.'!</h3>';
                 echo '<br>';
+                echo '<a href="./craft/index.php">Crafting Calculator</a>';
+                echo '<br>';
                 echo '<a href="map.php">Map Page</a>';
                 echo '<br>';
                 echo '<a href="./wiki/index.php">Wiki</a>';
+                echo '<br>';
                 echo '<p><a href="?action=logout">Log Out</a></p>';
-                echo 'ID: '.$user->id.'<br>';
+                //echo 'ID: '.$user->id.'<br>';
             }
         }
     }

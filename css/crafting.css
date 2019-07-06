@@ -1,0 +1,241 @@
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(0, 11, 25);
+    color: rgb(255, 255, 255);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+div.main_Area {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+div.left_Area {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+div.right_Area {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+div.right_Area_Left {
+    width: 35%;
+    height: 100%;
+    overflow: auto;
+}
+
+div.right_Area_Center {
+    width: 35%;
+    height: 100%;
+    overflow: auto;
+}
+
+div.right_Area_Right {
+    width: 30%;
+    height: 100%;
+    overflow: auto;
+}
+
+div.right_Area_Top {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+}
+
+div.right_Area_Bottom {
+    width: 100%;
+    height: 60%;
+    overflow: auto;
+}
+
+.right_Area_Left::-webkit-scrollbar {
+    width: 6px;
+    background-color: #192131;
+}
+
+.right_Area_Left::-webkit-scrollbar-thumb {
+    width: 6px;
+    background-color: #9DB8D5;
+}
+
+.right_Area_Bottom::-webkit-scrollbar {
+    width: 6px;
+    background-color: #192131;
+}
+
+.right_Area_Bottom::-webkit-scrollbar-thumb {
+    width: 6px;
+    background-color: #9DB8D5;
+}
+
+.right_Area_Center::-webkit-scrollbar {
+    width: 6px;
+    background-color: #192131;
+}
+
+.right_Area_Center::-webkit-scrollbar-thumb {
+    width: 6px;
+    background-color: #9DB8D5;
+}
+
+.right_Area_Right::-webkit-scrollbar {
+    width: 6px;
+    background-color: #192131;
+}
+
+.right_Area_Right::-webkit-scrollbar-thumb {
+    width: 6px;
+    background-color: #9DB8D5;
+}
+
+div.parts_Area {
+    overflow: auto;
+}
+
+div.options_Area {
+    margin-top: auto;
+    overflow: auto;
+}
+
+.parts_Area::-webkit-scrollbar {
+    width: 6px;
+    background-color: #192131;
+}
+
+.parts_Area::-webkit-scrollbar-thumb {
+    width: 6px;
+    background-color: #9DB8D5;
+}
+
+.options_Area::-webkit-scrollbar {
+    width: 6px;
+    background-color: #192131;
+}
+
+.options_Area::-webkit-scrollbar-thumb {
+    width: 6px;
+    background-color: #9DB8D5;
+}
+
+p {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.button_Inputs {
+    width: 49%;
+    box-sizing: border-box;
+}
+
+.number_Input {
+    width: 52px;
+}
+
+.craftable_Box {
+    float: right;
+}
+
+.go_Left {
+    float: left;
+}
+
+.go_Right {
+    float: right;
+}
+
+.go_Center {
+    float: initial;
+}
+
+.td_red {
+    color: red;
+}
+
+.td_ore {
+    color: lightblue;
+}
+
+.td_normal {
+    /* nothing just normal class for now */
+}
+
+.td_q_red {
+    background-color: rgb(20, 11, 25);
+    border-style: none solid solid none;
+    border-width: 1px;
+    border-color: transparent #142034 #142034 transparent;
+}
+
+/*	b is standard class for displaying leftmost table data cells
+    also for craftable items in main list
+    c will be for darker text to display items that are not craftable
+    d will then be for hiding the data for when filtering out non craftables from the list
+
+    q is for que table
+    qw is for the far right side of que table
+*/
+td.b {
+    border-style: none none solid solid;
+    border-width: 1px;
+    border-color: transparent transparent #142034 transparent;
+}
+
+td.b:hover {
+    border-style: none none solid solid;
+    border-width: 1px;
+    border-color: transparent transparent #142034 white;
+}
+
+td.c {
+    color: gray;
+    background-color: rgb(0, 11, 25);
+    border-style: none none solid solid;
+    border-width: 1px;
+    border-color: transparent transparent #142034 transparent;
+}
+
+td.c:hover {
+    color: gray;
+    background-color: rgb(0, 11, 25);
+    border-style: none none solid solid;
+    border-width: 1px;
+    border-color: transparent transparent #142034 white;
+}
+
+td.d {
+    display: none;
+}
+
+td.q {
+    border-style: none solid solid none;
+    border-width: 1px;
+    border-color: transparent #142034 #142034 transparent;
+}
+
+td.qw {
+    border-style: none none solid none;
+    border-width: 1px;
+    border-color: transparent transparent #142034 transparent;
+}
+
+#search_Box {
+    width: 99%;
+}
