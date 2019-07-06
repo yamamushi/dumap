@@ -6,6 +6,8 @@ let scene;
 
 // Options (Do not edit these by hand!)
 let hide_Orbitals = false;
+let hide_Polyline = false;
+let hide_Star = false;
 
 // Scaling
 let scales = [];
@@ -18,6 +20,7 @@ const sphereRadius = 0.5; // Not worth changing since scaling handles this
 const labelscale = 1.5;
 const moon_Distance_Scale = 5; //how much the distance between the moon and planet is multiplied by
 const tourRadius = 1.0; // The fuzzy sphere around planets
+const centerLocation = [0/miniscale, 24000000/miniscale, 0/miniscale];
 let mRadius;
 let pRadius;
 
@@ -41,6 +44,7 @@ const starEmissive = "1 1 0";
 
 const polylineDiffuse = "0 0 0";
 const polylineEmissive = "1 0 0";
+let polylineTransparency = 0.2;
 
 // Camera
 let cameraCenterOfRotation = [0, 8, 0];
@@ -274,11 +278,7 @@ function fuzzySphereDatapoints() {
     datatours = scene.selectAll("datatour").data(rows_Planet);
     datatours.exit().remove();
     newDataTours = datatours.enter().append("transform").attr("id", function(d,i) { return "fuzzy_" + i;}).attr("class", "datatour").attr("scale", function(d,i) {
-        if (planet_Data[i].type === "Planet") {
-            return [tourRadius, tourRadius, tourRadius];
-        } else {
-            return [0, 0, 0]; //0 radius, or nothing basically
-        }
+        return [tourRadius, tourRadius, tourRadius];
     }).append("shape").attr("onclick", function(d,i) { return "updateDistances(event,"+i+");"});
     newDataTours.append("appearance").append("material").attr("diffuseColor", fuzzySpheresDiffuse).attr("emissiveColor", fuzzySpheresEmissive).attr("transparency", fuzzySpheresTransparency);
     newDataTours.append("sphere");
@@ -324,7 +324,7 @@ function orbitDatapoints() {
 function starDatapoint() {
     datapoints_Star = scene.selectAll("datapoint_Star").data(rows_Star);
     datapoints_Star.exit().remove();
-    newDatapoints_Star = datapoints_Star.enter().append("transform").attr("id", function(d,i) { return "star_" + i;}).attr("class", "datapoint_Star").attr("scale", [star_Data[0].radius/starScaling, star_Data[0].radius/starScaling, star_Data[0].radius/starScaling]).append("shape");
+    newDatapoints_Star = datapoints_Star.enter().append("transform").attr("id", "star_0").attr("class", "datapoint_Star").attr("scale", [star_Data[0].radius/starScaling, star_Data[0].radius/starScaling, star_Data[0].radius/starScaling]).append("shape");
     newDatapoints_Star.append("appearance").append("material").attr("diffuseColor", starDiffuse).attr("emissiveColor", starEmissive);
     newDatapoints_Star.append("sphere");
     return newDatapoints_Star
@@ -335,8 +335,8 @@ function polylineDatapoints() {
     datapoints_Polyline = scene.selectAll("datapoint_Polyline").data("0 40 0, 0 0 0");
     datapoints_Polyline.exit().remove();
     newDatapoints_Polyline = datapoints_Polyline.enter().append("transform").attr("class", "datapoint_Polyline").attr("id", "datapoint_Polyline_Coord").append("shape")
-    newDatapoints_Polyline.append("appearance").append("material").attr("diffuseColor", polylineDiffuse).attr("emissiveColor", polylineEmissive)
-    newDatapoints_Polyline.append("IndexedLineSet").attr("coordIndex", "0 1 -1").append("Coordinate").attr("id", function(d,i) { return "line_Between_Two";}).attr("point", "0 8 0, 0 8 0")
+    newDatapoints_Polyline.append("appearance").append("material").attr("diffuseColor", polylineDiffuse).attr("emissiveColor", polylineEmissive).attr("transparency", polylineTransparency);
+    newDatapoints_Polyline.append("IndexedLineSet").attr("coordIndex", "0 1 -1").append("Coordinate").attr("id", "line_Between_Two").attr("point", "0 8 0, 0 8 0")
     return newDatapoints_Polyline;
 }
 
@@ -394,8 +394,9 @@ function plotTranslation(duration, planets, fuzzy, moons, orbits, star, labels, 
     tranpoints_Orbit.ease(ease).duration(duration).attr("translation", function(row) {
         return row[0] + ", " + row[1] + ", " + row[2]});
 
-    tranpoints_Star.ease(ease).duration(duration).attr("translation", function() {
-        return 0 + ", " + 8 + ", " + 0});	//not sure why this wasn't working with row[0] &ect, was just undefined.
+    tranpoints_Star.ease(ease).duration(duration).attr("translation", function(row) {
+        return row[0] + ", " + row[1] + ", " + row[2]});
+
     tranlabels.ease(ease).duration(duration).attr("translation", function(row) {
         return row[0] + ", " + row[1] + ", " + row[2]});
 
@@ -463,14 +464,14 @@ function initializeDataGrid_Moon() {
 function initializeDataGrid_Orbit() {
     let coords_Orbit = [];
     for (let ac = 0; ac < orbit_Data.length; ac++) {
-        let little_Orbit = [0,8,0,"Orbit"];	//24,000,000 / 3,000,000. this will be the center location
+        let little_Orbit = [centerLocation[0], centerLocation[1], centerLocation[2], "Orbit"];
         coords_Orbit.push(little_Orbit);
     }
     return coords_Orbit;
 }
 
 function initializeDataGrid_Star() {
-    return [star_Data[0].pos[0],star_Data[0].pos[1]/miniscale,star_Data[0].pos[2],"Star"];	//center location for the star
+    return [[centerLocation[0], centerLocation[1], centerLocation[2], "Star"]];
 }
 
 function scatterPlot3d(parent) {
@@ -549,12 +550,52 @@ function orbitals_Check() {
     show_Hide_Orbitals(hide_Orbitals);
 }
 
+function polyline_Check() {
+    let temp_Checkbox_Value = document.getElementById("polyline_Checkbox");
+    if (temp_Checkbox_Value.checked === true) {
+        hide_Polyline = true;
+    }
+    if (temp_Checkbox_Value.checked === false) {
+        hide_Polyline = false;
+    }
+    show_Hide_Polyline(hide_Polyline);
+}
+
+function star_Check() {
+    let temp_Checkbox_Value = document.getElementById("star_Checkbox");
+    if (temp_Checkbox_Value.checked === true) {
+        hide_Star = true;
+    }
+    if (temp_Checkbox_Value.checked === false) {
+        hide_Star = false;
+    }
+    show_Hide_Helios(hide_Star);
+}
+
 function show_Hide_Orbitals(boo) {
     if (boo === true) {
         newDatapoints_Orbit.selectAll("material").attr("transparency", 1);
     } else
     if (boo === false) {
         newDatapoints_Orbit.selectAll("material").attr("transparency", ringTransparency);
+    }
+}
+
+function show_Hide_Polyline(boo) {
+    if (boo === true) {
+        newDatapoints_Polyline.selectAll("material").attr("transparency", 1);
+    } else
+    if (boo === false) {
+        newDatapoints_Polyline.selectAll("material").attr("transparency", polylineTransparency);
+    }
+}
+
+function show_Hide_Helios(boo) {
+    if (boo === true) {
+        newDatapoints_Star.selectAll("material").attr("transparency", 1);
+    } else
+    if (boo === false) {
+        newDatapoints_Star.selectAll("material").attr("transparency", 0);
     }
 }
 
