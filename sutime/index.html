@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "~//IETF//DTD HTML//EN">
+<html>
+<link rel="stylesheet" type="text/css" href="../css/sutime.css">
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../js/sutime.js"></script>
+
+<p id="suTimeDisplay">Estimated Travel Time: </p>
+
+<form id="my-form">
+    Distance
+    <input type="text" name="distance" value="0" />
+    Speed
+    <input type="text" name="speed" value="max" />
+    <button type="submit">Go</button>
+</form>
+
+<button onclick="resetForm()">Reset</button>
+<p><button onclick="history.go(-1);">Back</button></p>
+<p><a href="?action=logout">Log Out</a></p>
+<body>
+</body>
+</html>

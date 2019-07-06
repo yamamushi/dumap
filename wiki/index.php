@@ -8,6 +8,10 @@
  *
  * Modified work Copyright 2019 - Yamamushi
  *
+ * Notes:
+ *
+ * Diff Lib Documentation - http://code.iamkate.com/php/diff-implementation/
+ *
  */
 
 define('PAGE_TITLE', 'Dual.sh');
