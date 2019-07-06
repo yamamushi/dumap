@@ -379,8 +379,8 @@ function plotTranslation(duration, planets, fuzzy, moons, orbits, star, labels, 
     let tranpoints_Moon = moons.transition();
     let tranpoints_Orbit = orbits.transition();
     let tranpoints_Star = star.transition();
-    let tranlabels = labels.transition();
     let tranpoints_Polyline = polyline.transition();
+    let tranlabels = labels.transition();
 
     tranpoints.ease(ease).duration(duration).attr("translation", function(row) {
         return row[0] + ", " + row[1] + ", " + row[2]});
@@ -626,6 +626,10 @@ function set_HTML_For_Info_Panel(i, body, home) {
         temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + planet_Data[i].name + '<span id="Exit_Button" onclick="hide_Info_Panel()">X</span></th></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Class: ' + planet_Data[i].class + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Orbit distance: ' + orbit_Data[i].radius + '</td></tr>';
+        if (previous_Planet >= 0) {
+        	let tempDistance =  getDistanceBetween(planet_Data[previous_Planet].name, planet_Data[i].name);
+        	temp_HTML_Text = temp_HTML_Text + '<tr><td>Distance to <span onclick="updateDistances(event, ' + previous_Planet + ');">' + planet_Data[previous_Planet].name + '</span>: ' + tempDistance + ' SU</td></tr>';
+        }
     } else
     if (body === "Moon") {
         let planetid = 0;
