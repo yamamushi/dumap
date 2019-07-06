@@ -85,21 +85,21 @@ if(session('access_token')) {
                 $title = idToTitle($_GET['edit']);
                 printHeader(!$title ? "Create new page" : "Edit page '$title'");
                 printEdit($title);
-                printFooter($title);
+                printFooter($user, $title);
                 exit;
             } // History
             elseif (array_key_exists('history', $_GET)) {
                 $title = idToTitle($_GET['history']);
                 printHeader("Modification History for '$title'");
                 printHistory($title);
-                printFooter($title);
+                printFooter($user, $title);
                 exit;
             } // Backlinks
             elseif (isset($_GET['backlinks']) && pageExists($_GET['backlinks'])) {
                 $title = idToTitle($_GET['backlinks']);
                 printHeader("Backlinks for '$title'");
                 printBacklinks($title);
-                printFooter($title);
+                printFooter($user, $title);
                 exit;
             } elseif (isset($_GET['recent'])) {
                 $count = $_GET['recent'];
@@ -108,14 +108,14 @@ if(session('access_token')) {
                 }
                 printHeader("$count Most Recent Changes");
                 printRecentChanges($count);
-                printFooter();
+                printFooter($user);
                 exit;
             } // Show page
             elseif ($page) {
                 $title = idToTitle($page);
                 printHeader($title);
                 printContent($title);
-                printFooter($title);
+                printFooter($user, $title);
                 exit;
             } else {
                 header('Location: ./?Special:NotFound');
@@ -226,8 +226,8 @@ PAGE_HEAD;
  * @param string $page
  * @return void
  */
-function printFooter($page = BASE_PAGE){
-    $sidebar = getSidebar($page);
+function printFooter($user, $page = BASE_PAGE){
+    $sidebar = getSidebar($user, $page);
     $footer = strftime(FOOTER_TEXT);
     echo <<<PAGE_FOOT
       </div>
@@ -250,7 +250,7 @@ PAGE_FOOT;
  * @param string $page
  * @return void
  */
-function getSidebar($page = BASE_PAGE){
+function getSidebar($user, $page = BASE_PAGE){
     $title = PAGE_TITLE;
     $id = titleToId($page);
     $mod = 'not yet.';
@@ -269,8 +269,15 @@ function getSidebar($page = BASE_PAGE){
 
     return <<<PAGE_SIDEBAR
 <p id="title"><a href="./">$title</a></p>
-$toc
+
+<ul class="sidebar-list">
+<h3>Navigation</h3>
+  <li><a href="http://dual.sh/wiki/">Wiki Home</a></li>
+  <li><a href="http://dual.sh/">Dual.sh Menu</a></li>
+  <li><a href="?action=logout">Log Out</a></li>
+</ul>
 <br>
+$toc
 <ul class="sidebar-list">
 <h3>Page Tools</h3>
   <li class="edit-link"><a href="./?edit=$id">Edit Page</a></li>
@@ -280,6 +287,9 @@ $toc
   <li class="create-new-link"><a href="./?edit=">Create New Page</a></li>
   <li class="recent-changes-link"><a href="./?recent=10">Recent Changes</a></li>
 </ul>
+<br>
+Logged in as <b>$user->username</b><br>
+
 
 PAGE_SIDEBAR;
 }
@@ -568,7 +578,8 @@ function saveDiffContent($title, $file, $content, $user) {
 function printHistory($page){
     $title = $content = $id = '';
     if($page){
-        $title = trim($page);
+        $title = $page;
+        $id = titleToId($title);
         $id = titleToId($page);
         if(pageExists($page)){
             $file = file_get_contents(getDiffFilePath($page));
@@ -583,7 +594,7 @@ function printHistory($page){
     echo <<<HISTORY
 $content
 <br>
-<a href="http://dual.sh/wiki/?$title">Return to article</a>
+<a href="http://dual.sh/wiki/?$id">Return to article</a>
 HISTORY;
 }
 
