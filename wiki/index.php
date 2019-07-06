@@ -273,11 +273,12 @@ function getSidebar($user, $page = BASE_PAGE){
 
     return <<<PAGE_SIDEBAR
 <p id="title"><a href="./">$title</a></p>
-
 <ul class="sidebar-list">
 <h3>Navigation</h3>
   <li><a href="http://dual.sh/wiki/">Wiki Home</a></li>
   <li><a href="http://dual.sh/">Dual.sh Menu</a></li>
+  <li class="create-new-link"><a href="./?edit=">Create New Page</a></li>
+  <li class="recent-changes-link"><a href="./?recent=10">Recent Changes</a></li>
   <li><a href="?action=logout">Log Out</a></li>
 </ul>
 <br>
@@ -287,13 +288,10 @@ $toc
   <li class="edit-link"><a href="./?edit=$id">Edit Page</a></li>
   $bl
   $historylink
-  <li class="modified">Last Updated: <em>$mod</em></li>
-  <li class="create-new-link"><a href="./?edit=">Create New Page</a></li>
-  <li class="recent-changes-link"><a href="./?recent=10">Recent Changes</a></li>
+  <li class="modified"><em>Page Last Updated:<br> $mod</em></li>
 </ul>
 <br>
-Logged in as <b>$user->username</b><br>
-
+<div class="loggedin"><em>Logged in as <b>$user->username</b></em></div>
 
 PAGE_SIDEBAR;
 }
@@ -309,6 +307,8 @@ function printContent($page = BASE_PAGE){
     global $texy;
     if(pageExists($page)){
         echo $texy->process(getContent($page));
+        echo '<br>';
+        echo '<button onclick="history.go(-1);">Go Back</button>';
     } elseif(pageExists('Special:NotFound')){
         echo $texy->process(str_replace('%PAGE%', $page, getContent('Special:NotFound')));
     } else{
@@ -345,7 +345,7 @@ function printEdit($page){
   </div>
   <p id="edit-block-submit" class="edit-block">
     <button type="submit">Save changes</button>
-    <a href="./?$id">Cancel</a>
+    <button onclick="window.location='http://dual.sh/wiki/?$id';">Cancel</button> <button onclick="history.go(-1);">Go Back</button>
   </p>
   <p id="edit-block-help" class="edit-block">
     You can use <a href="http://texy.info/en/syntax">Texy! syntax</a> and some HTML too.<br>

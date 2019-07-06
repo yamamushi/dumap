@@ -41,20 +41,26 @@ if(session('access_token')) {
 
     $found = false;
     if($isbanned == false){
-        foreach($data->roles as $field) {
-            if($field == ALPHA_AUTHORIZED_ROLE_ID) {
+        foreach ($data->roles as $field) {
+            if ($field == ALPHA_AUTHORIZED_ROLE_ID) {
                 $found = true;
-                echo '<h3>Welcome '.$user->username.'!</h3>';
-                echo '<br>';
-                echo '<a href="./craft/index.php">Crafting Calculator</a>';
-                echo '<br>';
-                echo '<a href="./map/map.php">Solar System Map</a>';
-                echo '<br>';
-                echo '<a href="./sutime/index.php">Travel Time Calculator</a>';
-                echo '<br>';
-                echo '<a href="./wiki/index.php">Wiki</a>';
-                echo '<br>';
-                echo '<p><a href="?action=logout">Log Out</a></p>';
+
+                echo '<html>';
+                echo '<head>';
+                echo '<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">';
+                echo '<link rel="stylesheet" type="text/css" href="./css/mainmenu.css">';
+                echo '</head>';
+                echo '<body>';
+                echo '<div class="navbar">';
+                echo '<a>Welcome '.$user->username.'!</a>';
+                echo '<a id="a1" href="./wiki/index.php">Wiki</aa1>';
+                echo '<a id="a1" href="./map/map.php">Solar System Map</a1>';
+                echo '<a id="a1" href="./craft/index.php">Crafting Calculator</a1>';
+                echo '<a id="a1" href="./sutime/index.php">Travel Time Calculator</a1>';
+                echo '<a id="a2" href="./index.php?action=logout">Log Out</a2>';
+                echo '</div>';
+                echo '</body>';
+                echo '</html>';
                 //echo 'ID: '.$user->id.'<br>';
             }
         }
