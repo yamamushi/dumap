@@ -1,7 +1,7 @@
 <?php
-include 'config.php';
-include 'library/vars.php';
-include 'library/global.php';
+include '../config.php';
+include '../library/vars.php';
+include '../library/global.php';
 
 //session_start();  // This is handled in global.php now
 
@@ -42,10 +42,10 @@ if(session('access_token')) {
 		3D Dual Universe Map
 	</title>
 
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
 	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
 	<script type="text/javascript" src="http://x3dom.org/x3dom/dist/x3dom-full.js"></script>
-	<script type="text/javascript" src="js/map.js"></script>
+	<script type="text/javascript" src="../js/map.js"></script>
 </head>
 
 <body>
