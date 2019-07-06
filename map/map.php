@@ -28,6 +28,7 @@ if(session('access_token')) {
                 echo <<<EOL
 
 
+
 <!--Original credit goes to Kirito for v1.0 of the map. It has since been updated to 2.0 by Yamamushi and Drystion-->
 <!DOCtype html>
 
@@ -70,6 +71,12 @@ if(session('access_token')) {
 	Orbit Visibility
 	<input type="range" min="1" max="100" value="60" id="orbitals_Visibility" OnClick="orbitals_Visibility()" />
 	<br>
+	Hide Line between planets
+	<input type="checkbox" id="polyline_Checkbox" OnClick="polyline_Check()" />
+	<br>
+	Hide Helios
+	<input type="checkbox" id="star_Checkbox" OnClick="star_Check()" />
+	<br>
 </div>
 <div id="info_Panel">
 </div>
@@ -79,6 +86,7 @@ if(session('access_token')) {
 </script>
 </body>
 </html>
+
 
 
 EOL;
