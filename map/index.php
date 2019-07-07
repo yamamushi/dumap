@@ -29,6 +29,7 @@ if(session('access_token')) {
 
 
 
+
 <!--Original credit goes to Kirito for v1.0 of the map. It has since been updated to 2.0 by Yamamushi and Drystion-->
 <!DOCtype html>
 
@@ -76,6 +77,9 @@ if(session('access_token')) {
 	<br>
 	Hide Helios
 	<input type="checkbox" id="star_Checkbox" OnClick="star_Check()" />
+	<br>
+	Hide Text
+	<input type="checkbox" id="text_Checkbox" OnClick="text_Check()" />
 	<br>
 </div>
 <div id="info_Panel">
