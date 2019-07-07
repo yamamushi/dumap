@@ -8,6 +8,7 @@ let scene;
 let hide_Orbitals = false;
 let hide_Polyline = false;
 let hide_Star = false;
+let hide_Text = false;
 
 // Scaling
 let scales = [];
@@ -573,6 +574,17 @@ function star_Check() {
     show_Hide_Helios(hide_Star);
 }
 
+function text_Check() {
+    let temp_Checkbox_Value = document.getElementById("text_Checkbox");
+    if (temp_Checkbox_Value.checked === true) {
+        hide_Text = true;
+    }
+    if (temp_Checkbox_Value.checked === false) {
+        hide_Text = false;
+    }
+    show_Hide_Text(hide_Text);
+}
+
 function show_Hide_Orbitals(boo) {
     if (boo === true) {
         newDatapoints_Orbit.selectAll("material").attr("transparency", 1);
@@ -597,6 +609,15 @@ function show_Hide_Helios(boo) {
     } else
     if (boo === false) {
         newDatapoints_Star.selectAll("material").attr("transparency", 0);
+    }
+}
+
+function show_Hide_Text(boo) {
+    if (boo === true) {
+        datalabels.selectAll("billboard").attr("render", false);
+    } else
+    if (boo === false) {
+        datalabels.selectAll("billboard").attr("render", true);
     }
 }
 
