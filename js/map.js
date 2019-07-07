@@ -43,6 +43,10 @@ let ringTransparency = 0.4;
 const starDiffuse = "0 0 0";
 const starEmissive = "1 1 0";
 
+const moonRingDiffuse = "0 0 0";
+let moonRingEmmissive = "0.05 0.05 0.05";
+let moonRingTransparency = 0.4;
+
 const polylineDiffuse = "0 0 0";
 const polylineEmissive = "1 0 0";
 let polylineTransparency = 0.2;
@@ -78,6 +82,7 @@ let datalabels;
 let rows_Planet;
 let rows_Moon;
 let rows_Orbit;
+let rows_MoonOrbit;
 let rows_Star;
 var rows_Polyline;
 
@@ -322,6 +327,48 @@ function orbitDatapoints() {
     return newDatapoints_Orbit
 }
 
+// Generate the orbit datapoints for moons
+function moonOrbitDatapoints() {
+    datapoints_MoonOrbit = scene.selectAll("datapoint_MoonOrbit").data(rows_MoonOrbit);
+    datapoints_MoonOrbit.exit().remove();
+    newDatapoints_MoonOrbit = datapoints_MoonOrbit.enter().append("transform").attr("id", function(d,i) { return "moonOrbit_" + i;}).attr("scale", function(d,i) {
+    	let temp_Planet_ID;
+    	for (let ar = 0; ar < planet_Data.length; ar++) {
+    		if (planet_Data[ar].name === moon_Data[i].home) {
+    			temp_Planet_ID = ar;
+    			break;
+    		}
+    	}
+        let oDistanceX = (moon_Data[i].pos[0] - planet_Data[temp_Planet_ID].pos[0]) / miniscale;
+        let oDistanceY = (moon_Data[i].pos[1] - planet_Data[temp_Planet_ID].pos[1]) / miniscale;
+        let oDistanceZ = (moon_Data[i].pos[2] - planet_Data[temp_Planet_ID].pos[2]) / miniscale;
+        let temp_Distance_To_Planet = (Math.sqrt((oDistanceX)*(oDistanceX)+(oDistanceY)*(oDistanceY)+(oDistanceZ)*(oDistanceZ)));
+        return [temp_Distance_To_Planet, temp_Distance_To_Planet, temp_Distance_To_Planet];
+    }).attr("rotation", function(d,i) {
+    		return [0,0,1,Math.asin(((moon_Data[i].pos[0] / miniscale) / (Math.sqrt((moon_Data[i].pos[0] / miniscale) * (moon_Data[i].pos[0] / miniscale) + (moon_Data[i].pos[1] / miniscale) * (moon_Data[i].pos[1] / miniscale)))) * 180 / Math.PI)];
+    }).attr("class", "datapoint_MoonOrbit").append("transform").attr("rotation", function(d,i) {
+    	let temp_Planet_ID;
+    	for (let ar = 0; ar < planet_Data.length; ar++) {
+    		if (planet_Data[ar].name === moon_Data[i].home) {
+    			temp_Planet_ID = ar;
+    			break;
+    		}
+    	}
+        let oDistanceX = (moon_Data[i].pos[0] - planet_Data[temp_Planet_ID].pos[0]) / miniscale;
+        let oDistanceY = (moon_Data[i].pos[1] - planet_Data[temp_Planet_ID].pos[1]) / miniscale;
+        let oDistanceZ = (moon_Data[i].pos[2] - planet_Data[temp_Planet_ID].pos[2]) / miniscale;
+        let temp_Distance_To_Planet = (Math.sqrt((oDistanceX)*(oDistanceX)+(oDistanceY)*(oDistanceY)+(oDistanceZ)*(oDistanceZ)));
+    	let temp_orbitMath = Math.asin((oDistanceZ / (temp_Distance_To_Planet)));
+    	if (moon_Data[i].pos[0] >= 0) {
+    		//temp_orbitMath = temp_orbitMath * -1;
+    	} 
+    	return [0,1,0,temp_orbitMath];
+    }).append("shape");
+    newDatapoints_MoonOrbit.append("appearance").append("material").attr("id", function(d,i) { return "moonOrbit_Mats_" + i;}).attr("diffuseColor", moonRingDiffuse).attr("emissiveColor", moonRingEmmissive).attr("transparency", 1);
+    newDatapoints_MoonOrbit.append("circle2d");
+    return newDatapoints_MoonOrbit;
+}
+
 // Generate our star datapoint
 function starDatapoint() {
     datapoints_Star = scene.selectAll("datapoint_Star").data(rows_Star);
@@ -375,13 +422,14 @@ function generateLabels(){
 }
 
 // Plot Translations
-function plotTranslation(duration, planets, fuzzy, moons, orbits, star, labels, polyline) {
+function plotTranslation(duration, planets, fuzzy, moons, orbits, star, labels, polyline, moonOrbits) {
     let tranpoints = planets.transition();
     let trantours =	fuzzy.transition();
     let tranpoints_Moon = moons.transition();
     let tranpoints_Orbit = orbits.transition();
     let tranpoints_Star = star.transition();
     let tranpoints_Polyline = polyline.transition();
+    let tranpoints_MoonOrbits = moonOrbits.transition();
     let tranlabels = labels.transition();
 
     tranpoints.ease(ease).duration(duration).attr("translation", function(row) {
@@ -403,6 +451,9 @@ function plotTranslation(duration, planets, fuzzy, moons, orbits, star, labels, 
         return row[0] + ", " + row[1] + ", " + row[2]});
 
     tranpoints_Polyline.ease(ease).duration(duration).attr("translation", function(row) {
+        return row[0] + ", " + row[1] + ", " + row[2]});
+
+    tranpoints_MoonOrbits.ease(ease).duration(duration).attr("translation", function(row) {
         return row[0] + ", " + row[1] + ", " + row[2]});
 }
 
@@ -432,11 +483,14 @@ function plotData(duration) {
     //polyline
     newDatapoints_Polyline = polylineDatapoints();
 
+    //moon orbits
+    newDatapoints_MoonOrbit = moonOrbitDatapoints();
+
     //labels and other stuff like that
     datalabels = generateLabels();
 
     // Translation
-    plotTranslation(duration, datapoints, datatours, datapoints_Moon, datapoints_Orbit, datapoints_Star, datalabels, datapoints_Polyline);
+    plotTranslation(duration, datapoints, datatours, datapoints_Moon, datapoints_Orbit, datapoints_Star, datalabels, datapoints_Polyline, datapoints_MoonOrbit);
 }
 
 function initializeDataGrid_Planet() {
@@ -472,6 +526,22 @@ function initializeDataGrid_Orbit() {
     return coords_Orbit;
 }
 
+function initializeDataGrid_MoonOrbit() {
+    let coords_MoonOrbit = [];
+    for (let ac = 0; ac < moon_Data.length; ac++) {
+    	//get coords of home planet
+    	for (let aq = 0; aq < planet_Data.length; aq++) {
+    		if (planet_Data[aq].name === moon_Data[ac].home) {
+    			//match
+                let little_Orbit = [(planet_Data[aq].pos[0] / miniscale), (planet_Data[aq].pos[1] / miniscale), (planet_Data[aq].pos[2] / miniscale), "MoonOrbit"];
+                coords_MoonOrbit.push(little_Orbit);
+                break;
+    		}
+    	}
+    }
+    return coords_MoonOrbit;
+}
+
 function initializeDataGrid_Star() {
     return [[centerLocation[0], centerLocation[1], centerLocation[2], "Star"]];
 }
@@ -505,6 +575,7 @@ function scatterPlot3d(parent) {
     rows_Planet = initializeDataGrid_Planet(); //planet data
     rows_Moon = initializeDataGrid_Moon(); //moon data
     rows_Orbit = initializeDataGrid_Orbit(); //orbit data
+    rows_MoonOrbit = initializeDataGrid_MoonOrbit(); //moon orbit data
     rows_Star = initializeDataGrid_Star(); //star data
 
     initializePlot();
