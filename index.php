@@ -56,7 +56,7 @@ if(session('access_token')) {
     <h3>Welcome to Dual.sh</h3>
     <div class="tab">
         <button class="tablinks" onmouseover="hoverMenuItem(event, 'Wiki')" onclick="window.location='http://dual.sh/wiki/index.php'">Wiki</button>
-        <button class="tablinks" onmouseover="hoverMenuItem(event, 'Map')" onclick="window.location='http://dual.sh/map/map.php'">Map</button>
+        <button class="tablinks" onmouseover="hoverMenuItem(event, 'Map')" onclick="window.location='http://dual.sh/map/index.php'">Map</button>
         <button class="tablinks" onmouseover="hoverMenuItem(event, 'Crafting')" onclick="window.location='http://dual.sh/craft/index.php'">Crafting Calculator</button>
         <button class="tablinks" onmouseover="hoverMenuItem(event, 'Travel')" onclick="window.location='http://dual.sh/sutime/index.php'">Travel Time Calculator</button>
         <button class="tablinks" onmouseover="hoverMenuItem(event, 'Logout')" onclick="window.location='http://dual.sh/index.php?action=logout'">Logout</button>
