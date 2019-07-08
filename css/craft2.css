@@ -1,0 +1,307 @@
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.nav a{
+color:#fff;
+float:right;
+}
+
+button{
+	color:#fff;
+	background-color:#004466;
+	border:1px #fff solid;
+	border-radius:3px;
+	box-shadow:0px 0px 3px #fff;
+	cursor:pointer;
+}
+button:hover{
+	background-color:#006699;
+}
+button:active{
+	background-color:#0088cc;
+}
+
+.accordion {
+  background-color:#002233;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  border:1px #fff solid;
+  border-radius:5px;
+  
+}
+.accordion:hover {
+  background-color:#004466;
+}
+.accordion:active{
+background-color:#006699;
+}
+
+.accordion-title{position:relative;left:10px;}
+
+.accordion-panel {
+  padding: 0 0 0 18px;
+  display: none;
+  background-color: #001926;
+  overflow: hidden;
+}
+
+.accordion-item{
+	background-color:#004466;
+	color:#fff;
+	cursor:pointer;
+	border-radius:10px;
+	margin:4px 0;
+	padding:2px 18px;
+}
+.accordion-item:hover{
+	background-color:#006699;
+}
+.accordion-item:active{
+	background-color:#0088cc;
+}
+.accordion-item2{
+	display:inline-block;
+	background-color:#004466;
+	color:#fff;
+	border-radius:5px;
+	padding:2px 5px;
+	margin:5px 0;
+	width:65%;
+	
+}
+.accordion-input2{
+width:25%;
+float:right;
+}
+
+.main-container {
+  position:absolute;
+  left:0;
+  top:5%;
+  width:100%;
+  height:95%;
+}
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  padding:2.5px;
+}
+.section-divider {
+	display: flex;
+	flex-direction: column;
+	justify-content:start;
+	border:5px white solid;
+	border-radius:20px;
+	margin:2.5px;
+	padding:5px;
+	box-shadow:0px 0px 10px #888;
+	background-color:#001926;
+	color:#fff;
+}
+.flex-box1{
+	flex: 1 1 23%;
+}
+.flex-box2{
+	flex: 1.1 1.1 31%;
+}
+.grid-container1{
+	display:grid;
+	grid-gap: 10px 5px;
+	grid-template-columns: 25px auto 100px;
+	align-content: start;
+	width:100%;
+	overflow:auto;
+}
+.grid-container2{
+	display:grid;
+	grid-gap: 10px 5px;
+	grid-template-columns: auto 100px 25px;
+  align-content: start;
+  width:100%;
+	overflow:auto;
+}
+.grid-container3{
+	display:grid;
+	grid-gap: 10px 5px;
+	grid-template-columns: auto 100px 100px 25px;
+	align-content: start;
+	width:100%;
+	overflow:auto;
+}
+.list-item{
+	border:1px;
+	border-color:#fff;
+	border-style:none none solid none;
+}
+.list-header{
+	font-size:1.2em;
+	font-style: italic;
+	font-weight:bold;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	background-color:#001926;
+}
+.section-header{
+	display:block;
+	font-size:2em;
+	border-width:2px;
+	width:100%;
+	display:flex;
+	justify-content:center;
+	margin: 0 0 10px 0;
+}
+.inv-item, .inv-quantity, .cft-item,.cft-quantity{
+cursor:pointer;
+width:100%;
+}
+#invAddBut,#cftAddBut{
+	padding: 5px 0;
+	margin:10px 0 0 0;
+}
+.inv-item,.cft-item{
+	padding:0 0 0 5px;
+}
+.inv-quantity,.cft-quantity,.ore-quantity,.queue-quantity,.queue-time{
+text-align:right;
+}
+* { 
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box; 
+	font-family:Aldrich, sans-serif;
+}
+body{
+	background-color:#001926;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #001926;
+  margin: auto;
+  padding: 0;
+  border: 5px solid #fff;
+  border-radius:20px;
+  width: 25%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+/* The Close Button */
+.modal-close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor:pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px 2px 16px;
+  background-color:#00334d;
+  color: white;
+  border-radius:20px;
+}
+
+.silicon,.carbon,.aluminium{
+background-color:#70eeff;
+color:black;
+}
+.sodium{
+background-color:#daffff;
+color:black;
+}
+.iron{
+background-color:#23f45b;
+color:black;
+}
+.tungsten,.gold{
+background-color:#ff6a1b;
+color:black;
+}
+.lead{
+background-color:#ffb51a;
+color:black;
+}
+.nickel,.copper{
+background-color:#8fba1b;
+color:black;
+}
+.chromium{
+background-color:#20e775;
+color:black;
+}
+.platinum{
+background-color:#9c1a41;
+}
+.scandium{
+background-color:#4bd5ff;
+color:black;
+}
+.zirconium{
+background-color:#2cc9ff;
+color:black;
+}
+.manganese{
+background-color:#20e778;
+color:black;
+}
+.molybdenum{
+background-color:#f4e026;
+color:black;
+}
+.vanadium{
+background-color:#1cc2ff;
+color:black;
+}
+.niobium{
+background-color:#61a31a;
+color:black;
+}
+.rhenium{
+background-color:#d02233;
+}
+.titanium{
+background-color:#1bb4ff;
+color:black;
+}
+
+.modal-body {
+padding: 2px 16px 5px 16px;
+}
