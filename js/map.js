@@ -778,6 +778,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
         temp_HTML_Text = temp_HTML_Text + '<tr><td>System/Zone: ' + planet_Data[i].system_zone + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmosphere: ' + planet_Data[i].atmosphere + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmos Altitude: ' + planet_Data[i].atmosphere_height + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Actual Ground Alt: ' + planet_Data[i].actual_ground_altitude + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Gravity: ' + planet_Data[i].gravity + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Surface Area: ' + planet_Data[i].surface_area + '</td></tr>';
         //temp_HTML_Text = temp_HTML_Text + '<tr><td>Satellites: ' + planet_Data[i].satellites + '</td></tr>';
