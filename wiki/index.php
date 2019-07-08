@@ -415,7 +415,11 @@ function printRecentChanges($count){
     global $texy;
     $list = array();
     foreach(new FilesystemIterator(dirname(__FILE__) . '/wikdata', FilesystemIterator::SKIP_DOTS) as $file){
-        $list[filemtime($file)] = fileToTitle($file);
+        $filetypes = array("wik");
+        $filetype = pathinfo($file, PATHINFO_EXTENSION);
+        if (in_array(strtolower($filetype), $filetypes)) {
+            $list[filemtime($file)] = fileToTitle($file);
+        }
     }
     krsort($list);
 
