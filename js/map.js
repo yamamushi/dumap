@@ -773,8 +773,22 @@ function set_HTML_For_Info_Panel(i, body, home) {
     // noinspection JSUnresolvedVariable
     if (body === "Planet") {
         temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + planet_Data[i].name + '<span id="Exit_Button" onclick="hide_Info_Panel()">X</span></th></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>' + planet_Data[i].description + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Class: ' + planet_Data[i].class + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Orbit distance: ' + orbit_Data[i].radius + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>System/Zone: ' + planet_Data[i].system_zone + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmosphere: ' + planet_Data[i].atmosphere + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmos Altitude: ' + planet_Data[i].atmosphere_height + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Gravity: ' + planet_Data[i].gravity + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Surface Area: ' + planet_Data[i].surface_area + '</td></tr>';
+        //temp_HTML_Text = temp_HTML_Text + '<tr><td>Satellites: ' + planet_Data[i].satellites + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Biosphere: ' + planet_Data[i].biosphere + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories: ' + planet_Data[i].territories + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories Claimed: ' + planet_Data[i].territories_claimed + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Terra Nullius: ' + planet_Data[i].terra_nullius + '</td></tr>';
+
+
+
+        //temp_HTML_Text = temp_HTML_Text + '<tr><td>Orbit distance: ' + orbit_Data[i].radius + '</td></tr>';
         if (previous_Planet >= 0) {
         	let tempDistance =  getDistanceBetween(planet_Data[previous_Planet].name, planet_Data[i].name);
         	temp_HTML_Text = temp_HTML_Text + '<tr><td>Distance to <span class="link" onclick="updateDistances(event, ' + previous_Planet + ');">' + planet_Data[previous_Planet].name + '</span>: ' + tempDistance + ' SU</td></tr>';
