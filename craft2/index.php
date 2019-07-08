@@ -1,3 +1,32 @@
+<?php
+include '../config.php';
+include '../library/vars.php';
+include '../library/global.php';
+
+//session_start();  // This is handled in global.php now
+
+if(session('access_token')) {
+    $user = apiRequest($apiURLBase);
+    $guilds = apiRequest($apiURLGuilds);
+    $guildmember = apiBotRequest($apiURLGuildMember, $user->id);
+    $data = json_decode($guildmember);
+    $blacklistfile = file_get_contents('./data/blacklist.json');
+    $blacklist = json_decode($blacklistfile, false);
+
+    $isbanned = false;
+    foreach($blacklist as $banned){
+        if($banned->id == $user->id) {
+            $isbanned = true;
+        }
+    }
+
+    $found = FALSE;
+    if($isbanned == false) {
+        foreach ($data->roles as $field) {
+            if ($field == ALPHA_AUTHORIZED_ROLE_ID) {
+                $found = TRUE;
+                echo <<<EOL
+
 <!DOCTYPE html>
 <head>
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
@@ -87,6 +116,25 @@
 <script src="../js/Crafting_Calc r016.js"></script>
 <script src="../js/Crafting_Calc_data.js"></script>
 <script src="../js/Crafting_Calc_interface.js"></script>
-
+	
 </body>
 </html>
+
+
+EOL;
+            }
+        }
+    }
+
+    if ($found == FALSE) {
+        echo '<h3>Unauthorized</h3>';
+        echo '<p><a href="?action=logout">Log Out</a></p>';
+
+    }
+} else {
+    echo '<h3>You must login before you can view this page, taking you back to the homepage now.</h3>';
+    echo '<p>If this page does not automatically redirect you, <a href="http://dual.sh/index.php">click here.</a></p>';
+    header('Refresh: 5; URL=http://dual.sh/index.php');
+}
+
+?>
