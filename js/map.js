@@ -9,6 +9,9 @@ let hide_Orbitals = false;
 let hide_Polyline = false;
 let hide_Star = false;
 let hide_Text = false;
+let hide_Text_Time = false;
+let hide_Text_Distance = false;
+let hide_Text_Names = false;
 
 // Scaling
 let scales = [];
@@ -154,7 +157,7 @@ function updateDistances(event,i) {
         set_Size_Of_Fuzz();
     }
 
-    //let datalabels = scene.selectAll(".dynlabel").remove();
+    let datalabels = scene.selectAll(".dynlabel").remove();
 
     let shapelabel = scene.selectAll(".dynshape");
 
@@ -170,14 +173,27 @@ function updateDistances(event,i) {
         let distance = getDistanceBetween(planet_Data[source].name, planet_Data[destination].name);
         let seconds = getTimeFromDistance(distance);
         let estTime = new Date(seconds * 1000).toISOString().substr(11, 8);
-        let labeldist;
+        let labeldist = "";
 
-        if (distance > 0) {
-            labeldist = '"' + distance + 'su - Est: ' + estTime + '"';
-        } else {
-            labeldist = ' "You are HERE" ';
+        if (hide_Text_Names === false) {
+        	labeldist = labeldist + '"' + planet_Data[i].name + '"';
         }
-        return '"' + planet_Data[i].name + '"' + ' "" ' + ' "" ' + labeldist;
+        if (hide_Text_Distance === false || hide_Text_Time === false || hide_Text_Names === false) {
+        	labeldist = labeldist + '""' + '""';
+    	}
+        if (distance > 0) {
+        	if (hide_Text_Distance === false) {
+        		labeldist = labeldist + '"' + distance + ' SU"';
+        	}
+        	if (hide_Text_Time === false) {
+        		labeldist = labeldist + '"Est: ' + estTime + '"';
+        	}
+        } else {
+        	if (hide_Text_Distance === false || hide_Text_Time === false) {
+            	labeldist = labeldist + '" You are HERE "';
+            }
+        }
+        return labeldist;
     }).append("fontstyle").attr("family", "arial").attr("quality", "3").attr("size", "1.5");
 
     shapelabel.append("appearance").append("material").attr("diffuseColor", function(d, i) {
@@ -654,6 +670,46 @@ function text_Check() {
         hide_Text = false;
     }
     show_Hide_Text(hide_Text);
+    hide_Text_Names = true;
+    hide_Text_Distance = true;
+    hide_Text_Time = true;
+    document.getElementById("text_Names_Checkbox").checked = true;
+    document.getElementById("text_Distance_Checkbox").checked = true;
+    document.getElementById("text_Time_Checkbox").checked = true;
+    updateDistances("options adjust", current_Planet);
+}
+
+function text_Names_Check() {
+    let temp_Checkbox_Value = document.getElementById("text_Names_Checkbox");
+    if (temp_Checkbox_Value.checked === true) {
+        hide_Text_Names = true;
+    }
+    if (temp_Checkbox_Value.checked === false) {
+        hide_Text_Names = false;
+    }
+    updateDistances("options adjust", current_Planet);
+}
+
+function text_Distance_Check() {
+    let temp_Checkbox_Value = document.getElementById("text_Distance_Checkbox");
+    if (temp_Checkbox_Value.checked === true) {
+        hide_Text_Distance = true;
+    }
+    if (temp_Checkbox_Value.checked === false) {
+        hide_Text_Distance = false;
+    }
+    updateDistances("options adjust", current_Planet);
+}
+
+function text_Time_Check() {
+    let temp_Checkbox_Value = document.getElementById("text_Time_Checkbox");
+    if (temp_Checkbox_Value.checked === true) {
+        hide_Text_Time = true;
+    }
+    if (temp_Checkbox_Value.checked === false) {
+        hide_Text_Time = false;
+    }
+    updateDistances("options adjust", current_Planet);
 }
 
 function show_Hide_Orbitals(boo) {
