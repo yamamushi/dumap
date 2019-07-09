@@ -876,7 +876,7 @@ function Create_Ore_HTML_For_Info_Panel(i, body, home) {
     	if (body === "Planet") {
     		oreobj = planet_Data[i].ore
     	}
-    	temp_Ore_Text = '<tr><td align="center">Ores:<span id="Exit_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+    	temp_Ore_Text = '<tr><td align="center">Ores:<span id="Exit_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
     	if (eval(oreobj).hasOwnProperty("Sodium")) {
     		temp_Ore_Text = temp_Ore_Text + '<tr><td>t1:Sodium ' + oreobj.Sodium + '</td></tr>';
     	}

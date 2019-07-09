@@ -17,34 +17,14 @@
       143079
     ],
     "home": "Madis",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [],
-    "t3ore": [
-      "Copper"
-    ],
-    "t4ore": [
-      "Manganese"
-    ],
-    "t5ore": [],
-    "t1oreloc": [
-      "68 to 108",
-      "67 to 135",
-      "39 to 128",
-      "64 to 105"
-    ],
-    "t2oreloc": [],
-    "t3oreloc": [
-      "477 to 514"
-    ],
-    "t4oreloc": [
-      "632 to 632"
-    ],
-    "t5oreloc": []
+    "ore": {
+      "Sodium": "68 - 108",
+      "Carbon": "67 - 135",
+      "Silicon": "39 - 128",
+      "Iron": "64 - 105",
+      "Copper": "477 - 514",
+      "Manganese": "632 - 632"
+    }
   },
   {
     "id": 11,
@@ -64,38 +44,15 @@
       -214962
     ],
     "home": "Madis",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [],
-    "t3ore": [
-      "Scandium"
-    ],
-    "t4ore": [
-      "Gold"
-    ],
-    "t5ore": [
-      "Vanadium"
-    ],
-    "t1oreloc": [
-      "53 to 122",
-      "51 to 127",
-      "44 to 115",
-      "68 to 118"
-    ],
-    "t2oreloc": [],
-    "t3oreloc": [
-      "463 to 494"
-    ],
-    "t4oreloc": [
-      "633 to 664"
-    ],
-    "t5oreloc": [
-      "859 to 859"
-    ]
+    "ore": {
+      "Sodium": "53 - 122",
+      "Carbon": "51 - 127",
+      "Silicon": "44 - 115",
+      "Iron": "68 - 118",
+      "Scandium": "463 - 494",
+      "Gold": "633 - 664",
+      "Vanadium": "859 - 859"
+    }
   },
   {
     "id": 12,
@@ -115,34 +72,14 @@
       -309986
     ],
     "home": "Madis",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [],
-    "t3ore": [],
-    "t4ore": [
-      "Zirconium"
-    ],
-    "t5ore": [
-      "Titanium"
-    ],
-    "t1oreloc": [
-      "52 to 119",
-      "52 to 114",
-      "44 to 106",
-      "48 to 97"
-    ],
-    "t2oreloc": [],
-    "t3oreloc": [],
-    "t4oreloc": [
-      "603 to 670"
-    ],
-    "t5oreloc": [
-      "858 to 858"
-    ]
+    "ore": {
+      "Sodium": "52 - 119",
+      "Carbon": "52 - 114",
+      "Silicon": "44 - 106",
+      "Iron": "48 - 97",
+      "Zirconium": "603 - 670",
+      "Titanium": "858 - 858"
+    }
   },
   {
     "id": 20,
@@ -162,30 +99,13 @@
       -167448
     ],
     "home": "Alioth",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [],
-    "t3ore": [],
-    "t4ore": [],
-    "t5ore": [
-      "Niobium"
-    ],
-    "t1oreloc": [
-      "76 to 126",
-      "71 to 129",
-      "64 to 122",
-      "58 to 106"
-    ],
-    "t2oreloc": [],
-    "t3oreloc": [],
-    "t4oreloc": [],
-    "t5oreloc": [
-      "840 to 840"
-    ]
+    "ore": {
+      "Sodium": "76 - 126",
+      "Carbon": "71 - 129",
+      "Silicon": "64 - 122",
+      "Iron": "58 - 106",
+      "Niobium": "840 - 840"
+    }
   },
   {
     "id": 21,
@@ -205,30 +125,13 @@
       -225602
     ],
     "home": "Alioth",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [],
-    "t3ore": [],
-    "t4ore": [],
-    "t5ore": [
-      "Rhenium"
-    ],
-    "t1oreloc": [
-      "75 to 129",
-      "59 to 130",
-      "41 to 131",
-      "28 to 119"
-    ],
-    "t2oreloc": [],
-    "t3oreloc": [],
-    "t4oreloc": [],
-    "t5oreloc": [
-      "836 to 836"
-    ]
+    "ore": {
+      "Sodium": "75 - 129",
+      "Carbon": "59 - 130",
+      "Silicon": "41 - 131",
+      "Iron": "28 - 119",
+      "Rhenium": "836 - 836"
+    }
   },
   {
     "id": 30,
@@ -248,34 +151,14 @@
       433861
     ],
     "home": "Thades",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Nickel"
-    ],
-    "t3ore": [
-      "Chromium"
-    ],
-    "t4ore": [],
-    "t5ore": [],
-    "t1oreloc": [
-      "62 to 117",
-      "42 to 117",
-      "58 to 127",
-      "44 to 114"
-    ],
-    "t2oreloc": [
-      "191 to 258"
-    ],
-    "t3oreloc": [
-      "458 to 520"
-    ],
-    "t4oreloc": [],
-    "t5oreloc": []
+    "ore": {
+      "Sodium": "62 - 117",
+      "Carbon": "42 - 117",
+      "Silicon": "58 - 127",
+      "Iron": "44 - 114",
+      "Nickel": "191 - 258",
+      "Chromium": "458 - 520"
+    }
   },
   {
     "id": 31,
@@ -295,34 +178,14 @@
       19553
     ],
     "home": "Thades",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [],
-    "t3ore": [
-      "Copper"
-    ],
-    "t4ore": [
-      "Molybdenum"
-    ],
-    "t5ore": [],
-    "t1oreloc": [
-      "46 to 104",
-      "44 to 144",
-      "46 to 145",
-      "74 to 133"
-    ],
-    "t2oreloc": [],
-    "t3oreloc": [
-      "461 to 527"
-    ],
-    "t4oreloc": [
-      "605 to 680"
-    ],
-    "t5oreloc": []
+    "ore": {
+      "Sodium": "46 - 104",
+      "Carbon": "44 - 144",
+      "Silicon": "46 - 145",
+      "Iron": "74 - 133",
+      "Copper": "461 - 527",
+      "Molybdenum": "605 - 680"
+    }
   },
   {
     "id": 40,
@@ -342,38 +205,15 @@
       740177
     ],
     "home": "Talemai",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Aluminium"
-    ],
-    "t3ore": [],
-    "t4ore": [
-      "Zirconium"
-    ],
-    "t5ore": [
-      "Titanium"
-    ],
-    "t1oreloc": [
-      "56 to 131",
-      "63 to 125",
-      "50 to 114",
-      "72 to 122"
-    ],
-    "t2oreloc": [
-      "211 to 350"
-    ],
-    "t3oreloc": [],
-    "t4oreloc": [
-      "612 to 676"
-    ],
-    "t5oreloc": [
-      "828 to 863"
-    ]
+    "ore": {
+      "Sodium": "56 - 131",
+      "Carbon": "63 - 125",
+      "Silicon": "50 - 114",
+      "Iron": "72 - 122",
+      "Aluminium": "211 - 350",
+      "Zirconium": "612 - 676",
+      "Titanium": "828 - 863"
+    }
   },
   {
     "id": 41,
@@ -393,34 +233,14 @@
       769836
     ],
     "home": "Talemai",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [],
-    "t3ore": [
-      "Scandium"
-    ],
-    "t4ore": [
-      "Manganese"
-    ],
-    "t5ore": [],
-    "t1oreloc": [
-      "56 to 120",
-      "62 to 105",
-      "53 to 127",
-      "58 to 106"
-    ],
-    "t2oreloc": [],
-    "t3oreloc": [
-      "466 to 508"
-    ],
-    "t4oreloc": [
-      "588 to 652"
-    ],
-    "t5oreloc": []
+    "ore": {
+      "Sodium": "56 - 120",
+      "Carbon": "62 - 105",
+      "Silicon": "53 - 127",
+      "Iron": "58 - 106",
+      "Scandium": "466 - 508",
+      "Manganese": "588 - 652"
+    }
   },
   {
     "id": 42,
@@ -440,38 +260,15 @@
       325207
     ],
     "home": "Talemai",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Lead"
-    ],
-    "t3ore": [],
-    "t4ore": [
-      "Gold"
-    ],
-    "t5ore": [
-      "Vanadium"
-    ],
-    "t1oreloc": [
-      "62 to 95",
-      "25 to 123",
-      "56 to 138",
-      "65 to 139"
-    ],
-    "t2oreloc": [
-      "225 to 300"
-    ],
-    "t3oreloc": [],
-    "t4oreloc": [
-      "612 to 657"
-    ],
-    "t5oreloc": [
-      "846 to 846"
-    ]
+    "ore": {
+      "Sodium": "62 - 95",
+      "Carbon": "25 - 123",
+      "Silicon": "56 - 138",
+      "Iron": "65 - 139",
+      "Lead": "225 - 300",
+      "Gold": "612 - 657",
+      "Vanadium": "846 - 846"
+    }
   },
   {
     "id": 50,
@@ -491,38 +288,15 @@
       -48862386
     ],
     "home": "Feli",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Tungsten"
-    ],
-    "t3ore": [
-      "Platinum"
-    ],
-    "t4ore": [],
-    "t5ore": [
-      "Niobium"
-    ],
-    "t1oreloc": [
-      "75 to 123",
-      "60 to 144",
-      "72 to 114",
-      "46 to 113"
-    ],
-    "t2oreloc": [
-      "209 to 275"
-    ],
-    "t3oreloc": [
-      "449 to 529"
-    ],
-    "t4oreloc": [],
-    "t5oreloc": [
-      "797 to 797"
-    ]
+    "ore": {
+      "Sodium": "75 - 123",
+      "Carbon": "60 - 144",
+      "Silicon": "72 - 114",
+      "Iron": "46 - 113",
+      "Tungsten": "209 - 275",
+      "Platinum": "449 - 529",
+      "Niobium": "797 - 797"
+    }
   },
   {
     "id": 70,
@@ -542,42 +316,16 @@
       57969448
     ],
     "home": "Sinnen",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Nickel"
-    ],
-    "t3ore": [
-      "Chromium"
-    ],
-    "t4ore": [
-      "Molybdenum"
-    ],
-    "t5ore": [
-      "Rhenium"
-    ],
-    "t1oreloc": [
-      "67 to 114",
-      "64 to 110",
-      "69 to 124",
-      "78 to 125"
-    ],
-    "t2oreloc": [
-      "213 to 274"
-    ],
-    "t3oreloc": [
-      "442 to 527"
-    ],
-    "t4oreloc": [
-      "620 to 620"
-    ],
-    "t5oreloc": [
-      "883 to 883"
-    ]
+    "ore": {
+      "Sodium": "67 - 114",
+      "Carbon": "64 - 110",
+      "Silicon": "69 - 124",
+      "Iron": "78 - 125",
+      "Nickel": "213 - 274",
+      "Chromium": "442 - 527",
+      "Molybdenum": "620 - 620",
+      "Rhenium": "883 - 883"
+    }
   },
   {
     "id": 1000,
@@ -597,26 +345,12 @@
       -926156
     ],
     "home": "Lacobus",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [],
-    "t3ore": [],
-    "t4ore": [],
-    "t5ore": [],
-    "t1oreloc": [
-      "57 to 131",
-      "53 to 120",
-      "59 to 150",
-      "64 to 118"
-    ],
-    "t2oreloc": [],
-    "t3oreloc": [],
-    "t4oreloc": [],
-    "t5oreloc": []
+    "ore": {
+      "Sodium": "57 - 131",
+      "Carbon": "53 - 120",
+      "Silicon": "59 - 150",
+      "Iron": "64 - 118"
+    }
   },
   {
     "id": 1001,
@@ -636,30 +370,13 @@
       -1059341
     ],
     "home": "Lacobus",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Lead"
-    ],
-    "t3ore": [],
-    "t4ore": [],
-    "t5ore": [],
-    "t1oreloc": [
-      "11 to 108",
-      "53 to 119",
-      "64 to 111",
-      "53 to 132"
-    ],
-    "t2oreloc": [
-      "204 to 248"
-    ],
-    "t3oreloc": [],
-    "t4oreloc": [],
-    "t5oreloc": []
+    "ore": {
+      "Sodium": "11 - 108",
+      "Carbon": "53 - 119",
+      "Silicon": "64 - 111",
+      "Iron": "53 - 132",
+      "Lead": "204 - 248"
+    }
   },
   {
     "id": 1002,
@@ -679,26 +396,12 @@
       -647589
     ],
     "home": "Lacobus",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [],
-    "t3ore": [],
-    "t4ore": [],
-    "t5ore": [],
-    "t1oreloc": [
-      "36 to 105",
-      "39 to 92",
-      "36 to 93",
-      "57 to 100"
-    ],
-    "t2oreloc": [],
-    "t3oreloc": [],
-    "t4oreloc": [],
-    "t5oreloc": []
+    "ore": {
+      "Sodium": "36 - 105",
+      "Carbon": "39 - 92",
+      "Silicon": "36 - 93",
+      "Iron": "57 - 100"
+    }
   },
   {
     "id": 1200,
@@ -718,30 +421,13 @@
       -1133581
     ],
     "home": "Ion",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Aluminium"
-    ],
-    "t3ore": [],
-    "t4ore": [],
-    "t5ore": [],
-    "t1oreloc": [
-      "72 to 120",
-      "56 to 100",
-      "66 to 107",
-      "47 to 99"
-    ],
-    "t2oreloc": [
-      "200 to 284"
-    ],
-    "t3oreloc": [],
-    "t4oreloc": [],
-    "t5oreloc": []
+    "ore": {
+      "Sodium": "72 - 120",
+      "Carbon": "56 - 100",
+      "Silicon": "66 - 107",
+      "Iron": "47 - 99",
+      "Aluminium": "200 - 284"
+    }
   },
   {
     "id": 1201,
@@ -761,33 +447,13 @@
       -1378482
     ],
     "home": "Ion",
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Tungsten"
-    ],
-    "t3ore": [
-      "Platinum"
-    ],
-    "t4ore": [],
-    "t5ore": [],
-    "t1oreloc": [
-      "59 to 117",
-      "52 to 123",
-      "48 to 149",
-      "61 to 118"
-    ],
-    "t2oreloc": [
-      "203 to 268"
-    ],
-    "t3oreloc": [
-      "464 to 505"
-    ],
-    "t4oreloc": [],
-    "t5oreloc": []
+    "ore": {
+      "Sodium": "59 - 117",
+      "Carbon": "52 - 123",
+      "Silicon": "48 -to 149",
+      "Iron": "61 - 118",
+      "Tungsten": "203 - 268",
+      "Platinum": "464 - 505"
+    }
   }
 ]
