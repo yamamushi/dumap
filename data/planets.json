@@ -276,7 +276,7 @@
     "description": "Jago is a water planet. The large majority of the planet's surface is covered by large oceans dotted by small areas of landmass across the planet. The Arkship geological survey reports deep seas across the majority of the planet with sub 15 percent coverage of solid ground.",
     "system_zone": "Very High",
     "atmosphere": 1,
-    "atmosphere_height": 0,
+    "atmosphere_height": 4500,
     "actual_ground_altitude": 0,
     "gravity": 4.9455,
     "surface_area": 49875927040,
