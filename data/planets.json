@@ -325,7 +325,7 @@
       -3634464
     ],
     "class": "M",
-    "description": "",
+    "description": "Jago is a water planet. The large majority of the planet's surface is covered by large oceans dotted by small areas of landmass across the planet. The Arkship geological survey reports deep seas across the majority of the planet with sub 15 percent coverage of solid ground.",
     "system_zone": "Very High",
     "atmosphere": 1,
     "atmosphere_height": 0,
@@ -410,7 +410,7 @@
       -934464
     ],
     "class": "hP",
-    "description": "",
+    "description": "Symeon is an ice planet mysteriously split at the equator by a band of solid desert. Exactly how this phenomenon is possible is unclear but some sort of weather anomaly may be responsible. The Arkship geological survey reports a fairly diverse mix of flat lands alongside mountainous formations.",
     "system_zone": "High",
     "atmosphere": 1,
     "atmosphere_height": 0,
