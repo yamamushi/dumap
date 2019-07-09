@@ -12,6 +12,7 @@ let hide_Text = false;
 let hide_Text_Time = false;
 let hide_Text_Distance = false;
 let hide_Text_Names = false;
+let hide_Menu_Ores = false;
 
 // Scaling
 let scales = [];
@@ -843,9 +844,9 @@ function set_HTML_For_Info_Panel(i, body, home) {
     }
     temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
     if (body === "Moon") {
-        temp_HTML_Text = temp_HTML_Text + Create_Ore_HTML_For_Info_Panel(i, "Moon");//adds ore html
+        temp_HTML_Text = temp_HTML_Text + Create_Ore_HTML_For_Info_Panel(i, "Moon", home);//adds ore html
     } else {
-        temp_HTML_Text = temp_HTML_Text + Create_Ore_HTML_For_Info_Panel(i, "Planet");//adds ore html
+        temp_HTML_Text = temp_HTML_Text + Create_Ore_HTML_For_Info_Panel(i, "Planet", home);//adds ore html
     }
     if (body === "Planet") {
         if (temp_List_Of_Moons.length === 0) {
@@ -865,85 +866,102 @@ function set_HTML_For_Info_Panel(i, body, home) {
     document.getElementById("info_Panel").style.display = "initial";
 }
 
-function Create_Ore_HTML_For_Info_Panel(i, body) {
-    let t1o = [];
-    let t2o = [];
-    let t3o = [];
-    let t4o = [];
-    let t5o = [];
-    if (body === "Moon") {
-        t1o = moon_Data[i].t1ore;
-        t2o = moon_Data[i].t2ore;
-        t3o = moon_Data[i].t3ore;
-        t4o = moon_Data[i].t4ore;
-        t5o = moon_Data[i].t5ore;
-    } else
-    if (body === "Planet") {
-        t1o = planet_Data[i].t1ore;
-        t2o = planet_Data[i].t2ore;
-        t3o = planet_Data[i].t3ore;
-        t4o = planet_Data[i].t4ore;
-        t5o = planet_Data[i].t5ore;
-    }
+function Create_Ore_HTML_For_Info_Panel(i, body, home) {
     let temp_Ore_Text = "";
-    let tier1ore = "";
-    let tier2ore = "";
-    let tier3ore = "";
-    let tier4ore = "";
-    let tier5ore = "";
-    temp_Ore_Text = '<tr><td align="center">Ores:</td></tr>';
-    for (let ah = 0; ah < t1o.length; ah++) {
-        tier1ore = tier1ore +  t1o[ah] + ", ";
+	if (hide_Menu_Ores === false) {
+    	let t1o = [];
+    	let t2o = [];
+    	let t3o = [];
+    	let t4o = [];
+    	let t5o = [];
+    	if (body === "Moon") {
+    	    t1o = moon_Data[i].t1ore;
+    	    t2o = moon_Data[i].t2ore;
+    	    t3o = moon_Data[i].t3ore;
+    	    t4o = moon_Data[i].t4ore;
+    	    t5o = moon_Data[i].t5ore;
+    	} else
+    	if (body === "Planet") {
+    	    t1o = planet_Data[i].t1ore;
+    	    t2o = planet_Data[i].t2ore;
+    	    t3o = planet_Data[i].t3ore;
+    	    t4o = planet_Data[i].t4ore;
+    	    t5o = planet_Data[i].t5ore;
+    	}
+    	let tier1ore = "";
+    	let tier2ore = "";
+    	let tier3ore = "";
+    	let tier4ore = "";
+    	let tier5ore = "";
+    	temp_Ore_Text = '<tr><td align="center">Ores:<span id="Exit_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+    	for (let ah = 0; ah < t1o.length; ah++) {
+    	    tier1ore = tier1ore +  t1o[ah] + ", ";
+    	}
+    	if (tier1ore.length > 2) {
+    	    tier1ore = tier1ore.slice(0, -2);
+    	} else
+    	if (tier1ore.length === 0) {
+    	    tier1ore = "none";
+    	}
+    	for (let aj = 0; aj < t2o.length; aj++) {
+    	    tier2ore = tier2ore +  t2o[aj] + ", ";
+    	}
+    	if (tier2ore.length > 2) {
+    	    tier2ore = tier2ore.slice(0, -2);
+    	} else
+    	if (tier2ore.length === 0) {
+    	    tier2ore = "none";
+    	}
+    	for (let ak = 0; ak < t3o.length; ak++) {
+    	    tier3ore = tier3ore +  t3o[ak] + ", ";
+    	}
+    	if (tier3ore.length > 2) {
+    	    tier3ore = tier3ore.slice(0, -2);
+    	} else
+    	if (tier3ore.length === 0) {
+    	    tier3ore = "none";
+    	}
+    	for (let al = 0; al < t4o.length; al++) {
+    	    tier4ore = tier4ore +  t4o[al] + ", ";
+    	}
+    	if (tier4ore.length > 2) {
+    	    tier4ore = tier4ore.slice(0, -2);
+    	} else
+    	if (tier4ore.length === 0) {
+    	    tier4ore = "none";
+    	}
+    	for (let am = 0; am < t5o.length; am++) {
+    	    tier5ore = tier5ore +  t5o[am] + ", ";
+    	}
+    	if (tier5ore.length > 2) {
+    	    tier5ore = tier5ore.slice(0, -2);
+    	} else
+    	if (tier5ore.length === 0) {
+    	    tier5ore = "none";
+    	}
+    	temp_Ore_Text = temp_Ore_Text + '<tr><td>t1: ' + tier1ore + '</td></tr>';
+    	temp_Ore_Text = temp_Ore_Text + '<tr><td>t2: ' + tier2ore + '</td></tr>';
+    	temp_Ore_Text = temp_Ore_Text + '<tr><td>t3: ' + tier3ore + '</td></tr>';
+    	temp_Ore_Text = temp_Ore_Text + '<tr><td>t4: ' + tier4ore + '</td></tr>';
+    	temp_Ore_Text = temp_Ore_Text + '<tr><td>t5: ' + tier5ore + '</td></tr>';
+    	temp_Ore_Text = temp_Ore_Text + '<tr><td><hr></td></tr>';
+    } else {
+    	temp_Ore_Text = temp_Ore_Text + '<tr><td align="center">Ores:<span id="Exit_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+    	temp_Ore_Text = temp_Ore_Text + '<tr><td><hr></td></tr>';
     }
-    if (tier1ore.length > 2) {
-        tier1ore = tier1ore.slice(0, -2);
-    } else
-    if (tier1ore.length === 0) {
-        tier1ore = "none";
-    }
-    for (let aj = 0; aj < t2o.length; aj++) {
-        tier2ore = tier2ore +  t2o[aj] + ", ";
-    }
-    if (tier2ore.length > 2) {
-        tier2ore = tier2ore.slice(0, -2);
-    } else
-    if (tier2ore.length === 0) {
-        tier2ore = "none";
-    }
-    for (let ak = 0; ak < t3o.length; ak++) {
-        tier3ore = tier3ore +  t3o[ak] + ", ";
-    }
-    if (tier3ore.length > 2) {
-        tier3ore = tier3ore.slice(0, -2);
-    } else
-    if (tier3ore.length === 0) {
-        tier3ore = "none";
-    }
-    for (let al = 0; al < t4o.length; al++) {
-        tier4ore = tier4ore +  t4o[al] + ", ";
-    }
-    if (tier4ore.length > 2) {
-        tier4ore = tier4ore.slice(0, -2);
-    } else
-    if (tier4ore.length === 0) {
-        tier4ore = "none";
-    }
-    for (let am = 0; am < t5o.length; am++) {
-        tier5ore = tier5ore +  t5o[am] + ", ";
-    }
-    if (tier5ore.length > 2) {
-        tier5ore = tier5ore.slice(0, -2);
-    } else
-    if (tier5ore.length === 0) {
-        tier5ore = "none";
-    }
-    temp_Ore_Text = temp_Ore_Text + '<tr><td>t1: ' + tier1ore + '</td></tr>';
-    temp_Ore_Text = temp_Ore_Text + '<tr><td>t2: ' + tier2ore + '</td></tr>';
-    temp_Ore_Text = temp_Ore_Text + '<tr><td>t3: ' + tier3ore + '</td></tr>';
-    temp_Ore_Text = temp_Ore_Text + '<tr><td>t4: ' + tier4ore + '</td></tr>';
-    temp_Ore_Text = temp_Ore_Text + '<tr><td>t5: ' + tier5ore + '</td></tr>';
-    temp_Ore_Text = temp_Ore_Text + '<tr><td><hr></td></tr>';
     return temp_Ore_Text;
+}
+
+function hide_Menu_Ore(i, body, home) {
+	if (hide_Menu_Ores === false) {
+		hide_Menu_Ores = true;
+	} else {
+		hide_Menu_Ores = false;
+	}
+	if (body === "Moon") {
+		i = moon_Data[i].name;
+	}
+	set_HTML_For_Info_Panel(i, body, home);
 }
 
 function hide_Info_Panel() {
