@@ -330,13 +330,25 @@ function orbitDatapoints() {
         let oDistance = (orbit_Data[i].radius/ringScaling);
         return [oDistance, oDistance, oDistance];
     }).attr("rotation", function(d,i) {
-    		return [0,0,1,Math.asin(((planet_Data[i].pos[0] / miniscale) / (Math.sqrt((planet_Data[i].pos[0] / miniscale) * (planet_Data[i].pos[0] / miniscale) + (planet_Data[i].pos[1] / miniscale) * (planet_Data[i].pos[1] / miniscale)))) * 180 / Math.PI)];
+    	//Math.atan(y/x);
+    	let rotate_Value = Math.atan(((planet_Data[i].pos[1] - centerLocation[1]) / (planet_Data[i].pos[0] - centerLocation[0])) / miniscale);
+    	return ["0 0 1 " + rotate_Value];
+    		//return [0,0,1,Math.asin(((planet_Data[i].pos[0] / miniscale) / (Math.sqrt((planet_Data[i].pos[0] / miniscale) * (planet_Data[i].pos[0] / miniscale) + (planet_Data[i].pos[1] / miniscale) * (planet_Data[i].pos[1] / miniscale)))) * 180 / Math.PI)];
     }).attr("class", "datapoint_Orbit").append("transform").attr("rotation", function(d,i) {
-    	let temp_orbitMath = Math.asin(((planet_Data[i].pos[2] / miniscale) / (orbit_Data[i].radius / miniscale)));
+    	//let rotate_two = Math.asin(z / distance_Temp);
+        //if (x >= 0) {
+        //    rotate_two = rotate_two * -1;
+        //} 
+        let xmin = planet_Data[i].pos[0] / miniscale;
+        let ymin = planet_Data[i].pos[1] / miniscale;
+        let zmin = planet_Data[i].pos[2] / miniscale;
+        let distance_Temp_Calc = Math.sqrt((xmin - centerLocation[0]) * (xmin - centerLocation[0]) + (ymin - centerLocation[1]) * (ymin - centerLocation[1]) + (zmin - centerLocation[2]) * (zmin - centerLocation[2]));
+        //let distance_Temp_Calc = Math.sqrt(((planet_Data[i].pos[0] - centerLocation[0]) * (planet_Data[i].pos[0] - centerLocation[0])) + ((planet_Data[i].pos[1] - centerLocation[1]) * (planet_Data[i].pos[1] - centerLocation[1])) + ((planet_Data[i].pos[2] - centerLocation[2]) * (planet_Data[i].pos[2] - centerLocation[2])));
+    	let temp_orbitMath = Math.asin((zmin - centerLocation[2]) / (distance_Temp_Calc));
     	if (planet_Data[i].pos[0] >= 0) {
     		temp_orbitMath = temp_orbitMath * -1;
     	} 
-    	return [0,1,0,temp_orbitMath];
+    	return ["0 1 0 " + temp_orbitMath];
     }).append("shape");
     newDatapoints_Orbit.append("appearance").append("material").attr("id", function(d,i) { return "orbit_Mats_" + i;}).attr("diffuseColor", ringDiffuse).attr("emissiveColor", ringEmmissive).attr("transparency", ringTransparency);
     newDatapoints_Orbit.append("circle2d");
@@ -361,8 +373,7 @@ function moonOrbitDatapoints() {
         let temp_Distance_To_Planet = (Math.sqrt((oDistanceX)*(oDistanceX)+(oDistanceY)*(oDistanceY)+(oDistanceZ)*(oDistanceZ)));
         return [temp_Distance_To_Planet, temp_Distance_To_Planet, temp_Distance_To_Planet];
     }).attr("rotation", function(d,i) {
-    		return [0,0,1,Math.asin(((moon_Data[i].pos[0] / miniscale) / (Math.sqrt((moon_Data[i].pos[0] / miniscale) * (moon_Data[i].pos[0] / miniscale) + (moon_Data[i].pos[1] / miniscale) * (moon_Data[i].pos[1] / miniscale)))) * 180 / Math.PI)];
-    }).attr("class", "datapoint_MoonOrbit").append("transform").attr("rotation", function(d,i) {
+    	//Math.atan(y/x);
     	let temp_Planet_ID;
     	for (let ar = 0; ar < planet_Data.length; ar++) {
     		if (planet_Data[ar].name === moon_Data[i].home) {
@@ -372,13 +383,29 @@ function moonOrbitDatapoints() {
     	}
         let oDistanceX = (moon_Data[i].pos[0] - planet_Data[temp_Planet_ID].pos[0]) / miniscale;
         let oDistanceY = (moon_Data[i].pos[1] - planet_Data[temp_Planet_ID].pos[1]) / miniscale;
+    	return ["0 0 1 " + Math.atan(oDistanceY/oDistanceX)]
+    		//return [0,0,1,Math.asin(((moon_Data[i].pos[0] / miniscale) / (Math.sqrt((moon_Data[i].pos[0] / miniscale) * (moon_Data[i].pos[0] / miniscale) + (moon_Data[i].pos[1] / miniscale) * (moon_Data[i].pos[1] / miniscale)))) * 180 / Math.PI)];
+    }).attr("class", "datapoint_MoonOrbit").append("transform").attr("rotation", function(d,i) {
+    	let temp_Planet_ID;
+    	for (let ar = 0; ar < planet_Data.length; ar++) {
+    		if (planet_Data[ar].name === moon_Data[i].home) {
+    			temp_Planet_ID = ar;
+    			break;
+    		}
+    	}
+    	//let rotate_two = Math.asin(z / distance_Temp);
+        //if (x >= 0) {
+        //    rotate_two = rotate_two * -1;
+        //} 
+        let oDistanceX = (moon_Data[i].pos[0] - planet_Data[temp_Planet_ID].pos[0]) / miniscale;
+        let oDistanceY = (moon_Data[i].pos[1] - planet_Data[temp_Planet_ID].pos[1]) / miniscale;
         let oDistanceZ = (moon_Data[i].pos[2] - planet_Data[temp_Planet_ID].pos[2]) / miniscale;
         let temp_Distance_To_Planet = (Math.sqrt((oDistanceX)*(oDistanceX)+(oDistanceY)*(oDistanceY)+(oDistanceZ)*(oDistanceZ)));
     	let temp_orbitMath = Math.asin((oDistanceZ / (temp_Distance_To_Planet)));
     	if (moon_Data[i].pos[0] >= 0) {
-    		//temp_orbitMath = temp_orbitMath * -1;
+    		temp_orbitMath = temp_orbitMath * -1;
     	} 
-    	return [0,1,0,temp_orbitMath];
+    	return ["0 1 0 " + temp_orbitMath];
     }).append("shape");
     newDatapoints_MoonOrbit.append("appearance").append("material").attr("id", function(d,i) { return "moonOrbit_Mats_" + i;}).attr("diffuseColor", moonRingDiffuse).attr("emissiveColor", moonRingEmmissive).attr("transparency", 1);
     newDatapoints_MoonOrbit.append("circle2d");
