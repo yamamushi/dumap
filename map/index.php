@@ -28,8 +28,6 @@ if(session('access_token')) {
                 echo <<<EOL
 
 
-
-
 <!--Original credit goes to Kirito for v1.0 of the map. It has since been updated to 2.0 by Yamamushi and Drystion-->
 <!DOCtype html>
 
@@ -77,9 +75,16 @@ if(session('access_token')) {
 	<br>
 	Hide Helios
 	<input type="checkbox" id="star_Checkbox" OnClick="star_Check()" />
-	<br>
-	Hide Text
+	<hr>
+	Hide All Text
 	<input type="checkbox" id="text_Checkbox" OnClick="text_Check()" />
+	<br>
+	Names
+	<input type="checkbox" id="text_Names_Checkbox" OnClick="text_Names_Check()" />
+	Distance
+	<input type="checkbox" id="text_Distance_Checkbox" OnClick="text_Distance_Check()" />
+	Time
+	<input type="checkbox" id="text_Time_Checkbox" OnClick="text_Time_Check()" />
 	<br>
 </div>
 <div id="info_Panel">
@@ -90,7 +95,6 @@ if(session('access_token')) {
 </script>
 </body>
 </html>
-
 
 
 EOL;

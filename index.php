@@ -46,7 +46,7 @@ if(session('access_token')) {
                 $found = true;
 
                 echo <<<EOL
-
+    <!DOCTYPE html>
     <html>
     <head>
     <link rel="stylesheet" type="text/css" href="./css/mainmenu.css">

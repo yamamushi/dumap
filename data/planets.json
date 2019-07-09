@@ -1,14 +1,486 @@
 [
-  {"id": 1,	"name": "Madis",		"type": "Planet",	"radius": 45000, "pos": [17465536, 22665536, -34464], "class": "hT", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Aluminium"], "t3ore": ["Scandium"], "t4ore": [], "t5ore": []},
-  {"id": 2,	"name": "Alioth",		"type": "Planet",	"radius": 60000, "pos": [-4, -4, -60534], "class": "M", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Lead", "Tungsten"], "t3ore": ["Chromium"], "t4ore": [], "t5ore": []},
-  {"id": 3,	"name": "Thades",		"type": "Planet",	"radius": 56000, "pos": [29165536, 10865536, 65536], "class": "T", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Nickel"], "t3ore": ["Platinum"], "t4ore": [], "t5ore": []},
-  {"id": 4,	"name": "Talemai",		"type": "Planet",	"radius": 58000, "pos": [-13234464, 55765536, 465536], "class": "M", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Aluminium", "Lead"], "t3ore": ["Copper"], "t4ore": [], "t5ore": []},
-  {"id": 5,	"name": "Feli",			"type": "Planet",	"radius": 60000, "pos": [-43534464, 22565536, -48934464], "class": "M", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Tungsten"], "t3ore": ["Copper"], "t4ore": ["Gold"], "t5ore": []},
-  {"id": 6,	"name": "Sicari",		"type": "Planet",	"radius": 51000, "pos": [52765536, 27165536, 52065536], "class": "M", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Nickel"], "t3ore": ["Platinum"], "t4ore": ["Manganese"], "t5ore": []},
-  {"id": 7,	"name": "Sinnen",		"type": "Planet",	"radius": 55000, "pos": [58665536, 29665536, 58165536], "class": "hT", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Tungsten"], "t3ore": ["Chromium"], "t4ore": ["Zirconium"], "t5ore": []},
-  {"id": 8,	"name": "Teoma",		"type": "Planet",	"radius": 62000, "pos": [80865536, 54665536, -934464], "class": "M", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Aluminium", "Tungsten"], "t3ore": ["Scandium"], "t4ore": ["Molybdenum"], "t5ore": []},
-  {"id": 9,	"name": "Jago",			"type": "Planet",	"radius": 63000, "pos": [-94134464, 12765536, -3634464], "class": "M", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Nickel", "Lead"], "t3ore": ["Copper"], "t4ore": ["Manganese"], "t5ore": ["Niobium"]},
-  {"id": 100,	"name": "Lacobus",		"type": "Planet",	"radius": 57000, "pos": [98865536, -13534464, -934464], "class": "hP", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Aluminium"], "t3ore": ["Platinum"], "t4ore": ["Gold"], "t5ore": ["Titanium"]},
-  {"id": 110,	"name": "Symeon",		"type": "Planet",	"radius": 49000, "pos": [14165536, -85634464, -934464], "class": "hP", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Nickel"], "t3ore": ["Scandium"], "t4ore": ["Molybdenum"], "t5ore": ["Vanadium"]},
-  {"id": 120,	"name": "Ion",			"type": "Planet",	"radius": 45000, "pos": [2865536, -99034464, -934464], "class": "hP", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Lead"], "t3ore": ["Chromium"], "t4ore": ["Zirconium"], "t5ore": ["Rhenium"]}
+  {
+    "id": 1,
+    "name": "Madis",
+    "type": "Planet",
+    "radius": 45000,
+    "pos": [
+      17465536,
+      22665536,
+      -34464
+    ],
+    "class": "hT",
+    "description": "Madis is a barren wasteland of a rock; it sits closest to the sun and temperatures reach extreme highs during the day. The Arkship geological survey reports long rocky valleys intermittently separated by small ravines.",
+    "system_zone": "Low",
+    "atmosphere": 1,
+    "atmosphere_height": 0,
+    "actual_ground_altitude": 0,
+    "gravity": 3.5325,
+    "surface_area": 25446899712,
+    "satellites": 3,
+    "biosphere": "Barren",
+    "territories": 32672,
+    "territories_claimed": 0,
+    "terra_nullius": 0.00,
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Aluminium"
+    ],
+    "t3ore": [
+      "Scandium"
+    ],
+    "t4ore": [],
+    "t5ore": []
+  },
+  {
+    "id": 2,
+    "name": "Alioth",
+    "type": "Planet",
+    "radius": 60000,
+    "pos": [
+      -4,
+      -4,
+      -60534
+    ],
+    "class": "M",
+    "description": "Alioth is the planet selected by the Arkship for landfall; it is a typical goldilocks planet where humanity may rebuild in the coming decades. The Arkship geological survey reports mountainous regions alongside deep seas and lush forests. This is where it all starts.",
+    "system_zone": "High",
+    "atmosphere": 1,
+    "atmosphere_height": 3400,
+    "actual_ground_altitude": 0,
+    "gravity": 9.891,
+    "surface_area": 199718912000,
+    "satellites": 2,
+    "biosphere": "Forest",
+    "territories": 259472,
+    "territories_claimed": 0,
+    "terra_nullius": 0.00,
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Lead",
+      "Tungsten"
+    ],
+    "t3ore": [
+      "Chromium"
+    ],
+    "t4ore": [],
+    "t5ore": []
+  },
+  {
+    "id": 3,
+    "name": "Thades",
+    "type": "Planet",
+    "radius": 56000,
+    "pos": [
+      29165536,
+      10865536,
+      65536
+    ],
+    "class": "T",
+    "description": "A giant ravine and debris belt wraps around its equator. The surface is made of deep \"seas\" of silica dust that periodically swirl into global sandstorms.",
+    "system_zone": "Low",
+    "atmosphere": 1,
+    "atmosphere_height": 0,
+    "actual_ground_altitude": 0,
+    "gravity": 4.867,
+    "surface_area": 48305131520,
+    "satellites": 2,
+    "biosphere": "Desert",
+    "territories": 60752,
+    "territories_claimed": 0,
+    "terra_nullius": 0.00,
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Nickel"
+    ],
+    "t3ore": [
+      "Platinum"
+    ],
+    "t4ore": [],
+    "t5ore": []
+  },
+  {
+    "id": 4,
+    "name": "Talemai",
+    "type": "Planet",
+    "radius": 58000,
+    "pos": [
+      -13234464,
+      55765536,
+      465536
+    ],
+    "class": "M",
+    "description": "Talemai is a planet in the final stage of an Ice Age. It is likely that the planet was thrown into tumult by a cataclysmic volcanic event which resulted in its current state. The Arkship geological survey reports large mountainous regions across the entire planet.",
+    "system_zone": "Average",
+    "atmosphere": 1,
+    "atmosphere_height": 0,
+    "actual_ground_altitude": 0,
+    "gravity": 4.553,
+    "surface_area": 42273271808,
+    "satellites": 3,
+    "biosphere": "Barren",
+    "territories": 52922,
+    "territories_claimed": 0,
+    "terra_nullius": 0.00,
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Aluminium",
+      "Lead"
+    ],
+    "t3ore": [
+      "Copper"
+    ],
+    "t4ore": [],
+    "t5ore": []
+  },
+  {
+    "id": 5,
+    "name": "Feli",
+    "type": "Planet",
+    "radius": 60000,
+    "pos": [
+      -43534464,
+      22565536,
+      -48934464
+    ],
+    "class": "M",
+    "description": "Feli is easily identified by its massive and deep crater. Outside of the crater, the arkship geological survey reports a fairly bland and uniform planet. It also cannot explain the existence of the crater. Feli is particular for having an extremely small atmosphere, allowing life to develop in the deeper areas of its crater but limiting it drastically on the actual surface.",
+    "system_zone": "Low",
+    "atmosphere": 1,
+    "atmosphere_height": 0,
+    "actual_ground_altitude": 0,
+    "gravity": 4.71,
+    "surface_area": 45238935552,
+    "satellites": 1,
+    "biosphere": "Barren",
+    "territories": 58082,
+    "territories_claimed": 0,
+    "terra_nullius": 0.00,
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Tungsten"
+    ],
+    "t3ore": [
+      "Copper"
+    ],
+    "t4ore": [
+      "Gold"
+    ],
+    "t5ore": []
+  },
+  {
+    "id": 6,
+    "name": "Sicari",
+    "type": "Planet",
+    "radius": 51000,
+    "pos": [
+      52765536,
+      27165536,
+      52065536
+    ],
+    "class": "M",
+    "description": "Sicari is a typical desert planet. It has survived for millenniums and will continue to endure. While not the most habitable of environments, it remains a relatively untouched and livable planet of the Alioth sector. The Arkship geological survey reports large flatlands alongside steep plateaus.",
+    "system_zone": "Average",
+    "atmosphere": 1,
+    "atmosphere_height": 0,
+    "actual_ground_altitude": 0,
+    "gravity": 4.0035,
+    "surface_area": 32685129728,
+    "satellites": 0,
+    "biosphere": "Desert",
+    "territories": 41072,
+    "territories_claimed": 0,
+    "terra_nullius": 0.00,
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Nickel"
+    ],
+    "t3ore": [
+      "Platinum"
+    ],
+    "t4ore": [
+      "Manganese"
+    ],
+    "t5ore": []
+  },
+  {
+    "id": 7,
+    "name": "Sinnen",
+    "type": "Planet",
+    "radius": 55000,
+    "pos": [
+      58665536,
+      29665536,
+      58165536
+    ],
+    "class": "hT",
+    "description": "Sinnen is an empty and rocky hell. With no atmosphere to speak of, it is one of the least hospitable planets in the sector. The Arkship geological survey reports mostly flatlands alongside deep ravines which look to have once been riverbeds. This planet simply looks to have dried up and died, likely from solar winds.",
+    "system_zone": "Average",
+    "atmosphere": 1,
+    "atmosphere_height": 0,
+    "actual_ground_altitude": 0,
+    "gravity": 4.3175,
+    "surface_area": 38013272064,
+    "satellites": 1,
+    "biosphere": "Desert",
+    "territories": 48002,
+    "territories_claimed": 0,
+    "terra_nullius": 0.00,
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Tungsten"
+    ],
+    "t3ore": [
+      "Chromium"
+    ],
+    "t4ore": [
+      "Zirconium"
+    ],
+    "t5ore": []
+  },
+  {
+    "id": 8,
+    "name": "Teoma",
+    "type": "Planet",
+    "radius": 62000,
+    "pos": [
+      80865536,
+      54665536,
+      -934464
+    ],
+    "class": "M",
+    "description": "[REDACTED] The Arkship geological survey [REDACTED]. This planet should not be here.",
+    "system_zone": "High",
+    "atmosphere": 1,
+    "atmosphere_height": 4500,
+    "actual_ground_altitude": 0,
+    "gravity": 4.7885,
+    "surface_area": 46759464960,
+    "satellites": 0,
+    "biosphere": "Forest",
+    "territories": 60752,
+    "territories_claimed": 0,
+    "terra_nullius": 0.00,
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Aluminium",
+      "Tungsten"
+    ],
+    "t3ore": [
+      "Scandium"
+    ],
+    "t4ore": [
+      "Molybdenum"
+    ],
+    "t5ore": []
+  },
+  {
+    "id": 9,
+    "name": "Jago",
+    "type": "Planet",
+    "radius": 63000,
+    "pos": [
+      -94134464,
+      12765536,
+      -3634464
+    ],
+    "class": "M",
+    "description": "Jago is a water planet. The large majority of the planet's surface is covered by large oceans dotted by small areas of landmass across the planet. The Arkship geological survey reports deep seas across the majority of the planet with sub 15 percent coverage of solid ground.",
+    "system_zone": "Very High",
+    "atmosphere": 1,
+    "atmosphere_height": 0,
+    "actual_ground_altitude": 0,
+    "gravity": 4.9455,
+    "surface_area": 49875927040,
+    "satellites": 0,
+    "biosphere": "Water",
+    "territories": 63482,
+    "territories_claimed": 0,
+    "terra_nullius": 0.00,
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Nickel",
+      "Lead"
+    ],
+    "t3ore": [
+      "Copper"
+    ],
+    "t4ore": [
+      "Manganese"
+    ],
+    "t5ore": [
+      "Niobium"
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Lacobus",
+    "type": "Planet",
+    "radius": 57000,
+    "pos": [
+      98865536,
+      -13534464,
+      -934464
+    ],
+    "class": "hP",
+    "description": "Lacobus is an ice planet that also features large bodies of water. The Arkship geological survey reports deep oceans alongside a frozen and rough mountainous environment. Lacobus seems to feature regional geothermal activity allowing for the presence of water on the surface. ",
+    "system_zone": "Average",
+    "atmosphere": 1,
+    "atmosphere_height": 0,
+    "actual_ground_altitude": 0,
+    "gravity": 4.4745,
+    "surface_area": 40828137472,
+    "satellites": 3,
+    "biosphere": "Ice",
+    "territories": 52922,
+    "territories_claimed": 0,
+    "terra_nullius": 0.00,
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Aluminium"
+    ],
+    "t3ore": [
+      "Platinum"
+    ],
+    "t4ore": [
+      "Gold"
+    ],
+    "t5ore": [
+      "Titanium"
+    ]
+  },
+  {
+    "id": 110,
+    "name": "Symeon",
+    "type": "Planet",
+    "radius": 49000,
+    "pos": [
+      14165536,
+      -85634464,
+      -934464
+    ],
+    "class": "hP",
+    "description": "Symeon is an ice planet mysteriously split at the equator by a band of solid desert. Exactly how this phenomenon is possible is unclear but some sort of weather anomaly may be responsible. The Arkship geological survey reports a fairly diverse mix of flat lands alongside mountainous formations.",
+    "system_zone": "High",
+    "atmosphere": 1,
+    "atmosphere_height": 0,
+    "actual_ground_altitude": 0,
+    "gravity": 3.8465,
+    "surface_area": 30171856896,
+    "satellites": 0,
+    "biosphere": "Ice,Desert",
+    "territories": 38882,
+    "territories_claimed": 0,
+    "terra_nullius": 0.00,
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Nickel"
+    ],
+    "t3ore": [
+      "Scandium"
+    ],
+    "t4ore": [
+      "Molybdenum"
+    ],
+    "t5ore": [
+      "Vanadium"
+    ]
+  },
+  {
+    "id": 120,
+    "name": "Ion",
+    "type": "Planet",
+    "radius": 45000,
+    "pos": [
+      2865536,
+      -99034464,
+      -934464
+    ],
+    "class": "hP",
+    "description": "Ion is nothing more than an oversized ice cube frozen through and through. It is a largely inhospitable planet due to its extremely low temperatures. The Arkship geological survey reports extremely rough mountainous terrain with little habitable land. ",
+    "system_zone": "Average",
+    "atmosphere": 1,
+    "atmosphere_height": 0,
+    "actual_ground_altitude": 0,
+    "gravity": 3.5325,
+    "surface_area": 25446899712,
+    "satellites": 2,
+    "biosphere": "Ice",
+    "territories": 32672,
+    "territories_claimed": 0,
+    "terra_nullius": 0.00,
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Lead"
+    ],
+    "t3ore": [
+      "Chromium"
+    ],
+    "t4ore": [
+      "Zirconium"
+    ],
+    "t5ore": [
+      "Rhenium"
+    ]
+  }
 ]

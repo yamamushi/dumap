@@ -237,19 +237,23 @@ skillAccordion.innerHTML=skillsAccStr;
 //-----------------------------------------------------------------------------------
 // callbacks
 
-
+function newParse(numStr)
+{
+	return parseFloat(numStr.replace(",",""));
+}
 //callback for clicking check on ore item. removes row from oreList and places it in invList
 function finishOreItem(event)
 {
-	var qty=parseFloat(event.target.previousSibling.innerHTML);
+	var qty=newParse(event.target.previousSibling.innerHTML);
 	var name=event.target.previousSibling.previousSibling.innerHTML;
+	//console.log("finish ore item "+
 	addInvItem(name,qty);
 	calculate();
 }
 //callback for clicking check on queue item. removes row from oreList and places it in invList
 function finishCraftItem(event)
 {
-	var qty=parseFloat(event.target.previousSibling.previousSibling.innerHTML);
+	var qty=newParse(event.target.previousSibling.previousSibling.innerHTML);
 	var name=event.target.previousSibling.previousSibling.previousSibling.innerHTML;
 	addInvItem(name,qty);
 	calculate();
@@ -331,7 +335,7 @@ function updateInv(event)
 	{
 		if (inv[i].name==name)
 		{
-			inv[i].quantity=parseFloat(event.target.value);
+			inv[i].quantity=newParse(event.target.value);
 			break;
 		}
 	}
@@ -348,7 +352,7 @@ function updateCft(event)
 	{
 		if (craft[i].name==name)
 		{
-			craft[i].quantity=parseFloat(event.target.value);
+			craft[i].quantity=newParse(event.target.value);
 			break;
 		}
 	}
@@ -361,6 +365,24 @@ function addInvItem(name,quantity)
 {
 	if (quantity==null) {quantity=1;}
 	
+	for (var i=0;i<inv.length;i++)
+	{
+		if (inv[i].name==name)
+		{
+			inv[i].quantity+=quantity;
+			
+			var invItems=document.getElementsByClassName("inv-item");
+			for (var j=0;j<invItems.length;j++)
+			{
+				if (invItems[j].innerHTML==name)
+				{
+					invItems[j].nextSibling.value=newParse(invItems[j].nextSibling.value)+quantity;
+					break;
+				}
+			}
+			return;
+		}
+	}
 	inv.push({name:name,quantity:quantity});
 	quantity=quantity.toString()
 	

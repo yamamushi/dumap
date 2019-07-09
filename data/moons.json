@@ -1,19 +1,559 @@
 [
-  {"id": 10,	"name": "Moon1", "type": "Moon", "radius": 10000, "pos": [17448118, 22966848, 143079], "home": "Madis", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": [], "t3ore": ["Copper"], "t4ore": ["Manganese"], "t5ore": []},
-  {"id": 11,	"name": "Moon2", "type": "Moon", "radius": 10000, "pos": [17194626, 22243633, -214962], "home": "Madis", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": [], "t3ore": ["Scandium"], "t4ore": ["Gold"], "t5ore": ["Vanadium"]},
-  {"id": 12,	"name": "Moon3", "type": "Moon", "radius": 10000, "pos": [17520617, 22184726, -309986], "home": "Madis", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": [], "t3ore": [], "t4ore": ["Zirconium"], "t5ore": ["Titanium"]},
-  {"id": 20,	"name": "Moon1", "type": "Moon", "radius": 10000, "pos": [-564185, 233791, -167448], "home": "Alioth", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": [], "t3ore": [], "t4ore": [], "t5ore": ["Niobium"]},
-  {"id": 21,	"name": "Moon3", "type": "Moon", "radius": 10000, "pos": [-895203, 358389, -225602], "home": "Alioth", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": [], "t3ore": [], "t4ore": [], "t5ore": ["Rhenium"]},
-  {"id": 30,	"name": "Moon1", "type": "Moon", "radius": 10000, "pos": [29214403, 10907080, 433861], "home": "Thades", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Nickel"], "t3ore": ["Chromium"], "t4ore": [], "t5ore": []},
-  {"id": 31,	"name": "Moon2", "type": "Moon", "radius": 10000, "pos": [29404194, 10432766, 19553], "home": "Thades", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": [], "t3ore": ["Copper"], "t4ore": ["Molybdenum"], "t5ore": []},
-  {"id": 40,	"name": "Moon1", "type": "Moon", "radius": 10000, "pos": [-13058408, 55781856, 740177], "home": "Talemai", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Aluminium"], "t3ore": [], "t4ore": ["Zirconium"], "t5ore": ["Titanium"]},
-  {"id": 41,	"name": "Moon2", "type": "Moon", "radius": 10000, "pos": [-13503090, 55594324, 769836], "home": "Talemai", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": [], "t3ore": ["Scandium"], "t4ore": ["Manganese"], "t5ore": []},
-  {"id": 42,	"name": "Moon3", "type": "Moon", "radius": 10000, "pos": [-12800514, 55700257, 325207], "home": "Talemai", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Lead"], "t3ore": [], "t4ore": ["Gold"], "t5ore": ["Vanadium"]},
-  {"id": 50,	"name": "Moon1", "type": "Moon", "radius": 10000, "pos": [-43902841, 22261034, -48862386], "home": "Feli", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Tungsten"], "t3ore": ["Platinum"], "t4ore": [], "t5ore": ["Niobium"]},
-  {"id": 70,	"name": "Moon1", "type": "Moon", "radius": 10000, "pos": [58969618, 29797943, 57969448], "home": "Sinnen", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Nickel"], "t3ore": ["Chromium"], "t4ore": ["Molybdenum"], "t5ore": ["Rhenium"]},
-  {"id": 1000,	"name": "Moon1", "type": "Moon", "radius": 10000, "pos": [99180967, -13783860, -926156], "home": "Lacobus", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": [], "t3ore": [], "t4ore": [], "t5ore": []},
-  {"id": 1001,	"name": "Moon2", "type": "Moon", "radius": 10000, "pos": [99250054, -13629215, -1059341], "home": "Lacobus", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Lead"], "t3ore": [], "t4ore": [], "t5ore": []},
-  {"id": 1002,	"name": "Moon3", "type": "Moon", "radius": 10000, "pos": [98905290, -13950923, -647589], "home": "Lacobus", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": [], "t3ore": [], "t4ore": [], "t5ore": []},
-  {"id": 1200,	"name": "Moon1", "type": "Moon", "radius": 10000, "pos": [2472917, -99133746, -1133581], "home": "Ion", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Aluminium"], "t3ore": [], "t4ore": [], "t5ore": []},
-  {"id": 1201,	"name": "Moon2", "type": "Moon", "radius": 10000, "pos": [2995424, -99275008, -1378482], "home": "Ion", "t1ore": ["Sodium", "Carbon", "Silicon", "Iron"], "t2ore": ["Tungsten"], "t3ore": ["Platinum"], "t4ore": [], "t5ore": []}
+  {
+    "id": 10,
+    "name": "Moon1",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 0.785,
+    "surface_area": 1256637056,
+    "biosphere": "",
+    "territories": 1472,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      17448118,
+      22966848,
+      143079
+    ],
+    "home": "Madis",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [],
+    "t3ore": [
+      "Copper"
+    ],
+    "t4ore": [
+      "Manganese"
+    ],
+    "t5ore": []
+  },
+  {
+    "id": 11,
+    "name": "Moon2",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 0.942,
+    "surface_area": 1809557376,
+    "biosphere": "",
+    "territories": 1922,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      17194626,
+      22243633,
+      -214962
+    ],
+    "home": "Madis",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [],
+    "t3ore": [
+      "Scandium"
+    ],
+    "t4ore": [
+      "Gold"
+    ],
+    "t5ore": [
+      "Vanadium"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Moon3",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 1.1775,
+    "surface_area": 2827433472,
+    "biosphere": "",
+    "territories": 3632,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      17520617,
+      22184726,
+      -309986
+    ],
+    "home": "Madis",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [],
+    "t3ore": [],
+    "t4ore": [
+      "Zirconium"
+    ],
+    "t5ore": [
+      "Titanium"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Moon1",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 0,
+    "surface_area": 0,
+    "biosphere": "",
+    "territories": 0,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      -564185,
+      233791,
+      -167448
+    ],
+    "home": "Alioth",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [],
+    "t3ore": [],
+    "t4ore": [],
+    "t5ore": [
+      "Niobium"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Moon3",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 0,
+    "surface_area": 0,
+    "biosphere": "",
+    "territories": 0,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      -895203,
+      358389,
+      -225602
+    ],
+    "home": "Alioth",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [],
+    "t3ore": [],
+    "t4ore": [],
+    "t5ore": [
+      "Rhenium"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Moon1",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 0,
+    "surface_area": 0,
+    "biosphere": "",
+    "territories": 0,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      29214403,
+      10907080,
+      433861
+    ],
+    "home": "Thades",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Nickel"
+    ],
+    "t3ore": [
+      "Chromium"
+    ],
+    "t4ore": [],
+    "t5ore": []
+  },
+  {
+    "id": 31,
+    "name": "Moon2",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 0,
+    "surface_area": 0,
+    "biosphere": "",
+    "territories": 0,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      29404194,
+      10432766,
+      19553
+    ],
+    "home": "Thades",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [],
+    "t3ore": [
+      "Copper"
+    ],
+    "t4ore": [
+      "Molybdenum"
+    ],
+    "t5ore": []
+  },
+  {
+    "id": 40,
+    "name": "Moon1",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 1.1775,
+    "surface_area": 2827433472,
+    "biosphere": "",
+    "territories": 3632,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      -13058408,
+      55781856,
+      740177
+    ],
+    "home": "Talemai",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Aluminium"
+    ],
+    "t3ore": [],
+    "t4ore": [
+      "Zirconium"
+    ],
+    "t5ore": [
+      "Titanium"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Moon2",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 0.942,
+    "surface_area": 1809557376,
+    "biosphere": "",
+    "territories": 1922,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      -13503090,
+      55594324,
+      769836
+    ],
+    "home": "Talemai",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [],
+    "t3ore": [
+      "Scandium"
+    ],
+    "t4ore": [
+      "Manganese"
+    ],
+    "t5ore": []
+  },
+  {
+    "id": 42,
+    "name": "Moon3",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 0.8635,
+    "surface_area": 1520530944,
+    "biosphere": "",
+    "territories": 1922,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      -12800514,
+      55700257,
+      325207
+    ],
+    "home": "Talemai",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Lead"
+    ],
+    "t3ore": [],
+    "t4ore": [
+      "Gold"
+    ],
+    "t5ore": [
+      "Vanadium"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Moon1",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 1.099,
+    "surface_area": 2463008768,
+    "biosphere": "",
+    "territories": 3002,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      -43902841,
+      22261034,
+      -48862386
+    ],
+    "home": "Feli",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Tungsten"
+    ],
+    "t3ore": [
+      "Platinum"
+    ],
+    "t4ore": [],
+    "t5ore": [
+      "Niobium"
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Moon1",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 1.3345,
+    "surface_area": 3631681280,
+    "biosphere": "",
+    "territories": 4322,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      58969618,
+      29797943,
+      57969448
+    ],
+    "home": "Sinnen",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Nickel"
+    ],
+    "t3ore": [
+      "Chromium"
+    ],
+    "t4ore": [
+      "Molybdenum"
+    ],
+    "t5ore": [
+      "Rhenium"
+    ]
+  },
+  {
+    "id": 1000,
+    "name": "Moon1",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 1.413,
+    "surface_area": 4071504128,
+    "biosphere": "",
+    "territories": 5072,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      99180967,
+      -13783860,
+      -926156
+    ],
+    "home": "Lacobus",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [],
+    "t3ore": [],
+    "t4ore": [],
+    "t5ore": []
+  },
+  {
+    "id": 1001,
+    "name": "Moon2",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 1.099,
+    "surface_area": 2463008768,
+    "biosphere": "",
+    "territories": 3002,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      99250054,
+      -13629215,
+      -1059341
+    ],
+    "home": "Lacobus",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Lead"
+    ],
+    "t3ore": [],
+    "t4ore": [],
+    "t5ore": []
+  },
+  {
+    "id": 1002,
+    "name": "Moon3",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 1.1775,
+    "surface_area": 2827433472,
+    "biosphere": "",
+    "territories": 3632,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      98905290,
+      -13950923,
+      -647589
+    ],
+    "home": "Lacobus",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [],
+    "t3ore": [],
+    "t4ore": [],
+    "t5ore": []
+  },
+  {
+    "id": 1200,
+    "name": "Moon1",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 0,
+    "surface_area": 0,
+    "biosphere": "",
+    "territories": 0,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      2472917,
+      -99133746,
+      -1133581
+    ],
+    "home": "Ion",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Aluminium"
+    ],
+    "t3ore": [],
+    "t4ore": [],
+    "t5ore": []
+  },
+  {
+    "id": 1201,
+    "name": "Moon2",
+    "type": "Moon",
+    "radius": 10000,
+    "atmosphere": 0,
+    "gravity": 1.1775,
+    "surface_area": 2827433472,
+    "biosphere": "",
+    "territories": 3632,
+    "territories_claimed": 0,
+    "terra_nullius": 0,
+    "pos": [
+      2995424,
+      -99275008,
+      -1378482
+    ],
+    "home": "Ion",
+    "t1ore": [
+      "Sodium",
+      "Carbon",
+      "Silicon",
+      "Iron"
+    ],
+    "t2ore": [
+      "Tungsten"
+    ],
+    "t3ore": [
+      "Platinum"
+    ],
+    "t4ore": [],
+    "t5ore": []
+  }
 ]
