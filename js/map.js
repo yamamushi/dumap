@@ -33,12 +33,12 @@ let pRadius;
 const planetsDiffuse = "0 0 1";
 const planetsEmissive = "0 0 0";
 
-const moonDiffuse = "1 0 0";
+const moonDiffuse = "1 0 1";
 const moonEmissive = "0 0 0";
 
 const fuzzySpheresDiffuse = "0 0 0";
 const fuzzySpheresEmissive = "0 1 0";
-const fuzzySpheresTransparency = 0.9; // The transparency of those spheres
+const fuzzySpheresTransparency = 0.95; // The transparency of those spheres
 
 const ringDiffuse = "0 0 0";
 let ringEmmissive = "0.05 0.05 0.05";
@@ -65,7 +65,7 @@ let planet_Data;
 let moon_Data;
 let orbit_Data;
 let star_Data;
-
+let ore_Selection_Data = [];
 
 // Datapoints
 let datapoints;
@@ -210,11 +210,13 @@ function updateDistances(event,i) {
 function mouseover(e, i) {
     document.getElementById("fuzzy_color_" + i).setAttribute('emissiveColor', '0 0 1');
     document.getElementById("orbit_Mats_" + i).setAttribute('emissiveColor', '0 0 1');
+    //document.getElementById("dynlabel_color_" + i).setAttribute('diffuseColor', '0 0 1');
 }
 
 function mouseout(e, i) {
     document.getElementById("fuzzy_color_" + i).setAttribute('emissiveColor', fuzzySpheresEmissive);
     document.getElementById("orbit_Mats_" + i).setAttribute('emissiveColor', ringEmmissive);
+    //document.getElementById("dynlabel_color_" + i).setAttribute('diffuseColor', '1 1 1');
 }
 
 function set_Size_Of_Fuzz() {
@@ -229,6 +231,46 @@ function set_Size_Of_Fuzz() {
     }
     document.getElementById("orbit_Mats_" + current_Planet).setAttribute('emissiveColor', '0 1 0');
 }
+
+function highlight_ore(ore) {
+	//unhighlight_ore();
+	ore_Selection_Data.length = 0;
+	for (let bb = 0; bb < planet_Data.length; bb++) {
+		if (eval(planet_Data[bb].ore).hasOwnProperty(ore)) {
+			ore_Selection_Data.push(bb);//push index value into array
+		}
+	}
+	ore_Selection_Data.push("|");//seperate planets and moons
+	for (let bc = 0; bc < moon_Data.length; bc++) {
+		if (eval(moon_Data[bc].ore).hasOwnProperty(ore)) {
+			ore_Selection_Data.push(bc);//push index value into array
+		}
+	}
+	for (let be = 0; be < ore_Selection_Data.length; be++) {
+		if (ore_Selection_Data[be] != "|") {
+			document.getElementById("fuzzy_color_" + ore_Selection_Data[be]).setAttribute('emissiveColor', '1 1 0');
+			document.getElementById("fuzzy_" + ore_Selection_Data[be]).setAttribute('scale', '3 3 3');
+    		document.getElementById("orbit_Mats_" + ore_Selection_Data[be]).setAttribute('emissiveColor', '1 1 0');
+		} else
+		if (ore_Selection_Data[be] === "|") {
+			break;//do moons later
+		}
+	}
+}
+
+function unhighlight_ore() {
+	for (let bd = 0; bd < ore_Selection_Data.length; bd++) {
+		if (ore_Selection_Data[bd] != "|") {
+			document.getElementById("fuzzy_color_" + ore_Selection_Data[bd]).setAttribute('emissiveColor', fuzzySpheresEmissive);
+			document.getElementById("fuzzy_" + ore_Selection_Data[bd]).setAttribute('scale', '1 1 1');
+    		document.getElementById("orbit_Mats_" + ore_Selection_Data[bd]).setAttribute('emissiveColor', ringEmmissive);
+		} else
+		if (ore_Selection_Data[bd] === "|") {
+			break;//do moons later
+		}
+	}
+}
+
 
 /**
  * @return {string}
@@ -458,11 +500,13 @@ function generateLabels(){
                 return '"' + planet_Data[i].name + '"' + '""' + '""' + '""';
             }
         })
+        .attr("id", function(d,i) { return 'dynlabel_' + i})
         .attr("class", 'dynlabel')
         .append("fontstyle")
         .attr("family", "arial")
         .attr("quality", "3")
         .attr("size", "1.5");
+    shapelabel.append("appearance").attr("id", function(d,i) { return 'dynlabel_color_' + i}).append("material").attr("diffuseColor", "1 1 1");
 
     return datalabels;
 }
