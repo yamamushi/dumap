@@ -869,81 +869,78 @@ function set_HTML_For_Info_Panel(i, body, home) {
 function Create_Ore_HTML_For_Info_Panel(i, body, home) {
     let temp_Ore_Text = "";
 	if (hide_Menu_Ores === false) {
-    	let t1o = [];
-    	let t2o = [];
-    	let t3o = [];
-    	let t4o = [];
-    	let t5o = [];
+    	let oreobj;
     	if (body === "Moon") {
-    	    t1o = moon_Data[i].t1ore;
-    	    t2o = moon_Data[i].t2ore;
-    	    t3o = moon_Data[i].t3ore;
-    	    t4o = moon_Data[i].t4ore;
-    	    t5o = moon_Data[i].t5ore;
+    		oreobj = moon_Data[i].ore
     	} else
     	if (body === "Planet") {
-    	    t1o = planet_Data[i].t1ore;
-    	    t2o = planet_Data[i].t2ore;
-    	    t3o = planet_Data[i].t3ore;
-    	    t4o = planet_Data[i].t4ore;
-    	    t5o = planet_Data[i].t5ore;
+    		oreobj = planet_Data[i].ore
     	}
-    	let tier1ore = "";
-    	let tier2ore = "";
-    	let tier3ore = "";
-    	let tier4ore = "";
-    	let tier5ore = "";
     	temp_Ore_Text = '<tr><td align="center">Ores:<span id="Exit_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
-    	for (let ah = 0; ah < t1o.length; ah++) {
-    	    tier1ore = tier1ore +  t1o[ah] + ", ";
+    	if (eval(oreobj).hasOwnProperty("Sodium")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t1:Sodium ' + oreobj.Sodium + '</td></tr>';
     	}
-    	if (tier1ore.length > 2) {
-    	    tier1ore = tier1ore.slice(0, -2);
-    	} else
-    	if (tier1ore.length === 0) {
-    	    tier1ore = "none";
+    	if (eval(oreobj).hasOwnProperty("Carbon")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t1:Carbon ' + oreobj.Carbon + '</td></tr>';
     	}
-    	for (let aj = 0; aj < t2o.length; aj++) {
-    	    tier2ore = tier2ore +  t2o[aj] + ", ";
+    	if (eval(oreobj).hasOwnProperty("Silicon")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t1:Silicon ' + oreobj.Silicon + '</td></tr>';
     	}
-    	if (tier2ore.length > 2) {
-    	    tier2ore = tier2ore.slice(0, -2);
-    	} else
-    	if (tier2ore.length === 0) {
-    	    tier2ore = "none";
+    	if (eval(oreobj).hasOwnProperty("Iron")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t1:Iron ' + oreobj.Iron + '</td></tr>';
     	}
-    	for (let ak = 0; ak < t3o.length; ak++) {
-    	    tier3ore = tier3ore +  t3o[ak] + ", ";
+
+    	if (eval(oreobj).hasOwnProperty("Aluminium")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t2:Aluminium ' + oreobj.Aluminium + '</td></tr>';
     	}
-    	if (tier3ore.length > 2) {
-    	    tier3ore = tier3ore.slice(0, -2);
-    	} else
-    	if (tier3ore.length === 0) {
-    	    tier3ore = "none";
+    	if (eval(oreobj).hasOwnProperty("Nickel")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t2:Nickel ' + oreobj.Nickel + '</td></tr>';
     	}
-    	for (let al = 0; al < t4o.length; al++) {
-    	    tier4ore = tier4ore +  t4o[al] + ", ";
+    	if (eval(oreobj).hasOwnProperty("Lead")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t2:Lead ' + oreobj.Lead + '</td></tr>';
     	}
-    	if (tier4ore.length > 2) {
-    	    tier4ore = tier4ore.slice(0, -2);
-    	} else
-    	if (tier4ore.length === 0) {
-    	    tier4ore = "none";
+    	if (eval(oreobj).hasOwnProperty("Tungsten")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t2:Tungsten ' + oreobj.Tungsten + '</td></tr>';
     	}
-    	for (let am = 0; am < t5o.length; am++) {
-    	    tier5ore = tier5ore +  t5o[am] + ", ";
+
+    	if (eval(oreobj).hasOwnProperty("Scandium")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t3:Scandium ' + oreobj.Scandium + '</td></tr>';
     	}
-    	if (tier5ore.length > 2) {
-    	    tier5ore = tier5ore.slice(0, -2);
-    	} else
-    	if (tier5ore.length === 0) {
-    	    tier5ore = "none";
+    	if (eval(oreobj).hasOwnProperty("Chromium")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t3:Chromium ' + oreobj.Chromium + '</td></tr>';
     	}
-    	temp_Ore_Text = temp_Ore_Text + '<tr><td>t1: ' + tier1ore + '</td></tr>';
-    	temp_Ore_Text = temp_Ore_Text + '<tr><td>t2: ' + tier2ore + '</td></tr>';
-    	temp_Ore_Text = temp_Ore_Text + '<tr><td>t3: ' + tier3ore + '</td></tr>';
-    	temp_Ore_Text = temp_Ore_Text + '<tr><td>t4: ' + tier4ore + '</td></tr>';
-    	temp_Ore_Text = temp_Ore_Text + '<tr><td>t5: ' + tier5ore + '</td></tr>';
+    	if (eval(oreobj).hasOwnProperty("Copper")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t3:Copper ' + oreobj.Copper + '</td></tr>';
+    	}
+    	if (eval(oreobj).hasOwnProperty("Platinum")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t3:Platinum ' + oreobj.Platinum + '</td></tr>';
+    	}
+
+    	if (eval(oreobj).hasOwnProperty("Zirconium")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t4:Zirconium ' + oreobj.Zirconium + '</td></tr>';
+    	}
+    	if (eval(oreobj).hasOwnProperty("Manganese")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t4:Manganese ' + oreobj.Manganese + '</td></tr>';
+    	}
+    	if (eval(oreobj).hasOwnProperty("Molybdenum")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t4:Molybdenum ' + oreobj.Molybdenum + '</td></tr>';
+    	}
+    	if (eval(oreobj).hasOwnProperty("Gold")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t4:Gold ' + oreobj.Gold + '</td></tr>';
+    	}
+
+    	if (eval(oreobj).hasOwnProperty("Titanium")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t5:Titanium ' + oreobj.Titanium + '</td></tr>';
+    	}
+    	if (eval(oreobj).hasOwnProperty("Vanadium")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t5:Vanadium ' + oreobj.Vanadium + '</td></tr>';
+    	}
+    	if (eval(oreobj).hasOwnProperty("Niobium")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t5:Niobium ' + oreobj.Niobium + '</td></tr>';
+    	}
+    	if (eval(oreobj).hasOwnProperty("Rhenium")) {
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t5:Rhenium ' + oreobj.Rhenium + '</td></tr>';
+    	}
     	temp_Ore_Text = temp_Ore_Text + '<tr><td><hr></td></tr>';
     } else {
     	temp_Ore_Text = temp_Ore_Text + '<tr><td align="center">Ores:<span id="Exit_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';

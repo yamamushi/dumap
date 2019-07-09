@@ -58,6 +58,8 @@ body {
     color: white;
     background-color: gray;
     font-size: medium;
+    max-height: 85%;
+    overflow: auto;
 }
 
 #Exit_Button {

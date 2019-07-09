@@ -30,7 +30,21 @@
     "t4ore": [
       "Manganese"
     ],
-    "t5ore": []
+    "t5ore": [],
+    "t1oreloc": [
+      "68 to 108",
+      "67 to 135",
+      "39 to 128",
+      "64 to 105"
+    ],
+    "t2oreloc": [],
+    "t3oreloc": [
+      "477 to 514"
+    ],
+    "t4oreloc": [
+      "632 to 632"
+    ],
+    "t5oreloc": []
   },
   {
     "id": 11,
@@ -65,6 +79,22 @@
     ],
     "t5ore": [
       "Vanadium"
+    ],
+    "t1oreloc": [
+      "53 to 122",
+      "51 to 127",
+      "44 to 115",
+      "68 to 118"
+    ],
+    "t2oreloc": [],
+    "t3oreloc": [
+      "463 to 494"
+    ],
+    "t4oreloc": [
+      "633 to 664"
+    ],
+    "t5oreloc": [
+      "859 to 859"
     ]
   },
   {
@@ -98,6 +128,20 @@
     ],
     "t5ore": [
       "Titanium"
+    ],
+    "t1oreloc": [
+      "52 to 119",
+      "52 to 114",
+      "44 to 106",
+      "48 to 97"
+    ],
+    "t2oreloc": [],
+    "t3oreloc": [],
+    "t4oreloc": [
+      "603 to 670"
+    ],
+    "t5oreloc": [
+      "858 to 858"
     ]
   },
   {
@@ -129,6 +173,18 @@
     "t4ore": [],
     "t5ore": [
       "Niobium"
+    ],
+    "t1oreloc": [
+      "76 to 126",
+      "71 to 129",
+      "64 to 122",
+      "58 to 106"
+    ],
+    "t2oreloc": [],
+    "t3oreloc": [],
+    "t4oreloc": [],
+    "t5oreloc": [
+      "840 to 840"
     ]
   },
   {
@@ -160,6 +216,18 @@
     "t4ore": [],
     "t5ore": [
       "Rhenium"
+    ],
+    "t1oreloc": [
+      "75 to 129",
+      "59 to 130",
+      "41 to 131",
+      "28 to 119"
+    ],
+    "t2oreloc": [],
+    "t3oreloc": [],
+    "t4oreloc": [],
+    "t5oreloc": [
+      "836 to 836"
     ]
   },
   {
@@ -193,7 +261,21 @@
       "Chromium"
     ],
     "t4ore": [],
-    "t5ore": []
+    "t5ore": [],
+    "t1oreloc": [
+      "62 to 117",
+      "42 to 117",
+      "58 to 127",
+      "44 to 114"
+    ],
+    "t2oreloc": [
+      "191 to 258"
+    ],
+    "t3oreloc": [
+      "458 to 520"
+    ],
+    "t4oreloc": [],
+    "t5oreloc": []
   },
   {
     "id": 31,
@@ -226,7 +308,21 @@
     "t4ore": [
       "Molybdenum"
     ],
-    "t5ore": []
+    "t5ore": [],
+    "t1oreloc": [
+      "46 to 104",
+      "44 to 144",
+      "46 to 145",
+      "74 to 133"
+    ],
+    "t2oreloc": [],
+    "t3oreloc": [
+      "461 to 527"
+    ],
+    "t4oreloc": [
+      "605 to 680"
+    ],
+    "t5oreloc": []
   },
   {
     "id": 40,
@@ -261,6 +357,22 @@
     ],
     "t5ore": [
       "Titanium"
+    ],
+    "t1oreloc": [
+      "56 to 131",
+      "63 to 125",
+      "50 to 114",
+      "72 to 122"
+    ],
+    "t2oreloc": [
+      "211 to 350"
+    ],
+    "t3oreloc": [],
+    "t4oreloc": [
+      "612 to 676"
+    ],
+    "t5oreloc": [
+      "828 to 863"
     ]
   },
   {
@@ -294,7 +406,21 @@
     "t4ore": [
       "Manganese"
     ],
-    "t5ore": []
+    "t5ore": [],
+    "t1oreloc": [
+      "56 to 120",
+      "62 to 105",
+      "53 to 127",
+      "58 to 106"
+    ],
+    "t2oreloc": [],
+    "t3oreloc": [
+      "466 to 508"
+    ],
+    "t4oreloc": [
+      "588 to 652"
+    ],
+    "t5oreloc": []
   },
   {
     "id": 42,
@@ -329,6 +455,22 @@
     ],
     "t5ore": [
       "Vanadium"
+    ],
+    "t1oreloc": [
+      "62 to 95",
+      "25 to 123",
+      "56 to 138",
+      "65 to 139"
+    ],
+    "t2oreloc": [
+      "225 to 300"
+    ],
+    "t3oreloc": [],
+    "t4oreloc": [
+      "612 to 657"
+    ],
+    "t5oreloc": [
+      "846 to 846"
     ]
   },
   {
@@ -364,6 +506,22 @@
     "t4ore": [],
     "t5ore": [
       "Niobium"
+    ],
+    "t1oreloc": [
+      "75 to 123",
+      "60 to 144",
+      "72 to 114",
+      "46 to 113"
+    ],
+    "t2oreloc": [
+      "209 to 275"
+    ],
+    "t3oreloc": [
+      "449 to 529"
+    ],
+    "t4oreloc": [],
+    "t5oreloc": [
+      "797 to 797"
     ]
   },
   {
@@ -401,6 +559,24 @@
     ],
     "t5ore": [
       "Rhenium"
+    ],
+    "t1oreloc": [
+      "67 to 114",
+      "64 to 110",
+      "69 to 124",
+      "78 to 125"
+    ],
+    "t2oreloc": [
+      "213 to 274"
+    ],
+    "t3oreloc": [
+      "442 to 527"
+    ],
+    "t4oreloc": [
+      "620 to 620"
+    ],
+    "t5oreloc": [
+      "883 to 883"
     ]
   },
   {
@@ -430,7 +606,17 @@
     "t2ore": [],
     "t3ore": [],
     "t4ore": [],
-    "t5ore": []
+    "t5ore": [],
+    "t1oreloc": [
+      "57 to 131",
+      "53 to 120",
+      "59 to 150",
+      "64 to 118"
+    ],
+    "t2oreloc": [],
+    "t3oreloc": [],
+    "t4oreloc": [],
+    "t5oreloc": []
   },
   {
     "id": 1001,
@@ -461,7 +647,19 @@
     ],
     "t3ore": [],
     "t4ore": [],
-    "t5ore": []
+    "t5ore": [],
+    "t1oreloc": [
+      "11 to 108",
+      "53 to 119",
+      "64 to 111",
+      "53 to 132"
+    ],
+    "t2oreloc": [
+      "204 to 248"
+    ],
+    "t3oreloc": [],
+    "t4oreloc": [],
+    "t5oreloc": []
   },
   {
     "id": 1002,
@@ -490,7 +688,17 @@
     "t2ore": [],
     "t3ore": [],
     "t4ore": [],
-    "t5ore": []
+    "t5ore": [],
+    "t1oreloc": [
+      "36 to 105",
+      "39 to 92",
+      "36 to 93",
+      "57 to 100"
+    ],
+    "t2oreloc": [],
+    "t3oreloc": [],
+    "t4oreloc": [],
+    "t5oreloc": []
   },
   {
     "id": 1200,
@@ -521,7 +729,19 @@
     ],
     "t3ore": [],
     "t4ore": [],
-    "t5ore": []
+    "t5ore": [],
+    "t1oreloc": [
+      "72 to 120",
+      "56 to 100",
+      "66 to 107",
+      "47 to 99"
+    ],
+    "t2oreloc": [
+      "200 to 284"
+    ],
+    "t3oreloc": [],
+    "t4oreloc": [],
+    "t5oreloc": []
   },
   {
     "id": 1201,
@@ -554,6 +774,20 @@
       "Platinum"
     ],
     "t4ore": [],
-    "t5ore": []
+    "t5ore": [],
+    "t1oreloc": [
+      "59 to 117",
+      "52 to 123",
+      "48 to 149",
+      "61 to 118"
+    ],
+    "t2oreloc": [
+      "203 to 268"
+    ],
+    "t3oreloc": [
+      "464 to 505"
+    ],
+    "t4oreloc": [],
+    "t5oreloc": []
   }
 ]
