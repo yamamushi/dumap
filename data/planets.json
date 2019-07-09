@@ -22,20 +22,14 @@
     "territories": 32672,
     "territories_claimed": 0,
     "terra_nullius": 0.00,
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Aluminium"
-    ],
-    "t3ore": [
-      "Scandium"
-    ],
-    "t4ore": [],
-    "t5ore": []
+    "ore": {
+      "Sodium": "201 - 813",
+      "Carbon": "57 - 930",
+      "Silicon": "77 - 936",
+      "Iron": "227 - 740",
+      "Aluminium": "982 - 1160",
+      "Scandium": "1200 - 1310"
+    }
   },
   {
     "id": 2,
@@ -60,21 +54,15 @@
     "territories": 259472,
     "territories_claimed": 0,
     "terra_nullius": 0.00,
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Lead",
-      "Tungsten"
-    ],
-    "t3ore": [
-      "Chromium"
-    ],
-    "t4ore": [],
-    "t5ore": []
+    "ore": {
+      "Sodium": "64 - 330",
+      "Carbon": "18 - 293",
+      "Silicon": "47 - 289",
+      "Iron": "19 - 245",
+      "Lead": "598 - 663",
+      "Tungsten": "471 - 566",
+      "Chromium": "866 - 926"
+    }
   },
   {
     "id": 3,
@@ -99,20 +87,14 @@
     "territories": 60752,
     "territories_claimed": 0,
     "terra_nullius": 0.00,
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Nickel"
-    ],
-    "t3ore": [
-      "Platinum"
-    ],
-    "t4ore": [],
-    "t5ore": []
+    "ore": {
+      "Sodium": "21 - 367",
+      "Carbon": "88 - 433",
+      "Silicon": "122 - 484",
+      "Iron": "36 - 442",
+      "Nickel": "519 - 655",
+      "Platinum": "801 - 880"
+    }
   },
   {
     "id": 4,
@@ -137,21 +119,15 @@
     "territories": 52922,
     "territories_claimed": 0,
     "terra_nullius": 0.00,
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Aluminium",
-      "Lead"
-    ],
-    "t3ore": [
-      "Copper"
-    ],
-    "t4ore": [],
-    "t5ore": []
+    "ore": {
+      "Sodium": "122 - 192",
+      "Carbon": "131 - 182",
+      "Silicon": "89 - 191",
+      "Iron": "98 - 184",
+      "Aluminium": "424 - 551",
+      "Lead": "312 - 393",
+      "Copper": "704 - 808"
+    }
   },
   {
     "id": 5,
@@ -176,22 +152,15 @@
     "territories": 58082,
     "territories_claimed": 0,
     "terra_nullius": 0.00,
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Tungsten"
-    ],
-    "t3ore": [
-      "Copper"
-    ],
-    "t4ore": [
-      "Gold"
-    ],
-    "t5ore": []
+    "ore": {
+      "Sodium": "83 - 161",
+      "Carbon": "72 - 235",
+      "Silicon": "49 - 192",
+      "Iron": "81 - 258",
+      "Tungsten": "410 - 519",
+      "Copper": "638 - 709",
+      "Gold": "794 - 3059"
+    }
   },
   {
     "id": 6,
@@ -216,22 +185,15 @@
     "territories": 41072,
     "territories_claimed": 0,
     "terra_nullius": 0.00,
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Nickel"
-    ],
-    "t3ore": [
-      "Platinum"
-    ],
-    "t4ore": [
-      "Manganese"
-    ],
-    "t5ore": []
+    "ore": {
+      "Sodium": "122 - 338",
+      "Carbon": "139 - 420",
+      "Silicon": "76 - 363",
+      "Iron": "100 - 480",
+      "Nickel": "553 - 624",
+      "Platinum": "770 - 876",
+      "Manganese": "1006 - 1082"
+    }
   },
   {
     "id": 7,
@@ -256,22 +218,15 @@
     "territories": 48002,
     "territories_claimed": 0,
     "terra_nullius": 0.00,
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Tungsten"
-    ],
-    "t3ore": [
-      "Chromium"
-    ],
-    "t4ore": [
-      "Zirconium"
-    ],
-    "t5ore": []
+    "ore": {
+      "Sodium": "67 - 965",
+      "Carbon": "213 - 663",
+      "Silicon": "141 - 823",
+      "Iron": "84 - 728",
+      "Tungsten": "983 - 1171",
+      "Chromium": "1270 - 1334",
+      "Zirconium": "1501 - 1551"
+    }
   },
   {
     "id": 8,
@@ -296,23 +251,16 @@
     "territories": 60752,
     "territories_claimed": 0,
     "terra_nullius": 0.00,
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Aluminium",
-      "Tungsten"
-    ],
-    "t3ore": [
-      "Scandium"
-    ],
-    "t4ore": [
-      "Molybdenum"
-    ],
-    "t5ore": []
+    "ore": {
+      "Sodium": "82 - 205",
+      "Carbon": "128 - 200",
+      "Silicon": "67 - 243",
+      "Iron": "125 - 236",
+      "Aluminium": "296 - 387",
+      "Tungsten": "414 - 514",
+      "Scandium": "609 - 698",
+      "Molybdenum": "811 - 877"
+    }
   },
   {
     "id": 9,
@@ -337,25 +285,17 @@
     "territories": 63482,
     "territories_claimed": 0,
     "terra_nullius": 0.00,
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Nickel",
-      "Lead"
-    ],
-    "t3ore": [
-      "Copper"
-    ],
-    "t4ore": [
-      "Manganese"
-    ],
-    "t5ore": [
-      "Niobium"
-    ]
+    "ore": {
+      "Sodium": "67 - 120",
+      "Carbon": "52 - 115",
+      "Silicon": "39 - 117",
+      "Iron": "67 - 111",
+      "Nickel": "136 - 303",
+      "Lead": "169 - 286",
+      "Copper": "376 - 514",
+      "Manganese": "609 - 672",
+      "Niobium": "1112 - 1170"
+    }
   },
   {
     "id": 100,
@@ -380,24 +320,16 @@
     "territories": 52922,
     "territories_claimed": 0,
     "terra_nullius": 0.00,
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Aluminium"
-    ],
-    "t3ore": [
-      "Platinum"
-    ],
-    "t4ore": [
-      "Gold"
-    ],
-    "t5ore": [
-      "Titanium"
-    ]
+    "ore": {
+      "Sodium": "98 - 308",
+      "Carbon": "48 - 341",
+      "Silicon": "63 - 268",
+      "Iron": "107 - 242",
+      "Aluminium": "432 - 534",
+      "Platinum": "667 - 786",
+      "Gold": "901 - 977",
+      "Titanium": "1022 - 1074"
+    }
   },
   {
     "id": 110,
@@ -422,24 +354,16 @@
     "territories": 38882,
     "territories_claimed": 0,
     "terra_nullius": 0.00,
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Nickel"
-    ],
-    "t3ore": [
-      "Scandium"
-    ],
-    "t4ore": [
-      "Molybdenum"
-    ],
-    "t5ore": [
-      "Vanadium"
-    ]
+    "ore": {
+      "Sodium": "37 - 505",
+      "Carbon": "74 - 547",
+      "Silicon": "89 - 557",
+      "Iron": "111 - 525",
+      "Nickel": "590 - 740",
+      "Scandium": "871 - 954",
+      "Molybdenum": "1071 - 1117",
+      "Vanadium": "1188 - 1258"
+    }
   },
   {
     "id": 120,
@@ -464,23 +388,15 @@
     "territories": 32672,
     "territories_claimed": 0,
     "terra_nullius": 0.00,
-    "t1ore": [
-      "Sodium",
-      "Carbon",
-      "Silicon",
-      "Iron"
-    ],
-    "t2ore": [
-      "Lead"
-    ],
-    "t3ore": [
-      "Chromium"
-    ],
-    "t4ore": [
-      "Zirconium"
-    ],
-    "t5ore": [
-      "Rhenium"
-    ]
+    "ore": {
+      "Sodium": "277 - 872",
+      "Carbon": "116 - 922",
+      "Silicon": "82 - 889",
+      "Iron": "107 - 968",
+      "Lead": "1263 - 1401",
+      "Chromium": "1498 - 1631",
+      "Zirconium": "1690 - 1750",
+      "Rhenium": "1790 - 1875"
+    }
   }
 ]
