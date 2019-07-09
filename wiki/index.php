@@ -78,7 +78,7 @@ if(session('access_token')) {
 
 // Save content.
             if (!empty($_POST)) {
-                echo print_r($_POST);
+                //echo print_r($_POST);
                 if ($_POST['search'] == 'Search'){
                     if (isset($_POST['searchphrase']) && $_POST['searchphrase'] != '') {
                         printHeader("Search results for: \"".$_POST['searchphrase']."\"");
@@ -291,8 +291,8 @@ function getSidebar($user, $page = BASE_PAGE){
   <li class=\"create-new-link\"><a href=\"./?edit=\">Create New Page</a></li>
   <li class=\"recent-changes-link\"><a href=\"./?recent=10\">Recent Changes</a></li>
 <form action=\"\" method=\"POST\">
-<input type=\"text\" name=\"searchphrase\" value=\"\" style=\"width: 100px; height: 15px; font-size:14px;\" >
-<input type=\"submit\" value=\"Search\" name=\"search\" style=\"width: 80px; height: 15px; margin-left: 12px\">
+<input type=\"text\" name=\"searchphrase\" value=\"\" style=\"width: 100px; height: 18px; font-size:14px;\" >
+<input type=\"submit\" value=\"Search\" name=\"search\" style=\"width: 80px; margin-left: 12px\">
 </form>
 </ul>
 <br>
@@ -630,12 +630,29 @@ HISTORY;
 
 
 /**
- * Print page for History
- * @param string $page
- * @return void
+ * Print page for Search results
+ * @param string $searchstring
+ * @return null
  */
 function printSearch($searchstring){
     global $texy;
+    if (strlen($searchstring) < 3){
+        echo <<<HISTORY
+Query $searchstring is too short, it must be between 3 and 30 characters.
+<br>
+<a href="http://dual.sh/wiki/">Return to Homepage</a>
+HISTORY;
+        return;
+    }
+    if (strlen($searchstring) > 30){
+        echo <<<HISTORY
+Query $searchstring is too long, it must be between 3 and 30 characters.
+<br>
+<a href="http://dual.sh/wiki/">Return to Homepage</a>
+HISTORY;
+        return;
+    }
+
     $result = getGrepSearch($searchstring);
     $results = preg_split('/\s+/', $result);
 
