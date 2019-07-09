@@ -78,9 +78,20 @@ if(session('access_token')) {
 
 // Save content.
             if (!empty($_POST)) {
-                if (!savePageContent($_POST, $user)) {
+                echo print_r($_POST);
+                if ($_POST['search'] == 'Search'){
+                    if (isset($_POST['searchphrase']) && $_POST['searchphrase'] != '') {
+                        printHeader("Search results for: \"".$_POST['searchphrase']."\"");
+                        printSearch($_POST['searchphrase']);
+                        printFooter($user, "Search");
+                        exit;
+                    }
+
+                }
+                else if (!savePageContent($_POST, $user)) {
                     $msg = 'Edit failed. Please, try again.';
                 }
+
             }
 
 
@@ -271,29 +282,40 @@ function getSidebar($user, $page = BASE_PAGE){
         $historylink = "<li class=\"create-new-link\"><a href=\"./?history=$id\">View Page History</a></li>";
     }
 
-    return <<<PAGE_SIDEBAR
-<p id="title"><a href="./">$title</a></p>
-<ul class="sidebar-list">
+     $page_sidebar = "
+<p id=\"title\"><a href=\"./\">$title</a></p>
+<ul class=\"sidebar-list\">
 <h3>Navigation</h3>
-  <li><a href="http://dual.sh/wiki/">Wiki Home</a></li>
-  <li><a href="http://dual.sh/">Dual.sh Menu</a></li>
-  <li class="create-new-link"><a href="./?edit=">Create New Page</a></li>
-  <li class="recent-changes-link"><a href="./?recent=10">Recent Changes</a></li>
-  <li><a href="?action=logout">Log Out</a></li>
+  <li><a href=\"http://dual.sh/wiki/\">Wiki Home</a></li>
+  <li><a href=\"http://dual.sh/\">Dual.sh Menu</a></li>
+  <li class=\"create-new-link\"><a href=\"./?edit=\">Create New Page</a></li>
+  <li class=\"recent-changes-link\"><a href=\"./?recent=10\">Recent Changes</a></li>
+<form action=\"\" method=\"POST\">
+<input type=\"text\" name=\"searchphrase\" value=\"\" style=\"width: 100px; height: 15px; font-size:14px;\" >
+<input type=\"submit\" value=\"Search\" name=\"search\" style=\"width: 80px; height: 15px; margin-left: 12px\">
+</form>
 </ul>
 <br>
 $toc
-<ul class="sidebar-list">
-<h3>Page Tools</h3>
-  <li class="edit-link"><a href="./?edit=$id">Edit Page</a></li>
-  $bl
-  $historylink
-  <li class="modified"><em>Page Last Updated:<br> $mod</em></li>
-</ul>
-<br>
-<div class="loggedin"><em>Logged in as <b>$user->username</b></em></div>
+<ul class=\"sidebar-list\">";
 
-PAGE_SIDEBAR;
+if ($id != "Search") {
+    $page_sidebar = $page_sidebar."
+<h3>Page Tools</h3>
+  <li class=\"edit-link\"><a href=\"./?edit=$id\">Edit Page</a></li>
+  $bl
+  $historylink 
+  <li class=\"modified\"><em>Page Last Updated:<br> $mod</em></li>
+</ul>";
+}
+$page_sidebar = $page_sidebar."
+<br>
+<div class=\"loggedin\"><em>Logged in as <b>$user->username</b></em></div>
+<br><br>
+<a href=\"?action=logout\">Log Out</a>";
+
+
+    return $page_sidebar;
 }
 
 
@@ -334,7 +356,7 @@ function printEdit($page){
     }
 
     echo <<<EDIT_FORM
-<form action="./?edit=$id" method="post" id="edit-form">
+<form action="./?edit=$id" method="post" id="edit-form" name="editForm">
   <p id="edit-block-title" class="edit-block">
     <label for="edit-title">Page:</label>
     <input type="text" id="edit-title" name="title" value="$title">
@@ -344,7 +366,7 @@ function printEdit($page){
     <textarea name="content" id="edit-content" rows="15" cols="80">$content</textarea>
   </div>
   <p id="edit-block-submit" class="edit-block">
-    <button type="submit">Save changes</button>
+    <button type="submit" name="save">Save</button>
     <button onclick="window.location='http://dual.sh/wiki/?$id';">Cancel</button> <button onclick="history.go(-1);">Go Back</button>
   </p>
   <p id="edit-block-help" class="edit-block">
@@ -607,3 +629,35 @@ HISTORY;
 }
 
 
+/**
+ * Print page for History
+ * @param string $page
+ * @return void
+ */
+function printSearch($searchstring){
+    global $texy;
+    $result = getGrepSearch($searchstring);
+    $results = preg_split('/\s+/', $result);
+
+    $output = "";
+    foreach ($results as $unparsed) {
+        if (strlen($unparsed) > 0) {
+            $unparsed = substr($unparsed, strlen("./wikdata/"));
+            $output = $output."[".fileToTitle($unparsed)."]"."<br>";
+        }
+    }
+    $output = $texy->process($output);
+
+
+    echo <<<HISTORY
+$output 
+<br>
+<a href="http://dual.sh/wiki/">Return to Homepage</a>
+HISTORY;
+}
+
+
+function getGrepSearch($string)
+{
+    return shell_exec('grep -il "'.$string.'" ./wikdata/*.wik');
+}
