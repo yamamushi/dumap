@@ -804,12 +804,21 @@ function set_HTML_For_Info_Panel(i, body, home) {
             }
         }
         temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + moon_Data[i].name + ' of <span class="link" onclick="set_HTML_For_Info_Panel(' + planetid + ', ' + "'Planet'" + ')">' + home + '</span><span id="Exit_Button" onclick="hide_Info_Panel()">X</span></th></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmosphere: ' + moon_Data[i].atmosphere + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Gravity: ' + moon_Data[i].gravity + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Surface Area: ' + moon_Data[i].surface_area + '</td></tr>';
+       //temp_HTML_Text = temp_HTML_Text + '<tr><td>Biosphere: ' + moon_Data[i].biosphere + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories: ' + moon_Data[i].territories + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories Claimed: ' + moon_Data[i].territories_claimed + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td>Terra Nullius: ' + moon_Data[i].terra_nullius + '</td></tr>';
+
+
     }
     temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
     if (body === "Moon") {
-        temp_HTML_Text = temp_HTML_Text + Create_Ore_HTML_For_Info_Panal(i, "Moon");//adds ore html
+        temp_HTML_Text = temp_HTML_Text + Create_Ore_HTML_For_Info_Panel(i, "Moon");//adds ore html
     } else {
-        temp_HTML_Text = temp_HTML_Text + Create_Ore_HTML_For_Info_Panal(i, "Planet");//adds ore html
+        temp_HTML_Text = temp_HTML_Text + Create_Ore_HTML_For_Info_Panel(i, "Planet");//adds ore html
     }
     if (body === "Planet") {
         if (temp_List_Of_Moons.length === 0) {
@@ -829,7 +838,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
     document.getElementById("info_Panel").style.display = "initial";
 }
 
-function Create_Ore_HTML_For_Info_Panal(i, body) {
+function Create_Ore_HTML_For_Info_Panel(i, body) {
     let t1o = [];
     let t2o = [];
     let t3o = [];
