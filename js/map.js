@@ -208,11 +208,13 @@ function updateDistances(event,i) {
 }
 
 function mouseover(e, i) {
-    //alert("test " + i)
+    document.getElementById("fuzzy_color_" + i).setAttribute('emissiveColor', '0 0 1');
+    document.getElementById("orbit_Mats_" + i).setAttribute('emissiveColor', '0 0 1');
 }
 
 function mouseout(e, i) {
-    //alert("test" + i);
+    document.getElementById("fuzzy_color_" + i).setAttribute('emissiveColor', fuzzySpheresEmissive);
+    document.getElementById("orbit_Mats_" + i).setAttribute('emissiveColor', ringEmmissive);
 }
 
 function set_Size_Of_Fuzz() {
@@ -304,8 +306,8 @@ function fuzzySphereDatapoints() {
     datatours.exit().remove();
     newDataTours = datatours.enter().append("transform").attr("id", function(d,i) { return "fuzzy_" + i;}).attr("class", "datatour").attr("scale", function(d,i) {
         return [tourRadius, tourRadius, tourRadius];
-    }).append("shape").attr("onclick", function(d,i) { return "updateDistances(event,"+i+");"});
-    newDataTours.append("appearance").append("material").attr("diffuseColor", fuzzySpheresDiffuse).attr("emissiveColor", fuzzySpheresEmissive).attr("transparency", fuzzySpheresTransparency);
+    }).append("shape").attr("onclick", function(d,i) { return "updateDistances(event,"+i+");"}).attr("onmouseover", function(d,i) { return "mouseover(event,"+i+");"}).attr("onmouseout", function(d,i) { return "mouseout(event,"+i+");"});
+    newDataTours.append("appearance").append("material").attr("id", function(d,i) { return "fuzzy_color_" + i;}).attr("diffuseColor", fuzzySpheresDiffuse).attr("emissiveColor", fuzzySpheresEmissive).attr("transparency", fuzzySpheresTransparency);
     newDataTours.append("sphere");
     return newDataTours
 }
@@ -425,7 +427,7 @@ function starDatapoint() {
 
 // Generate the polyline datapoints
 function polylineDatapoints() {
-    datapoints_Polyline = scene.selectAll("datapoint_Polyline").data("0 40 0, 0 0 0");
+    datapoints_Polyline = scene.selectAll("datapoint_Polyline").data("0");
     datapoints_Polyline.exit().remove();
     newDatapoints_Polyline = datapoints_Polyline.enter().append("transform").attr("class", "datapoint_Polyline").attr("id", "datapoint_Polyline_Coord").append("shape")
     newDatapoints_Polyline.append("appearance").append("material").attr("diffuseColor", polylineDiffuse).attr("emissiveColor", polylineEmissive).attr("transparency", polylineTransparency);
