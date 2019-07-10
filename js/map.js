@@ -230,7 +230,11 @@ function mouseover(e, i) {
 
 function mouseout(e, i) {
     document.getElementById("fuzzy_color_" + i).setAttribute('emissiveColor', fuzzySpheresEmissive);
-    document.getElementById("orbit_Mats_" + i).setAttribute('emissiveColor', ringEmmissive);
+    if (i === current_Planet) {
+    	document.getElementById("orbit_Mats_" + i).setAttribute('emissiveColor', "0 1 0");
+    } else {
+    	document.getElementById("orbit_Mats_" + i).setAttribute('emissiveColor', ringEmmissive);
+    }
     //document.getElementById("dynlabel_color_" + i).setAttribute('diffuseColor', '1 1 1');
 }
 
