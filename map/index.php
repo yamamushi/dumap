@@ -85,6 +85,12 @@ if(session('access_token')) {
 	<input type="checkbox" id="text_Distance_Checkbox" OnClick="text_Distance_Check()" />
 	Time
 	<input type="checkbox" id="text_Time_Checkbox" OnClick="text_Time_Check()" />
+	<hr>
+	Lock Planet Selection
+	<input type="checkbox" id="lock_Planet_Checkbox" OnClick="lock_Selection_Check()" />
+	<br>
+	Hide Info Panel
+	<input type="checkbox" id="hide_Info_Panel_Checkbox" OnClick="info_Panel_Check()" />
 	<br>
 </div>
 <div id="info_Panel">
