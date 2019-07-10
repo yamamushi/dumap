@@ -399,7 +399,7 @@ function orbitDatapoints() {
     }).attr("rotation", function(d,i) {
     	let rotate_Value = Math.atan(((planet_Data[i].pos[1] - centerLocation[1]) / (planet_Data[i].pos[0] - centerLocation[0])) / miniscale);
     	return ["0 0 1 " + rotate_Value];
-    }).attr("class", "datapoint_Orbit").append("transform").attr("rotation", function(d,i) {
+    }).attr("class", "datapoint_Orbit").append("transform").attr("id", function(d,i) { return "orbit_b_" + i;}).attr("rotation", function(d,i) {
         let xmin = planet_Data[i].pos[0] / miniscale;
         let ymin = planet_Data[i].pos[1] / miniscale;
         let zmin = planet_Data[i].pos[2] / miniscale;
@@ -702,6 +702,37 @@ function start_Up() {
     });
 
     scatterPlot3d(d3.select('#plot'));
+}
+
+function New_Star_Loc() {
+	let new_X = (parseInt(document.getElementById("New_Star_Loc_X").value)/miniscale);
+	let new_Y = (parseInt(document.getElementById("New_Star_Loc_Y").value)/miniscale);
+	let new_Z = (parseInt(document.getElementById("New_Star_Loc_Z").value)/miniscale);
+	let new_XYZ = new_X + ' ' + new_Y + ' ' + new_Z;
+	document.getElementById("star_0").setAttribute('translation', new_XYZ);
+	let new_Distance;
+	let new_Distance_String;
+	let new_Planet_X;
+	let new_Planet_Y;
+	let new_Planet_Z;
+	let new_Rotate_A;
+	let new_Rotate_B;
+	for (let bf = 0; bf < planet_Data.length; bf++) {
+		document.getElementById("orbit_" + bf).setAttribute('translation', new_XYZ);
+		new_Planet_X = (planet_Data[bf].pos[0] / miniscale) - new_X;
+		new_Planet_Y = (planet_Data[bf].pos[1] / miniscale) - new_Y;
+		new_Planet_Z = (planet_Data[bf].pos[2] / miniscale) - new_Z;
+		new_Distance = Math.sqrt(new_Planet_X * new_Planet_X + new_Planet_Y * new_Planet_Y + new_Planet_Z * new_Planet_Z);
+		new_Distance_String = new_Distance + ' ' + new_Distance + ' ' + new_Distance;
+		document.getElementById("orbit_" + bf).setAttribute('scale', new_Distance_String);
+		new_Rotate_A = Math.atan((new_Planet_Y - new_Y) / (new_Planet_X - new_X));
+		document.getElementById("orbit_" + bf).setAttribute('rotation', "0 0 1 " + new_Rotate_A);
+		new_Rotate_B = Math.asin(new_Planet_Z / new_Distance);
+		if (new_Planet_X > 0) {
+			new_Rotate_B = new_Rotate_B * -1;
+		}
+		document.getElementById("orbit_b_" + bf).setAttribute('rotation', "0 1 0 " + new_Rotate_B);
+	}
 }
 
 function orbitals_Check() {
