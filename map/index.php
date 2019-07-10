@@ -92,6 +92,15 @@ if(session('access_token')) {
 	<br>
 	Hide Info Panel
 	<input type="checkbox" id="hide_Info_Panel_Checkbox" OnClick="info_Panel_Check()" />
+	<hr>
+	New Star Location
+	<input type="button" id="New_Star_Loc_Button" value="Go" OnClick="New_Star_Loc()" />
+	<br>
+	X: <input type="text" id="New_Star_Loc_X" size="15" />
+	<br>
+	Y: <input type="text" id="New_Star_Loc_Y" size="15" />
+	<br>
+	Z: <input type="text" id="New_Star_Loc_Z" size="15" />
 	<br>
 </div>
 <div id="info_Panel">
