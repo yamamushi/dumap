@@ -13,6 +13,8 @@ let hide_Text_Time = false;
 let hide_Text_Distance = false;
 let hide_Text_Names = false;
 let hide_Menu_Ores = false;
+let hide_Info_Panel = false;
+let lock_Selection = false;
 
 // Scaling
 let scales = [];
@@ -20,11 +22,7 @@ const miniscale = 3000000;
 const moonScaling = 100000;
 const starScaling = 50000;
 const planetScaling = 200000;	//was 1 million for all 3 scaling
-const ringScaling = 3000000;	//keep same as miniscale for the same scaling as the planets
-const sphereRadius = 0.5; // Not worth changing since scaling handles this
-const labelscale = 1.5;
 const moon_Distance_Scale = 5; //how much the distance between the moon and planet is multiplied by
-const tourRadius = 1.0; // The fuzzy sphere around planets
 const centerLocation = [0/miniscale, 24000000/miniscale, 0/miniscale];
 let mRadius;
 let pRadius;
@@ -33,12 +31,12 @@ let pRadius;
 const planetsDiffuse = "0 0 1";
 const planetsEmissive = "0 0 0";
 
-const moonDiffuse = "1 0 0";
+const moonDiffuse = "1 0 1";
 const moonEmissive = "0 0 0";
 
 const fuzzySpheresDiffuse = "0 0 0";
 const fuzzySpheresEmissive = "0 1 0";
-const fuzzySpheresTransparency = 0.9; // The transparency of those spheres
+const fuzzySpheresTransparency = 0.95; // The transparency of those spheres
 
 const ringDiffuse = "0 0 0";
 let ringEmmissive = "0.05 0.05 0.05";
@@ -56,22 +54,22 @@ const polylineEmissive = "1 0 0";
 let polylineTransparency = 0.2;
 
 // Camera
-let cameraCenterOfRotation = [0, 8, 0];
-let cameraOrientation = [0.75363, -0.48068, -0.44833, 1.15527]; //[10,10,10,-0.5];
-let cameraPosition = [-67.29499, -52.52143, 52.12010]; //[-35,-20,90];
+let cameraCenterOfRotation = [centerLocation[0], centerLocation[1], centerLocation[2]];
+let cameraOrientation = [0.75363, -0.48068, -0.44833, 1.15527];
+let cameraPosition = [-67.29499, -52.52143, 52.12010];
 
 // Data
 let planet_Data;
 let moon_Data;
 let orbit_Data;
 let star_Data;
-
+let ore_Selection_Data = [];
 
 // Datapoints
-let datapoints;
-let newDatapoints;
-let datatours;
-let newDataTours;
+let datapoints_Planet;
+let newDatapoints_Planet;
+let datapoints_PlanetSphere;
+let newDatapoints_PlanetSphere;
 let datapoints_Moon;
 let newDatapoints_Moon;
 let datapoints_Orbit;
@@ -145,17 +143,34 @@ function move_Moons_Further_Away() {
 
 // noinspection JSUnusedGlobalSymbols
 function updateDistances(event,i) {
+	if (event === "options adjust" && current_Planet === -1) {
+		return "not set up";//just to prevent finishing function before id is assigned to current_Planet
+	}
     let source = i;
-    if (current_Planet === -1) {
-        //first selection
-        current_Planet = i;
-        set_Size_Of_Fuzz();
-    } else 
-    if (i != current_Planet) {
-        //already had a selection
-        previous_Planet = current_Planet;
-        current_Planet = i;
-        set_Size_Of_Fuzz();
+    if (lock_Selection === false) {
+    	if (current_Planet === -1) {
+    	    //first selection
+    	    current_Planet = i;
+    	    set_Size_Of_Fuzz();
+    	} else 
+    	if (i != current_Planet) {
+    	    //already had a selection
+    	    previous_Planet = current_Planet;
+    	    current_Planet = i;
+    	    set_Size_Of_Fuzz();
+    	}
+    } else
+    if (lock_Selection === true) {
+    	if (current_Planet === -1) {
+    	    //first selection
+    	    current_Planet = i;
+    	    set_Size_Of_Fuzz();
+    	} else 
+    	if (i != current_Planet) {
+    	    //already had a selection
+    	    previous_Planet = i;
+    	    set_Size_Of_Fuzz();
+    	}
     }
 
     let datalabels = scene.selectAll(".dynlabel").remove();
@@ -171,7 +186,7 @@ function updateDistances(event,i) {
             return;
         }
 
-        let distance = getDistanceBetween(planet_Data[source].name, planet_Data[destination].name);
+        let distance = getDistanceBetween(planet_Data[current_Planet].name, planet_Data[destination].name);
         let seconds = getTimeFromDistance(distance);
         let estTime = new Date(seconds * 1000).toISOString().substr(11, 8);
         let labeldist = "";
@@ -198,7 +213,7 @@ function updateDistances(event,i) {
     }).append("fontstyle").attr("family", "arial").attr("quality", "3").attr("size", "1.5");
 
     shapelabel.append("appearance").append("material").attr("diffuseColor", function(d, i) {
-        if (source === i) {
+        if (current_Planet === i) {
         	set_HTML_For_Info_Panel(i, "Planet");//update the info panel before returning
             return "green";
         } else {
@@ -210,11 +225,13 @@ function updateDistances(event,i) {
 function mouseover(e, i) {
     document.getElementById("fuzzy_color_" + i).setAttribute('emissiveColor', '0 0 1');
     document.getElementById("orbit_Mats_" + i).setAttribute('emissiveColor', '0 0 1');
+    //document.getElementById("dynlabel_color_" + i).setAttribute('diffuseColor', '0 0 1');
 }
 
 function mouseout(e, i) {
     document.getElementById("fuzzy_color_" + i).setAttribute('emissiveColor', fuzzySpheresEmissive);
     document.getElementById("orbit_Mats_" + i).setAttribute('emissiveColor', ringEmmissive);
+    //document.getElementById("dynlabel_color_" + i).setAttribute('diffuseColor', '1 1 1');
 }
 
 function set_Size_Of_Fuzz() {
@@ -229,6 +246,46 @@ function set_Size_Of_Fuzz() {
     }
     document.getElementById("orbit_Mats_" + current_Planet).setAttribute('emissiveColor', '0 1 0');
 }
+
+function highlight_ore(ore) {
+	//unhighlight_ore();
+	ore_Selection_Data.length = 0;
+	for (let bb = 0; bb < planet_Data.length; bb++) {
+		if (eval(planet_Data[bb].ore).hasOwnProperty(ore)) {
+			ore_Selection_Data.push(bb);//push index value into array
+		}
+	}
+	ore_Selection_Data.push("|");//seperate planets and moons
+	for (let bc = 0; bc < moon_Data.length; bc++) {
+		if (eval(moon_Data[bc].ore).hasOwnProperty(ore)) {
+			ore_Selection_Data.push(bc);//push index value into array
+		}
+	}
+	for (let be = 0; be < ore_Selection_Data.length; be++) {
+		if (ore_Selection_Data[be] != "|") {
+			document.getElementById("fuzzy_color_" + ore_Selection_Data[be]).setAttribute('emissiveColor', '1 1 0');
+			document.getElementById("fuzzy_" + ore_Selection_Data[be]).setAttribute('scale', '3 3 3');
+    		document.getElementById("orbit_Mats_" + ore_Selection_Data[be]).setAttribute('emissiveColor', '1 1 0');
+		} else
+		if (ore_Selection_Data[be] === "|") {
+			break;//do moons later
+		}
+	}
+}
+
+function unhighlight_ore() {
+	for (let bd = 0; bd < ore_Selection_Data.length; bd++) {
+		if (ore_Selection_Data[bd] != "|") {
+			document.getElementById("fuzzy_color_" + ore_Selection_Data[bd]).setAttribute('emissiveColor', fuzzySpheresEmissive);
+			document.getElementById("fuzzy_" + ore_Selection_Data[bd]).setAttribute('scale', '1 1 1');
+    		document.getElementById("orbit_Mats_" + ore_Selection_Data[bd]).setAttribute('emissiveColor', ringEmmissive);
+		} else
+		if (ore_Selection_Data[bd] === "|") {
+			break;//do moons later
+		}
+	}
+}
+
 
 /**
  * @return {string}
@@ -289,27 +346,28 @@ function drawAxis(axisIndex) {
 
 // Function for generating planet datapoints based on scaling
 function planetDatapoints() {
-    datapoints = scene.selectAll("datapoint").data(rows_Planet);
-    datapoints.exit().remove();
-    newDatapoints = datapoints.enter().append("transform").attr("id", function(d,i) { return "planet_" + i;}).attr("class", "datapoint").attr("scale", function(d,i) {
+    datapoints_Planet = scene.selectAll("datapoint_Planet").data(rows_Planet);
+    datapoints_Planet.exit().remove();
+    newDatapoints_Planet = datapoints_Planet.enter().append("transform").attr("id", function(d,i) { return "planet_" + i;}).attr("class", "datapoint").attr("scale", function(d,i) {
         pRadius = planet_Data[i].radius/planetScaling;
         return [pRadius, pRadius, pRadius];
     }).append("shape");
-    newDatapoints.append("appearance").append("material").attr("diffuseColor", planetsDiffuse).attr("emissiveColor", planetsEmissive);
-    newDatapoints.append("sphere");
-    return newDatapoints
+    newDatapoints_Planet.append("appearance").append("material").attr("diffuseColor", planetsDiffuse).attr("emissiveColor", planetsEmissive);
+    newDatapoints_Planet.append("sphere");
+    return newDatapoints_Planet;
 }
 
 // Generate our fuzzy sphere datapoints (clickable spheres)
 function fuzzySphereDatapoints() {
-    datatours = scene.selectAll("datatour").data(rows_Planet);
-    datatours.exit().remove();
-    newDataTours = datatours.enter().append("transform").attr("id", function(d,i) { return "fuzzy_" + i;}).attr("class", "datatour").attr("scale", function(d,i) {
-        return [tourRadius, tourRadius, tourRadius];
-    }).append("shape").attr("onclick", function(d,i) { return "updateDistances(event,"+i+");"}).attr("onmouseover", function(d,i) { return "mouseover(event,"+i+");"}).attr("onmouseout", function(d,i) { return "mouseout(event,"+i+");"});
-    newDataTours.append("appearance").append("material").attr("id", function(d,i) { return "fuzzy_color_" + i;}).attr("diffuseColor", fuzzySpheresDiffuse).attr("emissiveColor", fuzzySpheresEmissive).attr("transparency", fuzzySpheresTransparency);
-    newDataTours.append("sphere");
-    return newDataTours
+    datapoints_PlanetSphere = scene.selectAll("datapoint_PlanetSphere").data(rows_Planet);
+    datapoints_PlanetSphere.exit().remove();
+    newDatapoints_PlanetSphere = datapoints_PlanetSphere.enter().append("transform").attr("id", function(d,i) { return "fuzzy_" + i;}).attr("class", "datatour").attr("scale", "1 1 1")
+    	.append("shape").attr("onclick", function(d,i) { return "updateDistances(event,"+i+");"}).attr("onmouseover", function(d,i) { return "mouseover(event,"+i+");"})
+    	.attr("onmouseout", function(d,i) { return "mouseout(event,"+i+");"});
+    newDatapoints_PlanetSphere.append("appearance").append("material").attr("id", function(d,i) { return "fuzzy_color_" + i;})
+    	.attr("diffuseColor", fuzzySpheresDiffuse).attr("emissiveColor", fuzzySpheresEmissive).attr("transparency", fuzzySpheresTransparency);
+    newDatapoints_PlanetSphere.append("sphere");
+    return newDatapoints_PlanetSphere;
 }
 
 // Generate the moon datapoints
@@ -322,7 +380,7 @@ function moonDatapoints() {
     }).append("shape");
     newDatapoints_Moon.append("appearance").append("material").attr("diffuseColor", moonDiffuse).attr("emissiveColor", moonEmissive);
     newDatapoints_Moon.append("sphere");
-    return newDatapoints_Moon
+    return newDatapoints_Moon;
 }
 
 // Generate the orbit datapoints
@@ -330,23 +388,16 @@ function orbitDatapoints() {
     datapoints_Orbit = scene.selectAll("datapoint_Orbit").data(rows_Orbit);
     datapoints_Orbit.exit().remove();
     newDatapoints_Orbit = datapoints_Orbit.enter().append("transform").attr("id", function(d,i) { return "orbit_" + i;}).attr("scale", function(d,i) {
-        let oDistance = (orbit_Data[i].radius/ringScaling);
+        let oDistance = (orbit_Data[i].radius/miniscale);
         return [oDistance, oDistance, oDistance];
     }).attr("rotation", function(d,i) {
-    	//Math.atan(y/x);
     	let rotate_Value = Math.atan(((planet_Data[i].pos[1] - centerLocation[1]) / (planet_Data[i].pos[0] - centerLocation[0])) / miniscale);
     	return ["0 0 1 " + rotate_Value];
-    		//return [0,0,1,Math.asin(((planet_Data[i].pos[0] / miniscale) / (Math.sqrt((planet_Data[i].pos[0] / miniscale) * (planet_Data[i].pos[0] / miniscale) + (planet_Data[i].pos[1] / miniscale) * (planet_Data[i].pos[1] / miniscale)))) * 180 / Math.PI)];
     }).attr("class", "datapoint_Orbit").append("transform").attr("rotation", function(d,i) {
-    	//let rotate_two = Math.asin(z / distance_Temp);
-        //if (x >= 0) {
-        //    rotate_two = rotate_two * -1;
-        //} 
         let xmin = planet_Data[i].pos[0] / miniscale;
         let ymin = planet_Data[i].pos[1] / miniscale;
         let zmin = planet_Data[i].pos[2] / miniscale;
         let distance_Temp_Calc = Math.sqrt((xmin - centerLocation[0]) * (xmin - centerLocation[0]) + (ymin - centerLocation[1]) * (ymin - centerLocation[1]) + (zmin - centerLocation[2]) * (zmin - centerLocation[2]));
-        //let distance_Temp_Calc = Math.sqrt(((planet_Data[i].pos[0] - centerLocation[0]) * (planet_Data[i].pos[0] - centerLocation[0])) + ((planet_Data[i].pos[1] - centerLocation[1]) * (planet_Data[i].pos[1] - centerLocation[1])) + ((planet_Data[i].pos[2] - centerLocation[2]) * (planet_Data[i].pos[2] - centerLocation[2])));
     	let temp_orbitMath = Math.asin((zmin - centerLocation[2]) / (distance_Temp_Calc));
     	if (planet_Data[i].pos[0] >= 0) {
     		temp_orbitMath = temp_orbitMath * -1;
@@ -355,7 +406,7 @@ function orbitDatapoints() {
     }).append("shape");
     newDatapoints_Orbit.append("appearance").append("material").attr("id", function(d,i) { return "orbit_Mats_" + i;}).attr("diffuseColor", ringDiffuse).attr("emissiveColor", ringEmmissive).attr("transparency", ringTransparency);
     newDatapoints_Orbit.append("circle2d");
-    return newDatapoints_Orbit
+    return newDatapoints_Orbit;
 }
 
 // Generate the orbit datapoints for moons
@@ -376,7 +427,6 @@ function moonOrbitDatapoints() {
         let temp_Distance_To_Planet = (Math.sqrt((oDistanceX)*(oDistanceX)+(oDistanceY)*(oDistanceY)+(oDistanceZ)*(oDistanceZ)));
         return [temp_Distance_To_Planet, temp_Distance_To_Planet, temp_Distance_To_Planet];
     }).attr("rotation", function(d,i) {
-    	//Math.atan(y/x);
     	let temp_Planet_ID;
     	for (let ar = 0; ar < planet_Data.length; ar++) {
     		if (planet_Data[ar].name === moon_Data[i].home) {
@@ -387,7 +437,6 @@ function moonOrbitDatapoints() {
         let oDistanceX = (moon_Data[i].pos[0] - planet_Data[temp_Planet_ID].pos[0]) / miniscale;
         let oDistanceY = (moon_Data[i].pos[1] - planet_Data[temp_Planet_ID].pos[1]) / miniscale;
     	return ["0 0 1 " + Math.atan(oDistanceY/oDistanceX)]
-    		//return [0,0,1,Math.asin(((moon_Data[i].pos[0] / miniscale) / (Math.sqrt((moon_Data[i].pos[0] / miniscale) * (moon_Data[i].pos[0] / miniscale) + (moon_Data[i].pos[1] / miniscale) * (moon_Data[i].pos[1] / miniscale)))) * 180 / Math.PI)];
     }).attr("class", "datapoint_MoonOrbit").append("transform").attr("rotation", function(d,i) {
     	let temp_Planet_ID;
     	for (let ar = 0; ar < planet_Data.length; ar++) {
@@ -396,10 +445,6 @@ function moonOrbitDatapoints() {
     			break;
     		}
     	}
-    	//let rotate_two = Math.asin(z / distance_Temp);
-        //if (x >= 0) {
-        //    rotate_two = rotate_two * -1;
-        //} 
         let oDistanceX = (moon_Data[i].pos[0] - planet_Data[temp_Planet_ID].pos[0]) / miniscale;
         let oDistanceY = (moon_Data[i].pos[1] - planet_Data[temp_Planet_ID].pos[1]) / miniscale;
         let oDistanceZ = (moon_Data[i].pos[2] - planet_Data[temp_Planet_ID].pos[2]) / miniscale;
@@ -410,7 +455,8 @@ function moonOrbitDatapoints() {
     	} 
     	return ["0 1 0 " + temp_orbitMath];
     }).append("shape");
-    newDatapoints_MoonOrbit.append("appearance").append("material").attr("id", function(d,i) { return "moonOrbit_Mats_" + i;}).attr("diffuseColor", moonRingDiffuse).attr("emissiveColor", moonRingEmmissive).attr("transparency", 1);
+    newDatapoints_MoonOrbit.append("appearance").append("material").attr("id", function(d,i) { return "moonOrbit_Mats_" + i;})
+    	.attr("diffuseColor", moonRingDiffuse).attr("emissiveColor", moonRingEmmissive).attr("transparency", 1);
     newDatapoints_MoonOrbit.append("circle2d");
     return newDatapoints_MoonOrbit;
 }
@@ -419,7 +465,8 @@ function moonOrbitDatapoints() {
 function starDatapoint() {
     datapoints_Star = scene.selectAll("datapoint_Star").data(rows_Star);
     datapoints_Star.exit().remove();
-    newDatapoints_Star = datapoints_Star.enter().append("transform").attr("id", "star_0").attr("class", "datapoint_Star").attr("scale", [star_Data[0].radius/starScaling, star_Data[0].radius/starScaling, star_Data[0].radius/starScaling]).append("shape");
+    newDatapoints_Star = datapoints_Star.enter().append("transform").attr("id", "star_0").attr("class", "datapoint_Star")
+    	.attr("scale", [star_Data[0].radius/starScaling, star_Data[0].radius/starScaling, star_Data[0].radius/starScaling]).append("shape");
     newDatapoints_Star.append("appearance").append("material").attr("diffuseColor", starDiffuse).attr("emissiveColor", starEmissive);
     newDatapoints_Star.append("sphere");
     return newDatapoints_Star
@@ -429,9 +476,9 @@ function starDatapoint() {
 function polylineDatapoints() {
     datapoints_Polyline = scene.selectAll("datapoint_Polyline").data("0");
     datapoints_Polyline.exit().remove();
-    newDatapoints_Polyline = datapoints_Polyline.enter().append("transform").attr("class", "datapoint_Polyline").attr("id", "datapoint_Polyline_Coord").append("shape")
+    newDatapoints_Polyline = datapoints_Polyline.enter().append("transform").attr("class", "datapoint_Polyline").attr("id", "datapoint_Polyline_Coord").append("shape");
     newDatapoints_Polyline.append("appearance").append("material").attr("diffuseColor", polylineDiffuse).attr("emissiveColor", polylineEmissive).attr("transparency", polylineTransparency);
-    newDatapoints_Polyline.append("IndexedLineSet").attr("coordIndex", "0 1 -1").append("Coordinate").attr("id", "line_Between_Two").attr("point", "0 8 0, 0 8 0")
+    newDatapoints_Polyline.append("IndexedLineSet").attr("coordIndex", "0 1 -1").append("Coordinate").attr("id", "line_Between_Two").attr("point", "0 8 0, 0 8 0");
     return newDatapoints_Polyline;
 }
 
@@ -441,14 +488,9 @@ function generateLabels(){
 
     datalabels.exit().remove();
 
-    let shapelabel = datalabels.enter().append("transform")
-        .attr("class", "datalabel")
-        .attr("scale", [sphereRadius*labelscale, sphereRadius*labelscale, sphereRadius*labelscale])
-        .append("billboard")
-        .attr("render", 'true')
-        .attr("axisOfRotation", '0,0,0')
-        .append("shape")
-        .attr("class", 'dynshape');
+    let shapelabel = datalabels.enter().append("transform").attr("class", "datalabel").attr("scale", "0.75 0.75 0.75")
+        .append("billboard").attr("render", 'true').attr("axisOfRotation", '0,0,0')
+        .append("shape") .attr("class", 'dynshape');
 
     shapelabel.append("Text")
         .attr("string", function(d,i) {
@@ -458,11 +500,9 @@ function generateLabels(){
                 return '"' + planet_Data[i].name + '"' + '""' + '""' + '""';
             }
         })
-        .attr("class", 'dynlabel')
-        .append("fontstyle")
-        .attr("family", "arial")
-        .attr("quality", "3")
-        .attr("size", "1.5");
+        .attr("id", function(d,i) { return 'dynlabel_' + i}).attr("class", 'dynlabel')
+        .append("fontstyle").attr("family", "arial").attr("quality", "3").attr("size", "1.5");
+    shapelabel.append("appearance").attr("id", function(d,i) { return 'dynlabel_color_' + i}).append("material").attr("diffuseColor", "1 1 1");
 
     return datalabels;
 }
@@ -536,7 +576,7 @@ function plotData(duration) {
     datalabels = generateLabels();
 
     // Translation
-    plotTranslation(duration, datapoints, datatours, datapoints_Moon, datapoints_Orbit, datapoints_Star, datalabels, datapoints_Polyline, datapoints_MoonOrbit);
+    plotTranslation(duration, datapoints_Planet, datapoints_PlanetSphere, datapoints_Moon, datapoints_Orbit, datapoints_Star, datalabels, datapoints_Polyline, datapoints_MoonOrbit);
 }
 
 function initializeDataGrid_Planet() {
@@ -662,50 +702,54 @@ function orbitals_Check() {
     let temp_Checkbox_Value = document.getElementById("orbitals_Checkbox");
     if (temp_Checkbox_Value.checked === true) {
         hide_Orbitals = true;
+        newDatapoints_Orbit.selectAll("material").attr("transparency", 1);
     }
     if (temp_Checkbox_Value.checked === false) {
         hide_Orbitals = false;
+        newDatapoints_Orbit.selectAll("material").attr("transparency", ringTransparency);
     }
-    show_Hide_Orbitals(hide_Orbitals);
 }
 
 function polyline_Check() {
     let temp_Checkbox_Value = document.getElementById("polyline_Checkbox");
     if (temp_Checkbox_Value.checked === true) {
         hide_Polyline = true;
+        newDatapoints_Polyline.selectAll("material").attr("transparency", 1);
     }
     if (temp_Checkbox_Value.checked === false) {
         hide_Polyline = false;
+        newDatapoints_Polyline.selectAll("material").attr("transparency", polylineTransparency);
     }
-    show_Hide_Polyline(hide_Polyline);
 }
 
 function star_Check() {
     let temp_Checkbox_Value = document.getElementById("star_Checkbox");
     if (temp_Checkbox_Value.checked === true) {
         hide_Star = true;
+        newDatapoints_Star.selectAll("material").attr("transparency", 1);
     }
     if (temp_Checkbox_Value.checked === false) {
         hide_Star = false;
+        newDatapoints_Star.selectAll("material").attr("transparency", 0);
     }
-    show_Hide_Helios(hide_Star);
 }
 
 function text_Check() {
     let temp_Checkbox_Value = document.getElementById("text_Checkbox");
     if (temp_Checkbox_Value.checked === true) {
         hide_Text = true;
+        datalabels.selectAll("billboard").attr("render", false);
+    	hide_Text_Names = true;
+    	hide_Text_Distance = true;
+    	hide_Text_Time = true;
+    	document.getElementById("text_Names_Checkbox").checked = true;
+    	document.getElementById("text_Distance_Checkbox").checked = true;
+    	document.getElementById("text_Time_Checkbox").checked = true;
     }
     if (temp_Checkbox_Value.checked === false) {
         hide_Text = false;
+        datalabels.selectAll("billboard").attr("render", true);
     }
-    show_Hide_Text(hide_Text);
-    hide_Text_Names = true;
-    hide_Text_Distance = true;
-    hide_Text_Time = true;
-    document.getElementById("text_Names_Checkbox").checked = true;
-    document.getElementById("text_Distance_Checkbox").checked = true;
-    document.getElementById("text_Time_Checkbox").checked = true;
     updateDistances("options adjust", current_Planet);
 }
 
@@ -715,7 +759,12 @@ function text_Names_Check() {
         hide_Text_Names = true;
     }
     if (temp_Checkbox_Value.checked === false) {
-        hide_Text_Names = false;
+        if (document.getElementById("text_Checkbox").checked === true) {
+        	//hide all is checked so deny unchecking.
+        	document.getElementById("text_Names_Checkbox").checked = true;
+        } else {
+        	hide_Text_Names = false;
+        }
     }
     updateDistances("options adjust", current_Planet);
 }
@@ -726,7 +775,12 @@ function text_Distance_Check() {
         hide_Text_Distance = true;
     }
     if (temp_Checkbox_Value.checked === false) {
-        hide_Text_Distance = false;
+        if (document.getElementById("text_Checkbox").checked === true) {
+        	//hide all is checked so deny unchecking.
+        	document.getElementById("text_Distance_Checkbox").checked = true;
+        } else {
+        	hide_Text_Distance = false;
+        }
     }
     updateDistances("options adjust", current_Planet);
 }
@@ -737,44 +791,35 @@ function text_Time_Check() {
         hide_Text_Time = true;
     }
     if (temp_Checkbox_Value.checked === false) {
-        hide_Text_Time = false;
+        if (document.getElementById("text_Checkbox").checked === true) {
+        	//hide all is checked so deny unchecking.
+        	document.getElementById("text_Time_Checkbox").checked = true;
+        } else {
+        	hide_Text_Time = false;
+        }
     }
     updateDistances("options adjust", current_Planet);
 }
 
-function show_Hide_Orbitals(boo) {
-    if (boo === true) {
-        newDatapoints_Orbit.selectAll("material").attr("transparency", 1);
-    } else
-    if (boo === false) {
-        newDatapoints_Orbit.selectAll("material").attr("transparency", ringTransparency);
+function lock_Selection_Check() {
+    let temp_Checkbox_Value = document.getElementById("lock_Planet_Checkbox");
+    if (temp_Checkbox_Value.checked === true) {
+        lock_Selection = true;
+    }
+    if (temp_Checkbox_Value.checked === false) {
+        lock_Selection = false;
     }
 }
 
-function show_Hide_Polyline(boo) {
-    if (boo === true) {
-        newDatapoints_Polyline.selectAll("material").attr("transparency", 1);
-    } else
-    if (boo === false) {
-        newDatapoints_Polyline.selectAll("material").attr("transparency", polylineTransparency);
+function info_Panel_Check() {
+    let temp_Checkbox_Value = document.getElementById("hide_Info_Panel_Checkbox");
+    if (temp_Checkbox_Value.checked === true) {
+        hide_Info_Panel = true;
+        document.getElementById("info_Panel").style.display = "none";
     }
-}
-
-function show_Hide_Helios(boo) {
-    if (boo === true) {
-        newDatapoints_Star.selectAll("material").attr("transparency", 1);
-    } else
-    if (boo === false) {
-        newDatapoints_Star.selectAll("material").attr("transparency", 0);
-    }
-}
-
-function show_Hide_Text(boo) {
-    if (boo === true) {
-        datalabels.selectAll("billboard").attr("render", false);
-    } else
-    if (boo === false) {
-        datalabels.selectAll("billboard").attr("render", true);
+    if (temp_Checkbox_Value.checked === false) {
+        hide_Info_Panel = false;
+        document.getElementById("info_Panel").style.display = "initial";
     }
 }
 
@@ -802,7 +847,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
     let temp_HTML_Text = "";
     // noinspection JSUnresolvedVariable
     if (body === "Planet") {
-        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + planet_Data[i].name + '<span id="Exit_Button" onclick="hide_Info_Panel()">X</span></th></tr>';
+        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + planet_Data[i].name + '<span id="Exit_Button" onclick="minimize_Info_Panel()">X</span></th></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>' + planet_Data[i].description + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Class: ' + planet_Data[i].class + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>System/Zone: ' + planet_Data[i].system_zone + '</td></tr>';
@@ -822,7 +867,8 @@ function set_HTML_For_Info_Panel(i, body, home) {
         //temp_HTML_Text = temp_HTML_Text + '<tr><td>Orbit distance: ' + orbit_Data[i].radius + '</td></tr>';
         if (previous_Planet >= 0) {
         	let tempDistance =  getDistanceBetween(planet_Data[previous_Planet].name, planet_Data[i].name);
-        	temp_HTML_Text = temp_HTML_Text + '<tr><td>Distance to <span class="link" onclick="updateDistances(event, ' + previous_Planet + ');">' + planet_Data[previous_Planet].name + '</span>: ' + tempDistance + ' SU</td></tr>';
+        	temp_HTML_Text = temp_HTML_Text + '<tr><td>Distance to <span class="link" onclick="updateDistances(event, ' + previous_Planet + ');">';
+        	temp_HTML_Text = temp_HTML_Text + planet_Data[previous_Planet].name + '</span>: ' + tempDistance + ' SU</td></tr>';
         }
     } else
     if (body === "Moon") {
@@ -833,7 +879,8 @@ function set_HTML_For_Info_Panel(i, body, home) {
                 break;
             }
         }
-        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + moon_Data[i].name + ' of <span class="link" onclick="set_HTML_For_Info_Panel(' + planetid + ', ' + "'Planet'" + ')">' + home + '</span><span id="Exit_Button" onclick="hide_Info_Panel()">X</span></th></tr>';
+        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + moon_Data[i].name + ' of <span class="link" onclick="set_HTML_For_Info_Panel(' + planetid;
+        temp_HTML_Text = temp_HTML_Text + ', ' + "'Planet'" + ')">' + home + '</span><span id="Exit_Button" onclick="minimize_Info_Panel()">X</span></th></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmosphere: ' + moon_Data[i].atmosphere + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Gravity: ' + moon_Data[i].gravity + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Surface Area: ' + moon_Data[i].surface_area + '</td></tr>';
@@ -856,16 +903,20 @@ function set_HTML_For_Info_Panel(i, body, home) {
         } else {
             for (let ag = 0; ag < temp_List_Of_Moons.length; ag++) {
                 if (ag === 0) {
-                    temp_HTML_Text = temp_HTML_Text + '<tr><td onclick="set_HTML_For_Info_Panel(' + "'" + temp_List_Of_Moons[ag] + "'" + ", 'Moon', " + "'" + planet_Data[i].name + "'" + ')">Moons: <span class="link">' + temp_List_Of_Moons[ag] + '</span></td></tr>';
+                    temp_HTML_Text = temp_HTML_Text + '<tr><td onclick="set_HTML_For_Info_Panel(' + "'" + temp_List_Of_Moons[ag] + "'" + ", 'Moon', " + "'" + planet_Data[i].name;
+                    temp_HTML_Text = temp_HTML_Text + "'" + ')">Moons: <span class="link">' + temp_List_Of_Moons[ag] + '</span></td></tr>';
                 } else {
-                    temp_HTML_Text = temp_HTML_Text + '<tr><td onclick="set_HTML_For_Info_Panel(' + "'" + temp_List_Of_Moons[ag] + "'" + ", 'Moon', " + "'" + planet_Data[i].name + "'" + ')">&emsp;&emsp;&emsp; <span class="link">' + temp_List_Of_Moons[ag] + '</span></td></tr>';
+                    temp_HTML_Text = temp_HTML_Text + '<tr><td onclick="set_HTML_For_Info_Panel(' + "'" + temp_List_Of_Moons[ag] + "'" + ", 'Moon', " + "'" + planet_Data[i].name;
+                    temp_HTML_Text = temp_HTML_Text + "'" + ')">&emsp;&emsp;&emsp; <span class="link">' + temp_List_Of_Moons[ag] + '</span></td></tr>';
                 }
             }
         }
     }
     temp_HTML_Text = temp_HTML_Text + '</table>';
     document.getElementById("info_Panel").innerHTML = temp_HTML_Text;
-    document.getElementById("info_Panel").style.display = "initial";
+    if (hide_Info_Panel === false) {
+    	document.getElementById("info_Panel").style.display = "initial";
+	}
 }
 
 function Create_Ore_HTML_For_Info_Panel(i, body, home) {
@@ -873,10 +924,10 @@ function Create_Ore_HTML_For_Info_Panel(i, body, home) {
 	if (hide_Menu_Ores === false) {
     	let oreobj;
     	if (body === "Moon") {
-    		oreobj = moon_Data[i].ore
+    		oreobj = moon_Data[i].ore;
     	} else
     	if (body === "Planet") {
-    		oreobj = planet_Data[i].ore
+    		oreobj = planet_Data[i].ore;
     	}
     	temp_Ore_Text = '<tr><td align="center">Ores:<span id="Exit_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
     	if (eval(oreobj).hasOwnProperty("Sodium")) {
@@ -963,7 +1014,7 @@ function hide_Menu_Ore(i, body, home) {
 	set_HTML_For_Info_Panel(i, body, home);
 }
 
-function hide_Info_Panel() {
+function minimize_Info_Panel() {
     document.getElementById("info_Panel").style.display = "none";
 }
 
