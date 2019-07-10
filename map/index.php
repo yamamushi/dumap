@@ -28,7 +28,6 @@ if(session('access_token')) {
                 echo <<<EOL
 
 
-
 <!--Original credit goes to Kirito for v1.0 of the map. It has since been updated to 2.0 by Yamamushi and Drystion-->
 <!DOCtype html>
 
@@ -96,11 +95,11 @@ if(session('access_token')) {
 	New Star Location
 	<input type="button" id="New_Star_Loc_Button" value="Go" OnClick="New_Star_Loc()" />
 	<br>
-	X: <input type="text" id="New_Star_Loc_X" size="15" />
+	X: <input type="text" id="New_Star_Loc_X" size="15" value="0" />
 	<br>
-	Y: <input type="text" id="New_Star_Loc_Y" size="15" />
+	Y: <input type="text" id="New_Star_Loc_Y" size="15" value="8" />
 	<br>
-	Z: <input type="text" id="New_Star_Loc_Z" size="15" />
+	Z: <input type="text" id="New_Star_Loc_Z" size="15" value="0" />
 	<br>
 </div>
 <div id="info_Panel">
@@ -111,7 +110,6 @@ if(session('access_token')) {
 </script>
 </body>
 </html>
-
 
 
 EOL;
