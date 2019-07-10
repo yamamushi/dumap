@@ -705,9 +705,9 @@ function start_Up() {
 }
 
 function New_Star_Loc() {
-	let new_X = (parseInt(document.getElementById("New_Star_Loc_X").value)/miniscale);
-	let new_Y = (parseInt(document.getElementById("New_Star_Loc_Y").value)/miniscale);
-	let new_Z = (parseInt(document.getElementById("New_Star_Loc_Z").value)/miniscale);
+	let new_X = parseFloat(document.getElementById("New_Star_Loc_X").value);
+	let new_Y = parseFloat(document.getElementById("New_Star_Loc_Y").value);
+	let new_Z = parseFloat(document.getElementById("New_Star_Loc_Z").value);
 	let new_XYZ = new_X + ' ' + new_Y + ' ' + new_Z;
 	document.getElementById("star_0").setAttribute('translation', new_XYZ);
 	let new_Distance;
