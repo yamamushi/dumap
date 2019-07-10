@@ -13,6 +13,8 @@ let hide_Text_Time = false;
 let hide_Text_Distance = false;
 let hide_Text_Names = false;
 let hide_Menu_Ores = false;
+let hide_Info_Panel = false;
+let lock_Selection = false;
 
 // Scaling
 let scales = [];
@@ -141,17 +143,34 @@ function move_Moons_Further_Away() {
 
 // noinspection JSUnusedGlobalSymbols
 function updateDistances(event,i) {
+	if (event === "options adjust" && current_Planet === -1) {
+		return "not set up";//just to prevent finishing function before id is assigned to current_Planet
+	}
     let source = i;
-    if (current_Planet === -1) {
-        //first selection
-        current_Planet = i;
-        set_Size_Of_Fuzz();
-    } else 
-    if (i != current_Planet) {
-        //already had a selection
-        previous_Planet = current_Planet;
-        current_Planet = i;
-        set_Size_Of_Fuzz();
+    if (lock_Selection === false) {
+    	if (current_Planet === -1) {
+    	    //first selection
+    	    current_Planet = i;
+    	    set_Size_Of_Fuzz();
+    	} else 
+    	if (i != current_Planet) {
+    	    //already had a selection
+    	    previous_Planet = current_Planet;
+    	    current_Planet = i;
+    	    set_Size_Of_Fuzz();
+    	}
+    } else
+    if (lock_Selection === true) {
+    	if (current_Planet === -1) {
+    	    //first selection
+    	    current_Planet = i;
+    	    set_Size_Of_Fuzz();
+    	} else 
+    	if (i != current_Planet) {
+    	    //already had a selection
+    	    previous_Planet = i;
+    	    set_Size_Of_Fuzz();
+    	}
     }
 
     let datalabels = scene.selectAll(".dynlabel").remove();
@@ -167,7 +186,7 @@ function updateDistances(event,i) {
             return;
         }
 
-        let distance = getDistanceBetween(planet_Data[source].name, planet_Data[destination].name);
+        let distance = getDistanceBetween(planet_Data[current_Planet].name, planet_Data[destination].name);
         let seconds = getTimeFromDistance(distance);
         let estTime = new Date(seconds * 1000).toISOString().substr(11, 8);
         let labeldist = "";
@@ -194,7 +213,7 @@ function updateDistances(event,i) {
     }).append("fontstyle").attr("family", "arial").attr("quality", "3").attr("size", "1.5");
 
     shapelabel.append("appearance").append("material").attr("diffuseColor", function(d, i) {
-        if (source === i) {
+        if (current_Planet === i) {
         	set_HTML_For_Info_Panel(i, "Planet");//update the info panel before returning
             return "green";
         } else {
@@ -683,50 +702,54 @@ function orbitals_Check() {
     let temp_Checkbox_Value = document.getElementById("orbitals_Checkbox");
     if (temp_Checkbox_Value.checked === true) {
         hide_Orbitals = true;
+        newDatapoints_Orbit.selectAll("material").attr("transparency", 1);
     }
     if (temp_Checkbox_Value.checked === false) {
         hide_Orbitals = false;
+        newDatapoints_Orbit.selectAll("material").attr("transparency", ringTransparency);
     }
-    show_Hide_Orbitals(hide_Orbitals);
 }
 
 function polyline_Check() {
     let temp_Checkbox_Value = document.getElementById("polyline_Checkbox");
     if (temp_Checkbox_Value.checked === true) {
         hide_Polyline = true;
+        newDatapoints_Polyline.selectAll("material").attr("transparency", 1);
     }
     if (temp_Checkbox_Value.checked === false) {
         hide_Polyline = false;
+        newDatapoints_Polyline.selectAll("material").attr("transparency", polylineTransparency);
     }
-    show_Hide_Polyline(hide_Polyline);
 }
 
 function star_Check() {
     let temp_Checkbox_Value = document.getElementById("star_Checkbox");
     if (temp_Checkbox_Value.checked === true) {
         hide_Star = true;
+        newDatapoints_Star.selectAll("material").attr("transparency", 1);
     }
     if (temp_Checkbox_Value.checked === false) {
         hide_Star = false;
+        newDatapoints_Star.selectAll("material").attr("transparency", 0);
     }
-    show_Hide_Helios(hide_Star);
 }
 
 function text_Check() {
     let temp_Checkbox_Value = document.getElementById("text_Checkbox");
     if (temp_Checkbox_Value.checked === true) {
         hide_Text = true;
+        datalabels.selectAll("billboard").attr("render", false);
+    	hide_Text_Names = true;
+    	hide_Text_Distance = true;
+    	hide_Text_Time = true;
+    	document.getElementById("text_Names_Checkbox").checked = true;
+    	document.getElementById("text_Distance_Checkbox").checked = true;
+    	document.getElementById("text_Time_Checkbox").checked = true;
     }
     if (temp_Checkbox_Value.checked === false) {
         hide_Text = false;
+        datalabels.selectAll("billboard").attr("render", true);
     }
-    show_Hide_Text(hide_Text);
-    hide_Text_Names = true;
-    hide_Text_Distance = true;
-    hide_Text_Time = true;
-    document.getElementById("text_Names_Checkbox").checked = true;
-    document.getElementById("text_Distance_Checkbox").checked = true;
-    document.getElementById("text_Time_Checkbox").checked = true;
     updateDistances("options adjust", current_Planet);
 }
 
@@ -736,7 +759,12 @@ function text_Names_Check() {
         hide_Text_Names = true;
     }
     if (temp_Checkbox_Value.checked === false) {
-        hide_Text_Names = false;
+        if (document.getElementById("text_Checkbox").checked === true) {
+        	//hide all is checked so deny unchecking.
+        	document.getElementById("text_Names_Checkbox").checked = true;
+        } else {
+        	hide_Text_Names = false;
+        }
     }
     updateDistances("options adjust", current_Planet);
 }
@@ -747,7 +775,12 @@ function text_Distance_Check() {
         hide_Text_Distance = true;
     }
     if (temp_Checkbox_Value.checked === false) {
-        hide_Text_Distance = false;
+        if (document.getElementById("text_Checkbox").checked === true) {
+        	//hide all is checked so deny unchecking.
+        	document.getElementById("text_Distance_Checkbox").checked = true;
+        } else {
+        	hide_Text_Distance = false;
+        }
     }
     updateDistances("options adjust", current_Planet);
 }
@@ -758,44 +791,35 @@ function text_Time_Check() {
         hide_Text_Time = true;
     }
     if (temp_Checkbox_Value.checked === false) {
-        hide_Text_Time = false;
+        if (document.getElementById("text_Checkbox").checked === true) {
+        	//hide all is checked so deny unchecking.
+        	document.getElementById("text_Time_Checkbox").checked = true;
+        } else {
+        	hide_Text_Time = false;
+        }
     }
     updateDistances("options adjust", current_Planet);
 }
 
-function show_Hide_Orbitals(boo) {
-    if (boo === true) {
-        newDatapoints_Orbit.selectAll("material").attr("transparency", 1);
-    } else
-    if (boo === false) {
-        newDatapoints_Orbit.selectAll("material").attr("transparency", ringTransparency);
+function lock_Selection_Check() {
+    let temp_Checkbox_Value = document.getElementById("lock_Planet_Checkbox");
+    if (temp_Checkbox_Value.checked === true) {
+        lock_Selection = true;
+    }
+    if (temp_Checkbox_Value.checked === false) {
+        lock_Selection = false;
     }
 }
 
-function show_Hide_Polyline(boo) {
-    if (boo === true) {
-        newDatapoints_Polyline.selectAll("material").attr("transparency", 1);
-    } else
-    if (boo === false) {
-        newDatapoints_Polyline.selectAll("material").attr("transparency", polylineTransparency);
+function info_Panel_Check() {
+    let temp_Checkbox_Value = document.getElementById("hide_Info_Panel_Checkbox");
+    if (temp_Checkbox_Value.checked === true) {
+        hide_Info_Panel = true;
+        document.getElementById("info_Panel").style.display = "none";
     }
-}
-
-function show_Hide_Helios(boo) {
-    if (boo === true) {
-        newDatapoints_Star.selectAll("material").attr("transparency", 1);
-    } else
-    if (boo === false) {
-        newDatapoints_Star.selectAll("material").attr("transparency", 0);
-    }
-}
-
-function show_Hide_Text(boo) {
-    if (boo === true) {
-        datalabels.selectAll("billboard").attr("render", false);
-    } else
-    if (boo === false) {
-        datalabels.selectAll("billboard").attr("render", true);
+    if (temp_Checkbox_Value.checked === false) {
+        hide_Info_Panel = false;
+        document.getElementById("info_Panel").style.display = "initial";
     }
 }
 
@@ -823,7 +847,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
     let temp_HTML_Text = "";
     // noinspection JSUnresolvedVariable
     if (body === "Planet") {
-        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + planet_Data[i].name + '<span id="Exit_Button" onclick="hide_Info_Panel()">X</span></th></tr>';
+        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + planet_Data[i].name + '<span id="Exit_Button" onclick="minimize_Info_Panel()">X</span></th></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>' + planet_Data[i].description + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Class: ' + planet_Data[i].class + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>System/Zone: ' + planet_Data[i].system_zone + '</td></tr>';
@@ -856,7 +880,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
             }
         }
         temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + moon_Data[i].name + ' of <span class="link" onclick="set_HTML_For_Info_Panel(' + planetid;
-        temp_HTML_Text = temp_HTML_Text + ', ' + "'Planet'" + ')">' + home + '</span><span id="Exit_Button" onclick="hide_Info_Panel()">X</span></th></tr>';
+        temp_HTML_Text = temp_HTML_Text + ', ' + "'Planet'" + ')">' + home + '</span><span id="Exit_Button" onclick="minimize_Info_Panel()">X</span></th></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmosphere: ' + moon_Data[i].atmosphere + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Gravity: ' + moon_Data[i].gravity + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Surface Area: ' + moon_Data[i].surface_area + '</td></tr>';
@@ -890,7 +914,9 @@ function set_HTML_For_Info_Panel(i, body, home) {
     }
     temp_HTML_Text = temp_HTML_Text + '</table>';
     document.getElementById("info_Panel").innerHTML = temp_HTML_Text;
-    document.getElementById("info_Panel").style.display = "initial";
+    if (hide_Info_Panel === false) {
+    	document.getElementById("info_Panel").style.display = "initial";
+	}
 }
 
 function Create_Ore_HTML_For_Info_Panel(i, body, home) {
@@ -988,7 +1014,7 @@ function hide_Menu_Ore(i, body, home) {
 	set_HTML_For_Info_Panel(i, body, home);
 }
 
-function hide_Info_Panel() {
+function minimize_Info_Panel() {
     document.getElementById("info_Panel").style.display = "none";
 }
 
