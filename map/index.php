@@ -28,6 +28,7 @@ if(session('access_token')) {
                 echo <<<EOL
 
 
+
 <!--Original credit goes to Kirito for v1.0 of the map. It has since been updated to 2.0 by Yamamushi and Drystion-->
 <!DOCtype html>
 
@@ -101,6 +102,7 @@ if(session('access_token')) {
 </script>
 </body>
 </html>
+
 
 
 EOL;
