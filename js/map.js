@@ -12,7 +12,9 @@ let hide_Text = false;
 let hide_Text_Time = false;
 let hide_Text_Distance = false;
 let hide_Text_Names = false;
-let hide_Menu_Ores = false;
+let hide_Menu_Ores = true;
+let hide_Menu_FlightInfo = true;
+let hide_Menu_GeneralInfo = true;
 let hide_Info_Panel = false;
 let lock_Selection = false;
 
@@ -883,28 +885,47 @@ function set_HTML_For_Info_Panel(i, body, home) {
     // noinspection JSUnresolvedVariable
     if (body === "Planet") {
         temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + planet_Data[i].name + '<span id="Exit_Button" onclick="minimize_Info_Panel()">X</span></th></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>' + planet_Data[i].description + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Class: ' + planet_Data[i].class + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>System/Zone: ' + planet_Data[i].system_zone + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmosphere: ' + planet_Data[i].atmosphere + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmos Altitude: ' + planet_Data[i].atmosphere_height + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Actual Ground Alt: ' + planet_Data[i].actual_ground_altitude + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Gravity: ' + planet_Data[i].gravity + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Surface Area: ' + planet_Data[i].surface_area + '</td></tr>';
-        //temp_HTML_Text = temp_HTML_Text + '<tr><td>Satellites: ' + planet_Data[i].satellites + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Biosphere: ' + planet_Data[i].biosphere + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories: ' + planet_Data[i].territories + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories Claimed: ' + planet_Data[i].territories_claimed + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Terra Nullius: ' + planet_Data[i].terra_nullius + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
+        if (hide_Menu_FlightInfo === false) {
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Exit_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmosphere: ' + planet_Data[i].atmosphere + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmos Engine Max: ' + planet_Data[i].atmosEngineMax + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Space Engine Min: ' + planet_Data[i].spaceEngineMin + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Engine Buffer Zone: ' + (planet_Data[i].spaceEngineMin-planet_Data[i].atmosEngineMax) + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Surface Altitude: ' + planet_Data[i].generalSurfaceAltitude + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Gravity: ' + planet_Data[i].gravity + '</td></tr>';
+            if (previous_Planet >= 0) {
+                let tempDistance =  getDistanceBetween(planet_Data[previous_Planet].name, planet_Data[i].name);
+                temp_HTML_Text = temp_HTML_Text + '<tr><td>Distance to <span class="link" onclick="updateDistances(event, ' + previous_Planet + ');">';
+                temp_HTML_Text = temp_HTML_Text + planet_Data[previous_Planet].name + '</span>: ' + tempDistance + ' SU</td></tr>';
+            }
+            temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
+        } else {
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Exit_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
+        }
 
+        if (hide_Menu_GeneralInfo === false) {
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Exit_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Class: ' + planet_Data[i].class + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>System/Zone: ' + planet_Data[i].system_zone + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Surface Area: ' + planet_Data[i].surface_area + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Satellites: ' + planet_Data[i].satellites + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Biosphere: ' + planet_Data[i].biosphere + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories: ' + planet_Data[i].territories + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories Claimed: ' + planet_Data[i].territories_claimed + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Terra Nullius: ' + planet_Data[i].terra_nullius + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
 
+        } else {
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Exit_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
+        }
 
         //temp_HTML_Text = temp_HTML_Text + '<tr><td>Orbit distance: ' + orbit_Data[i].radius + '</td></tr>';
-        if (previous_Planet >= 0) {
-        	let tempDistance =  getDistanceBetween(planet_Data[previous_Planet].name, planet_Data[i].name);
-        	temp_HTML_Text = temp_HTML_Text + '<tr><td>Distance to <span class="link" onclick="updateDistances(event, ' + previous_Planet + ');">';
-        	temp_HTML_Text = temp_HTML_Text + planet_Data[previous_Planet].name + '</span>: ' + tempDistance + ' SU</td></tr>';
-        }
+
     } else
     if (body === "Moon") {
         let planetid = 0;
@@ -916,17 +937,33 @@ function set_HTML_For_Info_Panel(i, body, home) {
         }
         temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + moon_Data[i].name + ' of <span class="link" onclick="set_HTML_For_Info_Panel(' + planetid;
         temp_HTML_Text = temp_HTML_Text + ', ' + "'Planet'" + ')">' + home + '</span><span id="Exit_Button" onclick="minimize_Info_Panel()">X</span></th></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmosphere: ' + moon_Data[i].atmosphere + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Gravity: ' + moon_Data[i].gravity + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Surface Area: ' + moon_Data[i].surface_area + '</td></tr>';
-       //temp_HTML_Text = temp_HTML_Text + '<tr><td>Biosphere: ' + moon_Data[i].biosphere + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories: ' + moon_Data[i].territories + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories Claimed: ' + moon_Data[i].territories_claimed + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Terra Nullius: ' + moon_Data[i].terra_nullius + '</td></tr>';
+        temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
+        if (hide_Menu_FlightInfo === false) {
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Exit_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmosphere: ' + moon_Data[i].atmosphere + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Gravity: ' + moon_Data[i].gravity + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
 
+        } else {
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Exit_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
+        }
+        if (hide_Menu_GeneralInfo === false) {
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Exit_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Surface Area: ' + moon_Data[i].surface_area + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Biosphere: ' + moon_Data[i].biosphere + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories: ' + moon_Data[i].territories + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories Claimed: ' + moon_Data[i].territories_claimed + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td>Terra Nullius: ' + moon_Data[i].terra_nullius + '</td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
 
+        }
+        else {
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Exit_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
+        }
     }
-    temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
+    //temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
     if (body === "Moon") {
         temp_HTML_Text = temp_HTML_Text + Create_Ore_HTML_For_Info_Panel(i, "Moon", home);//adds ore html
     } else {
@@ -964,7 +1001,7 @@ function Create_Ore_HTML_For_Info_Panel(i, body, home) {
     	if (body === "Planet") {
     		oreobj = planet_Data[i].ore;
     	}
-    	temp_Ore_Text = '<tr><td align="center">Ores:<span id="Exit_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+    	temp_Ore_Text = '<tr><td align="center">Ores<span id="Exit_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
     	if (eval(oreobj).hasOwnProperty("Sodium")) {
     		temp_Ore_Text = temp_Ore_Text + '<tr><td>t1:Sodium ' + oreobj.Sodium + '</td></tr>';
     	}
@@ -1031,7 +1068,7 @@ function Create_Ore_HTML_For_Info_Panel(i, body, home) {
     	}
     	temp_Ore_Text = temp_Ore_Text + '<tr><td><hr></td></tr>';
     } else {
-    	temp_Ore_Text = temp_Ore_Text + '<tr><td align="center">Ores:<span id="Exit_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+    	temp_Ore_Text = temp_Ore_Text + '<tr><td align="center">Ores<span id="Exit_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
     	temp_Ore_Text = temp_Ore_Text + '<tr><td><hr></td></tr>';
     }
     return temp_Ore_Text;
@@ -1047,6 +1084,31 @@ function hide_Menu_Ore(i, body, home) {
 		i = moon_Data[i].name;
 	}
 	set_HTML_For_Info_Panel(i, body, home);
+}
+
+
+function hide_Menu_Flight(i, body, home) {
+    if (hide_Menu_FlightInfo === false) {
+        hide_Menu_FlightInfo = true;
+    } else {
+        hide_Menu_FlightInfo = false;
+    }
+    if (body === "Moon") {
+        i = moon_Data[i].name;
+    }
+    set_HTML_For_Info_Panel(i, body, home);
+}
+
+function hide_Menu_General(i, body, home) {
+    if (hide_Menu_GeneralInfo === false) {
+        hide_Menu_GeneralInfo = true;
+    } else {
+        hide_Menu_GeneralInfo = false;
+    }
+    if (body === "Moon") {
+        i = moon_Data[i].name;
+    }
+    set_HTML_For_Info_Panel(i, body, home);
 }
 
 function minimize_Info_Panel() {

@@ -52,19 +52,30 @@ body {
 
 #info_Panel {
     position: absolute;
-    left: 12px;
-    top: 50px;
+    left: 20px;
+    top: 60px;
     display: none;
     color: white;
     background-color: gray;
+    opacity: 0.95;
     font-size: medium;
     max-height: 85%;
     overflow: auto;
+
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
 }
 
 #Exit_Button {
     cursor: pointer;
     float: right;
+    font-family: Arial;
     background-color: #111111;
 }
 
