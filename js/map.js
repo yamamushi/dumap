@@ -12,7 +12,7 @@ let hide_Text = false;
 let hide_Text_Time = false;
 let hide_Text_Distance = false;
 let hide_Text_Names = false;
-let hide_Menu_Ores = false;
+let hide_Menu_Ores = true;
 
 // Scaling
 let scales = [];
@@ -815,7 +815,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Biosphere: ' + planet_Data[i].biosphere + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories: ' + planet_Data[i].territories + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories Claimed: ' + planet_Data[i].territories_claimed + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Terra Nullius: ' + planet_Data[i].terra_nullius + '</td></tr>';
+        //temp_HTML_Text = temp_HTML_Text + '<tr><td>Terra Nullius: ' + planet_Data[i].terra_nullius + '</td></tr>';
 
 
 
@@ -840,7 +840,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
        //temp_HTML_Text = temp_HTML_Text + '<tr><td>Biosphere: ' + moon_Data[i].biosphere + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories: ' + moon_Data[i].territories + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories Claimed: ' + moon_Data[i].territories_claimed + '</td></tr>';
-        temp_HTML_Text = temp_HTML_Text + '<tr><td>Terra Nullius: ' + moon_Data[i].terra_nullius + '</td></tr>';
+        //temp_HTML_Text = temp_HTML_Text + '<tr><td>Terra Nullius: ' + moon_Data[i].terra_nullius + '</td></tr>';
 
 
     }

@@ -673,8 +673,12 @@ $output
 HISTORY;
 }
 
-
-function getGrepSearch($string)
+/**
+ * Use Grep to get Search results
+ * @param string $searchstring
+ * @return string
+ */
+function getGrepSearch($searchstring)
 {
-    return shell_exec('grep -il "'.$string.'" ./wikdata/*.wik');
+    return shell_exec('grep -il "'.$searchstring.'" ./wikdata/*.wik');
 }
