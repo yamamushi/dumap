@@ -1,0 +1,979 @@
+[
+  {
+    "name": "Consumables",
+    "list": [
+      {
+        "name": "Elements",
+        "list": [
+          {
+            "name": "Construct Elements",
+            "list": [
+              {
+                "name": "Decorative Element",
+                "list": [
+                  {
+                    "name": "Adjuncts",
+                    "list": [
+                      "Vertical Wing",
+                      "Wing Tip S",
+                      "Wing Tip M",
+                      "Wing Tip L"
+                    ]
+                  },
+                  {
+                    "name": "Antennas",
+                    "list": [
+                      "Antenna S",
+                      "Antenna M",
+                      "Antenna L"
+                    ]
+                  },
+                  {
+                    "name": "Barriers",
+                    "list": [
+                      "Barrier Corner",
+                      "Barrier S",
+                      "Barrier M"
+                    ]
+                  },
+                  {
+                    "name": "Bathroom Elements",
+                    "list": [
+                      "Shower Unit",
+                      "Sink Unit",
+                      "Toilet Unit A",
+                      "Toilet Unit B",
+                      "Urinal Unit"
+                    ]
+                  },
+                  {
+                    "name": "Decorative Cables",
+                    "list": [
+                      "Cable Model-A S",
+                      "Cable Model-A M",
+                      "Cable Model-B S",
+                      "Cable Model-B M",
+                      "Cable Model-C S",
+                      "Cable Model-C M",
+                      "Corner Cable Model-A",
+                      "Corner Cable Model-A",
+                      "Corner Cable Model-A"
+                    ]
+                  },
+                  {
+                    "name": "Furnitures",
+                    "list": [
+                      "\"Eye Doll's Workshop\" - Artist Unknown",
+                      "\"HMS Ajax33\" - Artist Unknown",
+                      "\"Parrotos Sanctuary\" - Artist Unknown",
+                      "Bed",
+                      "Bench",
+                      "Dresser",
+                      "Nightstand",
+                      "Round Carpet",
+                      "Shelf Empty",
+                      "Shelf Full",
+                      "Shelf Half Full",
+                      "Sofa",
+                      "Square Carpet",
+                      "Table",
+                      "Trash",
+                      "Wardrobe",
+                      "Wooden Armchair",
+                      "Wooden Chair",
+                      "Wooden Dresser",
+                      "Wooden Low Table",
+                      "Wooden Sofa",
+                      "Wooden Table L",
+                      "Wooden Table M",
+                      "Wooden Wardrobe"
+                    ]
+                  },
+                  {
+                    "name": "Holograms",
+                    "list": [
+                      "Planet Hologram",
+                      "Planet Hologram L",
+                      "Spaceship Hologram S",
+                      "Spaceship Hologram M",
+                      "Spaceship Hologram L"
+                    ]
+                  },
+                  {
+                    "name": "Hull Decoration",
+                    "list": [
+                      "Hull Decorative Element A",
+                      "Hull Decorative Element B",
+                      "Hull Decorative Element C",
+                      "Steel Column",
+                      "Steel Panel"
+                    ]
+                  },
+                  {
+                    "name": "Pipes",
+                    "list": [
+                      "Pipe A M",
+                      "Pipe B M",
+                      "Pipe C M",
+                      "Pipe D M",
+                      "Pipe Connector M",
+                      "Pipe Corner M"
+                    ]
+                  },
+                  {
+                    "name": "Plants",
+                    "list": [
+                      "Suspended Plant A",
+                      "Bagged Plant A",
+                      "Bagged Plant B",
+                      "Bonsai",
+                      "Eggplant Plant Case",
+                      "Ficus Plant A",
+                      "Ficus Plant B",
+                      "Foliage Plant Case A",
+                      "Foliage Plant Case B",
+                      "Plant",
+                      "Plant Case A",
+                      "Plant Case B",
+                      "Plant Case C",
+                      "Plant Case D",
+                      "Plant Case E",
+                      "Plant Case S",
+                      "Plant Case M"
+                    ]
+                  },
+                  {
+                    "name": "Windows",
+                    "list": [
+                      "Armored Window XS",
+                      "Armored Window S",
+                      "Armored Window M",
+                      "Armored Window L",
+                      "Bay Window XL",
+                      "Glass Panel S",
+                      "Glass Panel M",
+                      "Glass Panel L",
+                      "Window XS",
+                      "Window S",
+                      "Window M",
+                      "Window L"
+                    ]
+                  },
+                  "Keyboard Unit"
+                ]
+              },
+              {
+                "name": "Industry",
+                "list": [
+                  "Complex Parts Industry",
+                  "Decorative Elements Industry",
+                  "Electronic Elements Industry",
+                  "Exceptional Parts Industry",
+                  "Fuel Refinery",
+                  "Functional Elements Industry",
+                  "Functional Parts Industry",
+                  "Honeycomb Refinery",
+                  "Intermediary Parts Industry",
+                  "Material Refinery",
+                  "Piloting Elements Industry",
+                  "Structural Parts Industry",
+                  "Transfer Unit"
+                ]
+              },
+              {
+                "name": "Anti-Gravity Generator",
+                "list": [
+                  "Anti-Gravity Generator S",
+                  "Anti-Gravity Generator M",
+                  "Anti-Gravity Generator L"
+                ]
+              },
+              {
+                "name": "Anti-Gravity Pulsors",
+                "list": [
+                  "Anti-Gravity Pulsor"
+                ]
+              },
+              {
+                "name": "Containers",
+                "list": [
+                  {
+                    "name": "Dispensers",
+                    "list": [
+                      "Dispenser"
+                    ]
+                  },
+                  {
+                    "name": "Fuel Tanks",
+                    "list": [
+                      {
+                        "name": "Atmospheric Fuel Containers",
+                        "list": [
+                          "Atmospheric Fuel-Tank XS",
+                          "Atmospheric Fuel-Tank S",
+                          "Atmospheric Fuel-Tank M",
+                          "Atmospheric Fuel-Tank L"
+                        ]
+                      },
+                      {
+                        "name": "Rocket Fuel Containers",
+                        "list": [
+                          "Rocket Fuel-Tank XS",
+                          "Rocket Fuel-Tank S",
+                          "Rocket Fuel-Tank M",
+                          "Rocket Fuel-Tank L"
+                        ]
+                      },
+                      {
+                        "name": "Space Fuel Containers",
+                        "list": [
+                          "Space Fuel-Tank S",
+                          "Space Fuel-Tank M",
+                          "Space Fuel-Tank L"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Item Containers",
+                    "list": [
+                      "Container Hub",
+                      "Container XS",
+                      "Container S",
+                      "Container M",
+                      "Container L"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Control Units",
+                "list": [
+                  {
+                    "name": "Generic Control Units",
+                    "list": [
+                      "Programming Board"
+                    ]
+                  },
+                  {
+                    "name": "Piloting Control Units",
+                    "list": [
+                      {
+                        "name": "Closed Cockpits",
+                        "list": [
+                          "Cockpit Controller"
+                        ]
+                      },
+                      {
+                        "name": "Commandment Seats",
+                        "list": [
+                          "Command Seat Controller"
+                        ]
+                      },
+                      {
+                        "name": "Hovercraft Cockpits",
+                        "list": [
+                          "Hovercraft Seat Controller"
+                        ]
+                      },
+                      {
+                        "name": "Remote Controllers",
+                        "list": [
+                          "Remote Controller"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Electronics",
+                "list": [
+                  {
+                    "name": "AND Operators",
+                    "list": [
+                      "AND Operator"
+                    ]
+                  },
+                  {
+                    "name": "NOT Operators",
+                    "list": [
+                      "NOT Operator"
+                    ]
+                  },
+                  {
+                    "name": "OR Operators",
+                    "list": [
+                      "OR Operator"
+                    ]
+                  },
+                  {
+                    "name": "Counters",
+                    "list": [
+                      "2 Counter",
+                      "3 Counter",
+                      "5 Counter",
+                      "7 Counter",
+                      "10 Counter"
+                    ]
+                  },
+                  {
+                    "name": "Data Banks",
+                    "list": [
+                      "Databank"
+                    ]
+                  },
+                  {
+                    "name": "Data Emitters",
+                    "list": [
+                      "Emitter XS",
+                      "Emitter S",
+                      "Emitter M"
+                    ]
+                  },
+                  {
+                    "name": "Delay Lines",
+                    "list": [
+                      "Delay Line"
+                    ]
+                  },
+                  {
+                    "name": "Laser Emitters",
+                    "list": [
+                      "Infra-Red Laser Emitter",
+                      "Laser Emitter"
+                    ]
+                  },
+                  {
+                    "name": "Receivers",
+                    "list": [
+                      "Receiver XS",
+                      "Receiver S",
+                      "Receiver M"
+                    ]
+                  },
+                  {
+                    "name": "Relays",
+                    "list": [
+                      "Relay"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Engines",
+                "list": [
+                  {
+                    "name": "Adjustors",
+                    "list": [
+                      "Adjustor XS",
+                      "Adjustor S",
+                      "Adjustor M",
+                      "Adjustor L"
+                    ]
+                  },
+                  {
+                    "name": "Airbrakes",
+                    "list": [
+                      "Atmospheric Airbrake S",
+                      "Atmospheric Airbrake M",
+                      "Atmospheric Airbrake L"
+                    ]
+                  },
+                  {
+                    "name": "Airfoil",
+                    "list": [
+                      {
+                        "name": "Aileron",
+                        "list": [
+                          "Aileron XS",
+                          "Aileron S",
+                          "Aileron M",
+                          "Compact Aileron XS",
+                          "Compact Aileron S",
+                          "Compact Aileron M"
+                        ]
+                      },
+                      {
+                        "name": "Stabilizer",
+                        "list": [
+                          "Stabilizer XS",
+                          "Stabilizer S",
+                          "Stabilizer M",
+                          "Stabilizer L"
+                        ]
+                      },
+                      {
+                        "name": "Wing",
+                        "list": [
+                          "Wing XS",
+                          "Wing S",
+                          "Wing M",
+                          "Wing Variant M"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Atmospheric Engines",
+                    "list": [
+                      "Atmospheric Engine XS",
+                      "Atmospheric Engine S",
+                      "Atmospheric Engine M",
+                      "Atmospheric Engine L"
+                    ]
+                  },
+                  {
+                    "name": "Hovercraft Engines",
+                    "list": [
+                      "Hover Engine S",
+                      "Hover Engine M",
+                      "Hover Engine L",
+                      "Flat Hover Engine L"
+                    ]
+                  },
+                  {
+                    "name": "Rocket Engines",
+                    "list": [
+                      "Rocket Engine S",
+                      "Rocket Engine M",
+                      "Rocket Engine L"
+                    ]
+                  },
+                  {
+                    "name": "Space Brakes",
+                    "list": [
+                      "Retro-Rocket Brake S",
+                      "Retro-Rocket Brake M",
+                      "Retro-Rocket Brake L"
+                    ]
+                  },
+                  {
+                    "name": "Space Engines",
+                    "list": [
+                      "Space Engine XS",
+                      "Space Engine S",
+                      "Space Engine M",
+                      "Space Engine L",
+                      "Space Engine XL"
+                    ]
+                  },
+                  {
+                    "name": "Vertical Boosters",
+                    "list": [
+                      "Vertical Booster XS",
+                      "Vertical Booster S",
+                      "Vertical Booster M",
+                      "Vertical Booser L"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Functional Seat",
+                "list": [
+                  "Encampment Chair",
+                  "Navigator Chair",
+                  "Office Chair"
+                ]
+              },
+              {
+                "name": "Instruments",
+                "list": [
+                  {
+                    "name": "Gyroscopes",
+                    "list": [
+                      "Gyroscope"
+                    ]
+                  },
+                  {
+                    "name": "Telemeters",
+                    "list": [
+                      "Telemeter"
+                    ]
+                  },
+                  {
+                    "name": "Territory Scanners",
+                    "list": [
+                      "Territory Scanner"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Interactive Elements",
+                "list": [
+                  {
+                    "name": "Doors",
+                    "list": [
+                      "Airlock",
+                      "Interior Door",
+                      "Reinforced Sliding Door",
+                      "Sliding Door S",
+                      "Sliding Door M",
+                      "Gate XS",
+                      "Expanded Gate S",
+                      "Gate M",
+                      "Expanded Gate L",
+                      "Gate XL"
+                    ]
+                  },
+                  {
+                    "name": "Elevators",
+                    "list": [
+                      "Elevator XS"
+                    ]
+                  },
+                  {
+                    "name": "Force Fields",
+                    "list": [
+                      "Force Field XS",
+                      "Force Field S",
+                      "Force Field M",
+                      "Force Field L"
+                    ]
+                  },
+                  {
+                    "name": "Landing Gears",
+                    "list": [
+                      "Landing Gear XS",
+                      "Landing Gear S",
+                      "Landing Gear M",
+                      "Landing Gear L"
+                    ]
+                  },
+                  {
+                    "name": "Screens",
+                    "list": [
+                      "Screen XS",
+                      "Screen S",
+                      "Screen M",
+                      "Screen XL",
+                      "Transparent Screen XS",
+                      "Transparent Screen S",
+                      "Transparent Screen M",
+                      "Transparent Screen L",
+                      {
+                        "name": "Signs",
+                        "list": [
+                          "Sign XS",
+                          "Sign S",
+                          "Sign M",
+                          "Sign L",
+                          "Sign Vertical XS",
+                          "Sign Vertical M",
+                          "Sign Vertical L"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Lights",
+                "list": [
+                  "Headlight",
+                  "Long Light XS",
+                  "Long Light S",
+                  "Long Light M",
+                  "Long Light L",
+                  "Square Light XS",
+                  "Square Light S",
+                  "Square Light M",
+                  "Square Light L",
+                  "Vertical Light XS",
+                  "Vertical Light S",
+                  "Vertical Light M",
+                  "Vertical Light L"
+                ]
+              },
+              {
+                "name": "Resurrection Nodes",
+                "list": [
+                  "Resurrection Node"
+                ]
+              },
+              {
+                "name": "Sensors",
+                "list": [
+                  {
+                    "name": "Laser Detectors",
+                    "list": [
+                      "Infra-Red Laser Receiver",
+                      "Laser Receiver"
+                    ]
+                  },
+                  {
+                    "name": "Manual Buttons",
+                    "list": [
+                      "Manual Button S",
+                      "Manual Button XS"
+                    ]
+                  },
+                  {
+                    "name": "Manual Switches",
+                    "list": [
+                      "Manual Switch"
+                    ]
+                  },
+                  {
+                    "name": "Pressure Tiles",
+                    "list": [
+                      "Pressure Tile"
+                    ]
+                  },
+                  {
+                    "name": "Radars",
+                    "list": [
+                      "Radar S",
+                      "Radar M",
+                      "Radar L"
+                    ]
+                  },
+                  {
+                    "name": "Zone Detectors",
+                    "list": [
+                      "Detection Zone XS",
+                      "Detection Zone S",
+                      "Detection Zone M",
+                      "Detection Zone L"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Planet Elements",
+            "list": [
+              {
+                "name": "Core Units",
+                "list": [
+                  {
+                    "name": "Dynamic Core Units",
+                    "list": [
+                      "Dynamic Core XS",
+                      "Dynamic Core S",
+                      "Dynamic Core M",
+                      "Dynamic Core L"
+                    ]
+                  },
+                  {
+                    "name": "Static Core Units",
+                    "list": [
+                      "Static Core XS",
+                      "Static Core S",
+                      "Static Core M",
+                      "Static Core L"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Ground Lights",
+                "list": [
+                  "Deployable Light Orb"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Materials",
+        "list": [
+          {
+            "name": "Catalyst",
+            "list": [
+              "Catalyst 3",
+              "Catalyst 4",
+              "Catalyst 5"
+            ]
+          },
+          {
+            "name": "Fuels",
+            "list": [
+              {
+                "name": "Atmospheric Fuels",
+                "list": [
+                  "Nitron Fuel"
+                ]
+              },
+              {
+                "name": "Rocket Fuels",
+                "list": [
+                  "Xeron Fuel"
+                ]
+              },
+              {
+                "name": "Space Fuels",
+                "list": [
+                  "Kergon-X1 Fuel"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Honeycomb Materials",
+            "list": [
+              {
+                "name": "Product Honeycomb",
+                "list": [
+                  "Brick Honeycomb",
+                  "Carbonfiber Honeycomb",
+                  "Concrete Honeycomb",
+                  "Marble Honeycomb",
+                  "Plastic Honeycomb",
+                  "Steel Honeycomb",
+                  "Wood Honeycomb"
+                ]
+              },
+              {
+                "name": "Pure Honeycomb",
+                "list": [
+                  "Aluminium Honeycomb",
+                  "Chromium Honeycomb",
+                  "Copper Honeycomb",
+                  "Gold Honeycomb",
+                  "Iron Honeycomb",
+                  "Titanium Honeycomb"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Product",
+            "list": [
+              "Brick Product",
+              "Carbon Fiber Product",
+              "Concrete Product",
+              "Duralumin Product",
+              "Maraging Steel Product",
+              "Marble Product",
+              "Polycarbonate Plastic Product",
+              "Titanium 21 Product",
+              "Wood Product",
+              "Zircaloy Product"
+            ]
+          },
+          {
+            "name": "Pure",
+            "list": [
+              "Aluminium Pure",
+              "Carbon Pure",
+              "Chromium Pure",
+              "Copper Pure",
+              "Gold Pure",
+              "Iron Pure",
+              "Lead Pure",
+              "Manganese Pure",
+              "Molybdenum Pure",
+              "Nickel Pure",
+              "Niobium Pure",
+              "Platinum Pure",
+              "Rhenium Pure",
+              "Scandium Pure",
+              "Silicon Pure",
+              "Sodium Pure",
+              "Titanium Pure",
+              "Tungsten Pure",
+              "Vanadium Pure",
+              "Zirconium Pure"
+            ]
+          },
+          {
+            "name": "Ore",
+            "list": [
+              "Aluminium Ore",
+              "Carbon Ore",
+              "Chromium Ore",
+              "Copper Ore",
+              "Gold Ore",
+              "Iron Ore",
+              "Lead Ore",
+              "Manganese Ore",
+              "Molybdenum Ore",
+              "Nickel Ore",
+              "Niobium Ore",
+              "Platinum Ore",
+              "Rhenium Ore",
+              "Scandium Ore",
+              "Silicon Ore",
+              "Sodium Ore",
+              "Titanium Ore",
+              "Tungsten Ore",
+              "Vanadium Ore",
+              "Zirconium Ore"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Scraps",
+        "list": [
+          "Aluminium Scrap",
+          "Carbon Scrap",
+          "Chromium Scrap",
+          "Copper Scrap",
+          "Gold Scrap",
+          "Iron Scrap",
+          "Lead Scrap",
+          "Manganese Scrap",
+          "Molybdenum Scrap",
+          "Nickel Scrap",
+          "Niobium Scrap",
+          "Platinum Scrap",
+          "Rhenium Scrap",
+          "Scandium Scrap",
+          "Silicon Scrap",
+          "Sodium Scrap",
+          "Titanium Scrap",
+          "Tungsten Scrap",
+          "Vanadium Scrap",
+          "Zirconium Scrap"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Parts",
+    "list": [
+      {
+        "name": "Complex Parts",
+        "list": [
+          "Complex Part 1",
+          "Complex Part 2",
+          "Complex Part 3",
+          "Complex Part 4",
+          "Complex Part 5"
+        ]
+      },
+      {
+        "name": "Exceptional Parts",
+        "list": [
+          "Exceptional Part 3",
+          "Exceptional Part 4",
+          "Exceptional Part 5"
+        ]
+      },
+      {
+        "name": "Functional Parts",
+        "list": [
+          {
+            "name": "Functional Part 1",
+            "list": [
+              "Functional Part 1 XS",
+              "Functional Part 1 S",
+              "Functional Part 1 M",
+              "Functional Part 1 L",
+              "Functional Part 1 XL"
+            ]
+          },
+          {
+            "name": "Functional Part 2",
+            "list": [
+              "Functional Part 2 XS",
+              "Functional Part 2 S",
+              "Functional Part 2 M",
+              "Functional Part 2 L",
+              "Functional Part 2 XL"
+            ]
+          },
+          {
+            "name": "Functional Part 3",
+            "list": [
+              "Functional Part 3 XS",
+              "Functional Part 3 S",
+              "Functional Part 3 M",
+              "Functional Part 3 L",
+              "Functional Part 3 XL"
+            ]
+          },
+          {
+            "name": "Functional Part 4",
+            "list": [
+              "Functional Part 4 XS",
+              "Functional Part 4 S",
+              "Functional Part 4 M",
+              "Functional Part 4 L",
+              "Functional Part 4 XL"
+            ]
+          },
+          {
+            "name": "Functional Part 5",
+            "list": [
+              "Functional Part 5 XS",
+              "Functional Part 5 S",
+              "Functional Part 5 M",
+              "Functional Part 5 L",
+              "Functional Part 5 XL"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Intermediary Parts",
+        "list": [
+          "Intermediary Part 1",
+          "Intermediary Part 2",
+          "Intermediary Part 3"
+        ]
+      },
+      {
+        "name": "Structural Parts",
+        "list": [
+          {
+            "name": "Structural Part 1",
+            "list": [
+              "Structural Part 1 XS",
+              "Structural Part 1 S",
+              "Structural Part 1 M",
+              "Structural Part 1 L",
+              "Structural Part 1 XL"
+            ]
+          },
+          {
+            "name": "Structural Part 2",
+            "list": [
+              "Structural Part 2 XS",
+              "Structural Part 2 S",
+              "Structural Part 2 M",
+              "Structural Part 2 L",
+              "Structural Part 2 XL"
+            ]
+          },
+          {
+            "name": "Structural Part 3",
+            "list": [
+              "Structural Part 3 XS",
+              "Structural Part 3 S",
+              "Structural Part 3 M",
+              "Structural Part 3 L",
+              "Structural Part 3 XL"
+            ]
+          },
+          {
+            "name": "Structural Part 4",
+            "list": [
+              "Structural Part 4 XS",
+              "Structural Part 4 S",
+              "Structural Part 4 M",
+              "Structural Part 4 L",
+              "Structural Part 4 XL"
+            ]
+          },
+          {
+            "name": "Structural Part 5",
+            "list": [
+              "Structural Part 5 XS",
+              "Structural Part 5 S",
+              "Structural Part 5 M",
+              "Structural Part 5 L",
+              "Structural Part 5 XL"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,4 +1,27 @@
+
+
 // helper functions
+
+function loadJSON(path, callback) {
+
+    let xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', path, false); // Replace 'my_data' with the path to your file
+    xobj.onreadystatechange = function () {
+        if (xobj.readyState === 4 && xobj.status === 200) {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            callback(xobj.responseText);
+        }
+    };
+    xobj.send(null);
+}
+var itemsAccordion,skills,overhead,orePrices,recipes;
+loadJSON("../data/itemsAccordion.json",function(json){itemsAccordion=JSON.parse(json);})
+loadJSON("../data/skillsAccordion.json",function(json){skills=JSON.parse(json);})
+loadJSON("../data/priceOverhead.json",function(json){overhead=JSON.parse(json);})
+loadJSON("../data/orePrices.json",function(json){orePrices=JSON.parse(json);})
+loadJSON("../data/recipes.json",function(json){recipes=JSON.parse(json);})
+
 
 function formatNum(num,places)
 {
@@ -135,31 +158,28 @@ function createItemsAcc(list,depth)
 	for (var i=0;i<list.length;i++)
 	{
 		//console.log("list i "+list[i]);
-		if (typeof list[i]=="string")
+		if (typeof list[i]=="object")
 		{
-			if (list[i+1]!=null && list[i+1] instanceof Array) {
-			
-				output.push(tab+'<div class="accordion unselectable"><span>+</span><span class="accordion-title">');
-				output.push(list[i]);
-				output.push('</span></div>\n'+tab+'\t<div class="accordion-panel unselectable">\n');
-				output.push(createItemsAcc(list[i+1],depth+1).join(''));
-				output.push(tab+'\t</div>\n');
-			}else{
-				var cn="";
-				if (list[i].search("Ore")!=-1 || list[i].search("Pure")!=-1)
-				{
-					cn=list[i].split(" ")[0].toLowerCase();
-				}
-				output.push(tab+"\t<div class='accordion-item unselectable "+cn+"'>");
-				output.push(list[i]);
-				output.push("</div>\n");
+			output.push(tab+'<div class="accordion unselectable"><span>+</span><span class="accordion-title">');
+			output.push(list[i].name);
+			output.push('</span></div>\n'+tab+'\t<div class="accordion-panel unselectable">\n');
+			output.push(createItemsAcc(list[i].list,depth+1).join(''));
+			output.push(tab+'\t</div>\n');
+		}else{
+			var cn="";
+			if (list[i].search("Ore")!=-1 || list[i].search("Pure")!=-1)
+			{
+				cn=list[i].split(" ")[0].toLowerCase();
 			}
+			output.push(tab+"\t<div class='accordion-item unselectable "+cn+"'>");
+			output.push(list[i]);
+			output.push("</div>\n");
 		}
 	}
 	
 	return output;
 }
-var itemsAccList=createItemsAcc(accordionItems,0);
+var itemsAccList=createItemsAcc(itemsAccordion,0);
 var itemsAccStr=itemsAccList.join('')
 itemAccordion.innerHTML=itemsAccStr;
 
@@ -170,63 +190,66 @@ function createSkillsAcc()
 	//console.log("ca "+depth);
 	var output=[];
 	
-	Object.keys(skills).forEach(function(item,index){
+	for (var i=0;i<skills.length;i++){
 		
 		output.push('<div class="accordion unselectable"><span>+</span><span class="accordion-title">');
-		output.push(item);
+		output.push(skills[i].name);
 		output.push('</span></div>\n<div class="accordion-panel unselectable">\n');
-		if (skills[item].time!=null)
-		{
-			if (skills[item].time instanceof Array)
+		var data=skills[i].data;
+		for(var j=0;j<data.length;j++){
+			if (data[j].name=="Time")
 			{
-				output.push('\t<div class="accordion unselectable"><span>+</span><span class="accordion-title">Time</span></div>\n\t<div class="accordion-panel unselectable">\n');
-				for(var j=0;j<skills[item].time.length;j++)
+				if (typeof data[j].data == "object")
 				{
-					if (item=="Exceptional Part" && j<2){continue;}
-					if (item=="Intermediary Part" && j>3){continue;}
-					output.push("\t\t<div class='accordion-item2 unselectable'>Tier ");
-					output.push(j+1);
-					output.push(" ("+tierNames[j]+")<input oninput='setSkill(\""+item+"\",\"time\","+j+",this.value)' class='accordion-input2' type='number' min='0' max='5' value='0'></div><br>\n");
-				}
-				output.push('\n\t</div>');
-			}else{
-				output.push("\t<div class='accordion-item2 unselectable'>Time    <input oninput='setSkill(\""+item+"\",\"time\",null,this.value)' class='accordion-input2' type='number' min='0' max='5' value='0'></div>\n");
-			}
-		}
-		if (skills[item].material!=null)
-		{
-			if(skills[item].material instanceof Array)
-			{
-				output.push('\t<div class="accordion unselectable"><span>+</span><span class="accordion-title">Material</span></div>\n\t<div class="accordion-panel unselectable">\n');
-				for(var j=0;j<skills[item].material.length;j++)
-				{
-					if (item=="Exceptional Part" && j<2){continue;}
-					if (item=="Intermediary Part" && j>3){continue;}
-					output.push("\t\t<div class='accordion-item2 unselectable'>Tier ");
-					output.push(j+1);
-					output.push(" ("+tierNames[j]+")<input oninput='setSkill(\""+item+"\",\"material\","+j+",this.value)' class='accordion-input2' type='number' min='0' max='5' value='0'></div><br>\n");
-				}
-				output.push('\t</div>');
-				
-			}else{
-				output.push('\t<div class="accordion unselectable"><span>+</span><span class="accordion-title">Material</span></div>\n\t<div class="accordion-panel unselectable">\n');
-				Object.keys(skills[item].material).forEach(function(item2,index)
-				{
-					var cn;
-					if (item2.search("Ore")!=-1 || item2.search("Pure")!=-1)
+					output.push('\t<div class="accordion unselectable"><span>+</span><span class="accordion-title">Time</span></div>\n\t<div class="accordion-panel unselectable">\n');
+					for(var k=0;k<data[j].data.length;k++)
 					{
-						cn=item2.split(" ")[0].toLowerCase();
+						if (data[j].name=="Exceptional Part" && k<2){continue;}
+						if (data[j].name=="Intermediary Part" && k>3){continue;}
+						output.push("\t\t<div class='accordion-item2 unselectable'>Tier ");
+						output.push(k+1);
+						output.push(" ("+tierNames[k]+")<input oninput='setSkill("+i+","+j+","+k+",this.value)' class='accordion-input2' type='number' min='0' max='5' value='0'></div><br>\n");
 					}
-					output.push("\t\t<div class='accordion-item2 unselectable "+cn+"'>");
-					output.push(item2);
-					output.push("<input class='accordion-input2' oninput='setSkill(\""+item+"\",\"material\",\""+item2+"\",this.value)'  type='number' min='0' max='5' value='0'></div><br>\n");
-				});
-				output.push('\t</div>');
+					output.push('\n\t</div>');
+				}else{
+					output.push("\t<div class='accordion-item2 unselectable'>Time    <input oninput='setSkill("+i+","+j+",null,this.value)' class='accordion-input2' type='number' min='0' max='5' value='0'></div>\n");
+				}
+			}
+			if (data[j].name=="Material")
+			{
+				if(typeof data[j].data[0] =="number")
+				{
+					output.push('\t<div class="accordion unselectable"><span>+</span><span class="accordion-title">Material</span></div>\n\t<div class="accordion-panel unselectable">\n');
+					for(var k=0;k<data[j].data.length;k++)
+					{
+						if (data[j].name=="Exceptional Part" && k<2){continue;}
+						if (data[j].name=="Intermediary Part" && k>3){continue;}
+						output.push("\t\t<div class='accordion-item2 unselectable'>Tier ");
+						output.push(k+1);
+						output.push(" ("+tierNames[k]+")<input oninput='setSkill("+i+","+j+","+k+",this.value)' class='accordion-input2' type='number' min='0' max='5' value='0'></div><br>\n");
+					}
+					output.push('\t</div>');
+					
+				}else{
+					output.push('\t<div class="accordion unselectable"><span>+</span><span class="accordion-title">Material</span></div>\n\t<div class="accordion-panel unselectable">\n');
+					for(var k=0;k<data[j].data.length;k++)
+					{
+						var cn;
+						if (data[j].data[k].name.search("Ore")!=-1 || data[j].data[k].name.search("Pure")!=-1)
+						{
+							cn=data[j].data[k].name.split(" ")[0].toLowerCase();
+						}
+						output.push("\t\t<div class='accordion-item2 unselectable "+cn+"'>");
+						output.push(data[j].data[k].name);
+						output.push("<input class='accordion-input2' oninput='setSkill("+i+","+j+","+k+",this.value)'  type='number' min='0' max='5' value='0'></div><br>\n");
+					}
+					output.push('\t</div>');
+				}
 			}
 		}
 		output.push('</div>\n');
 	
-	});
+	}
 	
 	return output;
 }
@@ -492,12 +515,21 @@ function removeItem(event)
 }
 
 // skill modal callback to modify skill variable
-function setSkill(skillName,type,index,value){
+function setSkill(skillIndex,type,index,value){
+	//console.log("setting")
+	//console.log(skills[skillIndex].name)
+	//console.log(skills[skillIndex].data[type].name)
 	if(index==null)
 	{
-		skills[skillName][type]=value;
+		skills[skillIndex].data[type].data=value;
 	}else{
-		skills[skillName][type][index]=value;
+		//console.log(skills[skillIndex].data[type].data[index].name)
+		if (typeof skills[skillIndex].data[type].data[index]=="object")
+		{
+			skills[skillIndex].data[type].data[index].data=value;
+		}else{
+			skills[skillIndex].data[type].data[index]=value;
+		}
 	}
 	calculate();
 }
