@@ -114,7 +114,6 @@ if(session('access_token')) {
 </div>
 
 <script src="../js/Crafting_Calc r016.js"></script>
-<script src="../js/Crafting_Calc_data.js"></script>
 <script src="../js/Crafting_Calc_interface.js"></script>
 	
 </body>

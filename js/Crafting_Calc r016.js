@@ -258,18 +258,18 @@ function recipeCalc(data){
 		
 		var itemSequence=[];
 		input.reverse()
-		var j=input.length-1;
 		
-		for (;j>=0;j--){
-			var iqPair=input[j];
-			//console.log("input: "+iqPair.name);
+		
+		for (var jj=input.length-1;jj>=0;jj--){
+			var iqPair=input[jj];
+			//console.log("input: "+iqPair.name+" "+jj);
 			var q=iqPair.quantity;
 			
 			//console.log("checking inventory "+inventory[iqPair.name]);
 			if (q<inventory[iqPair.name]){
 				//console.log("inventory has enough of input, moving on to next input");
 				//inventory[iqPair.name]-=iqPair.quantity;
-				input.splice(j,1);
+				input.splice(jj,1);
 				continue;
 			}
 			
@@ -285,24 +285,45 @@ function recipeCalc(data){
 			var perLevel=0;
 			
 			//console.log("check skills")
-			if (skills[this.db[iqPair.name].type]!=null &&skills[this.db[iqPair.name].type].material!=null)
-			{
-				//console.log("is a skill")
-				if (this.db[iqPair.name].type=="Pure" )
+			for (var i=0;i<skills.length;i++){
+				if (skills[i].name==this.db[iqPair.name].type)
 				{
-					perLevel=2;
-					skillLevel=skills[this.db[iqPair.name].type].material[iqPair.name]
-					skillReduction=skillLevel*perLevel;
+					var fnd=false;
+					for (var j=0;j<skills[i].data.length;j++)
+					{
+						if(skills[i].data[j].name=="Material")
+						{
+							var idx;
+							for (var k=0;k<skills[i].data[j].data.length;k++){
+								//console.log(skills[i].data[j].data[k].name+" vs "+iqPair.name);
+								if (skills[i].data[j].data[k].name==iqPair.name){idx=k; break;}
+							}
+							
+							//console.log("is a skill")
+							if (this.db[iqPair.name].type=="Pure")
+							{
+								perLevel=2;
+								skillLevel=skills[i].data[j].data[idx].data;
+								//console.log(skills[i].data[j].data[idx].data);
+								skillReduction=skillLevel*perLevel;
+							}
+							else
+							{
+								perLevel=5;
+								skillLevel=skills[i].data[j].data[this.db[iqPair.name].tier-1];
+							}
+							skillReduction=skillLevel*perLevel;
+							//console.log("skill level is "+skillLevel);
+				
+							fnd=true;
+							break;
+						}
+					}
+					if (fnd) {break;}
 				}
-				else
-				{
-					perLevel=5;
-					skillLevel=skills[this.db[iqPair.name].type].material[this.db[iqPair.name].tier-1];
-					skillReduction=skillLevel*perLevel;
-				}
-				//console.log("skill level is "+skillLevel);
 			}
-			
+			//console.log("skill:");
+			//console.log(skillReduction);
 			
 			
 			var iNecessaryQ=roundUp(q-inventory[iqPair.name],iq);
@@ -364,7 +385,7 @@ function recipeCalc(data){
 					inventory[ingPair.name]+=(-craftQ);
 					//console.log("adding "+(-craftQ));
 					//console.log(ingPair.name+" now "+inventory[ingPair.name]);
-					input.splice(j,1);
+					input.splice(jj,1);
 					return;
 				}
 				
@@ -447,28 +468,44 @@ function recipeCalc(data){
 		//console.log(JSON.stringify(removeInvZeros(inventory)));
 		
 		
-		craftList.forEach(function(k,i){
+		craftList.forEach(function(k,ii){
 			var time=this.db[k.name].time;
 			k.tier=this.db[k.name].tier;
 			k.typeName=this.db[k.name].type;
 			k.type=this.types.indexOf(k.typeName);
 			
 			//console.log(k.name);
-			if (skills[k.typeName]!=null) {
-				if (k.typeName=="Pure")
-				{
-					time=time*(1-skills[k.typeName].time[k.tier-1]*0.05)
-					k.time=k.quantity/this.db[k.name].outputQuantity*time;
-				}else if (k.typeName.search("Honeycomb")!=-1){
-					time=time*(1-skills[k.typeName].time*0.1)
-					k.time=k.quantity/this.db[k.name].outputQuantity*time;
+			var fnd=false;
+			
+			for (var i=0;i<skills.length;i++)
+			{
+				if(skills[i].name==k.typeName){
+					for(var j=0;j<skills[i].data.length;j++)
+					{
+						if (skills[i].data[j].name=="Time")
+						{
+							if (k.typeName=="Pure")
+							{
+								time=time*(1-skills[i].data[j].data[k.tier-1]*0.05)
+								k.time=k.quantity/this.db[k.name].outputQuantity*time;
+							}else if (k.typeName.search("Honeycomb")!=-1){
+								time=time*(1-skills[i].data[j].data*0.1)
+								k.time=k.quantity/this.db[k.name].outputQuantity*time;
+							}
+							else
+							{
+								time=time*(1-skills[i].data[j].data[k.tier-1]*0.1)
+								k.time=k.quantity/this.db[k.name].outputQuantity*time;
+							}
+							fnd=true;
+							break;
+						}
+					}
 				}
-				else
-				{
-					time=time*(1-skills[k.typeName].time[k.tier-1]*0.1)
-					k.time=k.quantity/this.db[k.name].outputQuantity*time;
-				}
-			}else
+				if (fnd) {break;}
+			}
+			
+			if (!fnd)
 			{
 				k.time=k.quantity/this.db[k.name].outputQuantity*time;
 			}
