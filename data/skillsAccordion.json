@@ -2,99 +2,39 @@
   {
     "name": "Pure",
     "data": [
-	{
+	  {
 		"name": "Time",
 		"data": [
-		  0,
-		  0,
-		  0,
-		  0,
-		  0
+		  "Tier 1",
+		  "Tier 2",
+		  "Tier 3",
+		  "Tier 4",
+		  "Tier 5"
 		]
-	},
-	{
+	  },
+	  {
         "name": "Material",
         "data": [
-          {
-            "name": "Sodium Pure",
-            "data": 0
-          },
-          {
-            "name": "Iron Pure",
-            "data": 0
-          },
-          {
-            "name": "Carbon Pure",
-            "data": 0
-          },
-          {
-            "name": "Silicon Pure",
-            "data": 0
-          },
-          {
-            "name": "Lead Pure",
-            "data": 0
-          },
-          {
-            "name": "Tungsten Pure",
-            "data": 0
-          },
-          {
-            "name": "Aluminium Pure",
-            "data": 0
-          },
-          {
-            "name": "Nickel Pure",
-            "data": 0
-          },
-          {
-            "name": "Copper Pure",
-            "data": 0
-          },
-          {
-            "name": "Scandium Pure",
-            "data": 0
-          },
-          {
-            "name": "Platinum Pure",
-            "data": 0
-          },
-          {
-            "name": "Chromium Pure",
-            "data": 0
-          },
-          {
-            "name": "Gold Pure",
-            "data": 0
-          },
-          {
-            "name": "Zirconium Pure",
-            "data": 0
-          },
-          {
-            "name": "Molybdenum Pure",
-            "data": 0
-          },
-          {
-            "name": "Manganese Pure",
-            "data": 0
-          },
-          {
-            "name": "Vanadium Pure",
-            "data": 0
-          },
-          {
-            "name": "Titanium Pure",
-            "data": 0
-          },
-          {
-            "name": "Rhenium Pure",
-            "data": 0
-          },
-          {
-            "name": "Niobium Pure",
-            "data": 0
-          }
+          "Sodium Pure",
+          "Iron Pure",
+		  "Carbon Pure",
+          "Silicon Pure",
+		  "Lead Pure",
+		  "Tungsten Pure",
+		  "Aluminium Pure",
+		  "Nickel Pure",
+		  "Copper Pure",
+		  "Scandium Pure",
+		  "Platinum Pure",
+		  "Chromium Pure",
+		  "Gold Pure",
+		  "Zirconium Pure",
+		  "Molybdenum Pure",
+		  "Manganese Pure",
+		  "Vanadium Pure",
+		  "Titanium Pure",
+		  "Rhenium Pure",
+		  "Niobium Pure"
         ]
       }
     ]
@@ -105,9 +45,9 @@
       {
         "name": "Time",
         "data": [
-          0,
-          0,
-          0
+          "Tier 1",
+          "Tier 2",
+          "Tier 3"
         ]
       }
     ]
@@ -118,11 +58,11 @@
       {
         "name": "Time",
         "data": [
-          0,
-          0,
-          0,
-          0,
-          0
+          "Tier 1",
+          "Tier 2",
+          "Tier 3",
+          "Tier 4",
+          "Tier 5"
         ]
       }
     ]
@@ -133,11 +73,11 @@
       {
         "name": "Time",
         "data": [
-          0,
-          0,
-          0,
-          0,
-          0
+          "Tier 1",
+          "Tier 2",
+          "Tier 3",
+          "Tier 4",
+          "Tier 5"
         ]
       }
     ]
@@ -148,11 +88,11 @@
       {
         "name": "Time",
         "data": [
-          0,
-          0,
-          0,
-          0,
-          0
+          "Tier 1",
+          "Tier 2",
+          "Tier 3",
+          "Tier 4",
+          "Tier 5"
         ]
       }
     ]
@@ -163,11 +103,11 @@
       {
         "name": "Time",
         "data": [
-          0,
-          0,
-          0,
-          0,
-          0
+          null,
+          null,
+          "Tier 3",
+          "Tier 4",
+          "Tier 5"
         ]
       }
     ]
@@ -175,18 +115,15 @@
   {
     "name": "Pure Honeycomb",
     "data": [
-      {
-        "name": "Time",
-        "data": 0
-      },
+      "Time",
       {
         "name": "Material",
         "data": [
-          0,
-          0,
-          0,
-          0,
-          0
+          "Tier 1",
+          "Tier 2",
+          "Tier 3",
+          "Tier 4",
+          "Tier 5"
         ]
       }
     ]
@@ -194,18 +131,15 @@
   {
     "name": "Product Honeycomb",
     "data": [
-      {
-        "name": "Time",
-        "data": 0
-      },
+      "Time",
       {
         "name": "Material",
         "data": [
-          0,
-          0,
-          0,
-          0,
-          0
+          "Tier 1",
+          "Tier 2",
+          "Tier 3",
+          "Tier 4",
+          "Tier 5"
         ]
       }
     ]
