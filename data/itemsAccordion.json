@@ -1,19 +1,19 @@
 [
   {
     "name": "Consumables",
-    "list": [
+    "data": [
       {
         "name": "Elements",
-        "list": [
+        "data": [
           {
             "name": "Construct Elements",
-            "list": [
+            "data": [
               {
                 "name": "Decorative Element",
-                "list": [
+                "data": [
                   {
                     "name": "Adjuncts",
-                    "list": [
+                    "data": [
                       "Vertical Wing",
                       "Wing Tip S",
                       "Wing Tip M",
@@ -22,7 +22,7 @@
                   },
                   {
                     "name": "Antennas",
-                    "list": [
+                    "data": [
                       "Antenna S",
                       "Antenna M",
                       "Antenna L"
@@ -30,7 +30,7 @@
                   },
                   {
                     "name": "Barriers",
-                    "list": [
+                    "data": [
                       "Barrier Corner",
                       "Barrier S",
                       "Barrier M"
@@ -38,7 +38,7 @@
                   },
                   {
                     "name": "Bathroom Elements",
-                    "list": [
+                    "data": [
                       "Shower Unit",
                       "Sink Unit",
                       "Toilet Unit A",
@@ -48,7 +48,7 @@
                   },
                   {
                     "name": "Decorative Cables",
-                    "list": [
+                    "data": [
                       "Cable Model-A S",
                       "Cable Model-A M",
                       "Cable Model-B S",
@@ -62,7 +62,7 @@
                   },
                   {
                     "name": "Furnitures",
-                    "list": [
+                    "data": [
                       "\"Eye Doll's Workshop\" - Artist Unknown",
                       "\"HMS Ajax33\" - Artist Unknown",
                       "\"Parrotos Sanctuary\" - Artist Unknown",
@@ -91,7 +91,7 @@
                   },
                   {
                     "name": "Holograms",
-                    "list": [
+                    "data": [
                       "Planet Hologram",
                       "Planet Hologram L",
                       "Spaceship Hologram S",
@@ -101,7 +101,7 @@
                   },
                   {
                     "name": "Hull Decoration",
-                    "list": [
+                    "data": [
                       "Hull Decorative Element A",
                       "Hull Decorative Element B",
                       "Hull Decorative Element C",
@@ -111,7 +111,7 @@
                   },
                   {
                     "name": "Pipes",
-                    "list": [
+                    "data": [
                       "Pipe A M",
                       "Pipe B M",
                       "Pipe C M",
@@ -122,7 +122,7 @@
                   },
                   {
                     "name": "Plants",
-                    "list": [
+                    "data": [
                       "Suspended Plant A",
                       "Bagged Plant A",
                       "Bagged Plant B",
@@ -144,7 +144,7 @@
                   },
                   {
                     "name": "Windows",
-                    "list": [
+                    "data": [
                       "Armored Window XS",
                       "Armored Window S",
                       "Armored Window M",
@@ -164,7 +164,7 @@
               },
               {
                 "name": "Industry",
-                "list": [
+                "data": [
                   "Complex Parts Industry",
                   "Decorative Elements Industry",
                   "Electronic Elements Industry",
@@ -182,7 +182,7 @@
               },
               {
                 "name": "Anti-Gravity Generator",
-                "list": [
+                "data": [
                   "Anti-Gravity Generator S",
                   "Anti-Gravity Generator M",
                   "Anti-Gravity Generator L"
@@ -190,25 +190,25 @@
               },
               {
                 "name": "Anti-Gravity Pulsors",
-                "list": [
+                "data": [
                   "Anti-Gravity Pulsor"
                 ]
               },
               {
                 "name": "Containers",
-                "list": [
+                "data": [
                   {
                     "name": "Dispensers",
-                    "list": [
+                    "data": [
                       "Dispenser"
                     ]
                   },
                   {
                     "name": "Fuel Tanks",
-                    "list": [
+                    "data": [
                       {
                         "name": "Atmospheric Fuel Containers",
-                        "list": [
+                        "data": [
                           "Atmospheric Fuel-Tank XS",
                           "Atmospheric Fuel-Tank S",
                           "Atmospheric Fuel-Tank M",
@@ -217,7 +217,7 @@
                       },
                       {
                         "name": "Rocket Fuel Containers",
-                        "list": [
+                        "data": [
                           "Rocket Fuel-Tank XS",
                           "Rocket Fuel-Tank S",
                           "Rocket Fuel-Tank M",
@@ -226,7 +226,7 @@
                       },
                       {
                         "name": "Space Fuel Containers",
-                        "list": [
+                        "data": [
                           "Space Fuel-Tank S",
                           "Space Fuel-Tank M",
                           "Space Fuel-Tank L"
@@ -236,7 +236,7 @@
                   },
                   {
                     "name": "Item Containers",
-                    "list": [
+                    "data": [
                       "Container Hub",
                       "Container XS",
                       "Container S",
@@ -248,37 +248,37 @@
               },
               {
                 "name": "Control Units",
-                "list": [
+                "data": [
                   {
                     "name": "Generic Control Units",
-                    "list": [
+                    "data": [
                       "Programming Board"
                     ]
                   },
                   {
                     "name": "Piloting Control Units",
-                    "list": [
+                    "data": [
                       {
                         "name": "Closed Cockpits",
-                        "list": [
+                        "data": [
                           "Cockpit Controller"
                         ]
                       },
                       {
                         "name": "Commandment Seats",
-                        "list": [
+                        "data": [
                           "Command Seat Controller"
                         ]
                       },
                       {
                         "name": "Hovercraft Cockpits",
-                        "list": [
+                        "data": [
                           "Hovercraft Seat Controller"
                         ]
                       },
                       {
                         "name": "Remote Controllers",
-                        "list": [
+                        "data": [
                           "Remote Controller"
                         ]
                       }
@@ -288,28 +288,28 @@
               },
               {
                 "name": "Electronics",
-                "list": [
+                "data": [
                   {
                     "name": "AND Operators",
-                    "list": [
+                    "data": [
                       "AND Operator"
                     ]
                   },
                   {
                     "name": "NOT Operators",
-                    "list": [
+                    "data": [
                       "NOT Operator"
                     ]
                   },
                   {
                     "name": "OR Operators",
-                    "list": [
+                    "data": [
                       "OR Operator"
                     ]
                   },
                   {
                     "name": "Counters",
-                    "list": [
+                    "data": [
                       "2 Counter",
                       "3 Counter",
                       "5 Counter",
@@ -319,13 +319,13 @@
                   },
                   {
                     "name": "Data Banks",
-                    "list": [
+                    "data": [
                       "Databank"
                     ]
                   },
                   {
                     "name": "Data Emitters",
-                    "list": [
+                    "data": [
                       "Emitter XS",
                       "Emitter S",
                       "Emitter M"
@@ -333,20 +333,20 @@
                   },
                   {
                     "name": "Delay Lines",
-                    "list": [
+                    "data": [
                       "Delay Line"
                     ]
                   },
                   {
                     "name": "Laser Emitters",
-                    "list": [
+                    "data": [
                       "Infra-Red Laser Emitter",
                       "Laser Emitter"
                     ]
                   },
                   {
                     "name": "Receivers",
-                    "list": [
+                    "data": [
                       "Receiver XS",
                       "Receiver S",
                       "Receiver M"
@@ -354,7 +354,7 @@
                   },
                   {
                     "name": "Relays",
-                    "list": [
+                    "data": [
                       "Relay"
                     ]
                   }
@@ -362,10 +362,10 @@
               },
               {
                 "name": "Engines",
-                "list": [
+                "data": [
                   {
                     "name": "Adjustors",
-                    "list": [
+                    "data": [
                       "Adjustor XS",
                       "Adjustor S",
                       "Adjustor M",
@@ -374,7 +374,7 @@
                   },
                   {
                     "name": "Airbrakes",
-                    "list": [
+                    "data": [
                       "Atmospheric Airbrake S",
                       "Atmospheric Airbrake M",
                       "Atmospheric Airbrake L"
@@ -382,10 +382,10 @@
                   },
                   {
                     "name": "Airfoil",
-                    "list": [
+                    "data": [
                       {
                         "name": "Aileron",
-                        "list": [
+                        "data": [
                           "Aileron XS",
                           "Aileron S",
                           "Aileron M",
@@ -396,7 +396,7 @@
                       },
                       {
                         "name": "Stabilizer",
-                        "list": [
+                        "data": [
                           "Stabilizer XS",
                           "Stabilizer S",
                           "Stabilizer M",
@@ -405,7 +405,7 @@
                       },
                       {
                         "name": "Wing",
-                        "list": [
+                        "data": [
                           "Wing XS",
                           "Wing S",
                           "Wing M",
@@ -416,7 +416,7 @@
                   },
                   {
                     "name": "Atmospheric Engines",
-                    "list": [
+                    "data": [
                       "Atmospheric Engine XS",
                       "Atmospheric Engine S",
                       "Atmospheric Engine M",
@@ -425,7 +425,7 @@
                   },
                   {
                     "name": "Hovercraft Engines",
-                    "list": [
+                    "data": [
                       "Hover Engine S",
                       "Hover Engine M",
                       "Hover Engine L",
@@ -434,7 +434,7 @@
                   },
                   {
                     "name": "Rocket Engines",
-                    "list": [
+                    "data": [
                       "Rocket Engine S",
                       "Rocket Engine M",
                       "Rocket Engine L"
@@ -442,7 +442,7 @@
                   },
                   {
                     "name": "Space Brakes",
-                    "list": [
+                    "data": [
                       "Retro-Rocket Brake S",
                       "Retro-Rocket Brake M",
                       "Retro-Rocket Brake L"
@@ -450,7 +450,7 @@
                   },
                   {
                     "name": "Space Engines",
-                    "list": [
+                    "data": [
                       "Space Engine XS",
                       "Space Engine S",
                       "Space Engine M",
@@ -460,7 +460,7 @@
                   },
                   {
                     "name": "Vertical Boosters",
-                    "list": [
+                    "data": [
                       "Vertical Booster XS",
                       "Vertical Booster S",
                       "Vertical Booster M",
@@ -471,7 +471,7 @@
               },
               {
                 "name": "Functional Seat",
-                "list": [
+                "data": [
                   "Encampment Chair",
                   "Navigator Chair",
                   "Office Chair"
@@ -479,22 +479,22 @@
               },
               {
                 "name": "Instruments",
-                "list": [
+                "data": [
                   {
                     "name": "Gyroscopes",
-                    "list": [
+                    "data": [
                       "Gyroscope"
                     ]
                   },
                   {
                     "name": "Telemeters",
-                    "list": [
+                    "data": [
                       "Telemeter"
                     ]
                   },
                   {
                     "name": "Territory Scanners",
-                    "list": [
+                    "data": [
                       "Territory Scanner"
                     ]
                   }
@@ -502,10 +502,10 @@
               },
               {
                 "name": "Interactive Elements",
-                "list": [
+                "data": [
                   {
                     "name": "Doors",
-                    "list": [
+                    "data": [
                       "Airlock",
                       "Interior Door",
                       "Reinforced Sliding Door",
@@ -520,13 +520,13 @@
                   },
                   {
                     "name": "Elevators",
-                    "list": [
+                    "data": [
                       "Elevator XS"
                     ]
                   },
                   {
                     "name": "Force Fields",
-                    "list": [
+                    "data": [
                       "Force Field XS",
                       "Force Field S",
                       "Force Field M",
@@ -535,7 +535,7 @@
                   },
                   {
                     "name": "Landing Gears",
-                    "list": [
+                    "data": [
                       "Landing Gear XS",
                       "Landing Gear S",
                       "Landing Gear M",
@@ -544,7 +544,7 @@
                   },
                   {
                     "name": "Screens",
-                    "list": [
+                    "data": [
                       "Screen XS",
                       "Screen S",
                       "Screen M",
@@ -555,7 +555,7 @@
                       "Transparent Screen L",
                       {
                         "name": "Signs",
-                        "list": [
+                        "data": [
                           "Sign XS",
                           "Sign S",
                           "Sign M",
@@ -571,7 +571,7 @@
               },
               {
                 "name": "Lights",
-                "list": [
+                "data": [
                   "Headlight",
                   "Long Light XS",
                   "Long Light S",
@@ -589,42 +589,42 @@
               },
               {
                 "name": "Resurrection Nodes",
-                "list": [
+                "data": [
                   "Resurrection Node"
                 ]
               },
               {
                 "name": "Sensors",
-                "list": [
+                "data": [
                   {
                     "name": "Laser Detectors",
-                    "list": [
+                    "data": [
                       "Infra-Red Laser Receiver",
                       "Laser Receiver"
                     ]
                   },
                   {
                     "name": "Manual Buttons",
-                    "list": [
+                    "data": [
                       "Manual Button S",
                       "Manual Button XS"
                     ]
                   },
                   {
                     "name": "Manual Switches",
-                    "list": [
+                    "data": [
                       "Manual Switch"
                     ]
                   },
                   {
                     "name": "Pressure Tiles",
-                    "list": [
+                    "data": [
                       "Pressure Tile"
                     ]
                   },
                   {
                     "name": "Radars",
-                    "list": [
+                    "data": [
                       "Radar S",
                       "Radar M",
                       "Radar L"
@@ -632,7 +632,7 @@
                   },
                   {
                     "name": "Zone Detectors",
-                    "list": [
+                    "data": [
                       "Detection Zone XS",
                       "Detection Zone S",
                       "Detection Zone M",
@@ -645,13 +645,13 @@
           },
           {
             "name": "Planet Elements",
-            "list": [
+            "data": [
               {
                 "name": "Core Units",
-                "list": [
+                "data": [
                   {
                     "name": "Dynamic Core Units",
-                    "list": [
+                    "data": [
                       "Dynamic Core XS",
                       "Dynamic Core S",
                       "Dynamic Core M",
@@ -660,7 +660,7 @@
                   },
                   {
                     "name": "Static Core Units",
-                    "list": [
+                    "data": [
                       "Static Core XS",
                       "Static Core S",
                       "Static Core M",
@@ -671,7 +671,7 @@
               },
               {
                 "name": "Ground Lights",
-                "list": [
+                "data": [
                   "Deployable Light Orb"
                 ]
               }
@@ -681,10 +681,10 @@
       },
       {
         "name": "Materials",
-        "list": [
+        "data": [
           {
             "name": "Catalyst",
-            "list": [
+            "data": [
               "Catalyst 3",
               "Catalyst 4",
               "Catalyst 5"
@@ -692,22 +692,22 @@
           },
           {
             "name": "Fuels",
-            "list": [
+            "data": [
               {
                 "name": "Atmospheric Fuels",
-                "list": [
+                "data": [
                   "Nitron Fuel"
                 ]
               },
               {
                 "name": "Rocket Fuels",
-                "list": [
+                "data": [
                   "Xeron Fuel"
                 ]
               },
               {
                 "name": "Space Fuels",
-                "list": [
+                "data": [
                   "Kergon-X1 Fuel"
                 ]
               }
@@ -715,10 +715,10 @@
           },
           {
             "name": "Honeycomb Materials",
-            "list": [
+            "data": [
               {
                 "name": "Product Honeycomb",
-                "list": [
+                "data": [
                   "Brick Honeycomb",
                   "Carbonfiber Honeycomb",
                   "Concrete Honeycomb",
@@ -730,7 +730,7 @@
               },
               {
                 "name": "Pure Honeycomb",
-                "list": [
+                "data": [
                   "Aluminium Honeycomb",
                   "Chromium Honeycomb",
                   "Copper Honeycomb",
@@ -743,7 +743,7 @@
           },
           {
             "name": "Product",
-            "list": [
+            "data": [
               "Brick Product",
               "Carbon Fiber Product",
               "Concrete Product",
@@ -758,7 +758,7 @@
           },
           {
             "name": "Pure",
-            "list": [
+            "data": [
               "Aluminium Pure",
               "Carbon Pure",
               "Chromium Pure",
@@ -783,7 +783,7 @@
           },
           {
             "name": "Ore",
-            "list": [
+            "data": [
               "Aluminium Ore",
               "Carbon Ore",
               "Chromium Ore",
@@ -810,7 +810,7 @@
       },
       {
         "name": "Scraps",
-        "list": [
+        "data": [
           "Aluminium Scrap",
           "Carbon Scrap",
           "Chromium Scrap",
@@ -837,10 +837,10 @@
   },
   {
     "name": "Parts",
-    "list": [
+    "data": [
       {
         "name": "Complex Parts",
-        "list": [
+        "data": [
           "Complex Part 1",
           "Complex Part 2",
           "Complex Part 3",
@@ -850,7 +850,7 @@
       },
       {
         "name": "Exceptional Parts",
-        "list": [
+        "data": [
           "Exceptional Part 3",
           "Exceptional Part 4",
           "Exceptional Part 5"
@@ -858,10 +858,10 @@
       },
       {
         "name": "Functional Parts",
-        "list": [
+        "data": [
           {
             "name": "Functional Part 1",
-            "list": [
+            "data": [
               "Functional Part 1 XS",
               "Functional Part 1 S",
               "Functional Part 1 M",
@@ -871,7 +871,7 @@
           },
           {
             "name": "Functional Part 2",
-            "list": [
+            "data": [
               "Functional Part 2 XS",
               "Functional Part 2 S",
               "Functional Part 2 M",
@@ -881,7 +881,7 @@
           },
           {
             "name": "Functional Part 3",
-            "list": [
+            "data": [
               "Functional Part 3 XS",
               "Functional Part 3 S",
               "Functional Part 3 M",
@@ -891,7 +891,7 @@
           },
           {
             "name": "Functional Part 4",
-            "list": [
+            "data": [
               "Functional Part 4 XS",
               "Functional Part 4 S",
               "Functional Part 4 M",
@@ -901,7 +901,7 @@
           },
           {
             "name": "Functional Part 5",
-            "list": [
+            "data": [
               "Functional Part 5 XS",
               "Functional Part 5 S",
               "Functional Part 5 M",
@@ -913,7 +913,7 @@
       },
       {
         "name": "Intermediary Parts",
-        "list": [
+        "data": [
           "Intermediary Part 1",
           "Intermediary Part 2",
           "Intermediary Part 3"
@@ -921,10 +921,10 @@
       },
       {
         "name": "Structural Parts",
-        "list": [
+        "data": [
           {
             "name": "Structural Part 1",
-            "list": [
+            "data": [
               "Structural Part 1 XS",
               "Structural Part 1 S",
               "Structural Part 1 M",
@@ -934,7 +934,7 @@
           },
           {
             "name": "Structural Part 2",
-            "list": [
+            "data": [
               "Structural Part 2 XS",
               "Structural Part 2 S",
               "Structural Part 2 M",
@@ -944,7 +944,7 @@
           },
           {
             "name": "Structural Part 3",
-            "list": [
+            "data": [
               "Structural Part 3 XS",
               "Structural Part 3 S",
               "Structural Part 3 M",
@@ -954,7 +954,7 @@
           },
           {
             "name": "Structural Part 4",
-            "list": [
+            "data": [
               "Structural Part 4 XS",
               "Structural Part 4 S",
               "Structural Part 4 M",
@@ -964,7 +964,7 @@
           },
           {
             "name": "Structural Part 5",
-            "list": [
+            "data": [
               "Structural Part 5 XS",
               "Structural Part 5 S",
               "Structural Part 5 M",

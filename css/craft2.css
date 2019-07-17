@@ -136,7 +136,7 @@ float:right;
 .grid-container3{
 	display:grid;
 	grid-gap: 10px 5px;
-	grid-template-columns: auto 100px 100px 25px;
+	grid-template-columns: auto 100px 125px 25px;
 	align-content: start;
 	width:100%;
 	overflow:auto;

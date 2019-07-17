@@ -285,42 +285,22 @@ function recipeCalc(data){
 			var perLevel=0;
 			
 			//console.log("check skills")
-			for (var i=0;i<skills.length;i++){
-				if (skills[i].name==this.db[iqPair.name].type)
+			if (skills[this.db[iqPair.name].type]!=null &&skills[this.db[iqPair.name].type].Material!=null)
+			{
+				//console.log("is a skill")
+				if (this.db[iqPair.name].type=="Pure" )
 				{
-					var fnd=false;
-					for (var j=0;j<skills[i].data.length;j++)
-					{
-						if(skills[i].data[j].name=="Material")
-						{
-							var idx;
-							for (var k=0;k<skills[i].data[j].data.length;k++){
-								//console.log(skills[i].data[j].data[k].name+" vs "+iqPair.name);
-								if (skills[i].data[j].data[k].name==iqPair.name){idx=k; break;}
-							}
-							
-							//console.log("is a skill")
-							if (this.db[iqPair.name].type=="Pure")
-							{
-								perLevel=2;
-								skillLevel=skills[i].data[j].data[idx].data;
-								//console.log(skills[i].data[j].data[idx].data);
-								skillReduction=skillLevel*perLevel;
-							}
-							else
-							{
-								perLevel=5;
-								skillLevel=skills[i].data[j].data[this.db[iqPair.name].tier-1];
-							}
-							skillReduction=skillLevel*perLevel;
-							//console.log("skill level is "+skillLevel);
-				
-							fnd=true;
-							break;
-						}
-					}
-					if (fnd) {break;}
+					perLevel=2;
+					skillLevel=skills[this.db[iqPair.name].type].Material[iqPair.name]
+					skillReduction=skillLevel*perLevel;
 				}
+				else
+				{
+					perLevel=5;
+					skillLevel=skills[this.db[iqPair.name].type].Material["Tier "+this.db[iqPair.name].tier];
+					skillReduction=skillLevel*perLevel;
+				}
+				//console.log("skill level is "+skillLevel);
 			}
 			//console.log("skill:");
 			//console.log(skillReduction);
@@ -468,44 +448,28 @@ function recipeCalc(data){
 		//console.log(JSON.stringify(removeInvZeros(inventory)));
 		
 		
-		craftList.forEach(function(k,ii){
+		craftList.forEach(function(k,i){
 			var time=this.db[k.name].time;
 			k.tier=this.db[k.name].tier;
 			k.typeName=this.db[k.name].type;
 			k.type=this.types.indexOf(k.typeName);
 			
 			//console.log(k.name);
-			var fnd=false;
-			
-			for (var i=0;i<skills.length;i++)
-			{
-				if(skills[i].name==k.typeName){
-					for(var j=0;j<skills[i].data.length;j++)
-					{
-						if (skills[i].data[j].name=="Time")
-						{
-							if (k.typeName=="Pure")
-							{
-								time=time*(1-skills[i].data[j].data[k.tier-1]*0.05)
-								k.time=k.quantity/this.db[k.name].outputQuantity*time;
-							}else if (k.typeName.search("Honeycomb")!=-1){
-								time=time*(1-skills[i].data[j].data*0.1)
-								k.time=k.quantity/this.db[k.name].outputQuantity*time;
-							}
-							else
-							{
-								time=time*(1-skills[i].data[j].data[k.tier-1]*0.1)
-								k.time=k.quantity/this.db[k.name].outputQuantity*time;
-							}
-							fnd=true;
-							break;
-						}
-					}
+			if (skills[k.typeName]!=null) {
+				if (k.typeName=="Pure")
+				{
+					time=time*(1-skills[k.typeName].Time["Tier "+k.tier]*0.05)
+					k.time=k.quantity/this.db[k.name].outputQuantity*time;
+				}else if (k.typeName.search("Honeycomb")!=-1){
+					time=time*(1-skills[k.typeName].Time*0.1)
+					k.time=k.quantity/this.db[k.name].outputQuantity*time;
 				}
-				if (fnd) {break;}
-			}
-			
-			if (!fnd)
+				else
+				{
+					time=time*(1-skills[k.typeName].Time["Tier "+k.tier]*0.1)
+					k.time=k.quantity/this.db[k.name].outputQuantity*time;
+				}
+			}else
 			{
 				k.time=k.quantity/this.db[k.name].outputQuantity*time;
 			}
@@ -955,8 +919,12 @@ function gsCalc(ss,namedRanges)
 	//console.log(JSON.stringify(inventoryList));
 	var skills={
 		Pure:{
-			time:[0,0,0,0,0],
-			material:{"Sodium Pure":0,
+			Time:{"Tier 1":0,
+				"Tier 2":0,
+				"Tier 3":0,
+				"Tier 4":0,
+			"Tier 5":0},
+			Material:{"Sodium Pure":0,
 				"Iron Pure":0,
 				"Carbon Pure":0,
 				"Silicon Pure":0,
@@ -978,69 +946,94 @@ function gsCalc(ss,namedRanges)
 				"Niobium Pure":0}
 		},
 		"Intermediary Part":{
-			time:[0,0,0]
+			Time:{"Tier 1":0,
+				"Tier 2":0,
+				"Tier 3":0},
 		},
 		"Complex Part":{
-			time:[0,0,0,0,0]
+			Time:{"Tier 1":0,
+				"Tier 2":0,
+				"Tier 3":0,
+				"Tier 4":0,
+			"Tier 5":0},
 		},
 		"Structural Part":{
-			time:[0,0,0,0,0]
+			Time:{"Tier 1":0,
+				"Tier 2":0,
+				"Tier 3":0,
+				"Tier 4":0,
+			"Tier 5":0},
 		},
 		"Functional Part":{
-			time:[0,0,0,0,0]
+			Time:{"Tier 1":0,
+				"Tier 2":0,
+				"Tier 3":0,
+				"Tier 4":0,
+			"Tier 5":0},
 		},
 		"Exceptional Part":{
-			time:[0,0,0,0,0]
+			Time:{
+				"Tier 3":0,
+				"Tier 4":0,
+			"Tier 5":0},
 		},
 		"Pure Honeycomb":{
-			time:0,
-			material:[2,0,0,0,0]
+			Time:0,
+			Material:{"Tier 1":0,
+				"Tier 2":0,
+				"Tier 3":0,
+				"Tier 4":0,
+			"Tier 5":0},
 		},
 		"Product Honeycomb":{
-			time:0,
-			material:[0,0,0,0,0]
+			Time:0,
+			Material:{"Tier 1":0,
+				"Tier 2":0,
+				"Tier 3":0,
+				"Tier 4":0,
+			"Tier 5":0},
 		}
 	}
 	
 	var sk=namedRanges.SkillsCPTimeRange.getValues();
 	for (var i=0;i<sk.length;i++){
-		skills["Complex Part"].time[i]=sk[i][0];
+		skills["Complex Part"].Time["Tier "+(i+1)]=sk[i][0];
 	}
 	sk=namedRanges.SkillsEPTimeRange.getValues();
 	for (var i=0;i<sk.length;i++){
-		skills["Exceptional Part"].time[i+2]=sk[i][0];
+		skills["Exceptional Part"].Time["Tier "+(i+3)]=sk[i][0];
 	}
 	sk=namedRanges.SkillsFPTimeRange.getValues();
 	for (var i=0;i<sk.length;i++){
-		skills["Functional Part"].time[i]=sk[i][0];
+		skills["Functional Part"].Time["Tier "+(i+1)]=sk[i][0];
 	}
 	sk=namedRanges.SkillsIPTimeRange.getValues();
 	for (var i=0;i<sk.length;i++){
-		skills["Intermediary Part"].time[i]=sk[i][0];
+		skills["Intermediary Part"].Time["Tier "+(i+1)]=sk[i][0];
 	}
 	sk=namedRanges.SkillsSPTimeRange.getValues();
 	for (var i=0;i<sk.length;i++){
-		skills["Structural Part"].time[i]=sk[i][0];
+		skills["Structural Part"].Time["Tier "+(i+1)]=sk[i][0];
 	}
 	
 	sk=namedRanges.SkillsOreRefineMaterialRange.getValues();
 	for (var i=0;i<sk.length;i++){
-		skills["Pure"].material[sk[i][0]]=sk[i][1];
+		skills["Pure"].Material[sk[i][0]]=sk[i][1];
 	}
 	sk=namedRanges.SkillsOreRefineTimeRange.getValues();
 	for (var i=0;i<sk.length;i++){
-		skills["Pure"].time[i]=sk[i][0];
+		skills["Pure"].Time[i]=sk["Tier "+(i+1)][0];
 	}
 	sk=namedRanges.SkillsProductHCMaterialRange.getValues();
 	for (var i=0;i<sk.length;i++){
-		skills["Product Honeycomb"].material[i]=sk[i][0];
+		skills["Product Honeycomb"].Material["Tier "+(i+1)]=sk[i][0];
 	}
-	skills["Product Honeycomb"].time=namedRanges.SkillsProductHCTimeRange.getValues()[0][0];
+	skills["Product Honeycomb"].Time=namedRanges.SkillsProductHCTimeRange.getValues()[0][0];
 	sk=namedRanges.SkillsPureHCMaterialRange.getValues();
 	for (var i=0;i<sk.length;i++){
-		skills["Pure Honeycomb"].material[i]=sk[i][0];
+		skills["Pure Honeycomb"].Material["Tier "+(i+1)]=sk[i][0];
 	}
-	skills["Pure Honeycomb"].time=namedRanges.SkillsPureHCTimeRange.getValues()[0][0];
+	skills["Pure Honeycomb"].Time=namedRanges.SkillsPureHCTimeRange.getValues()[0][0];
 	
 	
 	var output=calc.calcList(inputList,inventoryList,skills);

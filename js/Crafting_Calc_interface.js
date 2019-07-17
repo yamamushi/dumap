@@ -15,12 +15,34 @@ function loadJSON(path, callback) {
     };
     xobj.send(null);
 }
-var itemsAccordion,skills,overhead,orePrices,recipes;
+var itemsAccordion,skillsAccordion,overhead,orePrices,recipes;
 loadJSON("../data/itemsAccordion.json",function(json){itemsAccordion=JSON.parse(json);})
-loadJSON("../data/skillsAccordion.json",function(json){skills=JSON.parse(json);})
+loadJSON("../data/skillsAccordion.json",function(json){skillsAccordion=JSON.parse(json);})
 loadJSON("../data/priceOverhead.json",function(json){overhead=JSON.parse(json);})
 loadJSON("../data/orePrices.json",function(json){orePrices=JSON.parse(json);})
 loadJSON("../data/recipes.json",function(json){recipes=JSON.parse(json);})
+
+var skills={};
+for (var i=0;i<skillsAccordion.length;i++)
+{
+	var type=skillsAccordion[i].name;
+	skills[type]={};
+	var iData=skillsAccordion[i].data;
+	for (var j=0;j<iData.length; j++)
+	{
+		if (typeof iData[j] =="string"){
+			skills[type][iData[j]]=0;
+		}else{
+			var list=iData[j].data;
+			var data={}
+			for (var k=0;k<list.length;k++)
+			{
+				if(list[k]!=null) {data[list[k]]=0;}
+			}
+			skills[type][iData[j].name]=data;
+		}
+	}
+}
 
 
 function formatNum(num,places)
@@ -64,9 +86,9 @@ var cc=new recipeCalc(recipes);
 //run crafting calculations and update output lists oreList and queueList
 function calculate()
 {
-	console.log("calculating...")
-	console.log("craft "+JSON.stringify(craft));
-	console.log("inv "+JSON.stringify(inv));
+	//console.log("calculating...")
+	//console.log("craft "+JSON.stringify(craft));
+	//console.log("inv "+JSON.stringify(inv));
 	
 	while (oreList.children.length>3)
 	{
@@ -163,7 +185,7 @@ function createItemsAcc(list,depth)
 			output.push(tab+'<div class="accordion unselectable"><span>+</span><span class="accordion-title">');
 			output.push(list[i].name);
 			output.push('</span></div>\n'+tab+'\t<div class="accordion-panel unselectable">\n');
-			output.push(createItemsAcc(list[i].list,depth+1).join(''));
+			output.push(createItemsAcc(list[i].data,depth+1).join(''));
 			output.push(tab+'\t</div>\n');
 		}else{
 			var cn="";
@@ -190,63 +212,31 @@ function createSkillsAcc()
 	//console.log("ca "+depth);
 	var output=[];
 	
-	for (var i=0;i<skills.length;i++){
+	for (var i=0;i<skillsAccordion.length;i++){
 		
 		output.push('<div class="accordion unselectable"><span>+</span><span class="accordion-title">');
-		output.push(skills[i].name);
+		output.push(skillsAccordion[i].name);
 		output.push('</span></div>\n<div class="accordion-panel unselectable">\n');
-		var data=skills[i].data;
+		var data=skillsAccordion[i].data;
+		var type=skillsAccordion[i].name;
 		for(var j=0;j<data.length;j++){
-			if (data[j].name=="Time")
+			if (typeof data[j] =="string")
 			{
-				if (typeof data[j].data == "object")
+				output.push("\t<div class='accordion-item2 unselectable'>Time    <input oninput='setSkill(\""+type+"\",\""+data[j]+"\",null,this.value)' class='accordion-input2' type='number' min='0' max='5' value='0'></div>\n");
+			}else{
+				output.push('\t<div class="accordion unselectable"><span>+</span><span class="accordion-title">'+data[j].name+'</span></div>\n\t<div class="accordion-panel unselectable">\n');
+				for(var k=0;k<data[j].data.length;k++)
 				{
-					output.push('\t<div class="accordion unselectable"><span>+</span><span class="accordion-title">Time</span></div>\n\t<div class="accordion-panel unselectable">\n');
-					for(var k=0;k<data[j].data.length;k++)
-					{
-						if (data[j].name=="Exceptional Part" && k<2){continue;}
-						if (data[j].name=="Intermediary Part" && k>3){continue;}
-						output.push("\t\t<div class='accordion-item2 unselectable'>Tier ");
-						output.push(k+1);
-						output.push(" ("+tierNames[k]+")<input oninput='setSkill("+i+","+j+","+k+",this.value)' class='accordion-input2' type='number' min='0' max='5' value='0'></div><br>\n");
-					}
-					output.push('\n\t</div>');
-				}else{
-					output.push("\t<div class='accordion-item2 unselectable'>Time    <input oninput='setSkill("+i+","+j+",null,this.value)' class='accordion-input2' type='number' min='0' max='5' value='0'></div>\n");
+					if (data[j].data[k]==null){continue;}
+					cn="";
+					if (data[j].data[k].search("Pure")!=-1) {cn=data[j].data[k].split(" ")[0].toLowerCase();}
+					output.push("\t\t<div class='accordion-item2 unselectable "+cn+"'>"+data[j].data[k]);
+					output.push(" <input oninput='setSkill(\""+type+"\",\""+data[j].name+"\",\""+data[j].data[k]+"\",this.value)' class='accordion-input2' type='number' min='0' max='5' value='0'></div><br>\n");
 				}
-			}
-			if (data[j].name=="Material")
-			{
-				if(typeof data[j].data[0] =="number")
-				{
-					output.push('\t<div class="accordion unselectable"><span>+</span><span class="accordion-title">Material</span></div>\n\t<div class="accordion-panel unselectable">\n');
-					for(var k=0;k<data[j].data.length;k++)
-					{
-						if (data[j].name=="Exceptional Part" && k<2){continue;}
-						if (data[j].name=="Intermediary Part" && k>3){continue;}
-						output.push("\t\t<div class='accordion-item2 unselectable'>Tier ");
-						output.push(k+1);
-						output.push(" ("+tierNames[k]+")<input oninput='setSkill("+i+","+j+","+k+",this.value)' class='accordion-input2' type='number' min='0' max='5' value='0'></div><br>\n");
-					}
-					output.push('\t</div>');
-					
-				}else{
-					output.push('\t<div class="accordion unselectable"><span>+</span><span class="accordion-title">Material</span></div>\n\t<div class="accordion-panel unselectable">\n');
-					for(var k=0;k<data[j].data.length;k++)
-					{
-						var cn;
-						if (data[j].data[k].name.search("Ore")!=-1 || data[j].data[k].name.search("Pure")!=-1)
-						{
-							cn=data[j].data[k].name.split(" ")[0].toLowerCase();
-						}
-						output.push("\t\t<div class='accordion-item2 unselectable "+cn+"'>");
-						output.push(data[j].data[k].name);
-						output.push("<input class='accordion-input2' oninput='setSkill("+i+","+j+","+k+",this.value)'  type='number' min='0' max='5' value='0'></div><br>\n");
-					}
-					output.push('\t</div>');
-				}
+				output.push('\n\t</div>');
 			}
 		}
+		
 		output.push('</div>\n');
 	
 	}
@@ -515,21 +505,16 @@ function removeItem(event)
 }
 
 // skill modal callback to modify skill variable
-function setSkill(skillIndex,type,index,value){
+function setSkill(type,skill,index,value){
 	//console.log("setting")
 	//console.log(skills[skillIndex].name)
 	//console.log(skills[skillIndex].data[type].name)
 	if(index==null)
 	{
-		skills[skillIndex].data[type].data=value;
+		skills[type][skill]=value;
 	}else{
 		//console.log(skills[skillIndex].data[type].data[index].name)
-		if (typeof skills[skillIndex].data[type].data[index]=="object")
-		{
-			skills[skillIndex].data[type].data[index].data=value;
-		}else{
-			skills[skillIndex].data[type].data[index]=value;
-		}
+		skills[type][skill][index]=value;
 	}
 	calculate();
 }
