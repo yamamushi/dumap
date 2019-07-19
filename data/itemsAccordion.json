@@ -640,7 +640,13 @@
                     ]
                   }
                 ]
-              }
+              },
+			  {
+			    "name":"Virtual Projectors",
+				"data": [
+				  "Virtual Scaffolding Projector"
+				]
+			  }
             ]
           },
           {

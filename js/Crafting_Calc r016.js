@@ -186,6 +186,7 @@ function recipeCalc(data){
 			var vol=0;
 			
 			ing.forEach(function(j,i2){
+				//console.log(j);
 				vol+=j.quantity*this.db[j.name].volume
 			},this);
 			vol/=this.db[k].outputQuantity;

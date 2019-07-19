@@ -6247,5 +6247,23 @@
       "Functional Part 1 S": 1,
       "Structural Part 1 S": 1
     }
+  },
+  "Virtual Scaffolding Projector": {
+    "name": "Virtual Scaffolding Projector",
+    "tier": 4,
+    "type": "Virtual Projector",
+    "mass": 662.46,
+    "volume": 280,
+    "outputQuantity": 1,
+    "time": 4050,
+    "reusable": false,
+    "input": {
+      "Duralumin Product": 8,
+      "Zircaloy Product": 12,
+      "Complex Part 4": 3,
+      "Functional Part 4 S": 1,
+      "Exceptional Part 4": 2,
+      "Structural Part 4 S": 1
+    }
   }
 }
