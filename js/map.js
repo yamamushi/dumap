@@ -892,12 +892,12 @@ function set_HTML_For_Info_Panel(i, body, home) {
     let temp_HTML_Text = "";
     // noinspection JSUnresolvedVariable
     if (body === "Planet") {
-        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th id="menu_title">' + planet_Data[i].name + '<span id="Exit_Button" onclick="minimize_Info_Panel()">X</span></th></tr>';
+        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th id="menu_title">'+planet_Data[i].name+'<span id="Exit_Button" onclick="minimize_Info_Panel()">X</span></th></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>' + planet_Data[i].description + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         if (hide_Menu_FlightInfo === false) {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Collapse_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center" id="info_flight">Flight Information<span id="Collapse_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmosphere: ' + planet_Data[i].atmosphere + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmos Engine Max: ' + planet_Data[i].atmosEngineMax + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Space Engine Min: ' + planet_Data[i].spaceEngineMin + '</td></tr>';
@@ -911,12 +911,12 @@ function set_HTML_For_Info_Panel(i, body, home) {
             }
             temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         } else {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Collapse_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center" id="info_flight">Flight Information<span id="Collapse_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         }
 
         if (hide_Menu_GeneralInfo === false) {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Collapse_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center" id="info_general">General Information<span id="Collapse_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Class: ' + planet_Data[i].class + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>System/Zone: ' + planet_Data[i].system_zone + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Surface Area: ' + planet_Data[i].surface_area + '</td></tr>';
@@ -928,7 +928,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
             temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
 
         } else {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Collapse_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center" id="info_general">General Information<span id="Collapse_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         }
 
@@ -947,17 +947,17 @@ function set_HTML_For_Info_Panel(i, body, home) {
         temp_HTML_Text = temp_HTML_Text + ', ' + "'Planet'" + ')">' + home + '</span><span id="Collapse_Button" onclick="minimize_Info_Panel()">X</span></th></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         if (hide_Menu_FlightInfo === false) {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Collapse_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center" id="info_flight">Flight Information<span id="Collapse_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmosphere: ' + moon_Data[i].atmosphere + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Gravity: ' + moon_Data[i].gravity + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
 
         } else {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Collapse_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center" id="info_flight">Flight Information<span id="Collapse_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         }
         if (hide_Menu_GeneralInfo === false) {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Collapse_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center" id="info_general">General Information<span id="Collapse_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Surface Area: ' + moon_Data[i].surface_area + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Biosphere: ' + moon_Data[i].biosphere + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories: ' + moon_Data[i].territories + '</td></tr>';
@@ -967,7 +967,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
 
         }
         else {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Collapse_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center" id="info_general">General Information<span id="Collapse_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         }
     }
@@ -980,7 +980,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
     if (body === "Planet") {
         if (temp_List_Of_Moons.length > 0) {
             if (hide_Menu_MoonsInfo === false) {
-                temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Moons<span id="Collapse_Button" onclick="hide_Menu_Moons(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+                temp_HTML_Text = temp_HTML_Text + '<tr><td align="center" id="info_moons">Moons<span id="Collapse_Button" onclick="hide_Menu_Moons(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
                 for (let ag = 0; ag < temp_List_Of_Moons.length; ag++) {
                     if (ag === 0) {
                         temp_HTML_Text = temp_HTML_Text + '<tr><td onclick="set_HTML_For_Info_Panel(' + "'" + temp_List_Of_Moons[ag] + "'" + ", 'Moon', " + "'" + planet_Data[i].name;
@@ -992,7 +992,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
                 }
                 temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
             } else {
-                temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Moons<span id="Collapse_Button" onclick="hide_Menu_Moons(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+                temp_HTML_Text = temp_HTML_Text + '<tr><td align="center" id="info_moons">Moons<span id="Collapse_Button" onclick="hide_Menu_Moons(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
                 temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
             }
         }
@@ -1014,7 +1014,7 @@ function Create_Ore_HTML_For_Info_Panel(i, body, home) {
     	if (body === "Planet") {
     		oreobj = planet_Data[i].ore;
     	}
-    	temp_Ore_Text = '<tr><td align="center">Ores<span id="Collapse_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+    	temp_Ore_Text = '<tr><td align="center" id="info_ores">Ores<span id="Collapse_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
     	if (eval(oreobj).hasOwnProperty("Sodium")) {
     		temp_Ore_Text = temp_Ore_Text + '<tr><td>t1:Sodium ' + oreobj.Sodium + '</td></tr>';
     	}
@@ -1081,7 +1081,7 @@ function Create_Ore_HTML_For_Info_Panel(i, body, home) {
     	}
     	temp_Ore_Text = temp_Ore_Text + '<tr><td><hr></td></tr>';
     } else {
-    	temp_Ore_Text = temp_Ore_Text + '<tr><td align="center">Ores<span id="Collapse_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+    	temp_Ore_Text = temp_Ore_Text + '<tr><td align="center" id="info_ores">Ores<span id="Collapse_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
     	temp_Ore_Text = temp_Ore_Text + '<tr><td><hr></td></tr>';
     }
     return temp_Ore_Text;
@@ -1205,8 +1205,9 @@ function draw_main_menu() {
     temp_HTML_Text = temp_HTML_Text + "<li>Menu";
 
     temp_HTML_Text = temp_HTML_Text + "<ul>";
-    temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Options()'> Options </li>";
+    temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Waypoints()'> Waypoints </li>";
     temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Markers()'> Markers </li>";
+    temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Options()'> Options </li>";
     temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Controls()'> Controls </li>";
     temp_HTML_Text = temp_HTML_Text + "<li onclick='open_About()'> About </li>";
     temp_HTML_Text = temp_HTML_Text + "<li onclick='history.go(-1)'> Go Back </li>";

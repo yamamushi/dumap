@@ -218,6 +218,7 @@ body {
     font-size: medium;
     max-height: 95%;
     overflow: auto;
+    padding: 3px 3px 3px 3px;
 }
 ::-webkit-scrollbar {
     width: 0px;  /* Remove scrollbar space */
@@ -227,6 +228,27 @@ body {
 ::-webkit-scrollbar-thumb {
     background: #FF0000;
 }
+
+#info_flight {
+    text-align: center;
+    font-weight: bold;
+}
+
+#info_general {
+    text-align: center;
+    font-weight: bold;
+}
+
+#info_ores {
+    text-align: center;
+    font-weight: bold;
+}
+
+#info_moons {
+    text-align: center;
+    font-weight: bold;
+}
+
 
 #Exit_Button {
     cursor: pointer;
