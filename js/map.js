@@ -649,7 +649,7 @@ function scatterPlot3d(parent) {
     let x3d = parent.append("x3d");
     x3d.style('width', '100%');
     x3d.style('height', '100%');
-    x3d.style("border", "inset");
+    //x3d.style("border", "inset");
 
     scene = x3d.append("scene");
 
@@ -703,6 +703,8 @@ function start_Up() {
     scatterPlot3d(d3.select('#plot'));
     draw_main_menu();
     draw_options_menu();
+    draw_about_menu();
+    draw_controls_menu();
 }
 
 function New_Star_Loc() {
@@ -890,12 +892,12 @@ function set_HTML_For_Info_Panel(i, body, home) {
     let temp_HTML_Text = "";
     // noinspection JSUnresolvedVariable
     if (body === "Planet") {
-        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + planet_Data[i].name + '<span id="Exit_Button" onclick="minimize_Info_Panel()">X</span></th></tr>';
+        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th id="menu_title">' + planet_Data[i].name + '<span id="Exit_Button" onclick="minimize_Info_Panel()">X</span></th></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>' + planet_Data[i].description + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         if (hide_Menu_FlightInfo === false) {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Exit_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Collapse_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmosphere: ' + planet_Data[i].atmosphere + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmos Engine Max: ' + planet_Data[i].atmosEngineMax + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Space Engine Min: ' + planet_Data[i].spaceEngineMin + '</td></tr>';
@@ -909,12 +911,12 @@ function set_HTML_For_Info_Panel(i, body, home) {
             }
             temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         } else {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Exit_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Collapse_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         }
 
         if (hide_Menu_GeneralInfo === false) {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Exit_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Collapse_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Class: ' + planet_Data[i].class + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>System/Zone: ' + planet_Data[i].system_zone + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Surface Area: ' + planet_Data[i].surface_area + '</td></tr>';
@@ -926,7 +928,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
             temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
 
         } else {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Exit_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Collapse_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         }
 
@@ -942,20 +944,20 @@ function set_HTML_For_Info_Panel(i, body, home) {
             }
         }
         temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th>' + moon_Data[i].name + ' of <span class="link" onclick="set_HTML_For_Info_Panel(' + planetid;
-        temp_HTML_Text = temp_HTML_Text + ', ' + "'Planet'" + ')">' + home + '</span><span id="Exit_Button" onclick="minimize_Info_Panel()">X</span></th></tr>';
+        temp_HTML_Text = temp_HTML_Text + ', ' + "'Planet'" + ')">' + home + '</span><span id="Collapse_Button" onclick="minimize_Info_Panel()">X</span></th></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         if (hide_Menu_FlightInfo === false) {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Exit_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Collapse_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Atmosphere: ' + moon_Data[i].atmosphere + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Gravity: ' + moon_Data[i].gravity + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
 
         } else {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Exit_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Flight Information<span id="Collapse_Button" onclick="hide_Menu_Flight(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         }
         if (hide_Menu_GeneralInfo === false) {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Exit_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Collapse_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Surface Area: ' + moon_Data[i].surface_area + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Biosphere: ' + moon_Data[i].biosphere + '</td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td>Territories: ' + moon_Data[i].territories + '</td></tr>';
@@ -965,7 +967,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
 
         }
         else {
-            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Exit_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+            temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">General Information<span id="Collapse_Button" onclick="hide_Menu_General(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
             temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         }
     }
@@ -978,7 +980,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
     if (body === "Planet") {
         if (temp_List_Of_Moons.length > 0) {
             if (hide_Menu_MoonsInfo === false) {
-                temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Moons<span id="Exit_Button" onclick="hide_Menu_Moons(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+                temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Moons<span id="Collapse_Button" onclick="hide_Menu_Moons(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
                 for (let ag = 0; ag < temp_List_Of_Moons.length; ag++) {
                     if (ag === 0) {
                         temp_HTML_Text = temp_HTML_Text + '<tr><td onclick="set_HTML_For_Info_Panel(' + "'" + temp_List_Of_Moons[ag] + "'" + ", 'Moon', " + "'" + planet_Data[i].name;
@@ -990,7 +992,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
                 }
                 temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
             } else {
-                temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Moons<span id="Exit_Button" onclick="hide_Menu_Moons(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+                temp_HTML_Text = temp_HTML_Text + '<tr><td align="center">Moons<span id="Collapse_Button" onclick="hide_Menu_Moons(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
                 temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
             }
         }
@@ -1012,7 +1014,7 @@ function Create_Ore_HTML_For_Info_Panel(i, body, home) {
     	if (body === "Planet") {
     		oreobj = planet_Data[i].ore;
     	}
-    	temp_Ore_Text = '<tr><td align="center">Ores<span id="Exit_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
+    	temp_Ore_Text = '<tr><td align="center">Ores<span id="Collapse_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
     	if (eval(oreobj).hasOwnProperty("Sodium")) {
     		temp_Ore_Text = temp_Ore_Text + '<tr><td>t1:Sodium ' + oreobj.Sodium + '</td></tr>';
     	}
@@ -1079,7 +1081,7 @@ function Create_Ore_HTML_For_Info_Panel(i, body, home) {
     	}
     	temp_Ore_Text = temp_Ore_Text + '<tr><td><hr></td></tr>';
     } else {
-    	temp_Ore_Text = temp_Ore_Text + '<tr><td align="center">Ores<span id="Exit_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
+    	temp_Ore_Text = temp_Ore_Text + '<tr><td align="center">Ores<span id="Collapse_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▼</span></td></tr>';
     	temp_Ore_Text = temp_Ore_Text + '<tr><td><hr></td></tr>';
     }
     return temp_Ore_Text;
@@ -1154,11 +1156,45 @@ function open_Options() {
     } else {
         temp_id.style.display = "none";
     }
+    minimize_About_Panel();
+    minimize_Controls_Panel();
 }
 
 function minimize_Options_Panel() {
     document.getElementById("options_menu").style.display = "none";
 }
+
+function open_Controls() {
+    let temp_id = document.getElementById("controls_menu");
+    if (temp_id.style.display === "none") {
+        temp_id.style.display = "initial";
+    } else {
+        temp_id.style.display = "none";
+    }
+    minimize_Options_Panel();
+    minimize_About_Panel();
+}
+
+function minimize_Controls_Panel() {
+    document.getElementById("controls_menu").style.display = "none";
+}
+
+
+function open_About() {
+    let temp_id = document.getElementById("about_menu");
+    if (temp_id.style.display === "none") {
+        temp_id.style.display = "initial";
+    } else {
+        temp_id.style.display = "none";
+    }
+    minimize_Options_Panel();
+    minimize_Controls_Panel();
+}
+
+function minimize_About_Panel() {
+    document.getElementById("about_menu").style.display = "none";
+}
+
 
 function draw_main_menu() {
     let menu_id = document.getElementById("menu");
@@ -1171,6 +1207,10 @@ function draw_main_menu() {
     temp_HTML_Text = temp_HTML_Text + "<ul>";
     temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Options()'> Options </li>";
     temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Markers()'> Markers </li>";
+    temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Controls()'> Controls </li>";
+    temp_HTML_Text = temp_HTML_Text + "<li onclick='open_About()'> About </li>";
+    temp_HTML_Text = temp_HTML_Text + "<li onclick='history.go(-1)'> Go Back </li>";
+    temp_HTML_Text = temp_HTML_Text + "<li><a href='?action=logout'> Log Out </a></li>";
     temp_HTML_Text = temp_HTML_Text + "</ul>";
 
     temp_HTML_Text = temp_HTML_Text + "</li>";
@@ -1183,68 +1223,44 @@ function draw_main_menu() {
 }
 
 function minimize_Info_Options() {
-    if (hide_menu_info === false) {
-        hide_menu_info = true;
-    } else {
-        hide_menu_info = false;
-    }
+    hide_menu_info = hide_menu_info === false;
     draw_options_menu();
 }
 
 function minimize_Planet_Options() {
-    if (hide_menu_planet === false) {
-        hide_menu_planet = true;
-    } else {
-        hide_menu_planet = false;
-    }
+    hide_menu_planet = hide_menu_planet === false;
     draw_options_menu();
 }
 
 function minimize_Travel_Options() {
-    if (hide_menu_travel === false) {
-        hide_menu_travel = true;
-    } else {
-        hide_menu_travel = false;
-    }
+    hide_menu_travel = hide_menu_travel === false;
     draw_options_menu();
 }
 
 function minimize_Helios_Options() {
-    if (hide_menu_helios === false) {
-        hide_menu_helios = true;
-    } else {
-        hide_menu_helios = false;
-    }
+    hide_menu_helios = hide_menu_helios === false;
     draw_options_menu();
 }
 
 function minimize_Orbit_Options() {
-    if (hide_menu_orbit === false) {
-        hide_menu_orbit = true;
-    } else {
-        hide_menu_orbit = false;
-    }
+    hide_menu_orbit = hide_menu_orbit === false;
     draw_options_menu();
 }
 
 function minimize_Marker_Options() {
-    if (hide_menu_marker === false) {
-        hide_menu_marker = true;
-    } else {
-        hide_menu_marker = false;
-    }
+    hide_menu_marker = hide_menu_marker === false;
     draw_options_menu();
 }
 
 function draw_options_menu(){
     let options_menu_id = document.getElementById("options_menu");
     let temp_HTML_Text = "<div>";
-    temp_HTML_Text = temp_HTML_Text + "<div id='options_info_title'>Options <span id='Exit_Button' onclick='minimize_Options_Panel()'>X</span></div>";
+    temp_HTML_Text = temp_HTML_Text + "<div id='options_info_title'>Options<span id='Exit_Button' onclick='minimize_Options_Panel()'>X</span></div>";
     temp_HTML_Text = temp_HTML_Text + "<hr>";
     if (hide_menu_info === true) {
-        temp_HTML_Text = temp_HTML_Text + "<div id='options_info'>Info Panel Options<span id='Exit_Button' onclick='minimize_Info_Options()'>▼</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_info'>Info Panel Options <span id='Collapse_Button' onclick='minimize_Info_Options()'>▼</span></div>";
     } else {
-        temp_HTML_Text = temp_HTML_Text + "<div id='options_info'>Info Panel Options<span id='Exit_Button' onclick='minimize_Info_Options()'>▲</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_info'>Info Panel Options <span id='Collapse_Button' onclick='minimize_Info_Options()'>▲</span></div>";
         temp_HTML_Text = temp_HTML_Text + "<br>";
         temp_HTML_Text = temp_HTML_Text + "Hide Info Panel";
         temp_HTML_Text = temp_HTML_Text + "<input type='checkbox' id='hide_Info_Panel_Checkbox' OnClick='info_Panel_Check()' />";
@@ -1252,9 +1268,9 @@ function draw_options_menu(){
     }
     temp_HTML_Text = temp_HTML_Text + "<hr>";
     if (hide_menu_planet === true) {
-        temp_HTML_Text = temp_HTML_Text + "<div id='options_planet'>Planet View Options<span id='Exit_Button' onclick='minimize_Planet_Options()'>▼</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_planet'>Planet View Options <span id='Collapse_Button' onclick='minimize_Planet_Options()'>▼</span></div>";
     } else {
-        temp_HTML_Text = temp_HTML_Text + "<div id='options_planet'>Planet View Options<span id='Exit_Button' onclick='minimize_Planet_Options()'>▲</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_planet'>Planet View Options <span id='Collapse_Button' onclick='minimize_Planet_Options()'>▲</span></div>";
         temp_HTML_Text = temp_HTML_Text + "<br>";
         temp_HTML_Text = temp_HTML_Text + "Hide All Text";
         temp_HTML_Text = temp_HTML_Text + "<input type='checkbox' id='text_Checkbox' OnClick='text_Check()' />";
@@ -1271,12 +1287,12 @@ function draw_options_menu(){
     }
     temp_HTML_Text = temp_HTML_Text + "<hr>";
     if (hide_menu_travel === true) {
-        temp_HTML_Text = temp_HTML_Text + "<div id='options_travel'>Travel View Options<span id='Exit_Button' onclick='minimize_Travel_Options()'>▼</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_travel'>Travel View Options <span id='Collapse_Button' onclick='minimize_Travel_Options()'>▼</span></div>";
 
     } else {
-        temp_HTML_Text = temp_HTML_Text + "<div id='options_travel'>Travel View Options<span id='Exit_Button' onclick='minimize_Travel_Options()'>▲</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_travel'>Travel View Options <span id='Collapse_Button' onclick='minimize_Travel_Options()'>▲</span></div>";
         temp_HTML_Text = temp_HTML_Text + "<br>";
-        temp_HTML_Text = temp_HTML_Text + "Hide Line between planets";
+        temp_HTML_Text = temp_HTML_Text + "Hide Line";
         temp_HTML_Text = temp_HTML_Text + "<input type='checkbox' id='polyline_Checkbox' OnClick='polyline_Check()' />";
         temp_HTML_Text = temp_HTML_Text + "<br>";
         temp_HTML_Text = temp_HTML_Text + "Lock Planet Selection";
@@ -1285,9 +1301,9 @@ function draw_options_menu(){
     }
     temp_HTML_Text = temp_HTML_Text + "<hr>";
     if (hide_menu_helios === true) {
-        temp_HTML_Text = temp_HTML_Text + "<div id='options_helios'>Helios View Options<span id='Exit_Button' onclick='minimize_Helios_Options()'>▼</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_helios'>Helios View Options <span id='Collapse_Button' onclick='minimize_Helios_Options()'>▼</span></div>";
     } else {
-        temp_HTML_Text = temp_HTML_Text + "<div id='options_helios'>Helios View Options<span id='Exit_Button' onclick='minimize_Helios_Options()'>▲</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_helios'>Helios View Options <span id='Collapse_Button' onclick='minimize_Helios_Options()'>▲</span></div>";
         temp_HTML_Text = temp_HTML_Text + "<br>";
         temp_HTML_Text = temp_HTML_Text + "Hide Helios";
         temp_HTML_Text = temp_HTML_Text + "<input type='checkbox' id='star_Checkbox' OnClick='star_Check()' />";
@@ -1304,9 +1320,9 @@ function draw_options_menu(){
     }
     temp_HTML_Text = temp_HTML_Text + "<hr>";
     if (hide_menu_orbit === true){
-        temp_HTML_Text = temp_HTML_Text + "<div id='options_orbit'>Orbit View Options<span id='Exit_Button' onclick='minimize_Orbit_Options()'>▼</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_orbit'>Orbit View Options <span id='Collapse_Button' onclick='minimize_Orbit_Options()'>▼</span></div>";
     } else {
-        temp_HTML_Text = temp_HTML_Text + "<div id='options_orbit'>Orbit View Options<span id='Exit_Button' onclick='minimize_Orbit_Options()'>▲</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_orbit'>Orbit View Options <span id='Collapse_Button' onclick='minimize_Orbit_Options()'>▲</span></div>";
         temp_HTML_Text = temp_HTML_Text + "<br>";
         temp_HTML_Text = temp_HTML_Text + "Orbit Visibility";
         temp_HTML_Text = temp_HTML_Text + "<br>";
@@ -1317,9 +1333,9 @@ function draw_options_menu(){
     }
     temp_HTML_Text = temp_HTML_Text + "<hr>";
     if (hide_menu_marker === true) {
-        temp_HTML_Text = temp_HTML_Text + "<div id='options_marker'>Marker Options<span id='Exit_Button' onclick='minimize_Marker_Options()'>▼</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_marker'>Marker Options <span id='Collapse_Button' onclick='minimize_Marker_Options()'>▼</span></div>";
     } else {
-        temp_HTML_Text = temp_HTML_Text + "<div id='options_marker'>Marker Options<span id='Exit_Button' onclick='minimize_Marker_Options()'>▲</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_marker'>Marker Options <span id='Collapse_Button' onclick='minimize_Marker_Options()'>▲</span></div>";
         temp_HTML_Text = temp_HTML_Text + "<br>";
         temp_HTML_Text = temp_HTML_Text + "<div id='place_marker'>Place Marker</div>";
         temp_HTML_Text = temp_HTML_Text + "Coordinates"
@@ -1341,4 +1357,37 @@ function draw_options_menu(){
     temp_HTML_Text = temp_HTML_Text + "</div>";
 
     options_menu_id.innerHTML = temp_HTML_Text;
+}
+
+function draw_controls_menu(){
+    let controls_menu_id = document.getElementById("controls_menu");
+    let temp_HTML_Text = "<div>";
+    temp_HTML_Text = temp_HTML_Text + "<div id='controls_menu_title'>Controls<span id='Exit_Button' onclick='minimize_Controls_Panel()'>X</span></div>";
+    temp_HTML_Text = temp_HTML_Text + "<hr>";
+    temp_HTML_Text = temp_HTML_Text + "Display : Click";
+    temp_HTML_Text = temp_HTML_Text + "<br>";
+    temp_HTML_Text = temp_HTML_Text + "Center : Double-click";
+    temp_HTML_Text = temp_HTML_Text + "<br>";
+    temp_HTML_Text = temp_HTML_Text + "Rotate : Click and Crag";
+    temp_HTML_Text = temp_HTML_Text + "<br>";
+    temp_HTML_Text = temp_HTML_Text + "Zoom : Scroll or Right-click and Drag";
+    temp_HTML_Text = temp_HTML_Text + "<hr>";
+
+    temp_HTML_Text = temp_HTML_Text + "</div>";
+    controls_menu_id.innerHTML = temp_HTML_Text;
+}
+
+function draw_about_menu(){
+    let about_menu_id = document.getElementById("about_menu");
+    let temp_HTML_Text = "<div>";
+    temp_HTML_Text = temp_HTML_Text + "<div id='about_menu_title'>About<span id='Exit_Button' onclick='minimize_About_Panel()'>X</span></div>";
+    temp_HTML_Text = temp_HTML_Text + "<hr>";
+    temp_HTML_Text = temp_HTML_Text + "Original credit goes to Kirito for v1.0 of the map";
+    temp_HTML_Text = temp_HTML_Text + "<br>";
+    temp_HTML_Text = temp_HTML_Text + "<br>";
+    temp_HTML_Text = temp_HTML_Text + "Modifications by Yamamushi and Drystion (2019).";
+    temp_HTML_Text = temp_HTML_Text + "<hr>";
+
+    temp_HTML_Text = temp_HTML_Text + "</div>";
+    about_menu_id.innerHTML = temp_HTML_Text;
 }

@@ -29,6 +29,7 @@ if(session('access_token')) {
 
 
 
+
 <!--Original credit goes to Kirito for v1.0 of the map. It has since been updated to 2.0 by Yamamushi and Drystion-->
 <!DOCtype html>
 
@@ -41,7 +42,7 @@ if(session('access_token')) {
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
 	<title>
-		3D Dual Universe Map
+		Helios 3D System Map
 	</title>
 
 	<link rel="stylesheet" type="text/css" href="../css/map.css">
@@ -49,28 +50,22 @@ if(session('access_token')) {
 	<script type="text/javascript" src="http://x3dom.org/x3dom/dist/x3dom-full.js"></script>
 	<script type="text/javascript" src="../js/map.js"></script>
 </head>
-
 <body>
-<span id="map">
-	Helios System Map
-</span></td></tr></table>
+
 <div id="plot"></div>
-<div id="legend">
-	Display : click - Center : double-click - Rotate : drag - Zoom : Scroll or right-drag - <a href="?action=logout">Log Out</a> - <button onclick="history.go(-1);">Back </button>
-</div>
-<div id="credits">
-	Original credit goes to Kirito for v1.0 of the map. Modifications by Yamamushi and Drystion (2019).
-</div>sb
+<div id="controls_menu" style="display: none;"></div>
+<div id="about_menu" style="display: none;"></div>
 <div id="options_menu" style="display: none;"></div>
 <div id="info_Panel"></div>
 <div id="menu" ></div>
 
-
 <script>
 	window.onload = start_Up();
 </script>
+
 </body>
 </html>
+
 
 
 

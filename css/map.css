@@ -9,6 +9,7 @@ body {
     margin: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 .link {
@@ -38,6 +39,52 @@ body {
     color: white;
     margin-top: 10px
 }
+
+#controls_menu_title {
+    text-align: center;
+    font-weight: bold;
+}
+
+#controls_menu {
+    border-radius: 10px;
+    white-space: pre;
+
+    background-color: gray;
+    color: white;
+
+    position: absolute;
+    top:20px;
+    right: 20px;
+
+    margin: auto;
+
+    max-height: 80%;
+    padding: 3px 3px 3px 3px;
+
+}
+
+
+#about_menu_title {
+    text-align: center;
+    font-weight: bold;
+}
+
+#about_menu {
+    border-radius: 10px;
+    white-space: pre;
+
+    background-color: gray;
+    color: white;
+
+    position: absolute;
+    top:20px;
+    right: 20px;
+
+    margin: auto;
+    max-height: 80%;
+    padding: 3px 3px 3px 3px;
+}
+
 
 #options_info_title {
     text-align: center;
@@ -80,17 +127,20 @@ body {
 }
 
 #options_menu {
+    border-radius: 10px;
     position: absolute;
     right: 20px;
-    top: 56px;
+    top: 20px;
     color: white;
     background-color: gray;
-    margin-top: 4px;
-    max-height: 76%;
+    margin: auto;
+    width: 20%;
+    max-height: 90%;
     font-size: medium;
     display: none;
     overflow: auto;
     padding: 3px 3px 3px 3px;
+    white-space: pre;
 }
 ::-webkit-scrollbar {
     width: 0px;  /* Remove scrollbar space */
@@ -102,8 +152,9 @@ body {
 }
 
 .menu ul {
+    border-radius: 5px;
     position: absolute;
-    bottom: 74px;
+    bottom: 15px;
     right: 20px;
     cursor: pointer;
     background-color: gray;
@@ -133,6 +184,7 @@ body {
     width: 100%;
 }
 .menu ul li:hover > ul {
+    border-radius: 5px 0px 0px 5px;
     display: flex;
     flex-direction: row-reverse;
     cursor: pointer;
@@ -143,23 +195,28 @@ body {
     flex-basis: calc(25% - 20px);
 }
 
+.menu ul a {
+    color: white;
+    text-decoration: none;
+}
 
 
 #menu_title {
-    font-size: 18px;
+    text-align: center;
     font-weight: bold;
 }
 
 #info_Panel {
+    border-radius: 10px;
     position: absolute;
     left: 20px;
-    top: 60px;
+    top: 20px;
     display: none;
     color: white;
     background-color: gray;
     opacity: 0.95;
     font-size: medium;
-    max-height: 81%;
+    max-height: 95%;
     overflow: auto;
 }
 ::-webkit-scrollbar {
@@ -172,6 +229,15 @@ body {
 }
 
 #Exit_Button {
+    cursor: pointer;
+    float: right;
+    font-family: Arial;
+    background-color: #111111;
+    margin-right: 5%;
+    margin-top: 2px;
+}
+
+#Collapse_Button {
     cursor: pointer;
     float: right;
     font-family: Arial;
@@ -199,9 +265,10 @@ body {
     /*background-position: center;*/
     /*background-size: cover;*/
     width: 100%;
-    height: 85%;
-    box-sizing: border-box;
-    padding: 0 0.75%;
+    height: 100%;
+    border: none;
+    /*box-sizing: border-box;*/
+    /*padding: 0 0.75%;*/
 }
 
 X3D, x3d {
