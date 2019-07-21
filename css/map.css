@@ -29,7 +29,7 @@ body {
     color: white;
     line-height: 1.4em;
     margin-top: 10px;
-    margin-left: 37%;
+    margin-left: 40%;
     margin-right: -50%;
 }
 
@@ -39,15 +39,115 @@ body {
     margin-top: 10px
 }
 
-#menu {
+#options_info_title {
+    text-align: center;
+    font-weight: bold;
+}
+
+#options_info {
+    text-align: center;
+    font-weight: bold;
+}
+
+#options_planet {
+    text-align: center;
+    font-weight: bold;
+}
+
+#options_travel {
+    text-align: center;
+    font-weight: bold;
+}
+
+#options_helios {
+    text-align: center;
+    font-weight: bold;
+}
+
+#options_orbit {
+    text-align: center;
+    font-weight: bold;
+}
+
+#options_marker {
+    text-align: center;
+    font-weight: bold;
+}
+
+#place_marker {
+    text-align: center;
+    font-weight: bold;
+}
+
+#options_menu {
     position: absolute;
-    right: 10px;
-    top: 48px;
+    right: 20px;
+    top: 56px;
     color: white;
     background-color: gray;
     margin-top: 4px;
+    max-height: 76%;
     font-size: medium;
     display: none;
+    overflow: auto;
+    padding: 3px 3px 3px 3px;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+.menu ul {
+    position: absolute;
+    bottom: 74px;
+    right: 20px;
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+    padding: 3px 3px 3px 3px;
+    list-style: none;
+    margin: 0;
+    display: flex;
+    white-space: pre;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+.menu ul li {
+    width: 25%;
+}
+.menu ul li > ul {
+    display: none;
+}
+.menu ul li > ul li {
+    width: 100%;
+}
+.menu ul li:hover > ul {
+    display: flex;
+    flex-direction: row-reverse;
+    cursor: pointer;
+    background-color: gray;
+    bottom: 0px;
+    right: 40px;
+    padding: 3px 3px 3px 3px;
+    flex-basis: calc(25% - 20px);
+}
+
+
+
+#menu_title {
+    font-size: 18px;
+    font-weight: bold;
 }
 
 #info_Panel {
@@ -59,9 +159,8 @@ body {
     background-color: gray;
     opacity: 0.95;
     font-size: medium;
-    max-height: 85%;
+    max-height: 81%;
     overflow: auto;
-
 }
 ::-webkit-scrollbar {
     width: 0px;  /* Remove scrollbar space */
@@ -87,6 +186,7 @@ body {
     cursor: pointer;
     margin-top: 4px;
     margin-left: 89.6%;
+    padding: 5px 5px 5px 5px;
     position: absolute;
 }
 

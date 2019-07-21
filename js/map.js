@@ -18,6 +18,12 @@ let hide_Menu_GeneralInfo = true
 let hide_Menu_MoonsInfo = true;
 let hide_Info_Panel = false;
 let lock_Selection = false;
+let hide_menu_info = true;
+let hide_menu_planet = true;
+let hide_menu_travel = true;
+let hide_menu_helios = true;
+let hide_menu_orbit = true;
+let hide_menu_marker = true;
 
 // Scaling
 let scales = [];
@@ -155,7 +161,7 @@ function updateDistances(event,i) {
     	    //first selection
     	    current_Planet = i;
     	    set_Size_Of_Fuzz();
-    	} else 
+    	} else
     	if (i != current_Planet) {
     	    //already had a selection
     	    previous_Planet = current_Planet;
@@ -168,7 +174,7 @@ function updateDistances(event,i) {
     	    //first selection
     	    current_Planet = i;
     	    set_Size_Of_Fuzz();
-    	} else 
+    	} else
     	if (i != current_Planet) {
     	    //already had a selection
     	    previous_Planet = i;
@@ -675,14 +681,6 @@ function scatterPlot3d(parent) {
     plotData(1000);
 }
 
-function open_Options() {
-    let temp_id = document.getElementById("menu");
-    if (temp_id.style.display === "none") {
-        temp_id.style.display = "initial";
-    } else {
-        temp_id.style.display = "none";
-    }
-}
 
 function start_Up() {
 
@@ -703,6 +701,8 @@ function start_Up() {
     });
 
     scatterPlot3d(d3.select('#plot'));
+    draw_main_menu();
+    draw_options_menu();
 }
 
 function New_Star_Loc() {
@@ -787,6 +787,12 @@ function text_Check() {
     if (temp_Checkbox_Value.checked === false) {
         hide_Text = false;
         datalabels.selectAll("billboard").attr("render", true);
+        hide_Text_Names = false;
+        hide_Text_Distance = false;
+        hide_Text_Time = false;
+        document.getElementById("text_Names_Checkbox").checked = false;
+        document.getElementById("text_Distance_Checkbox").checked = false;
+        document.getElementById("text_Time_Checkbox").checked = false;
     }
     updateDistances("options adjust", current_Planet);
 }
@@ -795,8 +801,7 @@ function text_Names_Check() {
     let temp_Checkbox_Value = document.getElementById("text_Names_Checkbox");
     if (temp_Checkbox_Value.checked === true) {
         hide_Text_Names = true;
-    }
-    if (temp_Checkbox_Value.checked === false) {
+    } else {
         if (document.getElementById("text_Checkbox").checked === true) {
         	//hide all is checked so deny unchecking.
         	document.getElementById("text_Names_Checkbox").checked = true;
@@ -1092,7 +1097,6 @@ function hide_Menu_Ore(i, body, home) {
 	set_HTML_For_Info_Panel(i, body, home);
 }
 
-
 function hide_Menu_Flight(i, body, home) {
     if (hide_Menu_FlightInfo === false) {
         hide_Menu_FlightInfo = true;
@@ -1141,4 +1145,200 @@ function orbitals_Visibility() {
 function set_orbitVisibility(value) {
     ringTransparency = value * 0.01;
     newDatapoints_Orbit.selectAll("material").attr("transparency", ringTransparency);
+}
+
+function open_Options() {
+    let temp_id = document.getElementById("options_menu");
+    if (temp_id.style.display === "none") {
+        temp_id.style.display = "initial";
+    } else {
+        temp_id.style.display = "none";
+    }
+}
+
+function minimize_Options_Panel() {
+    document.getElementById("options_menu").style.display = "none";
+}
+
+function draw_main_menu() {
+    let menu_id = document.getElementById("menu");
+
+    let temp_HTML_Text = "<nav class='menu'>";
+    temp_HTML_Text = temp_HTML_Text + "<ul>";
+// onclick='open_Options()'
+    temp_HTML_Text = temp_HTML_Text + "<li>Menu";
+
+    temp_HTML_Text = temp_HTML_Text + "<ul>";
+    temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Options()'> Options </li>";
+    temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Markers()'> Markers </li>";
+    temp_HTML_Text = temp_HTML_Text + "</ul>";
+
+    temp_HTML_Text = temp_HTML_Text + "</li>";
+
+    temp_HTML_Text = temp_HTML_Text + "</ul>";
+    temp_HTML_Text = temp_HTML_Text + "</nav>";
+
+    menu_id.innerHTML = temp_HTML_Text;
+    menu_id.style.display = "initial";
+}
+
+function minimize_Info_Options() {
+    if (hide_menu_info === false) {
+        hide_menu_info = true;
+    } else {
+        hide_menu_info = false;
+    }
+    draw_options_menu();
+}
+
+function minimize_Planet_Options() {
+    if (hide_menu_planet === false) {
+        hide_menu_planet = true;
+    } else {
+        hide_menu_planet = false;
+    }
+    draw_options_menu();
+}
+
+function minimize_Travel_Options() {
+    if (hide_menu_travel === false) {
+        hide_menu_travel = true;
+    } else {
+        hide_menu_travel = false;
+    }
+    draw_options_menu();
+}
+
+function minimize_Helios_Options() {
+    if (hide_menu_helios === false) {
+        hide_menu_helios = true;
+    } else {
+        hide_menu_helios = false;
+    }
+    draw_options_menu();
+}
+
+function minimize_Orbit_Options() {
+    if (hide_menu_orbit === false) {
+        hide_menu_orbit = true;
+    } else {
+        hide_menu_orbit = false;
+    }
+    draw_options_menu();
+}
+
+function minimize_Marker_Options() {
+    if (hide_menu_marker === false) {
+        hide_menu_marker = true;
+    } else {
+        hide_menu_marker = false;
+    }
+    draw_options_menu();
+}
+
+function draw_options_menu(){
+    let options_menu_id = document.getElementById("options_menu");
+    let temp_HTML_Text = "<div>";
+    temp_HTML_Text = temp_HTML_Text + "<div id='options_info_title'>Options <span id='Exit_Button' onclick='minimize_Options_Panel()'>X</span></div>";
+    temp_HTML_Text = temp_HTML_Text + "<hr>";
+    if (hide_menu_info === true) {
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_info'>Info Panel Options<span id='Exit_Button' onclick='minimize_Info_Options()'>▼</span></div>";
+    } else {
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_info'>Info Panel Options<span id='Exit_Button' onclick='minimize_Info_Options()'>▲</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Hide Info Panel";
+        temp_HTML_Text = temp_HTML_Text + "<input type='checkbox' id='hide_Info_Panel_Checkbox' OnClick='info_Panel_Check()' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+    }
+    temp_HTML_Text = temp_HTML_Text + "<hr>";
+    if (hide_menu_planet === true) {
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_planet'>Planet View Options<span id='Exit_Button' onclick='minimize_Planet_Options()'>▼</span></div>";
+    } else {
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_planet'>Planet View Options<span id='Exit_Button' onclick='minimize_Planet_Options()'>▲</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Hide All Text";
+        temp_HTML_Text = temp_HTML_Text + "<input type='checkbox' id='text_Checkbox' OnClick='text_Check()' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Hide Names";
+        temp_HTML_Text = temp_HTML_Text + "<input type='checkbox' id='text_Names_Checkbox' OnClick='text_Names_Check()' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Hide Distance";
+        temp_HTML_Text = temp_HTML_Text + "<input type='checkbox' id='text_Distance_Checkbox' OnClick='text_Distance_Check()' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Hide Time";
+        temp_HTML_Text = temp_HTML_Text + "<input type='checkbox' id='text_Time_Checkbox' OnClick='text_Time_Check()' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+    }
+    temp_HTML_Text = temp_HTML_Text + "<hr>";
+    if (hide_menu_travel === true) {
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_travel'>Travel View Options<span id='Exit_Button' onclick='minimize_Travel_Options()'>▼</span></div>";
+
+    } else {
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_travel'>Travel View Options<span id='Exit_Button' onclick='minimize_Travel_Options()'>▲</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Hide Line between planets";
+        temp_HTML_Text = temp_HTML_Text + "<input type='checkbox' id='polyline_Checkbox' OnClick='polyline_Check()' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Lock Planet Selection";
+        temp_HTML_Text = temp_HTML_Text + "<input type='checkbox' id='lock_Planet_Checkbox' OnClick='lock_Selection_Check()' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+    }
+    temp_HTML_Text = temp_HTML_Text + "<hr>";
+    if (hide_menu_helios === true) {
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_helios'>Helios View Options<span id='Exit_Button' onclick='minimize_Helios_Options()'>▼</span></div>";
+    } else {
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_helios'>Helios View Options<span id='Exit_Button' onclick='minimize_Helios_Options()'>▲</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Hide Helios";
+        temp_HTML_Text = temp_HTML_Text + "<input type='checkbox' id='star_Checkbox' OnClick='star_Check()' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Move Helios Location";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "X: <input type='text' id='New_Star_Loc_X' size='15' value='0' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Y: <input type='text' id='New_Star_Loc_Y' size='15' value='8' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Z: <input type='text' id='New_Star_Loc_Z' size='15' value='0' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<input type='button' id='New_Star_Loc_Button' value='Move' OnClick='New_Star_Loc()' />";
+    }
+    temp_HTML_Text = temp_HTML_Text + "<hr>";
+    if (hide_menu_orbit === true){
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_orbit'>Orbit View Options<span id='Exit_Button' onclick='minimize_Orbit_Options()'>▼</span></div>";
+    } else {
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_orbit'>Orbit View Options<span id='Exit_Button' onclick='minimize_Orbit_Options()'>▲</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Orbit Visibility";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<input type='range' min='1' max='100' value='60' id='orbitals_Visibility' OnClick='orbitals_Visibility()' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Hide Orbits";
+        temp_HTML_Text = temp_HTML_Text + "<input type='checkbox' id='orbitals_Checkbox' OnClick='orbitals_Check()' />";
+    }
+    temp_HTML_Text = temp_HTML_Text + "<hr>";
+    if (hide_menu_marker === true) {
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_marker'>Marker Options<span id='Exit_Button' onclick='minimize_Marker_Options()'>▼</span></div>";
+    } else {
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_marker'>Marker Options<span id='Exit_Button' onclick='minimize_Marker_Options()'>▲</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<div id='place_marker'>Place Marker</div>";
+        temp_HTML_Text = temp_HTML_Text + "Coordinates"
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<input type='text' id='New_Marker_Position' size='25' value='' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Label"
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<input type='text' id='New_Marker_Position' size='16' value='' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Color";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<input type='color' id='New_Marker_Color' size='2' value='#ff0000' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<input type='button' id='New_Marker_Button' value='Add' OnClick='New_Marker()' />";
+    }
+
+    temp_HTML_Text = temp_HTML_Text + "<hr>";
+    temp_HTML_Text = temp_HTML_Text + "</div>";
+
+    options_menu_id.innerHTML = temp_HTML_Text;
 }

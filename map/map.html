@@ -2,6 +2,7 @@
 <!--Original credit goes to Kirito for v1.0 of the map. It has since been updated to 2.0 by Yamamushi and Drystion-->
 <!DOCtype html>
 
+<!--suppress ALL -->
 <html lang="en">
 
 <head>
@@ -20,12 +21,8 @@
 </head>
 
 <body>
-<table width=100%><tr width=100%><td width=10%>
-<span id="options" OnClick="open_Options()">
-	Options
-</span></td><td width=90%>
 <span id="map">
-	Alioth System Map
+	Helios System Map
 </span></td></tr></table>
 <div id="plot"></div>
 <div id="legend">
@@ -33,48 +30,11 @@
 </div>
 <div id="credits">
 	Original credit goes to Kirito for v1.0 of the map. Modifications by Yamamushi and Drystion (2019).
-</div>
-<div id="menu">
-	Hide Orbits
-	<input type="checkbox" id="orbitals_Checkbox" OnClick="orbitals_Check()" />
-	<br>
-	Orbit Visibility
-	<input type="range" min="1" max="100" value="60" id="orbitals_Visibility" OnClick="orbitals_Visibility()" />
-	<br>
-	Hide Line between planets
-	<input type="checkbox" id="polyline_Checkbox" OnClick="polyline_Check()" />
-	<br>
-	Hide Helios
-	<input type="checkbox" id="star_Checkbox" OnClick="star_Check()" />
-	<hr>
-	Hide All Text
-	<input type="checkbox" id="text_Checkbox" OnClick="text_Check()" />
-	<br>
-	Names
-	<input type="checkbox" id="text_Names_Checkbox" OnClick="text_Names_Check()" />
-	Distance
-	<input type="checkbox" id="text_Distance_Checkbox" OnClick="text_Distance_Check()" />
-	Time
-	<input type="checkbox" id="text_Time_Checkbox" OnClick="text_Time_Check()" />
-	<hr>
-	Lock Planet Selection
-	<input type="checkbox" id="lock_Planet_Checkbox" OnClick="lock_Selection_Check()" />
-	<br>
-	Hide Info Panel
-	<input type="checkbox" id="hide_Info_Panel_Checkbox" OnClick="info_Panel_Check()" />
-	<hr>
-	New Star Location
-	<input type="button" id="New_Star_Loc_Button" value="Go" OnClick="New_Star_Loc()" />
-	<br>
-	X: <input type="text" id="New_Star_Loc_X" size="15" value="0" />
-	<br>
-	Y: <input type="text" id="New_Star_Loc_Y" size="15" value="8" />
-	<br>
-	Z: <input type="text" id="New_Star_Loc_Z" size="15" value="0" />
-	<br>
-</div>
-<div id="info_Panel">
-</div>
+</div>sb
+<div id="options_menu" style="display: none;"></div>
+<div id="info_Panel"></div>
+<div id="menu" ></div>
+
 
 <script>
 	window.onload = start_Up();
