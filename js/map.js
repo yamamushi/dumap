@@ -1,5 +1,8 @@
 // GLOBAL
 
+// Imports
+import('../js/map_ores.js');
+
 // Global Scene view
 // noinspection ES6ConvertVarToLetConst
 let scene;
@@ -705,6 +708,7 @@ function start_Up() {
     draw_options_menu();
     draw_about_menu();
     draw_controls_menu();
+    draw_ores_menu();
 }
 
 function New_Star_Loc() {
@@ -892,7 +896,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
     let temp_HTML_Text = "";
     // noinspection JSUnresolvedVariable
     if (body === "Planet") {
-        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th id="menu_title">'+planet_Data[i].name+'<span id="Exit_Button" onclick="minimize_Info_Panel()">X</span></th></tr>';
+        temp_HTML_Text = '<!--suppress ALL --><table width="300"><tr><th id="info_panel_title">'+planet_Data[i].name+'<span id="Exit_Button" onclick="minimize_Info_Panel()">X</span></th></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td>' + planet_Data[i].description + '</td></tr>';
         temp_HTML_Text = temp_HTML_Text + '<tr><td><hr></td></tr>';
@@ -1158,6 +1162,7 @@ function open_Options() {
     }
     minimize_About_Panel();
     minimize_Controls_Panel();
+    minimize_Ores_Panel();
 }
 
 function minimize_Options_Panel() {
@@ -1173,6 +1178,7 @@ function open_Controls() {
     }
     minimize_Options_Panel();
     minimize_About_Panel();
+    minimize_Ores_Panel();
 }
 
 function minimize_Controls_Panel() {
@@ -1189,6 +1195,7 @@ function open_About() {
     }
     minimize_Options_Panel();
     minimize_Controls_Panel();
+    minimize_Ores_Panel();
 }
 
 function minimize_About_Panel() {
@@ -1207,6 +1214,8 @@ function draw_main_menu() {
     temp_HTML_Text = temp_HTML_Text + "<ul>";
     temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Waypoints()'> Waypoints </li>";
     temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Markers()'> Markers </li>";
+    temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Ores()'> Ores </li>";
+    temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Filters()'> Filters </li>"
     temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Options()'> Options </li>";
     temp_HTML_Text = temp_HTML_Text + "<li onclick='open_Controls()'> Controls </li>";
     temp_HTML_Text = temp_HTML_Text + "<li onclick='open_About()'> About </li>";
@@ -1391,4 +1400,29 @@ function draw_about_menu(){
 
     temp_HTML_Text = temp_HTML_Text + "</div>";
     about_menu_id.innerHTML = temp_HTML_Text;
+}
+
+
+function open_Ores() {
+    let temp_id = document.getElementById("ores_menu");
+    if (temp_id.style.display === "none") {
+        temp_id.style.display = "initial";
+    } else {
+        temp_id.style.display = "none";
+    }
+    minimize_About_Panel();
+    minimize_Options_Panel();
+    minimize_Controls_Panel();
+}
+
+function minimize_Ores_Panel() {
+    document.getElementById("ores_menu").style.display = "none";
+}
+
+function draw_ores_menu(){
+    let ores_menu_id = document.getElementById("ores_menu");
+    let temp_HTML_Text = "";
+    temp_HTML_Text = temp_HTML_Text + get_ores_chart_html();
+
+    ores_menu_id.innerHTML = temp_HTML_Text;
 }

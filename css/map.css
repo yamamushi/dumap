@@ -10,6 +10,14 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 .link {
@@ -40,9 +48,35 @@ body {
     margin-top: 10px
 }
 
+
+/* Global Menu Settings */
+
+#Exit_Button {
+    cursor: pointer;
+    float: right;
+    font-family: Arial;
+    background-color: #111111;
+    margin-right: 5%;
+    margin-top: 2px;
+    color: #007cd4;
+}
+
+#Collapse_Button {
+    cursor: pointer;
+    float: right;
+    font-family: Arial;
+    margin-right: 4%;
+    background-color: #111111;
+    color: #007cd4;
+}
+
+
+/* Controls Menu */
+
 #controls_menu_title {
     text-align: center;
     font-weight: bold;
+    color: #007cd4;
 }
 
 #controls_menu {
@@ -61,12 +95,19 @@ body {
     max-height: 80%;
     padding: 3px 3px 3px 3px;
 
+    background-color: #141117;
+    border: #437829;
+    border-style: solid;
+
 }
 
+
+/* About Menu */
 
 #about_menu_title {
     text-align: center;
     font-weight: bold;
+    color: #007cd4;
 }
 
 #about_menu {
@@ -83,42 +124,251 @@ body {
     margin: auto;
     max-height: 80%;
     padding: 3px 3px 3px 3px;
+
+    background-color: #141117;
+    border: #437829;
+    border-style: solid;
 }
 
+
+/* Ores Menu */
+
+#ores_menu_title {
+    text-align: center;
+    font-weight: bold;
+    color: #007cd4;
+}
+
+#ores_menu {
+    border-radius: 10px;
+    white-space: pre;
+
+    background-color: gray;
+    color: white;
+
+    position: absolute;
+    top:20px;
+    right: 20px;
+
+    margin: auto;
+    max-height: 85%;
+    padding: 3px 3px 3px 3px;
+
+    background-color: #141117;
+    border: #437829;
+    border-style: solid;
+
+    display: none;
+    overflow: auto;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+
+table#ores_chart {
+    background-color: #000000;
+    font-size: 12px;
+    border-spacing: 2px;
+    border-collapse: separate;
+    border: none;
+    color: black;
+    cursor: pointer;
+    table-layout: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+table tr td#ores_chart {
+    overflow:hidden;
+}
+
+table tr#ores_chart {
+    border: none;
+    padding: 2px 2px 2px 2px;
+}
+
+table tr#ores_chart:hover {
+    border: solid;
+    border: red;
+    padding: 1px 1px 1px 1px;
+    border: 10px;
+    color: blue;
+    font-weight: bold;
+    z-index: -1;
+    background: #b8b8b8;
+}
+
+table tr > td#ores_chart:hover {
+    border: solid;
+    border: red;
+    padding: 1px 1px 1px 1px;
+    border: 10px;
+    color: #ff0039;
+    font-weight: bold;
+    z-index: -1;
+    background: #dcdcdc;
+}
+
+img#ores_chart_img {
+    display: block;
+    height: 40px;
+    width: 40px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#categories_column {
+    background-color:#ffffff;
+    width: 95px;
+}
+
+#sodium_column {
+    background-color:#daffff;
+}
+
+#carbon_column {
+    background-color:#70efff;
+}
+
+#aluminium_columm {
+    background-color:#70efff;
+}
+
+#silicon_column {
+    background-color:#70efff;
+}
+
+#scandium_column {
+    background-color:#4bd5ff;
+}
+
+#titanium_column {
+    background-color:#1bb4ff;
+}
+
+#vanadium_column {
+    background-color:#1cc2ff;
+}
+
+#zirconium_column {
+    background-color:#2cc9ff;
+}
+
+#chromium_column {
+    background-color:#20e775;
+}
+
+#manganese_column {
+    background-color:#20e778;
+}
+
+#iron_column {
+    background-color:#23f45b;
+}
+
+#niobium_column {
+    background-color:#61a31a;
+}
+
+#nickel_column {
+    background-color:#8fba1b;
+}
+
+#copper_column {
+    background-color:#8eba1a;
+}
+
+#molybdenum_column {
+    background-color:#f4e026;
+    width: 80px;
+}
+
+#lead_column {
+    background-color:#ffb51a;
+}
+
+#tungsten_column {
+    background-color:#ff6a1b;
+}
+
+#gold_column {
+    background-color:#ff6d20;
+}
+
+#rhenium_column {
+    background-color:#d02233;
+}
+
+#platinum_column {
+    background-color:#9c1a41;
+}
+
+
+
+
+
+/* Options Menu */
 
 #options_info_title {
     text-align: center;
     font-weight: bold;
+    color: #007cd4;
+}
+
+#options {
+    font-size: medium;
+    color: white;
+    background-color: rgb(40, 40, 40);
+    border: 1px solid;
+    cursor: pointer;
+    margin-top: 4px;
+    margin-left: 89.6%;
+    padding: 5px 5px 5px 5px;
+    position: absolute;
 }
 
 #options_info {
     text-align: center;
     font-weight: bold;
+    color: #007cd4;
 }
 
 #options_planet {
     text-align: center;
     font-weight: bold;
+    color: #007cd4;
 }
 
 #options_travel {
     text-align: center;
     font-weight: bold;
+    color: #007cd4;
 }
 
 #options_helios {
     text-align: center;
     font-weight: bold;
+    color: #007cd4;
 }
 
 #options_orbit {
     text-align: center;
     font-weight: bold;
+    color: #007cd4;
 }
 
 #options_marker {
     text-align: center;
     font-weight: bold;
+    color: #007cd4;
 }
 
 #place_marker {
@@ -132,10 +382,12 @@ body {
     right: 20px;
     top: 20px;
     color: white;
-    background-color: gray;
+    background-color: #141117;
+    border: #437829;
+    border-style: solid;
     margin: auto;
     width: 20%;
-    max-height: 90%;
+    max-height: 89%;
     font-size: medium;
     display: none;
     overflow: auto;
@@ -151,19 +403,25 @@ body {
     background: #FF0000;
 }
 
+
+/* Menu Bar */
+
 .menu ul {
     border-radius: 5px;
     position: absolute;
     bottom: 15px;
     right: 20px;
     cursor: pointer;
-    background-color: gray;
     color: white;
     padding: 3px 3px 3px 3px;
     list-style: none;
     margin: 0;
     display: flex;
     white-space: pre;
+
+    background-color: #141117;
+    border: #437829;
+    border-style: solid;
 }
 ::-webkit-scrollbar {
     width: 0px;  /* Remove scrollbar space */
@@ -183,27 +441,36 @@ body {
 .menu ul li > ul li {
     width: 100%;
 }
+.menu ul li > ul li:hover {
+    color: #61a31a;
+}
 .menu ul li:hover > ul {
     border-radius: 5px 0px 0px 5px;
     display: flex;
     flex-direction: row-reverse;
     cursor: pointer;
-    background-color: gray;
-    bottom: 0px;
+    bottom: -3px;
     right: 40px;
     padding: 3px 3px 3px 3px;
     flex-basis: calc(25% - 20px);
-}
 
+    background-color: #141117;
+    border: #437829;
+    border-style: solid;
+    border-right-style: none;
+}
 .menu ul a {
     color: white;
     text-decoration: none;
 }
 
 
-#menu_title {
+/* Info Panel */
+
+#info_panel_title {
     text-align: center;
     font-weight: bold;
+    color: #007cd4;
 }
 
 #info_Panel {
@@ -213,12 +480,14 @@ body {
     top: 20px;
     display: none;
     color: white;
-    background-color: gray;
+    background-color: #141117;
     opacity: 0.95;
     font-size: medium;
     max-height: 95%;
     overflow: auto;
     padding: 3px 3px 3px 3px;
+    border: #437829;
+    border-style: solid;
 }
 ::-webkit-scrollbar {
     width: 0px;  /* Remove scrollbar space */
@@ -232,55 +501,35 @@ body {
 #info_flight {
     text-align: center;
     font-weight: bold;
+    color: #007cd4;
 }
 
 #info_general {
     text-align: center;
     font-weight: bold;
+    color: #007cd4;
 }
 
 #info_ores {
     text-align: center;
     font-weight: bold;
+    color: #007cd4;
 }
 
 #info_moons {
     text-align: center;
     font-weight: bold;
+    color: #007cd4;
 }
 
 
-#Exit_Button {
-    cursor: pointer;
-    float: right;
-    font-family: Arial;
-    background-color: #111111;
-    margin-right: 5%;
-    margin-top: 2px;
-}
-
-#Collapse_Button {
-    cursor: pointer;
-    float: right;
-    font-family: Arial;
-    background-color: #111111;
-}
-
-#options {
-    font-size: medium;
-    color: white;
-    background-color: rgb(40, 40, 40);
-    border: 1px solid;
-    cursor: pointer;
-    margin-top: 4px;
-    margin-left: 89.6%;
-    padding: 5px 5px 5px 5px;
-    position: absolute;
-}
-
+/* Orbits */
 #orbitals_Visibility {
     direction: rtl;
 }
+
+
+/* Plot Settings */
 
 #plot {
     /*    background-image: url('bg.png');*/
@@ -292,6 +541,9 @@ body {
     /*box-sizing: border-box;*/
     /*padding: 0 0.75%;*/
 }
+
+
+/* X3D */
 
 X3D, x3d {
     position:relative;
