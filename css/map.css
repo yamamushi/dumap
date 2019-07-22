@@ -238,8 +238,8 @@ img#ores_chart_img {
     display: block;
     height: 40px;
     width: 40px;
-    margin-top: 10px;
-    margin-bottom: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     margin-left: auto;
     margin-right: auto;
 }

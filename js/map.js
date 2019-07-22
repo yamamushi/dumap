@@ -1413,6 +1413,7 @@ function open_Ores() {
     minimize_About_Panel();
     minimize_Options_Panel();
     minimize_Controls_Panel();
+    minimize_Info_Panel();
 }
 
 function minimize_Ores_Panel() {
