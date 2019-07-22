@@ -77,8 +77,8 @@ function recipeCalc(data){
 			try{ 
 				db=JSON.parse(data);
 				this.types=[];
-				Object.keys(db).forEach(function(name,index){
-					var item=db[name];
+				for (var j=0;j<db.length;j++){
+					var item=db[j];
 					var fnd=false;
 					for (var i=0;i<this.types.length;i++)
 					{
@@ -92,7 +92,7 @@ function recipeCalc(data){
 						this.types.push(item.type);
 					}
 					this.db[item.name]=new itemRecipe(item)
-				},this);
+				}
 				jsonOrObject=true;
 			
 			}
@@ -448,8 +448,9 @@ function recipeCalc(data){
 		//console.log("inv after");
 		//console.log(JSON.stringify(removeInvZeros(inventory)));
 		
+		var compressedList=this.reduceItems(JSON.parse(JSON.stringify(craftList)));
 		
-		craftList.forEach(function(k,i){
+		compressedList.forEach(function(k,i){
 			var time=this.db[k.name].time;
 			k.tier=this.db[k.name].tier;
 			k.typeName=this.db[k.name].type;
@@ -459,8 +460,12 @@ function recipeCalc(data){
 			if (skills[k.typeName]!=null) {
 				if (k.typeName=="Pure")
 				{
+					//console.log(k.name);
+					//console.log(skills[k.typeName].Time["Tier "+k.tier]);
 					time=time*(1-skills[k.typeName].Time["Tier "+k.tier]*0.05)
+					//console.log(time);
 					k.time=k.quantity/this.db[k.name].outputQuantity*time;
+					//console.log(k.time);
 				}else if (k.typeName.search("Honeycomb")!=-1){
 					time=time*(1-skills[k.typeName].Time*0.1)
 					k.time=k.quantity/this.db[k.name].outputQuantity*time;
@@ -477,9 +482,6 @@ function recipeCalc(data){
 				
 			
 		},this);
-		
-		var compressedList=this.reduceItems(JSON.parse(JSON.stringify(craftList)));
-		
 		
 		
 		
