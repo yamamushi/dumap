@@ -183,6 +183,8 @@ table#ores_chart {
     cursor: pointer;
     table-layout: fixed;
     width: 100%;
+    text-align: center;
+
 }
 
 table tr td#ores_chart {
