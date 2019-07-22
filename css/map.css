@@ -137,6 +137,7 @@ body {
     text-align: center;
     font-weight: bold;
     color: #007cd4;
+    font-size: 20px;
 }
 
 #ores_menu {
@@ -148,11 +149,12 @@ body {
 
     position: absolute;
     top:20px;
-    right: 20px;
+    left:10px;
 
     margin: auto;
     max-height: 85%;
-    padding: 3px 3px 3px 3px;
+    /*padding: 5px 5px 5px 5px;*/
+    width: 98%;
 
     background-color: #141117;
     border: #437829;
@@ -181,7 +183,6 @@ table#ores_chart {
     cursor: pointer;
     table-layout: fixed;
     width: 100%;
-    z-index: 1;
 }
 
 table tr td#ores_chart {
@@ -190,7 +191,7 @@ table tr td#ores_chart {
 
 table tr#ores_chart {
     border: none;
-    padding: 2px 2px 2px 2px;
+    padding: 0px 2px 2px 2px;
 }
 
 table tr#ores_chart:hover {
@@ -204,6 +205,17 @@ table tr#ores_chart:hover {
     background: #b8b8b8;
 }
 
+table colgroup col:hover {
+    border: solid;
+    border: red;
+    padding: 1px 1px 1px 1px;
+    border: 10px;
+    color: blue;
+    font-weight: bold;
+    background: #b8b8b8;
+}
+
+
 table tr > td#ores_chart:hover {
     border: solid;
     border: red;
@@ -211,8 +223,13 @@ table tr > td#ores_chart:hover {
     border: 10px;
     color: #ff0039;
     font-weight: bold;
-    z-index: -1;
     background: #dcdcdc;
+}
+
+
+#hover {
+    background-color: white;
+    color: yellow;
 }
 
 img#ores_chart_img {
@@ -227,6 +244,11 @@ img#ores_chart_img {
 
 #categories_column {
     background-color:#ffffff;
+    width: 95px;
+}
+
+#categories_column:hover::before {
+    background-color:red;
     width: 95px;
 }
 

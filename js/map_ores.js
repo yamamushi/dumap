@@ -3,9 +3,9 @@ function get_ores_chart_html() {
     temp_HTML_Text = temp_HTML_Text + "<div id='ores_menu_title'>Ores Chart<span id='Exit_Button' onclick='minimize_Ores_Panel()'>X</span></div>";
 
     temp_HTML_Text = temp_HTML_Text + `
-    <table id='ores_chart'>
+<table id='ores_chart'>
   <colgroup>
-    <col span="1" id='categories_column'>
+    <col data-column="1" id='categories_column'>
     <col id='sodium_column'>
     <col id='carbon_column'>
     <col id='aluminium_columm'>
@@ -29,7 +29,7 @@ function get_ores_chart_html() {
   </colgroup>
 <!-- row 0   -->
  <tr id="ores_chart">
- <td id="ores_chart">Hex Color Code</td>
+ <td data-column="1" id="ores_chart">Hex Color Code</td>
  <td id="ores_chart">#daffff</td>
  <td id="ores_chart">#70efff</td>
  <td id="ores_chart">#70eeff</td>
@@ -76,7 +76,8 @@ function get_ores_chart_html() {
  <td id='ores_chart'>156-26-65</td>
  </tr> 
 <!-- row 2   -->
- <tr><td id="ores_chart">Density kg/L
+ <tr id="ores_chart">
+ <td id="ores_chart">Density kg/L
 </td><td id='ores_chart'>9.68
 </td><td id='ores_chart'>2.27
 </td><td id='ores_chart'>2.27
@@ -99,7 +100,8 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'>21.45
 </td></tr> 
 <!-- row 3   -->
- <tr><td id="ores_chart">Tier
+ <tr id="ores_chart">
+ <td id="ores_chart">Tier
 </td><td id='ores_chart'>1
 </td><td id='ores_chart'>1
 </td><td id='ores_chart'>2
@@ -122,7 +124,8 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'>3
 </td></tr> 
 <!-- row 4   -->
- <tr><td id="ores_chart">Market Bot Price
+ <tr id="ores_chart">
+ <td id="ores_chart">Market Bot Price
 </td><td id='ores_chart'>0.48
 </td><td id='ores_chart'>0.48
 </td><td id='ores_chart'>2.40
@@ -145,7 +148,8 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'>12.00
 </td></tr> 
 <!-- row 5   -->
- <tr><td id="ores_chart">Appearance
+ <tr id="ores_chart">
+ <td id="ores_chart">Appearance
 </td><td id='ores_chart'><img src="https://i.imgur.com/0y3JmFA.png" alt="Trulli" id='ores_chart_img'>
 </td><td id='ores_chart'><img src="https://i.imgur.com/MvZQ6D9.png" alt="Trulli" id='ores_chart_img'> 
 </td><td id='ores_chart'><img src="https://i.imgur.com/JTAQael.png" alt="Trulli" id='ores_chart_img'> 
@@ -168,7 +172,8 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'><img src="https://i.imgur.com/L5s1xmd.png" alt="Trulli" id='ores_chart_img'> 
 </td></tr> 
 <!-- row 6   -->
- <tr><td id="ores_chart">Ores
+ <tr id="ores_chart">
+ <td id="ores_chart">Ores
 </td><td id='ores_chart'>Sodium
 </td><td id='ores_chart'>Carbon
 </td><td id='ores_chart'>Aluminium
@@ -191,7 +196,8 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'>Platinum
 </td></tr> 
 <!-- row 7   -->
- <tr><td id="ores_chart">Alioth
+ <tr id="ores_chart">
+ <td id="ores_chart">Alioth
 </td><td id='ores_chart'>64 - 330
 </td><td id='ores_chart'>18 - 293
 </td><td id='ores_chart'> 
@@ -214,7 +220,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 8   -->
- <tr><td id="ores_chart">Alioth Moon 1
+ <tr id="ores_chart"><td id="ores_chart">Alioth Moon 1
 </td><td id='ores_chart'>76 - 126
 </td><td id='ores_chart'>71 - 129
 </td><td id='ores_chart'> 
@@ -237,7 +243,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 9   -->
- <tr><td id="ores_chart">Alioth Moon 4
+ <tr id="ores_chart"><td id="ores_chart">Alioth Moon 4
 </td><td id='ores_chart'>75 - 129
 </td><td id='ores_chart'>59 - 130
 </td><td id='ores_chart'> 
@@ -260,7 +266,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 10   -->
- <tr><td id="ores_chart">Feli
+ <tr id="ores_chart"><td id="ores_chart">Feli
 </td><td id='ores_chart'>83 - 161
 </td><td id='ores_chart'>72 - 235
 </td><td id='ores_chart'> 
@@ -283,7 +289,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 11   -->
- <tr><td id="ores_chart">Feli Moon 1
+ <tr id="ores_chart"><td id="ores_chart">Feli Moon 1
 </td><td id='ores_chart'>75 - 123
 </td><td id='ores_chart'>60 - 144
 </td><td id='ores_chart'> 
@@ -306,7 +312,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'>449 - 529
 </td></tr> 
 <!-- row 12   -->
- <tr><td id="ores_chart">Ion
+ <tr id="ores_chart"><td id="ores_chart">Ion
 </td><td id='ores_chart'>277 - 872
 </td><td id='ores_chart'>116 - 922
 </td><td id='ores_chart'> 
@@ -329,7 +335,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 13   -->
- <tr><td id="ores_chart">Ion Moon 1
+ <tr id="ores_chart"><td id="ores_chart">Ion Moon 1
 </td><td id='ores_chart'>72 - 120
 </td><td id='ores_chart'>56 - 100
 </td><td id='ores_chart'>200 - 284
@@ -352,7 +358,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 14   -->
- <tr><td id="ores_chart">Ion Moon 2
+ <tr id="ores_chart"><td id="ores_chart">Ion Moon 2
 </td><td id='ores_chart'>59 - 117
 </td><td id='ores_chart'>52 - 123
 </td><td id='ores_chart'> 
@@ -375,7 +381,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'>464 - 505
 </td></tr> 
 <!-- row 15   -->
- <tr><td id="ores_chart">Jago
+ <tr id="ores_chart"><td id="ores_chart">Jago
 </td><td id='ores_chart'>67 - 120
 </td><td id='ores_chart'>52 - 115
 </td><td id='ores_chart'> 
@@ -398,7 +404,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 16   -->
- <tr><td id='ores_chart'>Lacobus
+ <tr id="ores_chart"><td id='ores_chart'>Lacobus
 </td><td id='ores_chart'>98 - 308
 </td><td id='ores_chart'>48 - 341
 </td><td id='ores_chart'>432 - 534
@@ -421,7 +427,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'>667 - 786
 </td></tr> 
 <!-- row 17   -->
- <tr><td id="ores_chart">Lacobus Moon 1
+ <tr id="ores_chart"><td id="ores_chart">Lacobus Moon 1
 </td><td id='ores_chart'>57 - 131
 </td><td id='ores_chart'>53 - 120
 </td><td id='ores_chart'> 
@@ -444,7 +450,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 18   -->
- <tr><td id="ores_chart">Lacobus Moon 2
+ <tr id="ores_chart"><td id="ores_chart">Lacobus Moon 2
 </td><td id='ores_chart'>11 - 108
 </td><td id='ores_chart'>53 - 119
 </td><td id='ores_chart'> 
@@ -467,7 +473,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 19   -->
- <tr><td id="ores_chart">Lacobus Moon 3
+ <tr id="ores_chart"><td id="ores_chart">Lacobus Moon 3
 </td><td id='ores_chart'>36 - 105
 </td><td id='ores_chart'>39 - 92
 </td><td id='ores_chart'> 
@@ -490,7 +496,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 20   -->
- <tr><td id="ores_chart">Madis
+ <tr id="ores_chart"><td id="ores_chart">Madis
 </td><td id='ores_chart'>201 - 813
 </td><td id='ores_chart'>57 - 930
 </td><td id='ores_chart'>982 - 1160
@@ -513,7 +519,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 21   -->
- <tr><td id="ores_chart">Madis Moon 1
+ <tr id="ores_chart"><td id="ores_chart">Madis Moon 1
 </td><td id='ores_chart'>68 - 108
 </td><td id='ores_chart'>67 - 135
 </td><td id='ores_chart'> 
@@ -536,7 +542,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 22   -->
- <tr><td id="ores_chart">Madis Moon 2
+ <tr id="ores_chart"><td id="ores_chart">Madis Moon 2
 </td><td id='ores_chart'>53 - 122
 </td><td id='ores_chart'>51 - 127
 </td><td id='ores_chart'> 
@@ -559,7 +565,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 23   -->
- <tr><td id="ores_chart">Madis Moon 3
+ <tr id="ores_chart"><td id="ores_chart">Madis Moon 3
 </td><td id='ores_chart'>52 - 119
 </td><td id='ores_chart'>52 - 114
 </td><td id='ores_chart'> 
@@ -582,7 +588,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 24   -->
- <tr><td id="ores_chart">Sicari
+ <tr id="ores_chart"><td id="ores_chart">Sicari
 </td><td id='ores_chart'>122 - 338
 </td><td id='ores_chart'>139 - 420
 </td><td id='ores_chart'> 
@@ -605,7 +611,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'>770 - 876
 </td></tr> 
 <!-- row 25   -->
- <tr><td id="ores_chart">Sinnen
+ <tr id="ores_chart"><td id="ores_chart">Sinnen
 </td><td id='ores_chart'>67 - 965
 </td><td id='ores_chart'>213 - 663
 </td><td id='ores_chart'> 
@@ -628,7 +634,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 26   -->
- <tr><td id="ores_chart">Sinnen Moon 1
+ <tr id="ores_chart"><td id="ores_chart">Sinnen Moon 1
 </td><td id='ores_chart'>67 - 114
 </td><td id='ores_chart'>64 - 110
 </td><td id='ores_chart'> 
@@ -651,7 +657,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 27   -->
- <tr><td id="ores_chart">Symeon
+ <tr id="ores_chart"><td id="ores_chart">Symeon
 </td><td id='ores_chart'>37 - 505
 </td><td id='ores_chart'>74 - 547
 </td><td id='ores_chart'> 
@@ -674,7 +680,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 28   -->
- <tr><td id="ores_chart">Talemai
+ <tr id="ores_chart"><td id="ores_chart">Talemai
 </td><td id='ores_chart'>122 - 192
 </td><td id='ores_chart'>131 - 182
 </td><td id='ores_chart'>424 - 551
@@ -697,7 +703,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 29   -->
- <tr><td id="ores_chart">Talemai Moon 1
+ <tr id="ores_chart"><td id="ores_chart">Talemai Moon 1
 </td><td id='ores_chart'>56 - 131
 </td><td id='ores_chart'>63 - 125
 </td><td id='ores_chart'>211 - 350
@@ -720,7 +726,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 30   -->
- <tr><td id="ores_chart">Talemai Moon 2
+ <tr id="ores_chart"><td id="ores_chart">Talemai Moon 2
 </td><td id='ores_chart'>56 - 120
 </td><td id='ores_chart'>62 - 105
 </td><td id='ores_chart'> 
@@ -743,7 +749,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 31   -->
- <tr><td id="ores_chart">Talemai Moon 3
+ <tr id="ores_chart"><td id="ores_chart">Talemai Moon 3
 </td><td id='ores_chart'>62 - 95
 </td><td id='ores_chart'>25 - 123
 </td><td id='ores_chart'> 
@@ -766,7 +772,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 32   -->
- <tr><td id="ores_chart">Teoma
+ <tr id="ores_chart"><td id="ores_chart">Teoma
 </td><td id='ores_chart'>82 - 205
 </td><td id='ores_chart'>128 - 200
 </td><td id='ores_chart'>296 - 387
@@ -789,7 +795,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 33   -->
- <tr><td id="ores_chart">Thades
+ <tr id="ores_chart"><td id="ores_chart">Thades
 </td><td id='ores_chart'>21 - 367
 </td><td id='ores_chart'>88 - 433
 </td><td id='ores_chart'> 
@@ -812,7 +818,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'>801 - 880
 </td></tr> 
 <!-- row 34   -->
- <tr><td id="ores_chart">Thades Moon 1
+ <tr id="ores_chart"><td id="ores_chart">Thades Moon 1
 </td><td id='ores_chart'>62 - 117
 </td><td id='ores_chart'>42 - 117
 </td><td id='ores_chart'> 
@@ -835,7 +841,7 @@ function get_ores_chart_html() {
 </td><td id='ores_chart'> 
 </td></tr> 
 <!-- row 35   -->
- <tr><td id="ores_chart">Thades Moon 2
+ <tr id="ores_chart"><td id="ores_chart">Thades Moon 2
 </td><td id='ores_chart'>46 - 104
 </td><td id='ores_chart'>44 - 144
 </td><td id='ores_chart'> 
@@ -865,3 +871,16 @@ function get_ores_chart_html() {
 
     return temp_HTML_Text;
 }
+
+$('td').mouseover(function () {
+    $(this).siblings().css('background-color', '#b6b87f');
+    var ind = $(this).index();
+    $('td:nth-child(' + (ind + 1) + ')').css('background-color', '#b6b87f');
+    $(this).css('background-color','#dcdcdc')
+});
+$('td').mouseleave(function () {
+    $(this).siblings().css('background-color', '');
+    var ind = $(this).index();
+    $('td:nth-child(' + (ind + 1) + ')').css('background-color', '');
+    $(this).css('background-color','')
+});

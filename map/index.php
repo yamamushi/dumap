@@ -30,6 +30,7 @@ if(session('access_token')) {
 
 
 
+
 <!--Original credit goes to Kirito for v1.0 of the map. It has since been updated to 2.0 by Yamamushi and Drystion-->
 <!DOCtype html>
 
@@ -49,6 +50,8 @@ if(session('access_token')) {
 	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
 	<script type="text/javascript" src="http://x3dom.org/x3dom/dist/x3dom-full.js"></script>
 	<script type="text/javascript" src="../js/map.js"></script>
+	<script type="text/javascript" src="../js/map_ores.js"></script>
+
 </head>
 <body>
 
@@ -56,6 +59,7 @@ if(session('access_token')) {
 <div id="controls_menu" style="display: none;"></div>
 <div id="about_menu" style="display: none;"></div>
 <div id="options_menu" style="display: none;"></div>
+<div id="ores_menu" style="display: none;"></div>
 <div id="info_Panel"></div>
 <div id="menu" ></div>
 
@@ -65,6 +69,7 @@ if(session('access_token')) {
 
 </body>
 </html>
+
 
 
 
