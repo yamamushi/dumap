@@ -27,6 +27,8 @@ let hide_menu_travel = true;
 let hide_menu_helios = true;
 let hide_menu_orbit = true;
 let hide_menu_marker = true;
+let hide_menu_markercreate = true;
+let hide_menu_markeredit = true;
 
 // Scaling
 let scales = [];
@@ -75,7 +77,11 @@ let planet_Data;
 let moon_Data;
 let orbit_Data;
 let star_Data;
-let markers_Data;
+let markers_Data = [{name: "Test 1", id: 0, x:0, y:0, z:0, color: ""},
+    {name: "Test 2", id: 1, x:0, y:0, z:0, color: ""},
+    {name: "Test 3 - this is a really long name", id: 2, x:0, y:0, z:0, color: ""},
+    {name: "Test 4", id: 3, x:0, y:0, z:0, color: ""},
+    {name: "Test 5", id: 4, x:0, y:0, z:0, color: ""}];
 let waypoints_Data;
 let ore_Selection_Data = [];
 
@@ -1444,20 +1450,6 @@ function draw_ores_menu(){
 }
 
 
-function open_Markers() {
-    let temp_id = document.getElementById("markers_menu");
-    if (temp_id.style.display === "none") {
-        temp_id.style.display = "initial";
-    } else {
-        temp_id.style.display = "none";
-    }
-    minimize_About_Panel();
-    minimize_Options_Panel();
-    minimize_Controls_Panel();
-    //minimize_Info_Panel();
-    minimize_Ores_Panel();
-    minimize_Waypoints_Panel();
-}
 
 function formatCoordinates(unformattedCoord) {
     // ::pos{0,5,18.8167,-44.2957,41.8511} - Feli
@@ -1529,17 +1521,13 @@ function parseCoordinates(coordinates) {
 
     let radius = parseFloat(solarObject.radius);
     let height = parseFloat(formatted.height);
-
+    let lat = parseFloat(formatted.lat);
+    let long = parseFloat(formatted.long);
 
     let totalDistance =  height + radius;
-    console.log(totalDistance);
-
-    let lat = parseFloat(formatted.lat);
     let relativeZ = Math.sin(lat) * totalDistance;
-
-    let long = parseFloat(formatted.long);
-    let relativeX = Math.sin(long) * Math.sqrt((totalDistance^2) - (relativeZ^2));
-    let relativeY = Math.cos(long) * Math.sqrt((totalDistance^2) - (relativeZ^2));
+    let relativeX = Math.cos(long) * Math.sqrt((totalDistance^2) - (relativeZ^2));
+    let relativeY = Math.sin(long) * Math.sqrt((totalDistance^2) - (relativeZ^2));
 
     let globalX = relativeX + solarObject.pos[0];
     let globalY = relativeY + solarObject.pos[1];
@@ -1554,28 +1542,161 @@ function parseCoordinates(coordinates) {
     }
 }
 
+function open_Markers() {
+    let temp_id = document.getElementById("markers_menu");
+    if (temp_id.style.display === "none") {
+        temp_id.style.display = "initial";
+    } else {
+        temp_id.style.display = "none";
+    }
+    minimize_About_Panel();
+    minimize_Options_Panel();
+    minimize_Controls_Panel();
+    //minimize_Info_Panel();
+    minimize_Ores_Panel();
+    minimize_Waypoints_Panel();
+}
 
 
 function minimize_Markers_Panel() {
     document.getElementById("markers_menu").style.display = "none";
 }
 
+function minimize_MarkerCreate_Options() {
+    hide_menu_markercreate = hide_menu_markercreate === false;
+    draw_markers_menu();
+}
+
+function minimize_MarkerEdit_Options() {
+    hide_menu_markeredit = hide_menu_markeredit === false;
+    draw_markers_menu();
+}
+
+
 function draw_markers_menu(){
-    let ores_menu_id = document.getElementById("markers_menu");
+    let markers_menu_id = document.getElementById("markers_menu");
+    let edit_menu_open = false;
     let temp_HTML_Text = "<div>";
     temp_HTML_Text = temp_HTML_Text + "<div id='markers_menu_title'>Markers<span id='Exit_Button' onclick='minimize_Markers_Panel()'>X</span></div>";
     temp_HTML_Text = temp_HTML_Text + "<hr>";
 
+    // Debugging
     // ::pos{0,5,18.8167,-44.2957,41.8511} - Feli
     // ::pos{0,2,30.3625,101.6713,-21.2397} - Alioth
     // ::pos{0,8,6.4628,136.1982,1049.5277} - Teoma
-    parseCoordinates("::pos{0,5,18.8167,-44.2957,41.8511}");
-    parseCoordinates("::pos{0,2,30.3625,101.6713,-21.2397}");
-    parseCoordinates("::pos{0,8,6.4628,136.1982,1049.5277} ");
+    // ::pos{0,2,-3.8526,157.4908,0.0776} - Alioth between moon
+    //parseCoordinates("::pos{0,5,18.8167,-44.2957,41.8511}");
+    //parseCoordinates("::pos{0,2,30.3625,101.6713,-21.2397}");
+    //parseCoordinates("::pos{0,8,6.4628,136.1982,1049.5277} ");
+    //parseCoordinates("::pos{0,2,-3.8526,157.4908,0.0776}");
 
+    if (hide_menu_markercreate === true) {
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_marker_create'>Create Marker <span id='Collapse_Button' onclick='minimize_MarkerCreate_Options()'>▼</span></div>";
+    } else {
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_marker_create'>Create Marker <span id='Collapse_Button' onclick='minimize_MarkerCreate_Options()'>▲</span></div>";
+       // temp_HTML_Text = temp_HTML_Text + "<div id='place_marker_options'>Marker Options</div>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "World Coordinates: <div id='example_input_text'>Example ::pos{0,2,30.3625,101.6713,-21.2397}</div>"
+        temp_HTML_Text = temp_HTML_Text + "<input type='text' id='New_Marker_world_coordinates' size='31' value='' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "OR"
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "X: <input type='text' id='New_Marker_X' size='10' value='' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Y: <input type='text' id='New_Marker_Y' size='10' value='' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Z: <input type='text' id='New_Marker_Z' size='10' value='' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Name: "
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<input type='text' id='New_Marker_name' size='16' value='' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Description: "
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<textarea id='New_Marker_description' rows='5' cols='40'></textarea>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Color: <input type='color' id='New_Marker_Color' size='2' value='#2CD427' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<input type='button' id='New_Marker_create_button' value='Create' OnClick='Create_Marker()' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<div id='New_Marker_create_status'></div>";
+
+    }
+
+    temp_HTML_Text = temp_HTML_Text + "<hr>";
+
+    if (hide_menu_markeredit === true) {
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_marker_edit'>Edit Markers <span id='Collapse_Button' onclick='minimize_MarkerEdit_Options()'>▼</span></div>";
+    } else {
+        temp_HTML_Text = temp_HTML_Text + "<div id='options_marker_edit'>Edit Markers <span id='Collapse_Button' onclick='minimize_MarkerEdit_Options()'>▲</span></div>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Marker: <select id='marker_edit_dropdown'></select>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "World Coordinates:"
+        temp_HTML_Text = temp_HTML_Text + "<input type='text' id='Edit_Marker_world_coordinates' size='31' value='' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "OR"
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "X: <input type='text' id='Edit_Marker_X' size='10' value='' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Y: <input type='text' id='Edit_Marker_Y' size='10' value='' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Z: <input type='text' id='Edit_Marker_Z' size='10' value='' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Name: "
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<input type='text' id='Edit_Marker_name' size='16' value='' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Description: "
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<textarea id='Edit_Marker_description' rows='5' cols='40'></textarea>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "Color: <input type='color' id='Edit_Marker_Color' size='2' value='#2CD427' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        temp_HTML_Text = temp_HTML_Text + "<input type='button' id='Marker_remove_button' value='Remove' OnClick='removeSelectedMarkerFromEditList()' /><input type='button' id='Marker_edit_button' value='Save' OnClick='EditSelectedMarker()' />";
+        temp_HTML_Text = temp_HTML_Text + "<br>";
+        edit_menu_open = true;
+    }
+
+    temp_HTML_Text = temp_HTML_Text + "<hr>";
     temp_HTML_Text = temp_HTML_Text + "</div>";
-    ores_menu_id.innerHTML = temp_HTML_Text;
+    markers_menu_id.innerHTML = temp_HTML_Text;
+    if (edit_menu_open) {
+        updateMarkerEditList();
+    }
 }
+
+function updateMarkerEditList(){
+    var select = document.getElementById("marker_edit_dropdown");
+    select.options = null;
+    for (let i=0; i < markers_Data.length; i++) {
+        select.options[select.options.length] = new Option(markers_Data[i].name, markers_Data[i].id);
+    }
+}
+
+function removeSelectedMarkerFromEditList(){
+    var select = document.getElementById("marker_edit_dropdown");
+    let currentIndex = select.selectedIndex;
+    select.options[currentIndex] = null;
+    if (currentIndex > 0) {
+        select.selectedIndex = currentIndex-1;
+    }
+}
+
+function removeAllMarkersFromEditList(){
+    var select = document.getElementById("marker_edit_dropdown");
+    select.options.length = 0;
+}
+
+
+
 
 
 function open_Waypoints() {
@@ -1598,11 +1719,11 @@ function minimize_Waypoints_Panel() {
 }
 
 function draw_waypoints_menu(){
-    let ores_menu_id = document.getElementById("waypoints_menu");
+    let waypoints_menu_id = document.getElementById("waypoints_menu");
     let temp_HTML_Text = "<div>";
     temp_HTML_Text = temp_HTML_Text + "<div id='waypoints_menu_title'>Waypoints<span id='Exit_Button' onclick='minimize_Waypoints_Panel()'>X</span></div>";
     temp_HTML_Text = temp_HTML_Text + "<hr>";
 
     temp_HTML_Text = temp_HTML_Text + "</div>"
-    ores_menu_id.innerHTML = temp_HTML_Text;
+    waypoints_menu_id.innerHTML = temp_HTML_Text;
 }

@@ -462,6 +462,76 @@ img#ores_chart_img {
     background: #FF0000;
 }
 
+#example_input_text {
+    font-size: 8px;
+}
+
+#options_marker_create {
+    text-align: center;
+    font-weight: bold;
+    color: #007cd4;
+}
+
+#options_marker_edit {
+    text-align: center;
+    font-weight: bold;
+    color: #007cd4;
+}
+
+#marker_edit_dropdown {
+    max-width: 75%;
+}
+
+#New_Marker_create_button {
+    position: absolute;
+    margin-left: 72%;
+}
+
+#Marker_remove_button {
+    position: absolute;
+    margin-left: 5%;
+}
+
+#Marker_edit_button {
+    position: absolute;
+    margin-left: 72%;
+}
+
+#Edit_Marker_X {
+    position: absolute;
+    margin-left: 3px;
+}
+
+#Edit_Marker_Y {
+    position: absolute;
+    margin-left: 4px;
+}
+
+#Edit_Marker_Z {
+    position: absolute;
+    margin-left: 5px;
+}
+
+#New_Marker_X {
+    position: absolute;
+    margin-left: 3px;
+}
+
+#New_Marker_Y {
+    position: absolute;
+    margin-left: 4px;
+}
+
+#New_Marker_Z {
+    position: absolute;
+    margin-left: 5px;
+}
+
+#place_marker_options {
+    text-align: center;
+    font-weight: bold;
+}
+
 
 /* Waypoints Menu */
 
