@@ -78,7 +78,7 @@ function get_ores_chart_html() {
     <!-- row 2   -->
     <tr id="ores_chart">
         <td id="ores_chart">Density kg/L</td>
-        <td id='ores_chart'>9.68</td>
+        <td id='ores_chart'>0.968</td>
         <td id='ores_chart'>2.27</td>
         <td id='ores_chart'>2.27</td>
         <td id='ores_chart'>2.33</td>

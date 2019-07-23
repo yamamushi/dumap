@@ -75,6 +75,8 @@ let planet_Data;
 let moon_Data;
 let orbit_Data;
 let star_Data;
+let markers_Data;
+let waypoints_Data;
 let ore_Selection_Data = [];
 
 // Datapoints
@@ -709,6 +711,8 @@ function start_Up() {
     draw_about_menu();
     draw_controls_menu();
     draw_ores_menu();
+    draw_waypoints_menu();
+    draw_markers_menu();
 }
 
 function New_Star_Loc() {
@@ -1005,6 +1009,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
     document.getElementById("info_Panel").innerHTML = temp_HTML_Text;
     if (hide_Info_Panel === false) {
     	document.getElementById("info_Panel").style.display = "initial";
+    	minimize_Ores_Panel();
 	}
 }
 
@@ -1153,6 +1158,7 @@ function set_orbitVisibility(value) {
     newDatapoints_Orbit.selectAll("material").attr("transparency", ringTransparency);
 }
 
+
 function open_Options() {
     let temp_id = document.getElementById("options_menu");
     if (temp_id.style.display === "none") {
@@ -1163,11 +1169,14 @@ function open_Options() {
     minimize_About_Panel();
     minimize_Controls_Panel();
     minimize_Ores_Panel();
+    minimize_Markers_Panel();
+    minimize_Waypoints_Panel();
 }
 
 function minimize_Options_Panel() {
     document.getElementById("options_menu").style.display = "none";
 }
+
 
 function open_Controls() {
     let temp_id = document.getElementById("controls_menu");
@@ -1179,6 +1188,8 @@ function open_Controls() {
     minimize_Options_Panel();
     minimize_About_Panel();
     minimize_Ores_Panel();
+    minimize_Markers_Panel();
+    minimize_Waypoints_Panel();
 }
 
 function minimize_Controls_Panel() {
@@ -1196,6 +1207,8 @@ function open_About() {
     minimize_Options_Panel();
     minimize_Controls_Panel();
     minimize_Ores_Panel();
+    minimize_Markers_Panel();
+    minimize_Waypoints_Panel();
 }
 
 function minimize_About_Panel() {
@@ -1414,6 +1427,8 @@ function open_Ores() {
     minimize_Options_Panel();
     minimize_Controls_Panel();
     minimize_Info_Panel();
+    minimize_Markers_Panel();
+    minimize_Waypoints_Panel();
 }
 
 function minimize_Ores_Panel() {
@@ -1425,5 +1440,65 @@ function draw_ores_menu(){
     let temp_HTML_Text = "";
     temp_HTML_Text = temp_HTML_Text + get_ores_chart_html();
 
+    ores_menu_id.innerHTML = temp_HTML_Text;
+}
+
+
+function open_Markers() {
+    let temp_id = document.getElementById("markers_menu");
+    if (temp_id.style.display === "none") {
+        temp_id.style.display = "initial";
+    } else {
+        temp_id.style.display = "none";
+    }
+    minimize_About_Panel();
+    minimize_Options_Panel();
+    minimize_Controls_Panel();
+    //minimize_Info_Panel();
+    minimize_Ores_Panel();
+    minimize_Waypoints_Panel();
+}
+
+function minimize_Markers_Panel() {
+    document.getElementById("markers_menu").style.display = "none";
+}
+
+function draw_markers_menu(){
+    let ores_menu_id = document.getElementById("markers_menu");
+    let temp_HTML_Text = "<div>";
+    temp_HTML_Text = temp_HTML_Text + "<div id='markers_menu_title'>Markers<span id='Exit_Button' onclick='minimize_Markers_Panel()'>X</span></div>";
+    temp_HTML_Text = temp_HTML_Text + "<hr>";
+
+    temp_HTML_Text = temp_HTML_Text + "</div>"
+    ores_menu_id.innerHTML = temp_HTML_Text;
+}
+
+
+function open_Waypoints() {
+    let temp_id = document.getElementById("waypoints_menu");
+    if (temp_id.style.display === "none") {
+        temp_id.style.display = "initial";
+    } else {
+        temp_id.style.display = "none";
+    }
+    minimize_About_Panel();
+    minimize_Options_Panel();
+    minimize_Controls_Panel();
+    //minimize_Info_Panel();
+    minimize_Ores_Panel();
+    minimize_Markers_Panel();
+}
+
+function minimize_Waypoints_Panel() {
+    document.getElementById("waypoints_menu").style.display = "none";
+}
+
+function draw_waypoints_menu(){
+    let ores_menu_id = document.getElementById("waypoints_menu");
+    let temp_HTML_Text = "<div>";
+    temp_HTML_Text = temp_HTML_Text + "<div id='waypoints_menu_title'>Waypoints<span id='Exit_Button' onclick='minimize_Waypoints_Panel()'>X</span></div>";
+    temp_HTML_Text = temp_HTML_Text + "<hr>";
+
+    temp_HTML_Text = temp_HTML_Text + "</div>"
     ores_menu_id.innerHTML = temp_HTML_Text;
 }

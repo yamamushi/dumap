@@ -428,6 +428,77 @@ img#ores_chart_img {
 }
 
 
+/* Markers Menu */
+#markers_menu_title {
+    text-align: center;
+    font-weight: bold;
+    color: #007cd4;
+}
+
+#markers_menu {
+    border-radius: 10px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: white;
+    background-color: #141117;
+    border: #437829;
+    border-style: solid;
+    margin: auto;
+    width: 20%;
+    max-height: 89%;
+    font-size: medium;
+    display: none;
+    overflow: auto;
+    padding: 3px 3px 3px 3px;
+    white-space: pre;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+
+/* Waypoints Menu */
+
+#waypoints_menu_title {
+    text-align: center;
+    font-weight: bold;
+    color: #007cd4;
+}
+
+#waypoints_menu {
+    border-radius: 10px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: white;
+    background-color: #141117;
+    border: #437829;
+    border-style: solid;
+    margin: auto;
+    width: 20%;
+    max-height: 89%;
+    font-size: medium;
+    display: none;
+    overflow: auto;
+    padding: 3px 3px 3px 3px;
+    white-space: pre;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+
 /* Menu Bar */
 
 .menu ul {
