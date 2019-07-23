@@ -1459,6 +1459,103 @@ function open_Markers() {
     minimize_Waypoints_Panel();
 }
 
+function formatCoordinates(unformattedCoord) {
+    // ::pos{0,5,18.8167,-44.2957,41.8511} - Feli
+    // ::pos{0,2,30.3625,101.6713,-21.2397} - Alioth
+    // ::pos{0,8,6.4628,136.1982,1049.5277} - Teoma
+
+    unformattedCoord = unformattedCoord.replace("::pos{","");
+    unformattedCoord = unformattedCoord.replace("}","");
+    let fields = unformattedCoord.split(',');
+    if (fields.length < 5){
+        return {error: true};
+    }
+
+    // We ignore field 1
+    let planetID = fields[1];
+    let x = fields[2];
+    let y = fields[3];
+    let z = fields[4];
+
+    return {
+        error: false,
+        planetID: planetID,
+        lat: x,
+        long: y,
+        height: z,
+    };
+}
+
+function getObjectByID(id){
+    for(var i = 0; i < planet_Data.length; i++)
+    {
+        if(planet_Data[i].id == id )
+        {
+            return planet_Data[i];
+        }
+    }
+    for(var i = 0; i < moon_Data.length; i++)
+    {
+        if(moon_Data[i].id == id )
+        {
+            return moon_Data[i];
+        }
+    }
+    return {};
+}
+
+function objisEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
+
+function parseCoordinates(coordinates) {
+
+    let formatted = formatCoordinates(coordinates)
+    if (formatted.error === true ) {
+        console.log("Error: Could not parse coordinate: " + coordinates)
+        return {
+            error: true
+        }
+    }
+
+    let solarObject = getObjectByID(formatted.planetID)
+
+    if (objisEmpty(solarObject)) {
+        console.log("Error: Could not find object by ID: " + formatted.planetID)
+        return {
+            error: true
+        }
+    }
+
+    let radius = parseFloat(solarObject.radius);
+    let height = parseFloat(formatted.height);
+
+
+    let totalDistance =  height + radius;
+    console.log(totalDistance);
+
+    let lat = parseFloat(formatted.lat);
+    let relativeZ = Math.sin(lat) * totalDistance;
+
+    let long = parseFloat(formatted.long);
+    let relativeX = Math.sin(long) * Math.sqrt((totalDistance^2) - (relativeZ^2));
+    let relativeY = Math.cos(long) * Math.sqrt((totalDistance^2) - (relativeZ^2));
+
+    let globalX = relativeX + solarObject.pos[0];
+    let globalY = relativeY + solarObject.pos[1];
+    let globalZ = relativeZ + solarObject.pos[2];
+
+    console.log("X:" + globalX + " Y:" + globalY + " Z:" + globalZ)
+    return {
+        error: false,
+        X: globalX,
+        Y: globalY,
+        Z: globalZ,
+    }
+}
+
+
+
 function minimize_Markers_Panel() {
     document.getElementById("markers_menu").style.display = "none";
 }
@@ -1469,7 +1566,14 @@ function draw_markers_menu(){
     temp_HTML_Text = temp_HTML_Text + "<div id='markers_menu_title'>Markers<span id='Exit_Button' onclick='minimize_Markers_Panel()'>X</span></div>";
     temp_HTML_Text = temp_HTML_Text + "<hr>";
 
-    temp_HTML_Text = temp_HTML_Text + "</div>"
+    // ::pos{0,5,18.8167,-44.2957,41.8511} - Feli
+    // ::pos{0,2,30.3625,101.6713,-21.2397} - Alioth
+    // ::pos{0,8,6.4628,136.1982,1049.5277} - Teoma
+    parseCoordinates("::pos{0,5,18.8167,-44.2957,41.8511}");
+    parseCoordinates("::pos{0,2,30.3625,101.6713,-21.2397}");
+    parseCoordinates("::pos{0,8,6.4628,136.1982,1049.5277} ");
+
+    temp_HTML_Text = temp_HTML_Text + "</div>";
     ores_menu_id.innerHTML = temp_HTML_Text;
 }
 
