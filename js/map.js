@@ -1660,6 +1660,7 @@ function draw_markers_menu(){
         temp_HTML_Text = temp_HTML_Text + "Color: <input type='color' id='Edit_Marker_Color' size='2' value='#2CD427' />";
         temp_HTML_Text = temp_HTML_Text + "<br>";
         temp_HTML_Text = temp_HTML_Text + "<br>";
+        // the call to removeSelectedMarkerFromEditList will be replaced by a call to another function that handles cleaning up from the array
         temp_HTML_Text = temp_HTML_Text + "<input type='button' id='Marker_remove_button' value='Remove' OnClick='removeSelectedMarkerFromEditList()' /><input type='button' id='Marker_edit_button' value='Save' OnClick='EditSelectedMarker()' />";
         temp_HTML_Text = temp_HTML_Text + "<br>";
         edit_menu_open = true;
