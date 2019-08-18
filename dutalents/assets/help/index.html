@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    img {
+      border: 2px solid lightgray;
+      box-shadow: 4px 4px 5px lightgray;
+    }
+
+  </style>
+  <title>Calculator Help</title>
+</head>
+
+<body style="background-color: #424242;;color:white;font-size: 18px;">
+  <h2>What's this?<h2>
+      This program calculates DU talent points offline. It knows DU talents and their relationships.
+
+      <h3>Quick-Start</h3>
+      <h4>Overview</h4><img src="toolbar.png" width="946" height="113" alt="Toolbar" title="" />
+      <ul>
+        <li>Look at the top toolbar. It has three dialogs: Edit, Load and Save. Click each and lastly the "Edit". Also,
+          point each item on toolbar to read their tooltip.</li>
+        <li>Edit: This is the main screen. It actually edits talents.</li>
+        <li>Save: After you have edited talents, switch to this screen and save your data.</li>
+        <li>Load: In this dialog you can load talents back to editor.<br /></li>
+        <li>On right side there is character selection box. By default there is only one character with name "char1".
+          You can leave it as-is for now.</li>
+        <li>The program starts at Edit page</li>
+      </ul>
+      <h4>Editing talents</h4>
+      <img src="group1.png" width="723" height="414" alt="First talent group" title="" />
+      <ul>
+        <li>First talent group is "Tools Manager" and it has four talents. Each talent has five checkboxes from level 1
+          to level 5.</li>
+        <li>Click the first checkbox next to 1200. Then click the next after "6k". See how at the end of the line sum
+          went from 1200 to 7200. The tool sums up used skillpoints. The same sum is also added to the whole group.</li>
+        <li>Click at the next "Maneuver Tool Optimization" first checkbox. Now first skill has 7200 and second has 1800
+          points. The group has total 9k points.
+        </li>
+      </ul>
+      <img src="group2.png" width="683" height="178" alt="total 9k points" title="" /></li>
+      <ul>
+        <li>The tool automatically uses condensed numbers. 9000 becomes 9K and 9000000 becomes 9M</li>
+        <li>Now click third skill, <b>last</b> checkbox. It automatically selects lower levels</li>
+        <li>See how last skill "opened". Click the <b>first</b> checkbox of third skill and the fourth gets again
+          disabled.</li>
+        <li>Click again the third skill, fifth checkbox. Then click fourth skill, fifth box. You should have now 2.4M as
+          group total.</li>
+        <li>Click again third skill, first box. See what happened to fourth skill? It got cleared and disabled. This
+          happens because the fourth skill <b>depends</b> on the third skill.</li>
+      </ul>
+      <h4>Use dependencies</h4>
+      <img src="dependencies.png" width="541" height="312" alt="Dependencies" title="" />
+      <ul>
+        <li>
+          Make your browser window narrower and wider. Watch "Dependencies" stripe. It jumps either below or right of a
+          group.
+        </li>
+        <li>Click the "Dependencies"of first group. It should open/close the panel and show <b>Enables skills</b>:
+          Repair Tool
+          Efficiency:4 ? Repair Tool Optimization. This means that when you click level 4 in "Repair Tool
+          Efficiency" skill, then skill "Repair Tool Optimization" gets enabled. Set the skill to level 4 or 5. The last
+          skill gets enabled and under "Dependencies" the skill dependency turned green.</li>
+      </ul>
+      <h4>Save your work</h4>
+      <ul>
+        <li>Click on the toolbar "Save", and the page changes to save dialog. Just click the <b>Save</b> button. You
+          will see a success message saying thet data is saved.</li>
+        <li>Now close the tab or click "Back" at the right edge of the toolbar. Then navigate back to the editor. You
+          should see again the editor and the skills as they were before closing.</li>
+        <li>This is the basic loop: Open the editor, edit skills, switch to "Save" sand save.</li>
+
+      </ul>
+      <h3>Saving</h3>
+      <h4>Save to browser's local storage</h4>
+      <img src="save.png" width="493" height="617" alt="Saving" title="" />
+      <p>By default the editor saves talents into local storage of the browser. Be warned: <b>Clearing your browser's
+          cache
+          might also remove content from local storage.</b> As long as the browser's data is not cleared, the local
+        storage is a convenient place to save some data.</p>
+      <p>Switch to the "Save" dialog. It has two fields: Key and Talent Data. The Key is a name used to store the data.
+        Talent Data is a JSON string holding all charactes and their selected skills.</p>
+      <p>The editor uses a default key "DUTalents". Use it, unless you want to save different copies.</p>
+      <p>Click the <b>Save</b> button to actually save the data into browser's local storage.</p>
+      <p> You can change the key to save another copy of the data. Think of it
+        as a file name in a file system without any folders.</p>
+      <h4>Save permanently outside browser</h4>
+      <p>An alternative way to save is to click the <b>Copy to Clipboard</b> button. Afterwards open a text editor and
+        paste the clipboard into the text editor and save it into file. Now you have a permanent copy of the talents
+        outside the browser.</p>
+
+      <h3>Loading</h3>
+      <h4>Load from local storage</h4>
+      <img src="load.png" width="591" height="740" alt="Loading" title="" />
+      <p>The editor automatically tries to load talents when it starts from local storage with "DUTalents" key.</p>
+      <p>You can also navigate to "Load" dialog to load saved skills. It sets the key to "DUTalents" by default. The
+        dialog has read the default key from local storage when you switch to it. Click <b>Load Talents</b> to move the
+        skills to editor, resetting whatever there was before. You can use this e.g. if playing with skills, selecting
+        and unselecting. The load back a known state.</p>
+      <p>If you have other copies in local store, change the Key to another value. Watch the message below it. It tells
+        whether the key is in local storage. Click <b>Read</b> to fetch the value into dialog. Next click <b>Load
+          talents</b> to load them to editor.</p>
+      <p>If you don't remember the name of the key, click <b>Search</b> repeatedly. It searches data in local storage,
+        which looks like talent data and fetches the value to dialog.</p>
+      <p>You will probably find a key "DUTalentsAutoBackup". This is a copy of the data when you last time closed the
+        editor, and every five minutes. Load it if something strange happened and you don't have any other save.</p>
+      <p>You can repeatedly click <b>Search</b>. It starts from beginning after it can't find more saves.</p>
+      <h4>Loading from clipboard.</h4>
+      <p>If you have saved talents outside browser, copy the data to clipboard from e.g. text editor. Then select all
+        text on Talent Data field and paste over from clipboard. Then click <b>Load
+          talents</b> to load them to editor.</p>
+      <h3>Navigating in editor</h3>
+      <h4>Tiers</h4>
+      <p>Each tier has it's own collapsible panel. Click the "Tier1" stripe at the top of the page. All the tier 1
+        content is hidden. Click the "Tier2" to open it.</p>
+      <p>You can have multiple tiers open at the same time. Higher tiers don't have yet any data, so they are disabled
+        for now.</p>
+      <p>You can also scroll to a tier by clicking a tier on right side summary panel.</p>
+      <h4>Navigate through dependencies</h4>
+      <img src="minerdependencies.png" width="471" height="307" alt="" title="" />
+      <p>Open some dependency panels, e.g. Miner group. <h4></h4>Some of the dependencies unlock skills in another
+        group. In this
+        case Dredger group in tier 2 is dependent on skills in Miner group. In Miner group dependencies, click the
+        "Dredger" word. The editor scrolls to dredger group. In there, click in its dependencies "Miner" to scroll back.
+      </p>
+      <p>The editor opens tiers when necessary. Because opening a tier takes some time, the scrolling is delayed a
+        second, and first time might not land exactly to right place.</p>
+      <h4>Navigate by role</h4>
+      <p>Click the roles on right side summary panel. The editor jumps through all groups belonging to that role.</p>
+      <p>At the end the program pause, but next click starts again from beginning. If you click another role, the
+        program starts jumping its groups from the beginning.</p>
+      <h3>Characters</h3>
+      <h4>Edit and Add characters</h4>
+      <img src="choosecharacter.png" width="492" height="359" alt="Edit Character" title="" />
+      <p>Open the character selector on toolbar and select "Edit Characters". It opens character editor to
+        add/edit/remove characters.
+        <img src="editcharacter.png" width="569" height="339" alt="" title="" />
+        <ul>
+          <li>Click <b>Add</b> to add new character. Give a name to it.</li>
+          <li>Click "pen" on each row to rename a character.</li>
+          <li>Click "trashcan" to remove a character.</li>
+        </ul>
+        <p>There has to be at least one character. Deleting the last one creates a default char1 immediately.</p>
+        <p>Changes to characters are not saved until you save data in "Save" dialog.</p>
+        <h4>Switch between characters</h4>
+        <p>If you select another character from toolbar, the editor retains skills of previous character and loads the
+          new character.</p>
+</body>
+
+</html>
