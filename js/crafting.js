@@ -1386,9 +1386,11 @@ function add_Everything_To_Inv() {
 }
 
 function delete_Inventory() {
-    inventory_Array.length = 0;
-    inventory_Array[0] = empty_Inventory_String;
-    redraw_Inventory();
+	if (confirm()) {
+        inventory_Array.length = 0;
+        inventory_Array[0] = empty_Inventory_String;
+        redraw_Inventory();
+    }
 }
 
 function delete_Item_From_Inventory(Loc) {
@@ -1914,9 +1916,11 @@ function update_Que_From_BP() {
 }
 
 function delete_Que() {
-    que_Array.length = 0;
-    que_Array[0] = empty_Que_String;
-    redraw_Que();
+	if (confirm()) {
+        que_Array.length = 0;
+        que_Array[0] = empty_Que_String;
+        redraw_Que();
+    }
 }
 
 function delete_Item_From_Que(Loc) {

@@ -63,7 +63,7 @@ if(get('action') == 'login') {
     );
 
     // Redirect the user to Discord's authorization page
-    header('Location: https://discordapp.com/api/oauth2/authorize' . '?' . http_build_query($params));
+    header('Location: https://discordapp.com/api/oauth2/authorize' . '?' . http_build_query($params) . "&prompt=none");
     die();
 }
 

@@ -1,0 +1,591 @@
+html,
+body {
+  position: relative;
+  height: 100%;
+  overflow: auto;
+  color: white;
+  background: black;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.help-screen-display {
+  top: 0%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.codex_navigation_area .search input[type=text] {
+  width: 100%;
+
+}
+.codex_navigation_area .search span {
+  position: absolute;
+  padding: 0.5vh 0;
+  margin: 0.5vh;
+  top: 0;
+  right: 0%;
+}
+.codex_navigation_area .codex_navigationDrilldown {
+  height: 90%;
+  overflow: auto;
+}
+
+.help_screen_content {
+  width: 50%;
+  height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0 4.4448vh 10vh;
+}
+
+.help_screen_content h1 {
+  font-size: 40px;
+  width: auto;
+  padding: 2% 0% 0.5%;
+}
+.help_screen_content #bm_DU-Intro h1 {
+  margin: 0% 0% 1%;
+}
+.help_screen_content h2 {
+  padding: 2% 0% 0.5%;
+  font-weight: 500;
+  font-size: 3.5vh;
+  margin: 3% 0% 1%;
+  border-bottom: 1px solid #AFDAFF;
+}
+.help_screen_content h2 + img {
+  float: left;
+  margin: 1.2% 1% 1% 0%;
+  height: 11.2vh;
+}
+.help_screen_content h2 + img + p {
+  padding: 1.2% 0% 1%;
+}
+
+.help_screen_content h3 {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 2% 0 0.5556vh;
+
+}
+.help_screen_content h3 + img {
+  display: inline-block;
+  height: 3.92vh;
+  vertical-align: -50%;
+  margin-left: 1%;
+}
+.help_screen_content h4 {
+  display: inline-block;
+  font-size: 20px;
+  text-transform: none;
+  margin: 1% 0% 0.5%;
+}
+.help_screen_content h4 p:nth-child(1) {
+  display: inline-block;
+}
+.help_screen_content h4 + img {
+  display: inline-block;
+  vertical-align: center;
+  height: 5.6vh;
+}
+.help_screen_content p {
+  font-size: 16px;
+  color: #9f9f9f;
+  margin-bottom: 1vh;
+  line-height: 2.25vh;
+}
+.help_screen_content ul {
+  font-size: 14px;
+  color: #9f9f9f;
+  margin-bottom: 1vh;
+  line-height: 2.25vh;
+  padding-bottom: 1.1112vh;
+}
+.help_screen_content li {
+  margin-left: 7%;
+  list-style-type: square;
+  padding-bottom: 0.5556vh;
+}
+.help_screen_content li p {
+  margin: 20px 0px;
+  padding-bottom: 0;
+}
+.help_screen_content b {
+  font-weight: 500;
+  color: white;
+}
+.help_screen_content a {
+  color: #AFDAFF;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline;
+}
+.help_screen_content .controls table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 2% 0 3% 1%;
+  width: 40%;
+}
+
+.help_screen_content fieldset {
+  font-size: 12px;
+}
+
+.help_screen_content .controls table th {
+  padding: 1% 1% 0% 1%;
+  background-color: rgba(175, 218, 255, 0.18);
+  line-height: 2;
+  text-align: left;
+  color: #64C0FF;
+  letter-spacing: 1.2;
+  font-size: 1.96vh;
+  font-weight: 200;
+}
+.help_screen_content .controls table tr {
+  border: 1px solid #AFDAFF;
+  line-height: 2;
+}
+.help_screen_content .controls table tr td:nth-child(1) {
+  text-align: right;
+  padding-right: 3%;
+  font-weight: 500;
+  border: 1px solid #AFDAFF;
+}
+.help_screen_content .controls table tr td:nth-child(2) {
+  padding-left: 2%;
+}
+.help_screen_content .controls table img + p {
+  display: inline-block;
+}
+
+.help_screen_content .elementAPI_element_block {
+  border-bottom: 1px solid #AFDAFF;
+}
+.help_screen_content .elementAPI_name {
+  width: 100%;
+  padding-bottom: 0;
+}
+.help_screen_content .elementAPI_method_block {
+  border: 1px solid #2b2b2b;
+  border-radius: 0.6vh;
+  padding: 1vh;
+  margin: 3vh 0;
+  background: rgba(175, 218, 255, 0.05);
+}
+.help_screen_content h4.elementAPI_method {
+  font-family: monospace;
+  background: #000105;
+  border: 1px solid #474747;
+  color: #64C0FF;
+  font-weight: 600;
+  padding-left: 1.1112vh;
+  margin-right: 0.5556vh;
+  -webkit-user-select: all;
+  display: block;
+  padding: 0.5556vh 1.1112vh;
+  margin: none;
+  margin-bottom: 1.1112vh;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 0 0 0;
+  font-weight: 600!important;
+}
+.help_screen_content .elementAPI_event {
+  width: 100%;
+  color: #64C0FF;
+  padding-left: 0.5556vh;
+}
+.help_screen_content .elementAPI_method_description {
+  font-size: 14px;
+  padding-left: 1.1112vh;
+  margin: 0.4vh 0 0.8vh;
+  color: rgba(255, 255, 255, 0.9);
+}
+.help_screen_content .elementAPI_table {
+  width: 100%;
+}
+.help_screen_content .elementAPI_table th {
+  background: rgba(175, 218, 255, 0.15);
+  border: 1px solid #2b2b2b;
+  color: #9f9f9f;
+  padding: 0.2vh;
+  font-weight: 300;
+  font-size: 12px;
+}
+.help_screen_content .elementAPI_table td {
+  text-align: center;
+  padding: 0.5556vh;
+  border: 1px solid #2b2b2b;
+  background: rgba(175, 218, 255, 0.05);
+  font-size: 14px;
+}
+#codex_list.drilldown li.active {
+  background: none!important;
+}
+
+/* Images */
+
+.drillDownElementWrapper.withChildren > .drilldownElement {
+  background: linear-gradient(90deg, rgba(0, 35, 62, 0.66), rgba(0, 35, 62, 0.33)) #000a1a center center / 100% 100% no-repeat;
+  border: 1px #00233e solid;
+  padding: 0.8vh;
+  color: #e0e0e0;
+  font-weight: 400;
+  border-left: 2px solid #00233e;
+  border-right: 2px solid #00233e;
+  transition: all 0.4s ease-out;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  padding: 0.5vh 0;
+}
+.drillDownElementWrapper.withChildren > .drilldownElement:hover {
+  cursor: pointer;
+  transition: all 0.3s linear;
+  background: linear-gradient(90deg, rgba(100, 192, 255, 0.3) 0%, rgba(100, 192, 255, 0.08) 15%, rgba(100, 192, 255, 0.08) 85%, rgba(100, 192, 255, 0.3) 100%) rgba(0, 10, 26, 0.9);
+  border-left: 2px solid #64C0FF;
+  border-right: 2px solid #64C0FF;
+}
+.drillDownElementWrapper.withChildren > .drilldownElement:before {
+  content: "";
+  pointer-events: none;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  opacity: 0.6;
+  height: 1.2vh;
+  width: 2.2vh;
+  margin-right: 0.8vh;
+  background: url(../../common/icons/chevron.svg) left / 100% no-repeat;
+}
+.drillDownElementWrapper.withChildren.expanded > .drilldownElement:before {
+  background: url(../../common/icons/chevron_down.svg) center / 80% no-repeat;
+}
+.drillDownElementWrapper .labelWithCheckbox .label {
+  flex-grow: 1;
+}
+.drillDownElementWrapper .labelWithBoolean {
+  display: flex;
+  justify-content: space-between;
+}
+.drillDownElementWrapper .elementsList {
+  display: flex;
+  flex-direction: column;
+}
+.drillDownElementWrapper .matrix {
+  flex-direction: column;
+  position: relative;
+}
+.drillDownElementWrapper .matrix .label {
+  width: 100%;
+  text-align: center;
+}
+.drillDownElementWrapper .matrix .matrixTable {
+  width: 100%;
+  height: 100%;
+  padding: 0.5vh 0 1vh;
+}
+.drillDownElementWrapper .matrix .matrixTable .row {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  padding: 0.6vh;
+}
+.drillDownElementWrapper .matrix .matrixTable .row .case {
+  flex-grow: 1;
+}
+.drillDownElementWrapper .matrix .matrixTable .row .case * {
+  text-align: center;
+}
+.drillDownElementWrapper .matrix .matrixTable:before,
+.drillDownElementWrapper .matrix .matrixTable:after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  border: 2px solid #20385c;
+  width: 1vh;
+  height: 80%;
+}
+.drillDownElementWrapper .matrix .matrixTable:before {
+  border-right: none;
+}
+.drillDownElementWrapper .matrix .matrixTable:after {
+  right: 0;
+  border-left: none;
+}
+
+.drilldownElement {
+  display: flex;
+  align-items: center;
+  font-family: "Montserrat";
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: #e0e0e0;
+  border-radius: 10px;
+
+}
+
+.drilldownElement a {
+  color: rgba(80, 223, 10, 0.96);
+  text-decoration: none;
+}
+.drilldownElement a:visited {
+  color: rgba(80, 223, 10, 0.96)
+}
+.drilldownElement .delta {
+  flex-grow: 1;
+  text-align: right;
+  color: #64C0FF;
+  font-weight: 400;
+  padding-right: 0.5vw;
+  text-transform: none;
+}
+.drilldownElement .delta.positive:before {
+  content: "▲ ";
+  font-size: 1vh;
+}
+.drilldownElement .delta.negative:before {
+  content: "▼ ";
+  font-size: 1vh;
+}
+.drilldownElement .delta.neutral {
+  visibility: hidden;
+  padding-right: 4px;
+}
+.drilldownElement .value {
+  min-width: 16%;
+  text-align: right;
+  text-transform: none;
+}
+.drilldownElement .boolean {
+  background: url(../../common/icons/checkbox_red.png) center / 100% no-repeat;
+  height: 1.1vh;
+  width: 1.1vh;
+}
+.drilldownElement .boolean.true {
+  background: url(../../common/icons/checkbox_sel.png) center / 100% no-repeat;
+}
+.drilldownElement .string {
+  width: 100%;
+  text-align: center;
+}
+.drilldownElement .elementsListParentList {
+  flex-grow: 1;
+  width: 100%;
+}
+.drilldownElement input[type=checkbox] {
+  margin-right: 0.5vh;
+}
+.drilldown_generic > .drillDownElementWrapper > .drilldownElement {
+  background: linear-gradient(90deg, rgba(0, 35, 62, 0.66), rgba(0, 35, 62, 0.33)) #000a1a center center / 100% 100% no-repeat;
+  border: 1px #00233e solid;
+  padding: 0.8vh;
+  color: #e0e0e0;
+  font-weight: 400;
+  border-left: 2px solid #00233e;
+  border-right: 2px solid #00233e;
+}
+.drillDownElementChildrenZone {
+  box-shadow: inset 0px 3px 3px #000105;
+  overflow-y: auto;
+}
+.drillDownElementChildrenZone > .drillDownElementWrapper .label {
+  flex-grow: 1;
+  padding-left: 0.8vh;
+  overflow: hidden;
+}
+.drillDownElementChildrenZone > .drillDownElementWrapper .drillDownElementChildrenZone > .drillDownElementWrapper .label {
+  padding-left: 1.6vh;
+}
+.drillDownElementChildrenZone > .drillDownElementWrapper .drillDownElementChildrenZone > .drillDownElementWrapper > .drillDownElementChildrenZone > .drillDownElementWrapper .label {
+  padding-left: 2.4vh;
+}
+.drillDownElementChildrenZone > .drillDownElementWrapper .drillDownElementChildrenZone > .drillDownElementWrapper > .drillDownElementChildrenZone > .drillDownElementWrapper > .drillDownElementChildrenZone > .drillDownElementWrapper .label {
+  padding-left: 3.2vh;
+}
+.drillDownElementChildrenZone > .drillDownElementWrapper .drillDownElementChildrenZone > .drillDownElementWrapper > .drillDownElementChildrenZone > .drillDownElementWrapper > .drillDownElementChildrenZone > .drillDownElementWrapper .label {
+  padding-left: 4vh;
+}
+.drillDownElementChildrenZone > .drillDownElementWrapper img {
+  height: 3.4vh;
+}
+.drillDownElementChildrenZone > .drillDownElementWrapper:not(.withChildren) {
+  background: #000a1a;
+  border-bottom: 1px solid #00233e;
+  border-left: 2px solid #00233e;
+  border-right: 2px solid #00233e;
+  border-top: transparent 1px solid;
+  cursor: default;
+  font-family: "Montserrat";
+  font-size: 1.1vh;
+  letter-spacing: 0.5px;
+  padding: 5px;
+  font-weight: 500;
+  color: #e0e0e0;
+  text-transform: capitalize;
+  cursor: pointer;
+  padding-right: 0;
+  border-radius: 5px;
+  text-align: center;
+
+}
+.drillDownElementChildrenZone > .drillDownElementWrapper:not(.withChildren):hover {
+  background: linear-gradient(90deg, rgba(100, 192, 255, 0.3) 0%, rgba(100, 192, 255, 0.08) 15%, rgba(100, 192, 255, 0.08) 85%, rgba(100, 192, 255, 0.3) 100%) rgba(0, 10, 26, 0.9);
+  border-left: 2px solid #64C0FF;
+  border-right: 2px solid #64C0FF;
+}
+.drillDownElementChildrenZone > .drillDownElementWrapper .btn_expand {
+  background-image: url(../../common/icons/elipsis.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+  transition: background-size 0.1s ease-out;
+  width: 2.5vh;
+  min-width: 2.5vh;
+  height: 2.5vh;
+}
+.drillDownElementChildrenZone > .drillDownElementWrapper .btn_expand:hover {
+  background-size: 80%;
+}
+.drillDownElementChildrenZone > .drillDownElementWrapper .btn_expand:active {
+  background-size: 70%;
+}
+.drillDownElementChildrenZone > .drillDownElementWrapper .btn_expand.btn_attention {
+  background-image: url(../../common/icons/warning_logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  transition: background-size 0.1s ease-out;
+}
+.drillDownElementChildrenZone > .drillDownElementWrapper .btn_expand.btn_attention:hover {
+  background-size: 110%;
+}
+.drillDownElementChildrenZone > .drillDownElementWrapper .btn_expand.btn_attention:active {
+  background-size: 100%;
+}
+.navigation_drilldown .mainSection {
+  display: block;
+  width: 95%;
+  height: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  background-image: linear-gradient(90deg, rgba(17, 128, 192, 0.2), transparent);
+  border-bottom: 1px solid rgba(100, 192, 255, 0.1);
+  border-left: 2px solid transparent;
+  color: #AFDAFF;
+  font-family: "Bank";
+  font-size: 14px;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+
+
+.navigation_drilldown .mainSection:hover {
+  color: #d5edfb;
+}
+.navigation_drilldown .mainSection.disabled {
+  background-image: linear-gradient(90deg, rgba(169, 169, 169, 0.2), transparent);
+  border-bottom: 1px solid rgba(100, 192, 255, 0.1);
+  color: rgba(169, 169, 169, 0.5);
+}
+.navigation_drilldown .mainSection.selected {
+  background-image: linear-gradient(90deg, rgba(100, 192, 255, 0.3), transparent);
+  border-bottom: 1px solid rgba(100, 192, 255, 0.1);
+  color: #d5edfb;
+}
+.navigation_drilldown .drillDownElementChildrenZone .withChildren .drilldownElement {
+  background: none;
+}
+.navigation_drilldown .label {
+  display: flex;
+  align-items: center;
+}
+.hide {
+  display: none !important;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -coherent-font-cleartype: off;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2vh;
+  font-weight: 300;
+  overflow-y: hidden;
+  margin: 0;
+}
+
+input[type=text] {
+  margin: 5%;
+  padding-left: 1.1112vh;
+  color: #FFFFFF;
+  background: rgba(0, 35, 62, 0.15);
+  font-family: "Montserrat";
+  display: block;
+  font-size: 16px;
+  font-weight: 300;
+  text-transform: none;
+  box-shadow: inset 0 0 6px rgba(10, 10, 25, 0.65);
+  width: 80%;
+  height: 3vh;
+  border: 1px solid #474747;
+  transition: border 0.4s ease-out;
+}
+input[type=text]:hover {
+  border: 1px solid #AFDAFF;
+}
+input[type=text]:focus {
+  background: rgba(0, 35, 62, 0.45);
+  color: #FFFFFF;
+  border: 1px solid #64C0FF;
+}
+.main_menu_section {
+  height: 100%;
+  display: flex;
+}
+.main_menu_section .help-screen-display .help_screen_content {
+  height: 100%;
+}
+#main_menu_encyclopedia {
+  background: black;
+}
+#main_menu_encyclopedia .bg-panel .help-screen-display {
+  margin: 0 0;
+  padding: 1.4vh 0;
+}
+
+#main_menu_encyclopedia .bg-panel .help-screen-display .help_screen_content {
+  width: 100%;
+}
+#main_menu_encyclopedia .bg-panel .help-screen-display .help_screen_content > h1 {
+  margin: 0% 0% 1%;
+}
+.help_screen_content {
+  height: 100%;
+  width: 80%;
+}
+.codex_navigation_wrapper {
+  margin-top: 5vh;
+  width: 15%;
+  margin-left: 5px;
+  max-height: 100%;
+  overflow: auto;
+
+}
+::-webkit-scrollbar {
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
