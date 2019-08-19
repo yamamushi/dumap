@@ -59,6 +59,7 @@ if (session('access_token')) {
     <button class="tablinks" onmouseover="hoverMenuItem(event, 'Map')" onclick="window.location='http://dual.sh/map/'">Map</button>
     <button class="tablinks" onmouseover="hoverMenuItem(event, 'Crafting')" onclick="window.location='http://dual.sh/craft/'">Crafting Calculator</button>
     <button class="tablinks" onmouseover="hoverMenuItem(event, 'Codex')" onclick="window.location='http://dual.sh/codex/'">Lua Codex</button>
+    <button class="tablinks" onmouseover="hoverMenuItem(event, 'Talents')" onclick="window.location='http://dual.sh/dutalents/'">Talent Tracker</button>
     <button class="tablinks" onmouseover="hoverMenuItem(event, 'Travel')" onclick="window.location='http://dual.sh/sutime/'">Travel Time Calculator</button>
     <button class="tablinks" onmouseover="hoverMenuItem(event, 'Logout')" onclick="window.location='http://dual.sh/index.php?action=logout'">Logout</button>
 </div>
@@ -83,6 +84,11 @@ if (session('access_token')) {
     <p>The Dual Universe Lua Programming Codex.</p>
 </div>
 
+<div id="Talents" class="tabcontent">
+    <h2>Talent Tracker</h2>
+    <p>A Talent Tracker for Dual Universe. Maintained by Helediron.</p>
+</div>
+
 <div id="Travel" class="tabcontent">
     <h2>Travel Time Calculator</h2>
     <p>A calculator that provides an estimated travel time based on Distance (SU) and Speed (km/h). Provided as an example only, as a better utility is in development.</p>
@@ -101,7 +107,9 @@ if (session('access_token')) {
     <script type="text/javascript">
         var x = new Date();
         document.write(x);
-    </script><em></p>
+    </script>
+</em></p>
+
 </body>
 </html>
                 

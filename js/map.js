@@ -434,6 +434,7 @@ function orbitDatapoints() {
 }
 
 // Generate the orbit datapoints for moons
+/*
 function moonOrbitDatapoints() {
     datapoints_MoonOrbit = scene.selectAll("datapoint_MoonOrbit").data(rows_MoonOrbit);
     datapoints_MoonOrbit.exit().remove();
@@ -484,6 +485,7 @@ function moonOrbitDatapoints() {
     newDatapoints_MoonOrbit.append("circle2d");
     return newDatapoints_MoonOrbit;
 }
+*/
 
 // Generate our star datapoint
 function starDatapoint() {
@@ -576,10 +578,10 @@ function plotData(duration) {
     }
 
     //planets
-    newDatapoints = planetDatapoints();
+    newDatapoints_Planet = planetDatapoints();
 
     //transparent spheres around planets
-    newDataTours = fuzzySphereDatapoints();
+    newDatapoints_PlanetSphere = fuzzySphereDatapoints();
 
     //moons
     newDatapoints_Moon = moonDatapoints();
@@ -594,7 +596,7 @@ function plotData(duration) {
     newDatapoints_Polyline = polylineDatapoints();
 
     //moon orbits
-    newDatapoints_MoonOrbit = moonOrbitDatapoints();
+    //newDatapoints_MoonOrbit = moonOrbitDatapoints();
 
     //labels and other stuff like that
     datalabels = generateLabels();
@@ -887,7 +889,7 @@ function set_HTML_For_Info_Panel(i, body, home) {
     //if coming from a moon then body is "Moon", i is the moon name, and home is the moons home planet
     if (body === "Moon") {
         //get got a moon so need to find its index
-        for (an = 0; an < moon_Data.length; an++) {
+        for (let an = 0; an < moon_Data.length; an++) {
             if (moon_Data[an].home === home && moon_Data[an].name === i) {
                 i = an; //set new index
                 break;
