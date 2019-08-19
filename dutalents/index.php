@@ -38,7 +38,7 @@ if(session('access_token')) {
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" href="styles.12e9f4fbfa1b70fb6d53.css"></head>
+<link rel="stylesheet" type="text/css" href="styles.12e9f4fbfa1b70fb6d53.css"></head>
 
 <body>
     <div class="app-root">
