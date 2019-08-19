@@ -34,12 +34,12 @@ if(session('access_token')) {
   <title>Calculator</title>
   <base href="/dutalents/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <base href="/">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link type="text/html" href="./styles.12e9f4fbfa1b70fb6d53.css"></head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" type="text/css" href="styles.12e9f4fbfa1b70fb6d53.css"></head>
 
 <body>
   <div class="app-root">
