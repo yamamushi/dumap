@@ -92,6 +92,7 @@ let datapoints_PlanetSphere;
 let newDatapoints_PlanetSphere;
 let datapoints_Moon;
 let newDatapoints_Moon;
+let datapoints_MoonOrbit;
 let datapoints_Orbit;
 let newDatapoints_Orbit;
 let datapoints_Star;
@@ -434,7 +435,6 @@ function orbitDatapoints() {
 }
 
 // Generate the orbit datapoints for moons
-/*
 function moonOrbitDatapoints() {
     datapoints_MoonOrbit = scene.selectAll("datapoint_MoonOrbit").data(rows_MoonOrbit);
     datapoints_MoonOrbit.exit().remove();
@@ -485,7 +485,6 @@ function moonOrbitDatapoints() {
     newDatapoints_MoonOrbit.append("circle2d");
     return newDatapoints_MoonOrbit;
 }
-*/
 
 // Generate our star datapoint
 function starDatapoint() {
@@ -596,7 +595,7 @@ function plotData(duration) {
     newDatapoints_Polyline = polylineDatapoints();
 
     //moon orbits
-    //newDatapoints_MoonOrbit = moonOrbitDatapoints();
+    newDatapoints_MoonOrbit = moonOrbitDatapoints();
 
     //labels and other stuff like that
     datalabels = generateLabels();
