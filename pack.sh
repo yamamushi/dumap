@@ -9,7 +9,7 @@ while getopts ":rp" opt; do
       ;;
     p ) # production (Website)
         rm du-map.zip
-        zip -r du-map.zip ./* -x "pack.sh" -x "README.md" -x ".*" -x "config.php" -x "TODO" -x "*.html" -x "config.php.example"
+        zip -r du-map.zip ./* -x "pack.sh" -x "README.md" -x ".*" -x "config.php" -x "TODO" -x "*.html" -x "config.php.example" -x "*.bak"
         exit 0
       ;;
     \? ) echo "Usage: pack.sh [-r] [-p]"
