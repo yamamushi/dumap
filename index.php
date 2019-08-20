@@ -51,7 +51,7 @@ if (session('access_token')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dual.sh</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/startpage.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -66,6 +66,12 @@ if (session('access_token')) {
         <span id="time">00:00</span>
         <span id="welcome-greeting"> </span>
         <span class="pull-right" ><a class="link accent-link" id="editBtn" href="#">Edit</a></span>
+    </div>
+    <div class="flexbar">
+        <form id="search" autocomplete="off" action="wiki/" method="post">
+            <input type="hidden" name="search" value="Search">
+            <input  type="text" name="searchphrase" placeholder="Wiki Search...">
+        </form>
     </div>
 
     <div id="content">
@@ -82,7 +88,6 @@ if (session('access_token')) {
 				</span>
         </div>
     </div>-->
-    <span class="log-out"><a href="?action=logout">Log Out</a></span>
 
 </div>
 
@@ -97,8 +102,7 @@ if (session('access_token')) {
             <div class = "settings-section details active">
                 <p class="label">Location</p>
                 <span>
-						<input  type="text"  id="cityInput" placeholder="Enter your City.">
-						<input  type="text"  id="countryInput" placeholder="Enter your Country Code.">
+						<input  type="text"  id="coordinateInput" placeholder="Enter your Coordinates">
                 </span>
             </div>
             <div class="settings-section theme">
@@ -117,6 +121,7 @@ if (session('access_token')) {
 
     </div>
 </section>
+<span class="log-out"><a href="?action=logout">Log Out</a></span>
 
 <script type="text/javascript">
     //var username = "<?php echo json_encode($user->id);?>"

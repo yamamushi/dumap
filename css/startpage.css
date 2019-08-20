@@ -48,7 +48,13 @@ input{
     font-family: inherit;
     font-size: inherit;
     transition: all 0.2s ease-in;
+    width: 100%;
 }
+/* webkit solution */
+::-webkit-input-placeholder { text-align:left; }
+/* mozilla solution */
+input:-moz-placeholder { text-align:left; }
+
 .link{
     color:var(--text);
 }
@@ -185,9 +191,8 @@ input{
 
 .log-out{
     position:absolute;
-    bottom:0;
-    right:25px;
-    bottom:-20px;
+    bottom:10px;
+    right:10px;
 }
 
 
@@ -206,6 +211,7 @@ input{
 
 #search{
     margin:0;
+    width: 100%;
 }
 
 #search input::placeholder, #search input::-ms-input-placeholder{

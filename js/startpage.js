@@ -168,8 +168,8 @@ navbar.addEventListener('click', function(e){
 const colorInput = document.getElementById('colorInput');
 const bgcolorInput = document.getElementById('bgcolorInput');
 const nameInput = document.getElementById('nameInput');
-const cityInput = document.getElementById('cityInput');
-const countryInput = document.getElementById('countryInput');
+const coordinateInput = document.getElementById('coordinateInput');
+//const countryInput = document.getElementById('countryInput');
 
 
 colorInput.addEventListener('keyup',function(e){
@@ -210,17 +210,19 @@ nameInput.addEventListener('keyup', function(e){
     }
 })
  */
-cityInput.addEventListener('keyup', function(e){
+coordinateInput.addEventListener('keyup', function(e){
     if(e.keyCode === 13){
         updateWeather();
     }
 })
+/*
 countryInput.addEventListener('keyup', function(e){
     if(e.keyCode === 13 ){
         updateWeather();
     }
 })
-
+*/
+/*
 function updateWeather(){
     if(cityInput.value == ''){
         displayError('Please enter a town/city.')
@@ -237,6 +239,7 @@ function updateWeather(){
         getWeather();
     }
 }
+ */
 
 // Change Background Image
 function changeBg(input){
@@ -445,7 +448,6 @@ function getSettings(){
 function storeSettings(){
     localStorage.setItem('settings', JSON.stringify(settings));
 }
-
 
 getSettings();
 updateSettings();
