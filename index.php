@@ -55,7 +55,7 @@ if (session('access_token')) {
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/startpage.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" integrity="sha384-VY3F8aCQDLImi4L+tPX4XjtiJwXDwwyXNbkH7SHts0Jlo85t1R15MlXVBKLNx+dj" crossorigin="anonymous">
 </head>
 <body>
 
@@ -76,6 +76,8 @@ if (session('access_token')) {
 
     <div id="content">
         <!--Dynamically Populated-->
+    </div>
+    <div id="server-status-bar">
     </div>
 
     <!--<div class="flexbar">
@@ -128,6 +130,7 @@ if (session('access_token')) {
     discordusername = "$user->username"
 </script>
 <!-- <script type="text/javascript" src="./js/weather.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="./js/startpage.js"></script>
 </body>
 </html>

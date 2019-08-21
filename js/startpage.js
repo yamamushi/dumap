@@ -1,13 +1,21 @@
-const welcomeTemplate = ["evening", "morning", "afternoon", "evening"];
+const welcomeTemplate = ["Evening", "Morning", "Afternoon", "Evening"];
 let settings = {
     userName : '',
-    accentColor: '#a64dff',
+    accentColor: '#2f5dff',
     bgColor: '#373769',
     bgImage: '../images/indexbg.jpg',
     bgHidden: 'false',
     city : '',
     country : ''
 }
+let countdowndate;
+let countdowninterval;
+var countdownoptions = { weekday: 'long', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+
+const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+];
+
 
 let bookmarks = [{
     title : 'Reference',
@@ -84,6 +92,34 @@ function updateTime() {
     document.getElementById("time").innerHTML = time;
 }
 
+//Function for Updating the Time
+function updateCountdown() {
+    let now = new Date().getTime();
+    let distance = countdowndate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    if (hours < 10) {
+        hours = "0" + hours
+    }
+    if (minutes < 10) {
+        minutes = "0" + minutes
+    }
+    if (seconds < 10) {
+        seconds = "0" + seconds
+    }
+
+    document.getElementById("countdown").innerHTML = "( "+days + "d:" + hours + "h:" + minutes + "m:" + seconds + "s )";
+
+    if (distance < 0) {
+        clearInterval(countdowninterval);
+        getServerStatus();
+    }
+}
+
 //Functions for Updating Settings
 function updateSettings(){
     document.documentElement.style.setProperty(`--accent`, settings.accentColor);
@@ -111,6 +147,7 @@ const locationInput = document.getElementById('locationInput');
 const errorMessage = document.getElementById('errorMessage');
 const settingsMenu = document.getElementById('settings');
 const mainContent = document.getElementById('content');
+const serverStatusBar = document.getElementById('server-status-bar');
 const navbar = document.querySelector('.nav-area');
 const navItems = document.querySelectorAll('.nav-item');
 const settingsContent = document.querySelectorAll('.settings-section');
@@ -272,7 +309,7 @@ function toggleBg(){
 //Populating Bookmarks
 function populateBookmarks(){
     document.documentElement.style.setProperty(`--noCat`, bookmarks.length);
-    mainContent.innerHTML = ''
+    mainContent.innerHTML = '';
     bookmarks.forEach(function(i){
         let listGroup = document.createElement('div');
         listGroup.classList.add('list-group');
@@ -293,77 +330,76 @@ function populateBookmarks(){
     })
 }
 
-//const bookmarkSection = document.querySelector('.settings-section.bookmarks');
-//Create Bookmark Form
-/*
-function createBookmarkForm(){
-    bookmarkSection.innerHTML = '';
-    bookmarks.forEach(function(i){
-        bookmarkSection.innerHTML += `
-        <div class="bm-item">
-        <h4>${i.title}</h4>
-        <a href="#" class="cat-remove">Delete</a>
-        </div>
-        `;
-        i.items.forEach((link)=>{
-            bookmarkSection.innerHTML +=
-                `
-            <div class="bm-item"> 
-                <p class="${i.title}">${link.name}</p>
-                <p>${link.url}</p>
-                <a href="#"><i class="fa fa-times bm-remove"></i></a>
-            </div>
-            `
-        })
-        bookmarkSection.innerHTML +=
-            `
-        <div class="bm-item add-new-div"> 
-            <input  type="name" class="${i.title}" placeholder="Enter bookmark name.">
-            <input  type="url"  placeholder="Enter bookmark url.">
-            <a href="#" class="accent-link link bm-add">Add New</a>
-        </div>
-        `;
-    })
-    bookmarkSection.innerHTML +=
-        `
-    <div class="new-cat">
-    <h4>Add a New Category</h4>
-        <input  type="name"  placeholder="Enter a Category Title">
-        <a href="#" class="accent-link link cat-add">Add New</a>
-    </div>
-    `
+function populateServerStatus(serverstatus){
+    /*if (currentserverstatus.Error === true) {
+        console.log("Error in server status response: " + currentserverstatus.ErrorStatus)
+        return
+    }*/
+    if (serverstatus.Error === true ) {
+        console.log("Error in server status response: " + serverstatus.ErrorStatus);
+        return
+    }
+    console.log("Server Status Retrieved Successfully");
+
+    let statusdiv = document.createElement('div');
+    statusdiv.classList.add('server-status');
+    statusdiv.innerText = "Server Status"
+
+    countdowndiv = document.createElement('div')
+    countdowndiv.id = 'countdown';
+    countdowndiv.classList.add('countdown');
+    statusdiv.append(countdowndiv)
+
+    let blinker = document.createElement('div');
+    let countdowntext = document.createElement('div');
+    countdowntext.classList.add('server-countdown-text');
+
+    if (serverstatus.Status === "Live") {
+        blinker.classList.add('is-green');
+        blinker.classList.add('is-blink');
+        blinker.classList.add('text-uppercase');
+        blinker.innerText = "Live"
+        idate = new Date(serverstatus.EndDate);
+        countdowndate = idate.getTime();
+        countdowntext.innerText = "Until " + idate.toLocaleDateString("en-US", countdownoptions);
+    } else {
+        blinker.classList.add('is-red');
+        blinker.innerText = "Scheduled "
+        idate = new Date(serverstatus.StartDate);
+        countdowndate = idate.getTime();
+        countdowntext.innerText = " To Come Online At " + idate.toLocaleDateString("en-US", countdownoptions);
+    }
+    blinker.classList.add('ui-helper-center')
+    statusdiv.append(countdowntext);
+
+    let itag = document.createElement('i');
+    itag.classList.add('fas');
+    itag.classList.add('fa-circle');
+    blinker.prepend(itag);
+    blinker.classList.add('server-status-blinker');
+    statusdiv.append(blinker);
+
+    let serverstatustext = document.createElement('div');
+    serverstatustext.classList.add('server-status-text');
+    serverstatustext.innerText = " "
+    statusdiv.append(serverstatustext);
+
+
+    serverStatusBar.append(statusdiv);
+    countdowninterval = setInterval(updateCountdown,1000);
 }
 
-//Remove Bookmark
-function removeBookmark(title, item){
-    bookmarks.forEach((i)=>{
-        if(i.title == title){
-            i.items.forEach((it, id)=>{
-                if(it.name == item){
-                    i.items.splice(id,1);
+function getServerStatus(){
 
-                }
-            })
-        }
+    timeout(10000, fetch("https://api.dual.sh/serverstatus")).then(function(response) {
+        return response.json();
+    }).then(function(data){
+        populateServerStatus(data);
+    }).catch(function(error) {
+        console.log("Timeout retrieving server status.")
     })
-    storeBookmarks();
-    populateBookmarks();
-    createBookmarkForm();
-}
 
-//Add Bookmark
-function addBookmark(name, url ,title){
-    bookmarks.forEach((i) =>{
-        if(i.title == title){
-            i.items.push({ name : `${name}`, url : `${url}` });
-        }
-    })
-    storeBookmarks();
-    populateBookmarks();
-    createBookmarkForm();
 }
- */
-
 
 //Remove Category
 function removeCategory(title){
@@ -374,7 +410,6 @@ function removeCategory(title){
     })
     storeBookmarks();
     populateBookmarks();
-    createBookmarkForm();
 }
 
 //Add Category
@@ -384,7 +419,6 @@ function addCategory(title){
     console.log(bookmarks);
     storeBookmarks();
     populateBookmarks();
-    createBookmarkForm();
 }
 
 
@@ -449,13 +483,32 @@ function storeSettings(){
     localStorage.setItem('settings', JSON.stringify(settings));
 }
 
+function timeout(ms, promise) {
+    return new Promise((resolve, reject) => {
+        const timeoutId = setTimeout(() => {
+            reject(new Error("promise timeout"))
+        }, ms);
+        promise.then(
+            (res) => {
+                clearTimeout(timeoutId);
+                resolve(res);
+            },
+            (err) => {
+                clearTimeout(timeoutId);
+                reject(err);
+            }
+        );
+    })
+}
+
+// The good stuff happens here
 getSettings();
 updateSettings();
-
 //Init Weather Object
 //const weather = new Weather(settings.city,settings.country);
 setupWelcomeMessage();
 updateTime();
 getBookmarks();
+getServerStatus();
 //getWeather();
 setInterval(updateTime,1000);
