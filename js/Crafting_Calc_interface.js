@@ -20,7 +20,7 @@ loadJSON("../data/itemsAccordion.json",function(json){itemsAccordion=JSON.parse(
 loadJSON("../data/skillsAccordion.json",function(json){skillsAccordion=JSON.parse(json);})
 loadJSON("../data/priceOverhead.json",function(json){overhead=JSON.parse(json);})
 loadJSON("../data/orePrices.json",function(json){orePrices=JSON.parse(json);})
-loadJSON("../data/recipes.json",function(json){recipes=JSON.parse(json);})
+loadJSON("../data/recipes.json",function(json){recipes=json;})
 
 var skills={};
 for (var i=0;i<skillsAccordion.length;i++)
@@ -43,6 +43,8 @@ for (var i=0;i<skillsAccordion.length;i++)
 		}
 	}
 }
+
+//console.log(JSON.stringify(skills,null,2));
 
 
 function formatNum(num,places)
@@ -80,8 +82,10 @@ String.prototype.toHHMMSS = function () {
 var inv=[];
 var craft=[];
 
+//console.log(recipes);
+console.log(typeof recipes);
 var cc=new recipeCalc(recipes);
-//console.log(JSON.stringify(cc.db));
+console.log(JSON.stringify(cc.db));
 
 //run crafting calculations and update output lists oreList and queueList
 function calculate()
