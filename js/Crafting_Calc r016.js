@@ -49,33 +49,13 @@ function recipeCalc(data){
 		var lines;
 		var cols;
 		var headers;
+		this.db={};
 		
 		var jsonOrObject=false;
-		if (typeof db ==="object"){
+		if (typeof db === "string"){
 			jsonOrObject=true;
-			this.db={};
-			this.types=[];
-			Object.keys(db).forEach(function(name,index){
-				var item=db[name];
-				
-				var fnd=false;
-				for (var i=0;i<this.types.length;i++)
-				{
-					if(this.types[i]==item.type)
-					{
-						fnd=true;
-						break;
-					}
-				}
-				if(!fnd){
-					this.types.push(item.type);
-				}
-				this.db[item.name]=new itemRecipe(item);
-			},this);
-			
-		}else if (typeof db === "string"){
 			try{ 
-				db=JSON.parse(data);
+				db=JSON.parse(db);
 				this.types=[];
 				for (var j=0;j<db.length;j++){
 					var item=db[j];
@@ -127,9 +107,7 @@ function recipeCalc(data){
 			cols.forEach(function(header,i,array){
 				headers[header]=i;
 			});
-		}
-		
-		if (!jsonOrObject){
+			
 			var items={};
 			var currentItem="";
 			var currentType="";
@@ -173,9 +151,9 @@ function recipeCalc(data){
 					items[currentItem].setIngredient(line[headers["Input Name"]],parseFloat(line[headers["Input Quantity"]]));
 				}
 				
-				
-				this.db=items;
 			},this);
+				
+			this.db=items;
 		}
 		
 		Object.keys(this.db).forEach(function(k,i){
@@ -212,6 +190,7 @@ function recipeCalc(data){
 	//console.log(data);
 	this.data=data;
 	this.parseDb(data);
+	//console.log(JSON.stringify(this.db,null,2));
 	
 	// eliminate 0 quantity list items and combine repeated ones
 	this.reduceItems=function(list)
@@ -242,6 +221,11 @@ function recipeCalc(data){
 		}
 		var t=this;
 		newList.sort(function(l,r){ 
+			//console.log("reduceItems sort");
+			//console.log("L: "+l.name);
+			//console.log("R: "+r.name);
+			//console.log("L: "+JSON.stringify(t.db[l.name]));
+			//console.log("R: "+JSON.stringify(t.db[r.name]));
 			var typeL=t.db[l.name].type;
 			var typeR=t.db[r.name].type;
 			return t.types.indexOf(typeL)>t.types.indexOf(typeR);
@@ -397,16 +381,21 @@ function recipeCalc(data){
 	// wrapper for the simulate func
 	this.calcList=function(input,inv,skills)
 	{
+		//console.log("reduce input");
+		//console.log(JSON.stringify(input));
 		var inputRed=this.reduceItems(input);
+		//console.log("reduce input");
+		//console.log(JSON.stringify(inputRed));
 		var invRed=this.reduceItems(inv);
 		
-		for (i=inputRed.length-1;i>=0;i--){
+		for (var i=inputRed.length-1;i>=0;i--){
 			if (this.db[inputRed[i].name]===undefined) {
+				console.log(JSON.stringify(inputRed[i]));
 				inputRed.splice(i,1);
 				continue;
 				}
 		}
-		for (i=invRed.length-1;i>=0;i--){
+		for (var i=invRed.length-1;i>=0;i--){
 			if (this.db[invRed[i].name]===undefined) {
 				invRed.splice(i,1);
 				continue;
@@ -417,14 +406,22 @@ function recipeCalc(data){
 			return (l.type+l.tier/10)-(r.type+r.tier/10);
 		}
 		
+		//console.log("input");
+		//console.log(JSON.stringify(inputRed));
 		
 		inputRed.forEach(function(k,i){
 			k.type=this.types.indexOf(this.db[k.name].type);
 			k.tier=this.db[k.name].tier;
 		},this);
 		
+		//console.log("input");
+		//console.log(JSON.stringify(inputRed));
 		inputRed.sort(sortFunc);
+		//console.log("input");
+		//console.log(JSON.stringify(inputRed));
 		inputRed.reverse();
+		//console.log("input");
+		//console.log(JSON.stringify(inputRed));
 		
 		var inventory={};
 		Object.keys(this.db).forEach(function(k,i){
@@ -440,13 +437,13 @@ function recipeCalc(data){
 		//console.log(JSON.stringify(inputRed));
 		//console.log("inventory");
 		//console.log(JSON.stringify(inventory));
-		var reusables={}
+		var reusables={};
 		
 		//console.log("inv before");
 		//console.log(JSON.stringify(removeInvZeros(inventory)));
 		var craftList=this.simulate(inputRed,inventory,reusables,skills);
-		//console.log("inv after");
-		//console.log(JSON.stringify(removeInvZeros(inventory)));
+		//console.log("after");
+		//console.log(JSON.stringify(craftList));
 		
 		var compressedList=this.reduceItems(JSON.parse(JSON.stringify(craftList)));
 		
@@ -1025,7 +1022,7 @@ function gsCalc(ss,namedRanges)
 	}
 	sk=namedRanges.SkillsOreRefineTimeRange.getValues();
 	for (var i=0;i<sk.length;i++){
-		skills["Pure"].Time[i]=sk["Tier "+(i+1)][0];
+		skills["Pure"].Time["Tier "+(i+1)]=sk[i][0];
 	}
 	sk=namedRanges.SkillsProductHCMaterialRange.getValues();
 	for (var i=0;i<sk.length;i++){
@@ -1038,13 +1035,16 @@ function gsCalc(ss,namedRanges)
 	}
 	skills["Pure Honeycomb"].Time=namedRanges.SkillsPureHCTimeRange.getValues()[0][0];
 	
+	//console.log(JSON.stringify(inputList));
+	//console.log(JSON.stringify(inventoryList));
+	//console.log(JSON.stringify(skills));
 	
 	var output=calc.calcList(inputList,inventoryList,skills);
 	
 	//console.log("lists");
 	//console.log(JSON.stringify(lists));
 	//console.log("normal order");
-	//console.log(JSON.stringify(lists.normal));
+	//console.log(JSON.stringify(output));
 	//console.log("expanded order");
 	//console.log(JSON.stringify(lists.expanded));
 	
