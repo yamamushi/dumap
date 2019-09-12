@@ -1,0 +1,147 @@
+[
+  {
+    "name": "Pure",
+    "data": [
+	  {
+		"name": "Time",
+		"data": [
+		  "Tier 1",
+		  "Tier 2",
+		  "Tier 3",
+		  "Tier 4",
+		  "Tier 5"
+		]
+	  },
+	  {
+        "name": "Material",
+        "data": [
+          "Sodium Pure",
+          "Iron Pure",
+		  "Carbon Pure",
+          "Silicon Pure",
+		  "Lead Pure",
+		  "Tungsten Pure",
+		  "Aluminium Pure",
+		  "Nickel Pure",
+		  "Copper Pure",
+		  "Scandium Pure",
+		  "Platinum Pure",
+		  "Chromium Pure",
+		  "Gold Pure",
+		  "Zirconium Pure",
+		  "Molybdenum Pure",
+		  "Manganese Pure",
+		  "Vanadium Pure",
+		  "Titanium Pure",
+		  "Rhenium Pure",
+		  "Niobium Pure"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Intermediary Part",
+    "data": [
+      {
+        "name": "Time",
+        "data": [
+          "Tier 1",
+          "Tier 2",
+          "Tier 3"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Complex Part",
+    "data": [
+      {
+        "name": "Time",
+        "data": [
+          "Tier 1",
+          "Tier 2",
+          "Tier 3",
+          "Tier 4",
+          "Tier 5"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Structural Part",
+    "data": [
+      {
+        "name": "Time",
+        "data": [
+          "Tier 1",
+          "Tier 2",
+          "Tier 3",
+          "Tier 4",
+          "Tier 5"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Functional Part",
+    "data": [
+      {
+        "name": "Time",
+        "data": [
+          "Tier 1",
+          "Tier 2",
+          "Tier 3",
+          "Tier 4",
+          "Tier 5"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Exceptional Part",
+    "data": [
+      {
+        "name": "Time",
+        "data": [
+          null,
+          null,
+          "Tier 3",
+          "Tier 4",
+          "Tier 5"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Pure Honeycomb",
+    "data": [
+      "Time",
+      {
+        "name": "Material",
+        "data": [
+          "Tier 1",
+          "Tier 2",
+          "Tier 3",
+          "Tier 4",
+          "Tier 5"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Product Honeycomb",
+    "data": [
+      "Time",
+      {
+        "name": "Material",
+        "data": [
+          "Tier 1",
+          "Tier 2",
+          "Tier 3",
+          "Tier 4",
+          "Tier 5"
+        ]
+      }
+    ]
+  }
+]

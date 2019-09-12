@@ -2,7 +2,7 @@
 
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
-ini_set('max_execution_time', 300); //300 seconds = 5 minutes. In case if your CURL is slow and is loading too much (Can be IPv6 problem)
+ini_set('max_execution_time', 300); //300 seconds = 5 sdminutes. In case if your CURL is slow and is loading too much (Can be IPv6 problem)
 error_reporting(E_ALL); // Disable Error reporting (pedantic, I know)
 
 session_start();
@@ -63,7 +63,7 @@ if(get('action') == 'login') {
     );
 
     // Redirect the user to Discord's authorization page
-    header('Location: https://discordapp.com/api/oauth2/authorize' . '?' . http_build_query($params));
+    header('Location: https://discordapp.com/api/oauth2/authorize' . '?' . http_build_query($params) . "&prompt=none");
     die();
 }
 
