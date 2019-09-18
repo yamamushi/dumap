@@ -1,1 +1,7 @@
+ErrorDocument 403 /index.html
 ErrorDocument 404 /dutalents/index.html
+#Select either, depending if you want to deny or enable directory listings.
+Options -Indexes
+#IndexOptions -FancyIndexing
+
+IndexIgnore *.zip *.css *.js *.txt *.png *.ico *.jpg assets images
