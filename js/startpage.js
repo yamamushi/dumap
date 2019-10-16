@@ -56,6 +56,10 @@ let bookmarks = [{
             name:'Helios Map',
             url:'./map/'
         },
+        {
+            name:'JayleBreak\'s Voxel Planner',
+            url:'./voxelplanner/'
+        },
     ]
 }]
 
@@ -73,7 +77,7 @@ function setupWelcomeMessage(){
         selectHours = 3;
     }
     settings.userName = discordusername; // Global var from index.php
-    let welcome = "Good " + welcomeTemplate[selectHours] + ", " + settings.userName;
+    let welcome = "Good " + welcomeTemplate[selectHours] + ", " + settings.userName + ", Welcome To Dual.sh";
     //let welcome = "Welcome back, " + settings.userName;
     document.getElementById("welcome-greeting").innerHTML = welcome;
 }

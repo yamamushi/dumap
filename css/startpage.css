@@ -313,8 +313,13 @@ input:-moz-placeholder { text-align:left; }
     box-shadow: 1px 1px 10px 0px #000;
     margin: 0 4px;
     padding: 8%;
-    font-size: large;
     color: var(--accent);
+}
+.list-group h4 {
+    font-size: 23px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 .list-group:last-child{
     border-right: 1px solid var(--accent);
@@ -325,6 +330,7 @@ input:-moz-placeholder { text-align:left; }
     flex-wrap: wrap;
     justify-content:space-between;
     font-size: medium;
+    text-align: center;
 }
 
 
