@@ -29,7 +29,9 @@ if(session('access_token')) {
 
 
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <style>
         body { background-color:lightgrey }
@@ -61,7 +63,9 @@ if(session('access_token')) {
                 <button type="button" id="export">Export</button><br">
             </div>
             <canvas id="canvas" width="518" height="518">
-        </canvas></div>
+        </canvas>
+        </div>
+    </body>
 <script language="javascript" type="text/javascript">
 // CONSTANTS
 var isIe = (navigator.userAgent.toLowerCase().indexOf("msie") != -1 
@@ -545,7 +549,7 @@ document.getElementById("export").onclick = function() {
         for (var vc = 1; vc < VOX_COUNT; ++vc) {
             text += " " + voxURcoord(vr,vc);
         }
-        text += "\n";
+        text += "\\n";
     }
     text += "</pre></body></html>";
     var popup = window.open("","export","width=" + (20+35*VOX_COUNT)
@@ -555,8 +559,8 @@ document.getElementById("export").onclick = function() {
 init();
 </script>
     
-<script src="./twodvoxplanner_files/livecss.js"></script></body></html>
-
+<!--<script src="./twodvoxplanner_files/livecss.js"></script></body></html>-->
+</html>
 
 
 
