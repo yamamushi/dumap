@@ -168,6 +168,8 @@ function calculate()
 	}
 	totalTime.innerHTML=totTime.toString().toHHMMSS();
 	totalOre.innerHTML=formatNum(totOre,0);
+
+	trySaveState();
 }
 //-----------------------------------------------------------------------------
 // Modals for item selection and skill selection
@@ -213,6 +215,17 @@ var tierNames=["Common","Uncommon","Advanced","Rare","Exotic"];
 
 function createSkillsAcc()
 {
+	function makeSkillInput(type, skill, index) {
+		var typeStr = '"' + type + '"';
+		var skillStr = '"' + skill + '"';
+		var indexStr = index === null ? "null" : '"' + index + '"';
+
+		return "<input" +
+			" oninput='setSkill(" + typeStr + "," + skillStr + "," + indexStr + ",this.value)'" +
+			" data-skill='" + (type + "_" + skill + "_" + index) + "'" +
+			" class='accordion-input2' type='number' min='0' max='5' value='0'>";
+	}
+
 	//console.log("ca "+depth);
 	var output=[];
 	
@@ -226,7 +239,7 @@ function createSkillsAcc()
 		for(var j=0;j<data.length;j++){
 			if (typeof data[j] =="string")
 			{
-				output.push("\t<div class='accordion-item2 unselectable'>Time    <input oninput='setSkill(\""+type+"\",\""+data[j]+"\",null,this.value)' class='accordion-input2' type='number' min='0' max='5' value='0'></div>\n");
+				output.push("\t<div class='accordion-item2 unselectable'>Time   " + makeSkillInput(type, data[j], null) + "</div>\n");
 			}else{
 				output.push('\t<div class="accordion unselectable"><span>+</span><span class="accordion-title">'+data[j].name+'</span></div>\n\t<div class="accordion-panel unselectable">\n');
 				for(var k=0;k<data[j].data.length;k++)
@@ -235,7 +248,7 @@ function createSkillsAcc()
 					cn="";
 					if (data[j].data[k].search("Pure")!=-1) {cn=data[j].data[k].split(" ")[0].toLowerCase();}
 					output.push("\t\t<div class='accordion-item2 unselectable "+cn+"'>"+data[j].data[k]);
-					output.push(" <input oninput='setSkill(\""+type+"\",\""+data[j].name+"\",\""+data[j].data[k]+"\",this.value)' class='accordion-input2' type='number' min='0' max='5' value='0'></div><br>\n");
+					output.push(makeSkillInput(type, data[j].name, data[j].data[k]) + "</div><br>\n");
 				}
 				output.push('\n\t</div>');
 			}
@@ -427,50 +440,59 @@ function addInvItem(name,quantity)
 	invList.appendChild(item);
 	invList.appendChild(qty);
 }
+
+function addCraftItem(name, quantity) {
+	var minus=document.createElement("button");
+	minus.classList.add("cft-remove");
+	minus.innerHTML="&minus;"
+	minus.onclick=removeItem;
+	var item=document.createElement("div");
+	item.classList.add("cft-item");
+	item.innerHTML=name;
+	if (name.search("Pure")!=-1)
+	{
+		var cn=name.split(" ")[0].toLowerCase();
+		item.classList.add(cn);
+		item.style.padding="0 0 0 5px";
+		item.style["border-radius"]="3px";
+	}
+	var qty=document.createElement("input");
+	qty.type="number";
+	qty.classList.add("cft-quantity");
+	qty.min="0";
+	qty.value=quantity.toString();
+	qty.oninput=updateCft
+	cftList.appendChild(minus)
+	cftList.appendChild(item);
+	cftList.appendChild(qty);
+	craft.push({name:name,quantity:quantity});
+}
+
 //callback to add the modal item clicked on to the appropriate list
 function addItem(event)
 {
+	var name = event.target.innerHTML;
+	var quantity = 1;
+
 	if (which==invAddBut)
 	{
 		var items=document.getElementsByClassName("inv-item")
 		for (var i=0;i<items.length;i++)
 		{
-			if (items[i].innerHTML==event.target.innerHTML) {alert("You already have that in your inventory list!");return;}
+			if (items[i].innerHTML==name) {alert("You already have that in your inventory list!");return;}
 		}
-		addInvItem(event.target.innerHTML);
+		addInvItem(name);
 		
 	}else{
-		if (event.target.innerHTML.search("Ore")!=-1){alert("You have to mine ore, not craft it");return;}
+		if (name.search("Ore")!=-1){alert("You have to mine ore, not craft it");return;}
 		
 		var items=document.getElementsByClassName("cft-item")
 		for (var i=0;i<items.length;i++)
 		{
-			if (items[i].innerHTML==event.target.innerHTML) {alert("You already have that in your craft list!");return;}
+			if (items[i].innerHTML==name) {alert("You already have that in your craft list!");return;}
 		}
-		var minus=document.createElement("button");
-		minus.classList.add("cft-remove");
-		minus.innerHTML="&minus;"
-		minus.onclick=removeItem;
-		var item=document.createElement("div");
-		item.classList.add("cft-item");
-		item.innerHTML=event.target.innerHTML;
-		if (event.target.innerHTML.search("Pure")!=-1)
-		{
-			var cn=event.target.innerHTML.split(" ")[0].toLowerCase();
-			item.classList.add(cn);
-			item.style.padding="0 0 0 5px";
-			item.style["border-radius"]="3px";
-		}
-		var qty=document.createElement("input");
-		qty.type="number";
-		qty.classList.add("cft-quantity");
-		qty.min="0";
-		qty.value="1";
-		qty.oninput=updateCft
-		cftList.appendChild(minus)
-		cftList.appendChild(item);
-		cftList.appendChild(qty);
-		craft.push({name:event.target.innerHTML,quantity:1});
+
+		addCraftItem(name, quantity);
 	}
 	calculate();
 }
@@ -520,6 +542,141 @@ function setSkill(type,skill,index,value){
 		//console.log(skills[skillIndex].data[type].data[index].name)
 		skills[type][skill][index]=value;
 	}
+
+	var input = document.querySelector && document.querySelector('input[data-skill="' + type + "_" + skill + "_" + index + '"');
+	if (input && input.value.toString() !== value.toString()) {
+		input.value = value.toString();
+	}
+
 	calculate();
 }
 
+// calculator state saving/loading
+
+function tryRestoreState() {
+	try {
+		if (!window.localStorage) {
+			return;
+		}
+
+		var stateStr = window.localStorage.getItem('crafting_state');
+		if (!stateStr) {
+			return;
+		}
+
+		var state = JSON.parse(stateStr);
+
+		// restore skils
+
+		if (state.skills && state.skills.length > 0) {
+			for (var i = 0; i < state.skills.length; i++) {
+				var type = state.skills[i].type;
+				var skill = state.skills[i].skill;
+				var index = state.skills[i].index;
+				var value = parseFloat(state.skills[i].value);
+
+				if (!isFinite(value)) {
+					continue;
+				}
+
+				var skillExists =
+					typeof skills[type] !== "undefined" &&
+					typeof skills[type][skill] !== "undefined" &&
+					(index === null || typeof skills[type][skill][index] !== "undefined");
+
+				if (!skillExists) {
+					continue;
+				}
+
+				setSkill(type, skill, index, value);
+			}
+		}
+
+		// restore inventory
+
+		if (state.inv && state.inv.length > 0) {
+			for (var i = 0; i < state.inv.length; i++) {
+				var name = state.inv[i].name;
+				var quantity = parseFloat(state.inv[i].quantity);
+
+				if (!(name in cc.db)) {
+					continue;
+				}
+				if (!isFinite(quantity)) {
+					continue;
+				}
+
+				addInvItem(name, quantity);
+			}
+		}
+
+		// restore items to craft
+
+		if (state.craft && state.craft.length > 0) {
+			for (var i = 0; i < state.craft.length; i++) {
+				var name = state.craft[i].name;
+				var quantity = parseFloat(state.craft[i].quantity);
+
+				if (!(name in cc.db)) {
+					continue;
+				}
+				if (!isFinite(quantity)) {
+					continue;
+				}
+
+				addCraftItem(name, quantity);
+			}
+		}
+
+		calculate();
+	} catch (e) {
+		console.log('Could not restore the previous crafting calculator state.', e);
+	}
+}
+
+function trySaveState() {
+	try {
+		if (!window.localStorage) {
+			return;
+		}
+
+		var skillArray = [];
+		for (var type in skills) {
+			var skillsOfType = skills[type];
+
+			for (var skill in skillsOfType) {
+				var skillValue = skillsOfType[skill];
+
+				if (typeof skillValue !== "object") {
+					skillArray.push({
+						type: type,
+						skill: skill,
+						index: null,
+						value: skillValue
+					});
+				} else {
+					for (var index in skillValue) {
+						skillArray.push({
+							type: type,
+							skill: skill,
+							index: index,
+							value: skillValue[index]
+						})
+					};
+				}
+			}
+		}
+
+		var state = {
+			skills: skillArray,
+			inv,
+			craft
+		};
+
+		window.localStorage.setItem('crafting_state', JSON.stringify(state));
+	} catch (e) {
+		console.log('Could not save crafting calculator state.', e);
+	}
+}
+
+tryRestoreState();
