@@ -60,6 +60,10 @@ let bookmarks = [{
             name:'JayleBreak\'s Voxel Planner',
             url:'./voxelplanner/'
         },
+        {
+            name:'Stan\'s Offline Voxel Planner',
+            url:'./downloads/2DVoxelDesigner_V2.zip'
+        },
     ]
 }]
 
