@@ -149,6 +149,8 @@ EOL;
     echo '<h3>Welcome to Dual.sh</h3>';
     echo '<br>';
     echo 'To continue, please <a href="?action=login">click here</a> to sign in.';
+    echo '<br><br>';
+    echo 'To authorize your Discord account for access to this site, please <a href="https://dual.sh/auth">click here</a>.';
 }
 
 ?>
