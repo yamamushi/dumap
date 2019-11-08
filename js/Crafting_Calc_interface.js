@@ -194,6 +194,11 @@ function createItemsAcc(list,depth)
 			output.push(createItemsAcc(list[i].data,depth+1).join(''));
 			output.push(tab+'\t</div>\n');
 		}else{
+			if (!cc.db[list[i]]) {
+				console.log('Item ' + list[i] + ' has no recipe');
+				continue;
+			}
+
 			var cn="";
 			if (list[i].search("Ore")!=-1 || list[i].search("Pure")!=-1)
 			{
