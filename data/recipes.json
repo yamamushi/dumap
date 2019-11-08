@@ -528,7 +528,7 @@
     }
   },
   {
-    "name": "Nitron",
+    "name": "Nitron Fuel",
     "tier": 1,
     "type": "Fuel",
     "mass": 4,
@@ -542,7 +542,7 @@
     }
   },
   {
-    "name": "Kergon-X1",
+    "name": "Kergon-X1 Fuel",
     "tier": 1,
     "type": "Fuel",
     "mass": 6,
@@ -556,7 +556,7 @@
     }
   },
   {
-    "name": "Xeron",
+    "name": "Xeron Fuel",
     "tier": 2,
     "type": "Fuel",
     "mass": 6,
@@ -2961,7 +2961,7 @@
     }
   },
   {
-    "name": "Elevator",
+    "name": "Elevator XS",
     "tier": 1,
     "type": "Interactive Element",
     "mass": 27.325000000000003,
@@ -4570,7 +4570,7 @@
     }
   },
   {
-    "name": "Sink",
+    "name": "Sink Unit",
     "tier": 1,
     "type": "Bathroom",
     "mass": 27.325000000000003,
@@ -4584,7 +4584,7 @@
     }
   },
   {
-    "name": "Shower",
+    "name": "Shower Unit",
     "tier": 1,
     "type": "Bathroom",
     "mass": 27.325000000000003,
@@ -4598,7 +4598,7 @@
     }
   },
   {
-    "name": "Urinal",
+    "name": "Urinal Unit",
     "tier": 1,
     "type": "Bathroom",
     "mass": 27.325000000000003,
@@ -4612,7 +4612,7 @@
     }
   },
   {
-    "name": "Toilet A",
+    "name": "Toilet Unit A",
     "tier": 1,
     "type": "Bathroom",
     "mass": 27.325000000000003,
@@ -4626,7 +4626,7 @@
     }
   },
   {
-    "name": "Toilet B",
+    "name": "Toilet Unit B",
     "tier": 1,
     "type": "Bathroom",
     "mass": 27.325000000000003,
@@ -4640,7 +4640,7 @@
     }
   },
   {
-    "name": "Cable A S",
+    "name": "Cable Model-A S",
     "tier": 1,
     "type": "Cable",
     "mass": 27.325000000000003,
@@ -4654,7 +4654,7 @@
     }
   },
   {
-    "name": "Cable B S",
+    "name": "Cable Model-B S",
     "tier": 1,
     "type": "Cable",
     "mass": 27.325000000000003,
@@ -4668,7 +4668,7 @@
     }
   },
   {
-    "name": "Cable C S",
+    "name": "Cable Model-C S",
     "tier": 1,
     "type": "Cable",
     "mass": 27.325000000000003,
@@ -4682,7 +4682,7 @@
     }
   },
   {
-    "name": "Cable A M",
+    "name": "Cable Model-A M",
     "tier": 1,
     "type": "Cable",
     "mass": 27.325000000000003,
@@ -4696,7 +4696,7 @@
     }
   },
   {
-    "name": "Cable B M",
+    "name": "Cable Model-B M",
     "tier": 1,
     "type": "Cable",
     "mass": 27.325000000000003,
@@ -4710,7 +4710,7 @@
     }
   },
   {
-    "name": "Cable C M",
+    "name": "Cable Model-C M",
     "tier": 1,
     "type": "Cable",
     "mass": 27.325000000000003,
@@ -4724,7 +4724,7 @@
     }
   },
   {
-    "name": "Corner Cable A",
+    "name": "Corner Cable Model-A",
     "tier": 1,
     "type": "Cable",
     "mass": 27.325000000000003,
@@ -4738,7 +4738,7 @@
     }
   },
   {
-    "name": "Corner Cable B",
+    "name": "Corner Cable Model-B",
     "tier": 1,
     "type": "Cable",
     "mass": 27.325000000000003,
@@ -4752,7 +4752,7 @@
     }
   },
   {
-    "name": "Corner Cable C",
+    "name": "Corner Cable Model-C",
     "tier": 1,
     "type": "Cable",
     "mass": 27.325000000000003,
@@ -4920,7 +4920,7 @@
     }
   },
   {
-    "name": "\"\"\"HMS AJAX33\"\"\"",
+    "name": "\"HMS Ajax33\" - Artist Unknown",
     "tier": 4,
     "type": "Furniture",
     "mass": 54.58,
@@ -4935,7 +4935,7 @@
     }
   },
   {
-    "name": "\"\"\"Parrotos Sanctuary\"\"\"",
+    "name": "\"Parrotos Sanctuary\" - Artist Unknown",
     "tier": 4,
     "type": "Furniture",
     "mass": 54.58,
@@ -4950,7 +4950,7 @@
     }
   },
   {
-    "name": "\"\"\"Eye Doll's Workshop\"\"\"",
+    "name": "\"Eye Doll's Workshop\" - Artist Unknown",
     "tier": 4,
     "type": "Furniture",
     "mass": 54.58,
@@ -5246,7 +5246,7 @@
     }
   },
   {
-    "name": "Pipe A",
+    "name": "Pipe A M",
     "tier": 1,
     "type": "Pipe",
     "mass": 1168.64,
@@ -5260,7 +5260,7 @@
     }
   },
   {
-    "name": "Pipe B",
+    "name": "Pipe B M",
     "tier": 1,
     "type": "Pipe",
     "mass": 1168.64,
@@ -5274,7 +5274,7 @@
     }
   },
   {
-    "name": "Pipe C",
+    "name": "Pipe C M",
     "tier": 1,
     "type": "Pipe",
     "mass": 1168.64,
@@ -5288,7 +5288,7 @@
     }
   },
   {
-    "name": "Pipe D",
+    "name": "Pipe D M",
     "tier": 1,
     "type": "Pipe",
     "mass": 1168.64,
@@ -5302,7 +5302,7 @@
     }
   },
   {
-    "name": "Pipe Corner",
+    "name": "Pipe Corner M",
     "tier": 1,
     "type": "Pipe",
     "mass": 1168.64,
@@ -5316,7 +5316,7 @@
     }
   },
   {
-    "name": "Pipe Connector",
+    "name": "Pipe Connector M",
     "tier": 1,
     "type": "Pipe",
     "mass": 1168.64,

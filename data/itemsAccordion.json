@@ -56,8 +56,8 @@
                       "Cable Model-C S",
                       "Cable Model-C M",
                       "Corner Cable Model-A",
-                      "Corner Cable Model-A",
-                      "Corner Cable Model-A"
+                      "Corner Cable Model-B",
+                      "Corner Cable Model-C"
                     ]
                   },
                   {
@@ -827,15 +827,11 @@
           "Manganese Scrap",
           "Molybdenum Scrap",
           "Nickel Scrap",
-          "Niobium Scrap",
           "Platinum Scrap",
-          "Rhenium Scrap",
           "Scandium Scrap",
           "Silicon Scrap",
           "Sodium Scrap",
-          "Titanium Scrap",
           "Tungsten Scrap",
-          "Vanadium Scrap",
           "Zirconium Scrap"
         ]
       }

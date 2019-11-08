@@ -83,9 +83,9 @@ var inv=[];
 var craft=[];
 
 //console.log(recipes);
-console.log(typeof recipes);
+//console.log(typeof recipes);
 var cc=new recipeCalc(recipes);
-console.log(JSON.stringify(cc.db));
+//console.log(JSON.stringify(cc.db));
 
 //run crafting calculations and update output lists oreList and queueList
 function calculate()
