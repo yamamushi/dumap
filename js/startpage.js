@@ -48,6 +48,10 @@ let bookmarks = [{
             name:'SU Time Calculator',
             url:'./sutime/'
         },
+        {
+            name:'JayleBreak\'s Braking Calculator',
+            url:'./brake/'
+        },
     ]
 },{
     title : 'Tools',
