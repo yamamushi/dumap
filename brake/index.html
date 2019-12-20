@@ -80,7 +80,6 @@ var c  = 30000*1000/3600;
 var c2 = c*c;
 
 form.addEventListener("submit", function (event) {
-    console.log("in calc");
     var data = new FormData(form);
     var input = [];
     for (const entry of data) {
@@ -119,43 +118,60 @@ form.addEventListener("submit", function (event) {
         event.preventDefault();
         return;
     }
-    var distanceAfterT50 = 0;
-    var timeInT50        = 0;
+    var distance = 0;
+    var time     = 0;
 
     if (t50 > 0) {
-        var z1 = c*Math.PI;
-        var z2 = 6*t50;
-        var k  = Math.asin(initialSp/c) + z2*a0/z1;
+        var k1 = Math.asin(initialSp/c);
+
+        var C1 = Math.PI*(a0/2+b0);
+        var C2 = a0*t50;
+        var C3 = c*Math.PI;
+        var t3 = C3*k1;
 
         var v = function(t) {
-            var z  = (-z2*a0*Math.cos(Math.PI*t/z2)+Math.PI*b0*t+z1*k)/z1
-            var z3 = Math.tan(z)
-            return c*z3/Math.sqrt(z3*z3+1)
+            var w   = (C1*t - C2*Math.sin(Math.PI*t/2/t50) + t3)/C3
+            var tan = Math.tan(w);
+            return c*tan/Math.sqrt(tan*tan+1);
         }
-        var tinc  = t50/40
-        var lastv = initialSp
-        var step;
+        time = 2*t50;
 
-        for (step = 1; step < 120; ++step) {
-            var speed = v(step*tinc)
-            distanceAfterT50 = distanceAfterT50 + (speed+lastv)*tinc/2
+        if (v(time) <= finalSp) {
+            var lasttm = 0;
 
-            if (speed <= finalSp) {
-                return distanceToMax, step*tinc
+            while (time - lasttm > 0.5) {
+                var tm = (lasttm+time)/2;
+                var vt = v(tm);
+                if (vt > finalSp) {
+                    lasttm = tm;
+                }
+                else {
+                    time = tm;
+                }
             }
-            lastv = speed
         }
-        timeInT50     = 3*t50
-        initialSp     = lastv
+
+        var tinc  = time/100;
+
+        for (tm = 1; tm <= 100; ++tm) {
+            time       = tm*tinc;
+            var speed  = v(time);
+            distance  += (speed+initialSp)*tinc/2;
+            initialSp  = speed;
+        }
     }
-    var k1        = c*Math.asin(initialSp/c);
-    var k2        = c2 *Math.cos(k1/c)/totA;
-    var time      = (c * Math.asin(finalSp/c) - k1)/totA + timeInT50;
-    var distance  = k2 - c2 * Math.cos((totA*time + k1)/c)/totA + distanceAfterT50;
-    var hr        = Math.floor(time/3600); time -= 3600*hr;
+
+    if (initialSp > finalSp) {
+        var k1    = c*Math.asin(initialSp/c);
+        var k2    = c2 *Math.cos(k1/c)/totA;
+        var t     = (c * Math.asin(finalSp/c) - k1)/totA;
+        var d     = k2 - c2 * Math.cos((totA*t + k1)/c)/totA;
+	    distance += d
+        time     += t
+    }
     var min       = Math.floor(time/60);   time -= 60*min;
     var sec       = Math.round(time);
-    var time_s    = hr + "h:" + min + "m:" + sec +"s";
+    var time_s    = min + "m:" + sec +"s";
     var su        = Math.floor(distance/200000);
     var remainder = distance - 200000*su;
     var suFrac_s  = "" + Math.round(100*remainder/200000)/100;
@@ -164,7 +180,6 @@ form.addEventListener("submit", function (event) {
 
     document.getElementById("results").innerHTML =
             "Braking ends after " + time_s +", and " + distance_s + " distance";
-    console.log("done");
     event.preventDefault();
 })
 </script>
