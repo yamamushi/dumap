@@ -24,6 +24,20 @@ if (get('code')) {
 }
 
 if (session('access_token')) {
+
+    //CHECK SESSION TIMEOUT
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
+        // last request was more than 10 minutes ago
+        session_unset();
+        session_destroy();
+        session_write_close();
+        setcookie(session_name(),'',0,'/');
+        session_regenerate_id(true);
+        header("Location: /");
+        die();
+    }
+    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+
     $user = apiRequest($apiURLBase);
     $guilds = apiRequest($apiURLGuilds);
     $guildmember = apiBotRequest($apiURLGuildMember, $user->id);
