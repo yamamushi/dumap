@@ -52,13 +52,13 @@ if(session('access_token')) {
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" type="text/css" href="styles.a79d59043f2e4aaa965c.css"></head>
+<link rel="stylesheet" type="text/css" href="styles.af05a95fa25782b93cf5.css"></head>
 
 <body>
   <div class="app-root">
     <app-root></app-root>
   </div>
-<script src="runtime-es2015.703a23e48ad83c851e49.js" type="module"></script><script src="polyfills-es2015.4d31cca2afc45cfd85b5.js" type="module"></script><script src="runtime-es5.465c2333d355155ec5f3.js" nomodule></script><script src="polyfills-es5.03d8c9fc4ed8e610412b.js" nomodule></script><script src="main-es2015.99f2551a186ffc5ebd5e.js" type="module"></script><script src="main-es5.83c822dd5dd25c58a03a.js" nomodule></script></body>
+<script src="runtime-es2015.703a23e48ad83c851e49.js" type="module"></script><script src="polyfills-es2015.4d31cca2afc45cfd85b5.js" type="module"></script><script src="runtime-es5.465c2333d355155ec5f3.js" nomodule></script><script src="polyfills-es5.03d8c9fc4ed8e610412b.js" nomodule></script><script src="main-es2015.8a600a5fa332fc8a39e4.js" type="module"></script><script src="main-es5.6ff09fbf43b67e1ad62e.js" nomodule></script></body>
 
 </html>
 EOL;
