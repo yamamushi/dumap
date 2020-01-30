@@ -6,9 +6,21 @@
     -ms-user-select: none;
     user-select: none;
 }
-.nav a{
-color:#fff;
-float:right;
+.navright{
+	float:right;
+}
+a.navright{
+	color:#fff;
+	padding: 0 10px 0 50px;
+}
+
+.navbar{
+	text-align:center;
+}
+.bugButton a{
+	text-decoration:none;
+	color:#000;
+	target-new:tab;
 }
 
 button{
@@ -24,6 +36,35 @@ button:hover{
 }
 button:active{
 	background-color:#0088cc;
+}
+
+#skillsButton{
+	float:left;
+}
+
+.legend{
+	color:#fff;
+	border:1px #fff solid;
+	border-radius:3px;
+	box-shadow:0px 0px 3px #fff;
+	padding:0 5px;
+}
+
+button.bugButton{
+    margin-left: auto;
+    margin-right: auto;
+	color:#000;
+	background-color:#f9d5e5;
+	border:1px #c83349 solid;
+	border-radius:3px;
+	box-shadow:0px 0px 3px #fff;
+	cursor:pointer;
+}
+button.bugButton:hover{
+	background-color:#eeac99;
+}
+button.bugButton:active{
+	background-color:#e06377;
 }
 
 .accordion {
@@ -238,70 +279,114 @@ body{
   color: white;
   border-radius:20px;
 }
-
-.silicon,.carbon,.aluminium{
+/*
+.silicon,.carbon,.aluminium,.quartz,.coal,.bauxite{
 background-color:#70eeff;
 color:black;
 }
-.sodium{
+.sodium,.natron{
 background-color:#daffff;
 color:black;
 }
-.iron{
+.iron,.hematite{
 background-color:#23f45b;
 color:black;
 }
-.tungsten,.gold{
+.cobalt,.gold,.cobaltite{
 background-color:#ff6a1b;
 color:black;
 }
-.lead{
+.silver,.acanthite{
 background-color:#ffb51a;
 color:black;
 }
-.nickel,.copper{
+.nickel,.copper,.garnierite,.malachite{
 background-color:#8fba1b;
 color:black;
 }
-.chromium{
+.chromium,.chromite{
 background-color:#20e775;
 color:black;
 }
-.platinum{
+.fluorine,.cryolite{
 background-color:#9c1a41;
 }
-.scandium{
+.scandium,.kolbeckite{
 background-color:#4bd5ff;
 color:black;
 }
-.zirconium{
+.sulfur,.pyrite{
 background-color:#2cc9ff;
 color:black;
 }
-.manganese{
+.manganese,.rhodonite{
 background-color:#20e778;
 color:black;
 }
-.molybdenum{
+.calcium,.limestone{
 background-color:#f4e026;
 color:black;
 }
-.vanadium{
+.vanadium,.vanadinite{
 background-color:#1cc2ff;
 color:black;
 }
-.niobium{
+.niobium,.columbite{
 background-color:#61a31a;
 color:black;
 }
-.rhenium{
+.lithium,.petalite{
 background-color:#d02233;
 }
-.titanium{
+.titanium,.illmenite{
 background-color:#1bb4ff;
 color:black;
+}
+*/
+
+.basic{
+	background-color:#00cc00;
+	color:#000;
+	border-radius:3px;
+	padding:0 5px;
+}
+.uncommon{
+	background-color:#ffff00;
+	color:#000;
+	border-radius:3px;
+	padding:0 5px;
+	
+}
+.advanced{
+	background-color:#ff6600;
+	color:#000;
+	border-radius:3px;
+	padding:0 5px;
+	
+}
+.rare{
+	background-color:#ff0000;
+	color:#fff;
+	border-radius:3px;
+	padding:0 5px;
+	
+}
+.exotic{
+	background-color:#9933ff;
+	color:#fff;
+	border-radius:3px;
+	padding:0 5px;
+	
 }
 
 .modal-body {
 padding: 2px 16px 5px 16px;
+}
+.totals{
+	font-style:italic;
+}
+#totalTime,#totalOre{
+	color:orange;
+	font-style:normal;
+	font-weight:bold;
 }

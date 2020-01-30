@@ -5,11 +5,29 @@
 <link rel="stylesheet" type="text/css" href="../css/craft2.css">
 <link href="https://fonts.googleapis.com/css?family=Aldrich&display=swap" rel="stylesheet"> 
 </head>
-<title>Dual Universe Crafting Calculator r0.16</title>
+<title>Dual Universe Alpha 3 Crafting Calculator</title>
 <html>
 <body>
+<div class="navbar">
 <button id="skillsButton">Skills</button>
-<span class="nav"><a href="http://dual.sh/index.php">Back to Dual.sh</a></span>
+
+<button class="bugButton"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeK8yHUDnzTDGgJQ1AIss38JvC9m1JoFOCJw3WTuP9TKDDiaw/viewform" target="_blank"> >>> Report Issues!! <<< </a></button>
+
+
+<a class="navright" href="http://dual.sh/index.php">Back to Dual.sh</a>
+
+
+<span class="navright legend">Tiers
+<span class="basic">1:Basic</span>
+<span class="uncommon">2:Uncommon</span>
+<span class="advanced">3:Advanced</span>
+<span class="rare">4:Rare</span>
+<span class="exotic">5:Exotic</span>
+</span>
+
+
+
+</div>
 <div class="main-container flex-container">
 	<div class="flex-box1 section-divider">
 		<div class="section-header list-item">Your Inventory</div>
@@ -33,7 +51,7 @@
 	</div>
 	<div class="flex-box1 section-divider">
 		<div class="section-header list-item">Required Ore</div>
-		<span>Total Ore: <span id="totalOre"></span> Liters</span>
+		<span class="totals">Total Ore: <span id="totalOre"></span> Liters</span>
 		<br>
 		<div id="oreList" class="grid-container2">
 			<div class="list-header">Item Name</div>
@@ -43,7 +61,7 @@
 	</div>
 	<div class="flex-box2 section-divider">
 		<div class="section-header list-item">Crafting Queue</div>
-		<span>Total Time: <span id="totalTime"></span></span>
+		<span class="totals">Total Time: <span id="totalTime"></span></span>
 		<br>
 		<div id="queueList" class="grid-container3">
 			<div class="list-header">Item Name</div>

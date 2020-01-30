@@ -21,16 +21,10 @@ function itemRecipe(data){
 	this.volume=data.volume;
 	this.outputQuantity=data.outputQuantity;
 	this.time=data.time;
-	this.reusable=data.reusable;
+	this.byproducts=data.byproducts;
+	this.industries=data.industries;
 	this.input=data.input
 	if (this.input==null){this.input={};}
-	
-	this.setIngredient=function(name,number){
-		
-		if (number != 0 && number != null && !isNaN(number) && name.length>0){
-			this.input[name]=number;
-		}
-	};
 	
 	this.getIngredients=function(){
 		var out=[];
@@ -39,148 +33,51 @@ function itemRecipe(data){
 		},this);
 		return out;
 	};
+	
+	this.getByproducts=function(){
+		var out=[];
+		Object.keys(this.byproducts).forEach(function(name,i,a){
+			out.push({name:name,quantity:this.byproducts[name]});
+		},this);
+		return out;
+	};
 }
 
 // holds recipe database and performs crafting calculations
 function recipeCalc(data){
 	
-	//parse db from js object, JSON, 2d array, or csv string
+	//parse db from JSON
 	this.parseDb=function(db){
 		var lines;
 		var cols;
 		var headers;
 		this.db={};
 		
-		var jsonOrObject=false;
-		if (typeof db === "string"){
-			jsonOrObject=true;
-			try{ 
-				db=JSON.parse(db);
-				this.types=[];
-				for (var j=0;j<db.length;j++){
-					var item=db[j];
-					var fnd=false;
-					for (var i=0;i<this.types.length;i++)
-					{
-						if(this.types[i]==item.type)
-						{
-							fnd=true;
-							break;
-						}
-					}
-					if(!fnd){
-						this.types.push(item.type);
-					}
-					this.db[item.name]=new itemRecipe(item)
-				}
-				jsonOrObject=true;
-			
-			}
-			catch(e) {
-				lines=db.split(/[\r\n]+/);
-				cols=db.split(/\r|\n/)[0].split(",");
-				
-				headers={}
-				cols.forEach(function(header,i,array){
-					headers[header]=i;
-				})
-				
-				lines.shift();
-				
-				var newLines=[];
-				
-				lines.forEach(function(line,i){
-					var newLine=line.split(",");
-					if (newLine.length==cols.length){
-						newLines.push(newLine);
-					}
-				});
-				lines=newLines;
-			}
-		}
-		else {
-			//console.log("is array")
-			lines=data;
-			cols=lines[0];
-			data.shift();
-			headers={}
-			cols.forEach(function(header,i,array){
-				headers[header]=i;
-			});
-			
-			var items={};
-			var currentItem="";
-			var currentType="";
+		try{ 
+			db=JSON.parse(db);
 			this.types=[];
-			//console.log("parsing lines")
-			lines.forEach(function(line,i,array){
-				//console.log(JSON.stringify(line));
-				var iItem=line[headers["Item Name"]];
-				var iType=line[headers["Item Type"]];
-				
-				//console.log("iType "+iType)
-				//console.log("iItem "+iItem)
-				if (typeof iType === "string" && iType.length !=0){
-					currentType=iType;
-					//console.log("new type "+currentType);
-					this.types.push(currentType);
-					return;
-				}
-				
-				if (typeof iItem === "string" && iItem.length != 0){
-					currentItem=iItem;
-					//console.log("  new item "+currentItem);
-					
-					items[currentItem]=new itemRecipe( {name:currentItem,
-						tier:parseInt(line[headers["Tier"]]),
-						type:currentType,
-						outputQuantity:parseFloat(line[headers["Output Per Batch"]]),
-						time:parseFloat(line[headers["Time [s]"]]),
-						reusable:currentItem.toLowerCase().search("catalyst") != -1} );
-						
-					if (this.types.indexOf(currentType)<8) {items[currentItem].mass=parseFloat(line[headers["Mass [kg]"]]);}
-					
-					if (this.types.indexOf(currentType)<5) {items[currentItem].volume=parseFloat(line[headers["Unit Volume [L]"]]);}
-					
-					//now fill in the first input
-					items[currentItem].setIngredient(line[headers["Input Name"]],parseFloat(line[headers["Input Quantity"]]));
-				}
-				else 
+			for (var j=0;j<db.length;j++){
+				var item=db[j];
+				var fnd=false;
+				for (var i=0;i<this.types.length;i++)
 				{
-					//console.log("    "+line[headers["Input Name"]]+" "+parseFloat(line[headers["Input Quantity"]]));
-					items[currentItem].setIngredient(line[headers["Input Name"]],parseFloat(line[headers["Input Quantity"]]));
+					if(this.types[i]==item.type)
+					{
+						fnd=true;
+						break;
+					}
 				}
-				
-			},this);
-				
-			this.db=items;
+				if(!fnd){
+					this.types.push(item.type);
+				}
+				this.db[item.name]=new itemRecipe(item)
+			}
+		
+		}
+		catch(e) {
+			console.log(e);
 		}
 		
-		Object.keys(this.db).forEach(function(k,i){
-			//console.log(JSON.stringify(this.db[k]));
-			
-			if (this.types.indexOf(this.db[k].type)<5) {return;}
-			var ing=this.db[k].getIngredients();
-			var vol=0;
-			
-			ing.forEach(function(j,i2){
-				//console.log(j);
-				vol+=j.quantity*this.db[j.name].volume
-			},this);
-			vol/=this.db[k].outputQuantity;
-			this.db[k].volume=vol
-			
-			if (this.types.indexOf(this.db[k].type)<8) {return;}
-			var mass=0;
-			//console.log("fix mass k="+k);
-			ing.forEach(function(j,i2){
-				//console.log("    "+j.name)
-				//console.log("    "+j.quantity+" "+j.name+" at "+this.db[j.name].mass);
-				mass+=j.quantity*this.db[j.name].mass
-			},this);
-			mass/=this.db[k].outputQuantity;
-			this.db[k].mass=mass
-		},this);
 		
 		//console.log("parse db return");
 		//console.log(JSON.stringify(this.db));
@@ -219,6 +116,7 @@ function recipeCalc(data){
 				newList[newList.length]=obj;
 			}
 		}
+		//console.log("reduced list: "+JSON.stringify(newList));
 		var t=this;
 		newList.sort(function(l,r){ 
 			//console.log("reduceItems sort");
@@ -230,39 +128,37 @@ function recipeCalc(data){
 			var typeR=t.db[r.name].type;
 			return t.types.indexOf(typeL)>t.types.indexOf(typeR);
 		});
-		//console.log(JSON.stringify(newList));
+		//console.log("reduced list: "+JSON.stringify(newList));
 		return newList;
 	};
 	
 	//crafting simulation calculation
 	// returns list of required crafting queue for a given input of crafted items
-	this.simulate=function(input,inventory,reusables,skills)
-	{
+	this.simulate=function(input,inventory,skills){
 		//console.log("");
 		//console.log("SIMULATING "+JSON.stringify(input));
-		
 		var itemSequence=[];
-		input.reverse()
+		//input.reverse()
 		
 		
-		for (var jj=input.length-1;jj>=0;jj--){
+		for (var jj=0;jj<input.length;jj++){
 			var iqPair=input[jj];
-			//console.log("input: "+iqPair.name+" "+jj);
-			var q=iqPair.quantity;
+			
+			//console.log("number of "+iqPair.name+" required "+iqPair.quantity);
+			
 			
 			//console.log("checking inventory "+inventory[iqPair.name]);
-			if (q<inventory[iqPair.name]){
+			if (iqPair.quantity<inventory[iqPair.name]){
 				//console.log("inventory has enough of input, moving on to next input");
 				//inventory[iqPair.name]-=iqPair.quantity;
-				input.splice(jj,1);
+				//input.splice(jj,1);
 				continue;
 			}
 			
 			
-			var ingredients=this.db[iqPair.name].getIngredients()
-			var iq=this.db[iqPair.name].outputQuantity;
-			
-			//console.log("number of "+iqPair.name+" required "+q);
+			var ingredients=this.db[iqPair.name].getIngredients();
+			var byproducts=this.db[iqPair.name].getByproducts();
+			var oq=this.db[iqPair.name].outputQuantity;
 			
 			
 			var skillReduction=0;
@@ -270,7 +166,7 @@ function recipeCalc(data){
 			var perLevel=0;
 			
 			//console.log("check skills")
-			if (skills[this.db[iqPair.name].type]!=null &&skills[this.db[iqPair.name].type].Material!=null)
+			if (skills[this.db[iqPair.name].type]!=null && skills[this.db[iqPair.name].type].Material!=null)
 			{
 				//console.log("is a skill")
 				if (this.db[iqPair.name].type=="Pure" )
@@ -291,106 +187,66 @@ function recipeCalc(data){
 			//console.log(skillReduction);
 			
 			
-			var iNecessaryQ=roundUp(q-inventory[iqPair.name],iq);
 			//console.log("necessary number of "+iqPair.name+" required "+iNecessaryQ);
 			//console.log("----checking ingredients of input");
 			//console.log(JSON.stringify(this.db[iqPair.name].input));
-			
-			iqPair.quantity=iNecessaryQ;
-			
-			ingredients.forEach(function(ingPair,i){
-				//console.log("--"+ingPair.name);
-				
-				if (this.db[ingPair.name].reusable) {
-					//console.log("is reusable")
-					if (reusables[ingPair.name]===undefined) {
-						//console.log("first entry in reusables list");
-						//console.log(ingPair.quantity);
-						//ingPair.quantity/=(q/iq);
-						//console.log("acutal amount needed: "+ingPair.quantity)
-						reusables[ingPair.name]=ingPair.quantity;
-					}
-					else {
-						//console.log(reusables[ingPair.name]);
-						//console.log(ingPair.quantity);
-						reusables[ingPair.name]=Math.max(reusables[ingPair.name],ingPair.quantity);
-						ingPair.quantity=Math.max(0,reusables[ingPair.name]-ingPair.quantity);
-					}
-				}	
-				var oq=this.db[ingPair.name].outputQuantity;
-				
-				
-				ingPair.quantity=ingPair.quantity-skillReduction
+			if(ingredients.length!=0){
+				while(inventory[iqPair.name]<iqPair.quantity)
+				{
+					//console.log("have "+inventory[iqPair.name]+" of "+iqPair.quantity);
+					//console.log("crafting ingredients for "+iqPair.name);
+					var subSeq=this.simulate(ingredients,inventory,skills)
+					ingredients.forEach(function(ingPair,i){
+						ingPair.quantity=ingPair.quantity-skillReduction
+						inventory[ingPair.name]-=ingPair.quantity
+					},this);
+					inventory[iqPair.name]+=oq;
 					
-				//console.log("due to skills, quantity is "+ingPair.quantity);
-				
-				
-				
-				
-				//console.log(ingPair.name+" makes "+oq+" per batch");
-				//console.log("each of input requires "+ingPair.quantity);
-				//console.log("so "+iNecessaryQ+" input must be "+ingPair.quantity*iNecessaryQ/iq);
-				
-				var craftQ=ingPair.quantity*iNecessaryQ/iq;
-				//console.log(ingPair.quantity);
-				//console.log(iNecessaryQ);
-				//console.log(iq);
-				if (this.db[ingPair.name].reusable){
-					craftQ=ingPair.quantity;
+					itemSequence=itemSequence.concat(subSeq);
+					itemSequence=itemSequence.concat([{name:iqPair.name,quantity:oq}]);
+					
+					
+					
+					
+					byproducts.forEach(function(bPair,i){
+						inventory[bPair.name]+=bPair.quantity;
+					},this);
+					
 				}
-				//console.log("amount we need: "+craftQ);
-				//console.log("amount we have "+inventory[ingPair.name]);
+			}
+			else{
+				//console.log("this is a base recipe, giving desired amount")
+				itemSequence=itemSequence.concat([iqPair]);
 				
-				if (craftQ>inventory[ingPair.name]){
-					//console.log("inventory does not have enough");
-					//inventory[ingPair.name]=0;
-				}
-				else{
-					//console.log("inventory has enough of ing, moving on to next input");
-					inventory[ingPair.name]+=(-craftQ);
-					//console.log("adding "+(-craftQ));
-					//console.log(ingPair.name+" now "+inventory[ingPair.name]);
-					input.splice(jj,1);
-					return;
-				}
+				inventory[iqPair.name]+=iqPair.quantity;
 				
-				ingPair.quantity=craftQ;
-				var ingList=[ingPair]
-				
-				//console.log("sending request for "+ingPair.name+" q "+ingPair.quantity);
-				var simulation=this.simulate(ingList,inventory,reusables,skills)
-				
-				//the actual simulated craft event
-				//console.log("crafted "+ingPair.name+" q "+ingPair.quantity);
-				inventory[ingPair.name]-=craftQ;
-				//console.log(ingPair.name +" quantity left in inv "+inventory[ingPair.name]);
-				itemSequence=itemSequence.concat(simulation);
-			},this);
-			//console.log("finished iterating through the ingredients of "+iqPair.name);
-			itemSequence=itemSequence.concat([iqPair]);
-			inventory[iqPair.name]+=(iqPair.quantity);
+				byproducts.forEach(function(bPair,i){
+					inventory[bPair.name]+=iqPair.quantity*bPair.quantity;
+				},this);
+			}
+			//console.log("adding "+JSON.stringify(dict)+" to sequence");
+			//console.log("sequence: "+JSON.stringify(itemSequence));
+					
 			//console.log("adding "+iqPair.quantity);
 			//console.log(iqPair.name+" now "+inventory[iqPair.name]);
 		}
 		
 		//console.log("returning "+JSON.stringify(itemSequence));
 		//console.log("");
+		//console.log("inventory: "+JSON.stringify(removeInvZeros(inventory)));
 		return itemSequence;
 	};
+	
 	
 	// wrapper for the simulate func
 	this.calcList=function(input,inv,skills)
 	{
-		//console.log("reduce input");
-		//console.log(JSON.stringify(input));
 		var inputRed=this.reduceItems(input);
-		//console.log("reduce input");
-		//console.log(JSON.stringify(inputRed));
 		var invRed=this.reduceItems(inv);
 		
 		for (var i=inputRed.length-1;i>=0;i--){
 			if (this.db[inputRed[i].name]===undefined) {
-				console.log(JSON.stringify(inputRed[i]));
+				//console.log(JSON.stringify(inputRed[i]));
 				inputRed.splice(i,1);
 				continue;
 				}
@@ -403,25 +259,18 @@ function recipeCalc(data){
 		}
 		
 		var sortFunc=function(l,r){
-			return (l.type+l.tier/10)-(r.type+r.tier/10);
+			return (l.typeid+l.tier/10)-(r.typeid+r.tier/10);
 		}
 		
-		//console.log("input");
-		//console.log(JSON.stringify(inputRed));
-		
 		inputRed.forEach(function(k,i){
-			k.type=this.types.indexOf(this.db[k.name].type);
+			k.type=this.db[k.name].type;
+			k.typeid=this.types.indexOf(this.db[k.name].type);
 			k.tier=this.db[k.name].tier;
 		},this);
 		
-		//console.log("input");
-		//console.log(JSON.stringify(inputRed));
 		inputRed.sort(sortFunc);
-		//console.log("input");
-		//console.log(JSON.stringify(inputRed));
 		inputRed.reverse();
-		//console.log("input");
-		//console.log(JSON.stringify(inputRed));
+		
 		
 		var inventory={};
 		Object.keys(this.db).forEach(function(k,i){
@@ -435,44 +284,45 @@ function recipeCalc(data){
 		
 		//console.log("input");
 		//console.log(JSON.stringify(inputRed));
-		//console.log("inventory");
-		//console.log(JSON.stringify(inventory));
-		var reusables={};
 		
 		//console.log("inv before");
 		//console.log(JSON.stringify(removeInvZeros(inventory)));
-		var craftList=this.simulate(inputRed,inventory,reusables,skills);
+		var craftList=this.simulate(inputRed,inventory,skills);
 		//console.log("after");
-		//console.log(JSON.stringify(craftList));
+		//console.log(JSON.stringify(removeInvZeros(inventory)));
+		
+		//console.log("raw craft list "+JSON.stringify(craftList));
 		
 		var compressedList=this.reduceItems(JSON.parse(JSON.stringify(craftList)));
+		//console.log("compressed craft list "+JSON.stringify(compressedList));
 		
 		compressedList.forEach(function(k,i){
 			var time=this.db[k.name].time;
 			k.tier=this.db[k.name].tier;
-			k.typeName=this.db[k.name].type;
-			k.type=this.types.indexOf(k.typeName);
+			k.type=this.db[k.name].type;
+			k.typeid=this.types.indexOf(k.type);
 			
 			//console.log(k.name);
-			if (skills[k.typeName]!=null) {
-				if (k.typeName=="Pure")
+			if (skills[k.type]!=null && k.name.search("Oxygen")==-1 && k.name.search("Hydrogen")==-1) {
+				if (k.type=="Pure" )
 				{
 					//console.log(k.name);
-					//console.log(skills[k.typeName].Time["Tier "+k.tier]);
-					time=time*(1-skills[k.typeName].Time["Tier "+k.tier]*0.05)
+					//console.log(skills[k.type].Time["Tier "+k.tier]);
+					time=time*(1-skills[k.type].Time["Tier "+k.tier]*0.05)
 					//console.log(time);
 					k.time=k.quantity/this.db[k.name].outputQuantity*time;
 					//console.log(k.time);
-				}else if (k.typeName.search("Honeycomb")!=-1){
-					time=time*(1-skills[k.typeName].Time*0.1)
+				}else if (k.type.search("Honeycomb")!=-1){
+					time=time*(1-skills[k.type].Time*0.1)
 					k.time=k.quantity/this.db[k.name].outputQuantity*time;
 				}
 				else
 				{
-					time=time*(1-skills[k.typeName].Time["Tier "+k.tier]*0.1)
+					time=time*(1-skills[k.type].Time["Tier "+k.tier]*0.1)
 					k.time=k.quantity/this.db[k.name].outputQuantity*time;
 				}
-			}else
+			}
+			else
 			{
 				k.time=k.quantity/this.db[k.name].outputQuantity*time;
 			}
@@ -481,16 +331,16 @@ function recipeCalc(data){
 		},this);
 		
 		
-		
-		//console.log("types");
-		//console.log(JSON.stringify(theTypes));
-		
 		compressedList.sort(sortFunc);
 		
 		var invList=[];
 		Object.keys(inventory).forEach(function(k,i){
 			if (inventory[k]===0){return;}
-			invList.push({name:k,quantity:inventory[k],type:this.types.indexOf(this.db[k].type),tier:this.db[k].tier});
+			invList.push({
+				name:k,quantity:inventory[k],
+				type:this.db[k].type,
+				typeid:this.types.indexOf(this.db[k].type),
+				tier:this.db[k].tier});
 		},this);
 		
 		invList.sort(sortFunc);
@@ -594,488 +444,3 @@ function recipeCalc(data){
 	}
 	
 }
-
-
-// gsheets helper function
-function inRange(range,cell)
-{
-	return (range.getColumn()<=cell.getColumn()) && (range.getLastColumn()>=cell.getColumn()) && (range.getRow()<=cell.getRow()) && (range.getLastRow()>=cell.getRow())
-}
-	
-// for the database to update each element with its actual mass & volume
-function onEdit(e){
-	var ss=e.source;
-	var rs=ss.getSheetByName("recipes");
-	var indicator=rs.getRange("j1");
-	
-	if (inRange(indicator,e.range))
-	{
-		indicator.setBackground("#ff0000");
-		
-		var massRange=rs.getRange("f90:f");
-		var nameRange=rs.getRange("b90:b");
-		var volumeRange=rs.getRange("d90:d");
-		var data=rs.getRange("A:I").getValues();
-		
-		var names=nameRange.getValues();
-		var masses=massRange.getValues();
-		var volumes=volumeRange.getValues();
-		
-			
-		
-		var calc=new recipeCalc(data);
-		
-		var newData=calc.getMassesAndVol();
-		//console.log("newData output");
-		//console.log(JSON.stringify(newData));
-		
-		var massOutput=[];
-		var volOutput=[];
-		newData.reverse()
-		
-		var pcnv=0;
-		var pc8=0;
-		var pcn=0;
-		//console.log(JSON.stringify(names));
-		//console.log(names.length)
-		names.forEach(function(k,i){
-			//console.log((k[0] === ""));
-			if (k[0] === "") {
-				massOutput.push([""]);
-				volOutput.push([""]);
-			//console.log("no value push");
-				pcnv+=1;
-				return;
-			}
-				var mnf=true;
-			for (j=newData.length-1;j>=0;j--)
-			{
-				//console.log(newData[j].name+" "+k[0])
-				if(newData[j].name==k[0])
-				{
-					if (newData[j].type<8)
-					{
-						massOutput.push([masses[i][0]]);
-						volOutput.push([newData[j].volume]);
-						//console.log(k[0]+" "+JSON.stringify(masses[j][0]));
-						//console.log(k[0]+" "+JSON.stringify(masses[i][0]));
-						pc8+=1;
-					} else
-					{
-						massOutput.push([newData[j].mass]);
-						volOutput.push([newData[j].volume]);
-						//console.log(k[0]+" "+newData[j].mass);
-						pcn+=1;
-					}
-					//console.log("replacing "+newData[j].name+" "+k[0]+" with "+newData[j].mass);
-					mnf=false;
-					break;
-				}
-			}
-			newData.splice(j,1)
-			//if (mnf) { console.log("match not found for "+k[0])}
-		});
-		
-		console.log(JSON.stringify(massOutput))
-		//console.log(volOutput.length)
-		//console.log(pcnv+" "+pc8+" "+pcn)
-		
-		
-		massRange.setValues(massOutput);
-		volumeRange.setValues(volOutput);
-		
-		
-		SpreadsheetApp.flush();
-		
-		
-		indicator.clear({contentsOnly:true});
-		indicator.setBackground("#00ff00");
-	}
-}
-
-// for the live calculator sheet
-function onEdit(e) {
-	var ss=e.source;
-	var rs=ss.getSheetByName("Recipes");
-	var cs=ss.getSheetByName("Crafting Calculator");
-	var ps=ss.getSheetByName("Price Calculator");
-	
-	var nrng=ss.getNamedRanges();
-	var namedRanges={}
-	nrng.forEach(function(nr,i){
-		if (nr.getName() === "CraftingInput") { namedRanges.craftInputRange=nr.getRange();return;}
-		if (nr.getName() === "CraftingExists") { namedRanges.craftInvRange=nr.getRange();return;}
-		if (nr.getName() === "RawMaterials") { namedRanges.rawMaterialsRange=nr.getRange();return;}
-		if (nr.getName() === "CraftList") { namedRanges.craftListRange=nr.getRange();return;}
-		if (nr.getName() === "CraftFinish") { namedRanges.finishCraftRange=nr.getRange();return;}
-		
-		if (nr.getName() === "PriceItems") { namedRanges.priceItemListRange=nr.getRange();return;}
-		if (nr.getName() === "PriceOutput") { namedRanges.priceOutputRange=nr.getRange();return;}
-		if (nr.getName() === "PriceSettings") { namedRanges.priceSettingsRange=nr.getRange();return;}
-		if (nr.getName() === "PriceOverallStat") { namedRanges.overallPriceDataRange=nr.getRange();return;}
-		if (nr.getName() === "PriceOres") { namedRanges.orePriceRange=nr.getRange();return;}
-		
-		if (nr.getName() === "SkillsCPTime") { namedRanges.SkillsCPTimeRange=nr.getRange();return;}
-		if (nr.getName() === "SkillsEPTime") { namedRanges.SkillsEPTimeRange=nr.getRange();return;}
-		if (nr.getName() === "SkillsFPTime") { namedRanges.SkillsFPTimeRange=nr.getRange();return;}
-		if (nr.getName() === "SkillsIPTime") { namedRanges.SkillsIPTimeRange=nr.getRange();return;}
-		if (nr.getName() === "SkillsOreRefineMaterial") { namedRanges.SkillsOreRefineMaterialRange=nr.getRange();return;}
-		if (nr.getName() === "SkillsOreRefineTime") { namedRanges.SkillsOreRefineTimeRange=nr.getRange();return;}
-		if (nr.getName() === "SkillsProductHCMaterial") { namedRanges.SkillsProductHCMaterialRange=nr.getRange();return;}
-		if (nr.getName() === "SkillsProductHCTime") { namedRanges.SkillsProductHCTimeRange=nr.getRange();return;}
-		if (nr.getName() === "SkillsPureHCMaterial") { namedRanges.SkillsPureHCMaterialRange=nr.getRange();return;}
-		if (nr.getName() === "SkillsPureHCTime") { namedRanges.SkillsPureHCTimeRange=nr.getRange();return;}
-		if (nr.getName() === "SkillsSPTime") { namedRanges.SkillsSPTimeRange=nr.getRange();return;}
-	});
-	
-	var cell=e.range;
-	if (cell.getSheet().getSheetId()==cs.getSheetId())
-	{
-		var indicator=cs.getRange("N1");
-		
-		if ( inRange(indicator,cell) || 
-		inRange(namedRanges.craftInputRange,cell) || 
-		inRange(namedRanges.craftInvRange,cell) ||
-		
-		inRange(namedRanges.SkillsCPTimeRange,cell) ||
-		inRange(namedRanges.SkillsEPTimeRange,cell) ||
-		inRange(namedRanges.SkillsFPTimeRange,cell) ||
-		inRange(namedRanges.SkillsIPTimeRange,cell) ||
-		inRange(namedRanges.SkillsSPTimeRange,cell) ||
-		inRange(namedRanges.SkillsOreRefineMaterialRange,cell) ||
-		inRange(namedRanges.SkillsOreRefineTimeRange,cell) ||
-		inRange(namedRanges.SkillsProductHCMaterialRange,cell) ||
-		inRange(namedRanges.SkillsProductHCTimeRange,cell) ||
-		inRange(namedRanges.SkillsPureHCTimeRange,cell) ||
-		inRange(namedRanges.SkillsSPTimeRange,cell)
-		) {
-			
-			indicator.setBackground("#ff0000");
-			SpreadsheetApp.flush();
-			gsCalc(ss,namedRanges);
-			indicator.setBackground("#00ff00");
-			SpreadsheetApp.flush();
-		}
-		else if (inRange(namedRanges.finishCraftRange,cell) ){
-			//take name and quantity, add in available items (add to existing if applicable)
-			//recalc list
-			
-			indicator.setBackground("#ff0000");
-			SpreadsheetApp.flush();
-			
-			var name=cell.offset(0,-3).getValue()
-			var quantity=parseFloat(cell.offset(0,-2).getValue())
-			
-			var craftInv=namedRanges.craftInvRange.getValues();
-			var inventoryList=[];
-			var inside=false;
-			
-			for (i=0;i<craftInv.length;i++){
-				var ci=craftInv[i];
-				if (ci[0] === "" || ci[0] === null || ci[1] === "" || parseFloat(ci[1]) == null){continue};
-				if (name===ci[0]){
-					inside=true;
-					inventoryList.push({name:ci[0],quantity:parseFloat(ci[1])+quantity});
-				}
-				else{
-					inventoryList.push({name:ci[0],quantity:parseFloat(ci[1])});
-				}
-			}
-			
-			namedRanges.craftInvRange.clear({contentsOnly:true});
-			
-			if (!inside){inventoryList.push({name:name,quantity:parseFloat(quantity)});}
-			//console.log(JSON.stringify(inventoryList));
-			inventoryList.forEach(function(k,i){
-				//console.log("setting "+k.name);
-				namedRanges.craftInvRange.getCell(1+i,1).setValue(k.name);
-				namedRanges.craftInvRange.getCell(1+i,2).setValue(k.quantity);
-			});
-			
-			gsCalc(ss,namedRanges);
-			
-			cell.clear({contentsOnly:true});
-			indicator.setBackground("#00ff00");
-			SpreadsheetApp.flush();
-		}
-		
-		indicator.clear({contentsOnly:true});
-	}
-	else if (cell.getSheet().getSheetId()==ps.getSheetId())
-	{
-		if (!(inRange(namedRanges.priceSettingsRange,cell) || inRange(namedRanges.orePriceRange,cell) || inRange(namedRanges.priceItemListRange,cell))) {return;}
-		// price calculator
-		var orePriceR=namedRanges.orePriceRange.getValues();
-		var itemListR=namedRanges.priceItemListRange.getValues();
-		var settingsR=namedRanges.priceSettingsRange.getValues();
-		
-		var indicator=ps.getRange("G1");
-		indicator.setBackground("#ff0000");
-		SpreadsheetApp.flush();
-		
-		var orePrices={}
-		var itemList=[]
-		var settings={}
-		
-		for (var i=0;i<orePriceR.length;i++){
-			var r=orePriceR[i];
-			orePrices[r[0]]=parseFloat(r[1]);
-		}
-		
-		for (var i=0;i<itemListR.length;i++){
-			var ci=itemListR[i];
-			if (ci[0] === "" || ci[0] === null || ci[1] === "" || parseFloat(ci[1]) == null){continue};
-			itemList.push({name:ci[0],quantity:parseFloat(ci[1])});
-		}
-		var headers=["timeSurcharge","volSurcharge","massSurcharge","flatCharge"]
-		for (var i=0;i<settingsR.length;i++){
-			var r=settingsR[i];
-			var list=[];
-			var mult=1;
-			if (i==0) {mult=3600;}
-			
-			for (var j=0;j<r.length;j++)
-			{
-				//console.log("settings row "+i+" col "+j+" : "+(parseFloat(r[j])/mult))
-				list[list.length]=parseFloat(r[j])/mult;
-				
-			}
-			settings[headers[i]]=list;
-		}
-		
-		
-		var rs=ss.getSheetByName("Recipes");
-		
-		var data=rs.getRange("A:I").getValues();
-			
-		
-		var calc=new recipeCalc(data);
-	
-		var output=calc.calcPrice([],orePrices,itemList,settings,0)
-		
-		namedRanges.priceOutputRange.clear({contentsOnly:true});
-		namedRanges.overallPriceDataRange.clear({contentsOnly:true});
-		
-		
-		/*
-		
-		var abc=[priceList,price,orePrice,time,volume,mass];
-		if (item.type==0){
-			rawMaterialsRange.getCell(row+rowRaw,1).setValue(item.name);
-			rawMaterialsRange.getCell(row+rowRaw,2).setValue(item.quantity);
-			rowRaw++;
-			
-		*/
-		//console.log("-------------------------------")
-		//console.log(JSON.stringify(output[0]))
-		var arr=[];
-		for (var i=0;i<output[0].length;i++)
-		{
-			//console.log("write "+output[0][i])
-			namedRanges.priceOutputRange.getCell(1+i,1).setValue(output[0][i])
-		}
-		
-		namedRanges.overallPriceDataRange.getCell(1,1).setValue(output[2]);
-		namedRanges.overallPriceDataRange.getCell(2,1).setValue(output[3]/3600);
-		namedRanges.overallPriceDataRange.getCell(3,1).setValue(output[4]);
-		namedRanges.overallPriceDataRange.getCell(4,1).setValue(output[5]);
-		
-		indicator.setBackground("#00ff00");
-		SpreadsheetApp.flush();
-	}
-}
-
-// gsheets interface
-function gsCalc(ss,namedRanges)
-{
-	var craftInput=namedRanges.craftInputRange.getValues();
-	var craftInv=namedRanges.craftInvRange.getValues();
-	
-	var rs=ss.getSheetByName("Recipes");
-	var cs=ss.getSheetByName("Crafting Calculator");
-	
-	var data=rs.getRange("A:I").getValues();
-		
-	
-	var calc=new recipeCalc(data);
-	
-	var inputList=[];
-	var inventoryList=[];
-	
-	for (var i=0;i<craftInput.length;i++){
-		var ci=craftInput[i];
-		if (ci[0] === "" || ci[0] === null || ci[1] === "" || parseFloat(ci[1]) == null){continue};
-		inputList.push({name:ci[0],quantity:parseFloat(ci[1])});
-	}
-	
-	for (var i=0;i<craftInv.length;i++){
-		var ce=craftInv[i];
-		if (ce[0] === "" || ce[0] === null || ce[1] === "" || parseFloat(ce[1]) == null){continue};
-		inventoryList.push({name:ce[0],quantity:parseFloat(ce[1])});
-	}
-	//console.log("inputList");
-	//console.log(JSON.stringify(inputList));
-	//console.log("inventoryList");
-	//console.log(JSON.stringify(inventoryList));
-	var skills={
-		Pure:{
-			Time:{"Tier 1":0,
-				"Tier 2":0,
-				"Tier 3":0,
-				"Tier 4":0,
-			"Tier 5":0},
-			Material:{"Sodium Pure":0,
-				"Iron Pure":0,
-				"Carbon Pure":0,
-				"Silicon Pure":0,
-				"Lead Pure":0,
-				"Tungsten Pure":0,
-				"Aluminium Pure":0,
-				"Nickel Pure":0,
-				"Copper Pure":0,
-				"Scandium Pure":0,
-				"Platinum Pure":0,
-				"Chromium Pure":0,
-				"Gold Pure":0,
-				"Zirconium Pure":0,
-				"Molybdenum Pure":0,
-				"Manganese Pure":0,
-				"Vanadium Pure":0,
-				"Titanium Pure":0,
-				"Rhenium Pure":0,
-				"Niobium Pure":0}
-		},
-		"Intermediary Part":{
-			Time:{"Tier 1":0,
-				"Tier 2":0,
-				"Tier 3":0},
-		},
-		"Complex Part":{
-			Time:{"Tier 1":0,
-				"Tier 2":0,
-				"Tier 3":0,
-				"Tier 4":0,
-			"Tier 5":0},
-		},
-		"Structural Part":{
-			Time:{"Tier 1":0,
-				"Tier 2":0,
-				"Tier 3":0,
-				"Tier 4":0,
-			"Tier 5":0},
-		},
-		"Functional Part":{
-			Time:{"Tier 1":0,
-				"Tier 2":0,
-				"Tier 3":0,
-				"Tier 4":0,
-			"Tier 5":0},
-		},
-		"Exceptional Part":{
-			Time:{
-				"Tier 3":0,
-				"Tier 4":0,
-			"Tier 5":0},
-		},
-		"Pure Honeycomb":{
-			Time:0,
-			Material:{"Tier 1":0,
-				"Tier 2":0,
-				"Tier 3":0,
-				"Tier 4":0,
-			"Tier 5":0},
-		},
-		"Product Honeycomb":{
-			Time:0,
-			Material:{"Tier 1":0,
-				"Tier 2":0,
-				"Tier 3":0,
-				"Tier 4":0,
-			"Tier 5":0},
-		}
-	}
-	
-	var sk=namedRanges.SkillsCPTimeRange.getValues();
-	for (var i=0;i<sk.length;i++){
-		skills["Complex Part"].Time["Tier "+(i+1)]=sk[i][0];
-	}
-	sk=namedRanges.SkillsEPTimeRange.getValues();
-	for (var i=0;i<sk.length;i++){
-		skills["Exceptional Part"].Time["Tier "+(i+3)]=sk[i][0];
-	}
-	sk=namedRanges.SkillsFPTimeRange.getValues();
-	for (var i=0;i<sk.length;i++){
-		skills["Functional Part"].Time["Tier "+(i+1)]=sk[i][0];
-	}
-	sk=namedRanges.SkillsIPTimeRange.getValues();
-	for (var i=0;i<sk.length;i++){
-		skills["Intermediary Part"].Time["Tier "+(i+1)]=sk[i][0];
-	}
-	sk=namedRanges.SkillsSPTimeRange.getValues();
-	for (var i=0;i<sk.length;i++){
-		skills["Structural Part"].Time["Tier "+(i+1)]=sk[i][0];
-	}
-	
-	sk=namedRanges.SkillsOreRefineMaterialRange.getValues();
-	for (var i=0;i<sk.length;i++){
-		skills["Pure"].Material[sk[i][0]]=sk[i][1];
-	}
-	sk=namedRanges.SkillsOreRefineTimeRange.getValues();
-	for (var i=0;i<sk.length;i++){
-		skills["Pure"].Time["Tier "+(i+1)]=sk[i][0];
-	}
-	sk=namedRanges.SkillsProductHCMaterialRange.getValues();
-	for (var i=0;i<sk.length;i++){
-		skills["Product Honeycomb"].Material["Tier "+(i+1)]=sk[i][0];
-	}
-	skills["Product Honeycomb"].Time=namedRanges.SkillsProductHCTimeRange.getValues()[0][0];
-	sk=namedRanges.SkillsPureHCMaterialRange.getValues();
-	for (var i=0;i<sk.length;i++){
-		skills["Pure Honeycomb"].Material["Tier "+(i+1)]=sk[i][0];
-	}
-	skills["Pure Honeycomb"].Time=namedRanges.SkillsPureHCTimeRange.getValues()[0][0];
-	
-	//console.log(JSON.stringify(inputList));
-	//console.log(JSON.stringify(inventoryList));
-	//console.log(JSON.stringify(skills));
-	
-	var output=calc.calcList(inputList,inventoryList,skills);
-	
-	//console.log("lists");
-	//console.log(JSON.stringify(lists));
-	//console.log("normal order");
-	//console.log(JSON.stringify(output));
-	//console.log("expanded order");
-	//console.log(JSON.stringify(lists.expanded));
-	
-	//now populate ranges RawMaterials and CraftList
-	var outputRawMaterials=[];
-	var outputCraftList=[];
-	
-	namedRanges.rawMaterialsRange.clear({contentsOnly:true});
-	namedRanges.craftListRange.clear({contentsOnly:true});
-	
-	
-	var row=1;
-	var rowRaw=0;
-	var rowCraft=0;
-	var rowInv=0;
-	
-	output.normal.forEach(function(item,i)
-	{
-		if (item.type==0){
-			namedRanges.rawMaterialsRange.getCell(row+rowRaw,1).setValue(item.name);
-			namedRanges.rawMaterialsRange.getCell(row+rowRaw,2).setValue(item.quantity);
-			rowRaw++;
-		}
-		else
-		{
-			namedRanges.craftListRange.getCell(row+rowCraft,1).setValue(item.name);
-			namedRanges.craftListRange.getCell(row+rowCraft,2).setValue(item.quantity);
-			namedRanges.craftListRange.getCell(row+rowCraft,3).setValue(item.time);
-			rowCraft++;
-		}
-	});
-	
-}
-
