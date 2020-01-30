@@ -15,26 +15,26 @@
 	  {
         "name": "Material",
         "data": [
-          "Sodium Pure",
-          "Iron Pure",
-		  "Carbon Pure",
+          "Aluminium Pure",
+          "Carbon Pure",
+		  "Iron Pure",
           "Silicon Pure",
-		  "Lead Pure",
-		  "Tungsten Pure",
-		  "Aluminium Pure",
-		  "Nickel Pure",
-		  "Copper Pure",
-		  "Scandium Pure",
-		  "Platinum Pure",
+          "Calcium Pure",
 		  "Chromium Pure",
+		  "Copper Pure",
+		  "Sodium Pure",
+		  "Lithium Pure",
+		  "Nickel Pure",
+		  "Silver Pure",
+		  "Sulfur Pure",
+		  "Cobalt Pure",
+		  "Fluorine Pure",
 		  "Gold Pure",
-		  "Zirconium Pure",
-		  "Molybdenum Pure",
+		  "Scandium Pure",
 		  "Manganese Pure",
-		  "Vanadium Pure",
+		  "Niobium Pure",
 		  "Titanium Pure",
-		  "Rhenium Pure",
-		  "Niobium Pure"
+		  "Vanadium Pure"
         ]
       }
     ]

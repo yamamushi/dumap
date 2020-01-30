@@ -49,6 +49,10 @@ for (var i=0;i<skillsAccordion.length;i++)
 
 function formatNum(num,places)
 {
+	if (typeof num !="number"){
+		num=parseInt(num);
+	}
+	//console.log(num)
 	var nStr=num.toFixed(places).toString();
 	nStr += '';
 	x = nStr.split('.');
@@ -71,7 +75,7 @@ String.prototype.toHHMMSS = function () {
     if (hours   < 10) {hours   = "0"+hours;}
     if (minutes < 10) {minutes = "0"+minutes;}
     if (seconds < 10) {seconds = "0"+formatNum(seconds,2);}
-    return days+' d : '+hours+' h : '+minutes+' m : '+seconds+' s';
+    return days+' d : '+hours+' h : '+minutes+' m : '+formatNum(seconds,0)+' s';
 }
 
 
@@ -102,8 +106,16 @@ function calculate()
 	{
 		queueList.removeChild(queueList.children[4])
 	}
+	if(craft.length===0)
+	{
+		totalTime.innerHTML="0".toHHMMSS();
+		totalOre.innerHTML=0;
+		return;
+	}
 	
+	//console.log("calculating the craft");
 	var itemLists=cc.calcList(craft,inv,skills);
+	//console.log("got the craft list");
 	var list=itemLists.normal
 	
 	//console.log("result of craftcalc is");
@@ -114,7 +126,8 @@ function calculate()
 	
 	for (var i=0;i<list.length;i++)
 	{
-		if (list[i].name.search("Ore")!=-1)
+		//console.log("creating elements for "+JSON.stringify(list[i]));
+		if (list[i].type.search("Ore")!=-1)
 		{
 			var item=document.createElement("div");
 			item.classList.add("ore-item");
@@ -140,21 +153,13 @@ function calculate()
 			item.classList.add("queue-item");
 			item.innerHTML=list[i].name;
 			
-			if (list[i].name.search("Pure")!=-1){
-				var pureName=list[i].name.split(" ")[0].toLowerCase();
-				item.classList.add(pureName);
-				item.style.padding="0 0 0 5px";
-				item.style["border-radius"]="3px";
-			}else{
-				item.padding="0 0 0 5px";
-			}
 			
 			var qty=document.createElement("div");
 			qty.classList.add("queue-quantity");
 			qty.innerHTML=formatNum(list[i].quantity,0);
 			var time=document.createElement("div");
 			time.classList.add("queue-time");
-			time.innerHTML=formatNum(list[i].time,2);
+			time.innerHTML=formatNum(list[i].time,0);
 			totTime+=list[i].time;
 			var check=document.createElement("button");
 			check.classList.add("queue-done");
@@ -165,6 +170,10 @@ function calculate()
 			queueList.appendChild(time);
 			queueList.appendChild(check);
 		}
+		item.classList.add(tierNames[list[i].tier-1].toLowerCase());
+		item.style.padding="0 0 0 5px";
+		item.style["border-radius"]="3px";
+			
 	}
 	totalTime.innerHTML=totTime.toString().toHHMMSS();
 	totalOre.innerHTML=formatNum(totOre,0);
@@ -216,7 +225,7 @@ var itemsAccList=createItemsAcc(itemsAccordion,0);
 var itemsAccStr=itemsAccList.join('')
 itemAccordion.innerHTML=itemsAccStr;
 
-var tierNames=["Common","Uncommon","Advanced","Rare","Exotic"];
+var tierNames=["Basic","Uncommon","Advanced","Rare","Exotic"];
 
 function createSkillsAcc()
 {
@@ -538,13 +547,17 @@ function removeItem(event)
 // skill modal callback to modify skill variable
 function setSkill(type,skill,index,value){
 	//console.log("setting")
-	//console.log(skills[skillIndex].name)
-	//console.log(skills[skillIndex].data[type].name)
+	//console.log(skills[index].name)
+	//console.log(skills[index].data[type].name)
 	if(index==null)
 	{
 		skills[type][skill]=value;
 	}else{
-		//console.log(skills[skillIndex].data[type].data[index].name)
+		//console.log(type);
+		//console.log(index);
+		//console.log(skill);
+		//console.log(value);
+		//console.log(skills[type][skill][index]);
 		skills[type][skill][index]=value;
 	}
 
