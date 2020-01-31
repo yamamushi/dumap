@@ -170,7 +170,10 @@ function calculate()
 			queueList.appendChild(time);
 			queueList.appendChild(check);
 		}
-		item.classList.add(tierNames[list[i].tier-1].toLowerCase());
+		var tierName = tierNames[list[i].tier-1];
+		if (tierName) {
+			item.classList.add(tierName.toLowerCase());
+		}
 		item.style.padding="0 0 0 5px";
 		item.style["border-radius"]="3px";
 			
