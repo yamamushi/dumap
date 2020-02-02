@@ -12,11 +12,6 @@ Header set Content-Security-Policy "script-src 'self'; style-src 'self' 'unsafe-
     RewriteEngine On
     RewriteCond %{SCRIPT_FILENAME} !-f
     RewriteRule ^([a-z0-9/]*)$ index.html [L]
-
-    <If "%{HTTPS} != 'on'">
-        # Redirect main pages to HTTPS. Preparation for PWAs
-        RewriteRule ^[a-z0-9/]+$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
-    </If>
 </IfModule>
 
 # Content caching, tuned for an Angular application
