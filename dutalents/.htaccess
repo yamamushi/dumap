@@ -20,7 +20,7 @@ Header set Content-Security-Policy "script-src 'self'; style-src 'self' 'unsafe-
     # with return code 200. Usually Angular handles the virtual part
     # internally, but if user presses F5, the server receives it.
     RewriteCond %{SCRIPT_FILENAME} !-f
-    RewriteRule ^([a-z0-9/]*)$ index.php [L]
+    RewriteRule ^[a-z][a-z0-9/]+$ index.php [L]
 </IfModule>
 
 # Content caching, tuned for an Angular application
