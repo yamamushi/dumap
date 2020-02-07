@@ -297,7 +297,7 @@
     "type": "Pure",
     "mass": 2.33,
     "volume": 1,
-    "outputQuantity": 50,
+    "outputQuantity": 45,
     "time": 50,
     "byproducts": {"Oxygen Pure":15},
     "industries": [],
@@ -6976,7 +6976,7 @@
     "input": {
       "Basic Screw": 648,
       "Uncommon Screw": 648,
-      "Uncommon Screw": 625,
+      "Uncommon Power System": 625,
       "Uncommon Electric Engine XL": 1,
       "Uncommon Reinforced Frame XL": 1
     }
@@ -6994,7 +6994,7 @@
     "input": {
       "Basic Screw": 648,
       "Uncommon Screw": 648,
-      "Uncommon Screw": 625,
+      "Uncommon Power System": 625,
       "Uncommon Electric Engine XL": 1,
       "Uncommon Reinforced Frame XL": 1
     }
@@ -7012,7 +7012,7 @@
     "input": {
       "Basic Screw": 648,
       "Uncommon Screw": 648,
-      "Uncommon Screw": 625,
+      "Uncommon Power System": 625,
       "Uncommon Electric Engine XL": 1,
       "Uncommon Reinforced Frame XL": 1
     }
@@ -7030,7 +7030,7 @@
     "input": {
       "Basic Screw": 648,
       "Uncommon Screw": 648,
-      "Uncommon Screw": 625,
+      "Uncommon Power System": 625,
       "Uncommon Electric Engine XL": 1,
       "Uncommon Reinforced Frame XL": 1
     }
@@ -7048,7 +7048,7 @@
     "input": {
       "Basic Screw": 648,
       "Uncommon Screw": 648,
-      "Uncommon Screw": 625,
+      "Uncommon Power System": 625,
       "Uncommon Electric Engine XL": 1,
       "Uncommon Reinforced Frame XL": 1
     }
