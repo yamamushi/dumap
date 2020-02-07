@@ -7,7 +7,7 @@ Map
 
 (Done) - Need to fix the camera orientation
 - Need more toggle options/sliders whatever
-- Need to draw lines between two points
+(Demo working) - Need to draw lines between two points
 (Demo working) - Need info boxes for planets (info panel?)
 (Deprecated) - Need live data functionality
 
@@ -19,5 +19,6 @@ Auth
 
 Wiki
 
-- Need to add a backup job for the wiki content.
-- Need to add logging functionality to record who is editing what pages (in case of vandalism)
+- Need to add paginate to the edit logs
+(Deprecated) - Need to add a backup job for the wiki content.
+(Done) - Need to add logging functionality to record who is editing what pages (in case of vandalism)

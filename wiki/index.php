@@ -8,6 +8,10 @@
  *
  * Modified work Copyright 2019 - Yamamushi
  *
+ * Notes:
+ *
+ * Diff Lib Documentation - http://code.iamkate.com/php/diff-implementation/
+ *
  */
 
 define('PAGE_TITLE', 'Dual.sh');
@@ -18,10 +22,23 @@ include '../library/vars.php';
 include '../library/global.php';
 require_once '../library/class.Diff.php';
 
-@set_magic_quotes_runtime(false);
-
+ini_set('magic_quotes_runtime', 0);
 
 if(session('access_token')) {
+
+    //CHECK SESSION TIMEOUT
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
+        // last request was more than 10 minutes ago
+        session_unset();
+        session_destroy();
+        session_write_close();
+        setcookie(session_name(),'',0,'/');
+        session_regenerate_id(true);
+        header("Location: /");
+        die();
+    }
+    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+
     $user = apiRequest($apiURLBase);
     $guilds = apiRequest($apiURLGuilds);
     $guildmember = apiBotRequest($apiURLGuildMember, $user->id);
@@ -74,9 +91,20 @@ if(session('access_token')) {
 
 // Save content.
             if (!empty($_POST)) {
-                if (!savePageContent($_POST, $user)) {
+                //echo print_r($_POST);
+                if ($_POST['search'] == 'Search'){
+                    if (isset($_POST['searchphrase']) && $_POST['searchphrase'] != '') {
+                        printHeader("Search results for: \"".$_POST['searchphrase']."\"");
+                        printSearch($_POST['searchphrase']);
+                        printFooter($user, "Search");
+                        exit;
+                    }
+
+                }
+                else if (!savePageContent($_POST, $user)) {
                     $msg = 'Edit failed. Please, try again.';
                 }
+
             }
 
 
@@ -85,21 +113,21 @@ if(session('access_token')) {
                 $title = idToTitle($_GET['edit']);
                 printHeader(!$title ? "Create new page" : "Edit page '$title'");
                 printEdit($title);
-                printFooter($title);
+                printFooter($user, $title);
                 exit;
             } // History
             elseif (array_key_exists('history', $_GET)) {
                 $title = idToTitle($_GET['history']);
                 printHeader("Modification History for '$title'");
                 printHistory($title);
-                printFooter($title);
+                printFooter($user, $title);
                 exit;
             } // Backlinks
             elseif (isset($_GET['backlinks']) && pageExists($_GET['backlinks'])) {
                 $title = idToTitle($_GET['backlinks']);
                 printHeader("Backlinks for '$title'");
                 printBacklinks($title);
-                printFooter($title);
+                printFooter($user, $title);
                 exit;
             } elseif (isset($_GET['recent'])) {
                 $count = $_GET['recent'];
@@ -108,14 +136,14 @@ if(session('access_token')) {
                 }
                 printHeader("$count Most Recent Changes");
                 printRecentChanges($count);
-                printFooter();
+                printFooter($user);
                 exit;
             } // Show page
             elseif ($page) {
                 $title = idToTitle($page);
                 printHeader($title);
                 printContent($title);
-                printFooter($title);
+                printFooter($user, $title);
                 exit;
             } else {
                 header('Location: ./?Special:NotFound');
@@ -226,8 +254,8 @@ PAGE_HEAD;
  * @param string $page
  * @return void
  */
-function printFooter($page = BASE_PAGE){
-    $sidebar = getSidebar($page);
+function printFooter($user, $page = BASE_PAGE){
+    $sidebar = getSidebar($user, $page);
     $footer = strftime(FOOTER_TEXT);
     echo <<<PAGE_FOOT
       </div>
@@ -250,7 +278,7 @@ PAGE_FOOT;
  * @param string $page
  * @return void
  */
-function getSidebar($page = BASE_PAGE){
+function getSidebar($user, $page = BASE_PAGE){
     $title = PAGE_TITLE;
     $id = titleToId($page);
     $mod = 'not yet.';
@@ -267,21 +295,40 @@ function getSidebar($page = BASE_PAGE){
         $historylink = "<li class=\"create-new-link\"><a href=\"./?history=$id\">View Page History</a></li>";
     }
 
-    return <<<PAGE_SIDEBAR
-<p id="title"><a href="./">$title</a></p>
-$toc
-<br>
-<ul class="sidebar-list">
-<h3>Page Tools</h3>
-  <li class="edit-link"><a href="./?edit=$id">Edit Page</a></li>
-  $bl
-  $historylink
-  <li class="modified">Last Updated: <em>$mod</em></li>
-  <li class="create-new-link"><a href="./?edit=">Create New Page</a></li>
-  <li class="recent-changes-link"><a href="./?recent=10">Recent Changes</a></li>
+     $page_sidebar = "
+<p id=\"title\"><a href=\"./\">$title</a></p>
+<ul class=\"sidebar-list\">
+<h3>Navigation</h3>
+  <li><a href=\"http://dual.sh/wiki/\">Wiki Home</a></li>
+  <li><a href=\"http://dual.sh/\">Dual.sh Menu</a></li>
+  <li class=\"create-new-link\"><a href=\"./?edit=\">Create New Page</a></li>
+  <li class=\"recent-changes-link\"><a href=\"./?recent=10\">Recent Changes</a></li>
+<form action=\"\" method=\"POST\">
+<input type=\"text\" name=\"searchphrase\" value=\"\" style=\"width: 100px; height: 18px; font-size:14px;\" >
+<input type=\"submit\" value=\"Search\" name=\"search\" style=\"width: 80px; margin-left: 12px\">
+</form>
 </ul>
+<br>
+$toc
+<ul class=\"sidebar-list\">";
 
-PAGE_SIDEBAR;
+if ($id != "Search") {
+    $page_sidebar = $page_sidebar."
+<h3>Page Tools</h3>
+  <li class=\"edit-link\"><a href=\"./?edit=$id\">Edit Page</a></li>
+  $bl
+  $historylink 
+  <li class=\"modified\"><em>Page Last Updated:<br> $mod</em></li>
+</ul>";
+}
+$page_sidebar = $page_sidebar."
+<br>
+<div class=\"loggedin\"><em>Logged in as <b>$user->username</b></em></div>
+<br><br>
+<a href=\"?action=logout\">Log Out</a>";
+
+
+    return $page_sidebar;
 }
 
 
@@ -295,6 +342,8 @@ function printContent($page = BASE_PAGE){
     global $texy;
     if(pageExists($page)){
         echo $texy->process(getContent($page));
+        echo '<br>';
+        echo '<button onclick="history.go(-1);">Go Back</button>';
     } elseif(pageExists('Special:NotFound')){
         echo $texy->process(str_replace('%PAGE%', $page, getContent('Special:NotFound')));
     } else{
@@ -320,7 +369,7 @@ function printEdit($page){
     }
 
     echo <<<EDIT_FORM
-<form action="./?edit=$id" method="post" id="edit-form">
+<form action="./?edit=$id" method="post" id="edit-form" name="editForm">
   <p id="edit-block-title" class="edit-block">
     <label for="edit-title">Page:</label>
     <input type="text" id="edit-title" name="title" value="$title">
@@ -330,8 +379,8 @@ function printEdit($page){
     <textarea name="content" id="edit-content" rows="15" cols="80">$content</textarea>
   </div>
   <p id="edit-block-submit" class="edit-block">
-    <button type="submit">Save changes</button>
-    <a href="./?$id">Cancel</a>
+    <button type="submit" name="save">Save</button>
+    <button onclick="window.location='http://dual.sh/wiki/?$id';">Cancel</button> <button onclick="history.go(-1);">Go Back</button>
   </p>
   <p id="edit-block-help" class="edit-block">
     You can use <a href="http://texy.info/en/syntax">Texy! syntax</a> and some HTML too.<br>
@@ -401,7 +450,11 @@ function printRecentChanges($count){
     global $texy;
     $list = array();
     foreach(new FilesystemIterator(dirname(__FILE__) . '/wikdata', FilesystemIterator::SKIP_DOTS) as $file){
-        $list[filemtime($file)] = fileToTitle($file);
+        $filetypes = array("wik");
+        $filetype = pathinfo($file, PATHINFO_EXTENSION);
+        if (in_array(strtolower($filetype), $filetypes)) {
+            $list[filemtime($file)] = fileToTitle($file);
+        }
     }
     krsort($list);
 
@@ -568,7 +621,8 @@ function saveDiffContent($title, $file, $content, $user) {
 function printHistory($page){
     $title = $content = $id = '';
     if($page){
-        $title = trim($page);
+        $title = $page;
+        $id = titleToId($title);
         $id = titleToId($page);
         if(pageExists($page)){
             $file = file_get_contents(getDiffFilePath($page));
@@ -583,8 +637,61 @@ function printHistory($page){
     echo <<<HISTORY
 $content
 <br>
-<a href="http://dual.sh/wiki/?$title">Return to article</a>
+<a href="http://dual.sh/wiki/?$id">Return to article</a>
 HISTORY;
 }
 
 
+/**
+ * Print page for Search results
+ * @param string $searchstring
+ * @return null
+ */
+function printSearch($searchstring){
+    global $texy;
+    if (strlen($searchstring) < 3){
+        echo <<<HISTORY
+Query $searchstring is too short, it must be between 3 and 30 characters.
+<br>
+<a href="http://dual.sh/wiki/">Return to Homepage</a>
+HISTORY;
+        return;
+    }
+    if (strlen($searchstring) > 30){
+        echo <<<HISTORY
+Query $searchstring is too long, it must be between 3 and 30 characters.
+<br>
+<a href="http://dual.sh/wiki/">Return to Homepage</a>
+HISTORY;
+        return;
+    }
+
+    $result = getGrepSearch($searchstring);
+    $results = preg_split('/\s+/', $result);
+
+    $output = "";
+    foreach ($results as $unparsed) {
+        if (strlen($unparsed) > 0) {
+            $unparsed = substr($unparsed, strlen("./wikdata/"));
+            $output = $output."[".fileToTitle($unparsed)."]"."<br>";
+        }
+    }
+    $output = $texy->process($output);
+
+
+    echo <<<HISTORY
+$output 
+<br>
+<a href="http://dual.sh/wiki/">Return to Homepage</a>
+HISTORY;
+}
+
+/**
+ * Use Grep to get Search results
+ * @param string $searchstring
+ * @return string
+ */
+function getGrepSearch($searchstring)
+{
+    return shell_exec('grep -il "'.$searchstring.'" ./wikdata/*.wik');
+}
