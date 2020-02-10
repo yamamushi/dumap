@@ -1,0 +1,109 @@
+{
+  "configVersion": 1,
+  "timestamp": 1581357201292,
+  "index": "/dutalents/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/dutalents/favicon.ico",
+        "/dutalents/index.html",
+        "/dutalents/main-es2015.dc05358d2f58063847cd.js",
+        "/dutalents/main-es5.dc05358d2f58063847cd.js",
+        "/dutalents/manifest.webmanifest",
+        "/dutalents/polyfills-es2015.ca64e4516afbb1b890d5.js",
+        "/dutalents/polyfills-es5.277e2e1d6fb2daf91a5c.js",
+        "/dutalents/runtime-es2015.0811dcefd377500b5b1a.js",
+        "/dutalents/runtime-es5.0811dcefd377500b5b1a.js",
+        "/dutalents/styles.abed7b92e5a669364b2d.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/dutalents/assets/icons/icon-128x128.png",
+        "/dutalents/assets/icons/icon-144x144.png",
+        "/dutalents/assets/icons/icon-152x152.png",
+        "/dutalents/assets/icons/icon-180x180.png",
+        "/dutalents/assets/icons/icon-192x192.png",
+        "/dutalents/assets/icons/icon-384x384.png",
+        "/dutalents/assets/icons/icon-512x512.png",
+        "/dutalents/assets/icons/icon-72x72.png",
+        "/dutalents/assets/icons/icon-96x96.png",
+        "/dutalents/assets/images/BMC.Logo.Gold.png",
+        "/dutalents/assets/images/need-javascript.png",
+        "/dutalents/assets/themes/bluegrey-amber.css",
+        "/dutalents/assets/themes/bluegrey-yellow.css",
+        "/dutalents/assets/themes/deeporange-blue.css",
+        "/dutalents/assets/themes/deeppurple-amber.css",
+        "/dutalents/assets/themes/grey-blue.css",
+        "/dutalents/assets/themes/indigo-pink.css",
+        "/dutalents/assets/themes/lime-brown.css",
+        "/dutalents/assets/themes/pink-grey.css",
+        "/dutalents/assets/themes/purple-green.css",
+        "/dutalents/assets/themes/teal-yellow.css"
+      ],
+      "patterns": [
+        "https:\\/\\/fonts\\.googleapis\\.com\\/.*",
+        "https:\\/\\/fonts\\.gstatic\\.com\\/.*"
+      ]
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/dutalents/assets/icons/icon-128x128.png": "ad02dbd7a46aba0dc7f5a3f07e555c88c9b896a0",
+    "/dutalents/assets/icons/icon-144x144.png": "76fe31410d61b28677e9ee2e25355a899a0e354c",
+    "/dutalents/assets/icons/icon-152x152.png": "003a74e388ff0373280df747a229a21aa82a01a1",
+    "/dutalents/assets/icons/icon-180x180.png": "4d4a48daf44cbf661dfecae07d0036f13a48b315",
+    "/dutalents/assets/icons/icon-192x192.png": "1a7d62164143b5b47cd60a7b250f5f307bee2975",
+    "/dutalents/assets/icons/icon-384x384.png": "5c122dc4c2b9dbc4d1044cf8b58d43a545e30f21",
+    "/dutalents/assets/icons/icon-512x512.png": "68e2f633360c13f38bc0e7f31468fb799ecbbf39",
+    "/dutalents/assets/icons/icon-72x72.png": "dfff0f148d72d5229e86163ddcd8311e896e0975",
+    "/dutalents/assets/icons/icon-96x96.png": "1e69190c9353d4bb34768192be6b39ec3f259d2a",
+    "/dutalents/assets/images/BMC.Logo.Gold.png": "12dffd575f94d6e5977d3160114aaefe53e48697",
+    "/dutalents/assets/images/need-javascript.png": "a0181301c1f36753df7d1bc70349d9c00346d0e1",
+    "/dutalents/assets/themes/bluegrey-amber.css": "0213f5a9ef03cc9e3d73f2032898217d615c9d02",
+    "/dutalents/assets/themes/bluegrey-yellow.css": "bc88e98985ab491f63c78c2d70bb85e5607d0284",
+    "/dutalents/assets/themes/deeporange-blue.css": "78d7502457572585b0bd2ea506752369f2ef6fc1",
+    "/dutalents/assets/themes/deeppurple-amber.css": "04a9c2c76414230679d77a6b3a67f1e81c7af10f",
+    "/dutalents/assets/themes/grey-blue.css": "8cea79b491f1a270c6625db789bd7257aac1a8b5",
+    "/dutalents/assets/themes/indigo-pink.css": "f772826409104b579ecda3a9c18ba66e32a8f2e6",
+    "/dutalents/assets/themes/lime-brown.css": "a74128d2464712d65c6daab0d7339735595df3d2",
+    "/dutalents/assets/themes/pink-grey.css": "15f470b3e01a7ec1c5b0810cf8f7240f1a14734b",
+    "/dutalents/assets/themes/purple-green.css": "ad73b32f1788c8e76737acec6f19b96210a9c3f4",
+    "/dutalents/assets/themes/teal-yellow.css": "d6a9674ffe98eb943f8610a891b8d767cba1b09a",
+    "/dutalents/favicon.ico": "66bb5b9718f55d9fcde9bca21862cc2807d5bd83",
+    "/dutalents/index.html": "83d0e0409985dea416acfb258dcaf197953e5df2",
+    "/dutalents/main-es2015.dc05358d2f58063847cd.js": "6bb242b2de9f2fa61c5a6c81cd2bb27ce171e101",
+    "/dutalents/main-es5.dc05358d2f58063847cd.js": "748f040a679c8b59ca629860fbd1c7b9ddfc413b",
+    "/dutalents/manifest.webmanifest": "698e4cb67babd69644cea3fb6898f357ee5edffb",
+    "/dutalents/polyfills-es2015.ca64e4516afbb1b890d5.js": "8779ed8d9bf0580e1b50b352a9b8fd520be24433",
+    "/dutalents/polyfills-es5.277e2e1d6fb2daf91a5c.js": "8d03638471d7374e81cf33adfdea439f84ac3873",
+    "/dutalents/runtime-es2015.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/dutalents/runtime-es5.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/dutalents/styles.abed7b92e5a669364b2d.css": "53ee4e62dc1582501f65d0e6e2b791171385e839"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

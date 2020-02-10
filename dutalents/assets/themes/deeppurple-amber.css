@@ -39,15 +39,15 @@
 .mat-pseudo-checkbox-disabled {
   color: #686868; }
 
+.mat-primary .mat-pseudo-checkbox-checked,
+.mat-primary .mat-pseudo-checkbox-indeterminate {
+  background: #673ab7; }
+
 .mat-pseudo-checkbox-checked,
 .mat-pseudo-checkbox-indeterminate,
 .mat-accent .mat-pseudo-checkbox-checked,
 .mat-accent .mat-pseudo-checkbox-indeterminate {
   background: #ffd740; }
-
-.mat-primary .mat-pseudo-checkbox-checked,
-.mat-primary .mat-pseudo-checkbox-indeterminate {
-  background: #673ab7; }
 
 .mat-warn .mat-pseudo-checkbox-checked,
 .mat-warn .mat-pseudo-checkbox-indeterminate {
@@ -152,10 +152,9 @@
 .mat-badge-content {
   color: white;
   background: #673ab7; }
-  @media (-ms-high-contrast: active) {
-    .mat-badge-content {
-      outline: solid 1px;
-      border-radius: 0; } }
+  .cdk-high-contrast-active .mat-badge-content {
+    outline: solid 1px;
+    border-radius: 0; }
 
 .mat-badge-accent .mat-badge-content {
   background: #ffd740;
@@ -460,9 +459,6 @@
 
 .mat-checkbox-checkmark-path {
   stroke: #303030 !important; }
-  @media (-ms-high-contrast: black-on-white) {
-    .mat-checkbox-checkmark-path {
-      stroke: #000 !important; } }
 
 .mat-checkbox-mixedmark {
   background-color: #303030; }
@@ -484,14 +480,6 @@
 
 .mat-checkbox-disabled .mat-checkbox-label {
   color: rgba(255, 255, 255, 0.7); }
-
-@media (-ms-high-contrast: active) {
-  .mat-checkbox-disabled {
-    opacity: 0.5; } }
-
-@media (-ms-high-contrast: active) {
-  .mat-checkbox-background {
-    background: none; } }
 
 .mat-checkbox .mat-ripple-element {
   background-color: white; }
@@ -530,7 +518,7 @@
     color: white;
     opacity: 0.4; }
   .mat-chip.mat-standard-chip.mat-chip-selected.mat-primary .mat-ripple-element {
-    background: rgba(255, 255, 255, 0.1); }
+    background-color: rgba(255, 255, 255, 0.1); }
 
 .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn {
   background-color: #f44336;
@@ -539,7 +527,7 @@
     color: white;
     opacity: 0.4; }
   .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn .mat-ripple-element {
-    background: rgba(255, 255, 255, 0.1); }
+    background-color: rgba(255, 255, 255, 0.1); }
 
 .mat-chip.mat-standard-chip.mat-chip-selected.mat-accent {
   background-color: #ffd740;
@@ -548,7 +536,7 @@
     color: rgba(0, 0, 0, 0.87);
     opacity: 0.4; }
   .mat-chip.mat-standard-chip.mat-chip-selected.mat-accent .mat-ripple-element {
-    background: rgba(0, 0, 0, 0.1); }
+    background-color: rgba(0, 0, 0, 0.1); }
 
 .mat-table {
   background: #424242; }
@@ -663,7 +651,9 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .mat-action-row {
   border-top-color: rgba(255, 255, 255, 0.12); }
 
-.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled='true']).cdk-keyboard-focused, .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled='true']).cdk-program-focused, .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled='true']):hover {
+.mat-expansion-panel .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled='true']),
+.mat-expansion-panel .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled='true']),
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:hover:not([aria-disabled='true']) {
   background: rgba(255, 255, 255, 0.04); }
 
 @media (hover: none) {
@@ -1413,10 +1403,15 @@ app-nav-bar {
   background: rgba(255, 255, 255, 0.12); }
 
 .lock-nolink {
-  color: #ffd740 !important; }
+  color: #ffd740 !important;
+  font-size: 90%; }
 
 .lock-link {
-  color: #ffc400 !important; }
+  color: #ffc400 !important;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  border: solid 1px #ffc400;
+  font-size: 120%; }
 
 .mat-progress-bar.mat-accent .mat-progress-bar-fill::after {
   background-color: #ffc400 !important;
@@ -1426,6 +1421,16 @@ app-nav-bar {
 .role:hover {
   color: rgba(0, 0, 0, 0.87) !important;
   background-color: #ffd740 !important; }
+
+.close-icon {
+  color: #ffd740;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: solid 1px #ffc400; }
+
+.close-icon:hover {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #ffd740 !important;
+  opacity: 1 !important; }
 
 .grouplink {
   color: white; }
@@ -1449,8 +1454,8 @@ app-nav-bar {
   color: white; }
 
 .tbhover:hover {
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #ffd740; }
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #ffd740 !important; }
 
 .mat-option:hover:not(.mat-option-disabled) {
   color: rgba(0, 0, 0, 0.87);
