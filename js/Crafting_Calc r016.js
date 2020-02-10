@@ -308,17 +308,17 @@ function recipeCalc(data){
 				{
 					//console.log(k.name);
 					//console.log(skills[k.type].Time["Tier "+k.tier]);
-					time=time*(1-skills[k.type].Time["Tier "+k.tier]*0.05)
+					time=time/(1+skills[k.type].Time["Tier "+k.tier]*0.05)
 					//console.log(time);
 					k.time=k.quantity/this.db[k.name].outputQuantity*time;
 					//console.log(k.time);
 				}else if (k.type.search("Honeycomb")!=-1){
-					time=time*(1-skills[k.type].Time*0.1)
+					time=time/(1+skills[k.type].Time*0.1)
 					k.time=k.quantity/this.db[k.name].outputQuantity*time;
 				}
 				else
 				{
-					time=time*(1-skills[k.type].Time["Tier "+k.tier]*0.1)
+					time=time/(1+skills[k.type].Time["Tier "+k.tier]*0.1)
 					k.time=k.quantity/this.db[k.name].outputQuantity*time;
 				}
 			}
