@@ -52,17 +52,19 @@ if(session('access_token')) {
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" type="text/css" href="styles.c5107725120732726018.css"></head>
+  <link rel="apple-touch-icon" href="assets/icons/icon-180x180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
+<link rel="stylesheet" type="text/css" href="styles.abed7b92e5a669364b2d.css"></head>
 
 <body style="background-color: #303030;">
   <div class="app-root">
     <app-root></app-root>
   </div>
   <noscript><img src="assets/images/need-javascript.png" /></noscript>
-<script src="runtime-es2015.703a23e48ad83c851e49.js" type="module"></script><script src="polyfills-es2015.4d31cca2afc45cfd85b5.js" type="module"></script><script src="runtime-es5.465c2333d355155ec5f3.js" nomodule></script><script src="polyfills-es5.03d8c9fc4ed8e610412b.js" nomodule></script><script src="main-es2015.7da118cae00947d9ef48.js" type="module"></script><script src="main-es5.46e1c0705fad976b58f3.js" nomodule></script></body>
+<script src="runtime-es2015.0811dcefd377500b5b1a.js" type="module"></script><script src="runtime-es5.0811dcefd377500b5b1a.js" nomodule defer></script><script src="polyfills-es5.277e2e1d6fb2daf91a5c.js" nomodule defer></script><script src="polyfills-es2015.ca64e4516afbb1b890d5.js" type="module"></script><script src="main-es2015.dc05358d2f58063847cd.js" type="module"></script><script src="main-es5.dc05358d2f58063847cd.js" nomodule defer></script></body>
 
 </html>
-
 EOL;
             }
         }
