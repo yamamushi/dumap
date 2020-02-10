@@ -1,7 +1,7 @@
 {
   "configVersion": 1,
-  "timestamp": 1581357201292,
-  "index": "/dutalents/index.html",
+  "timestamp": 1581365684953,
+  "index": "/dutalents/",
   "assetGroups": [
     {
       "name": "app",
@@ -10,14 +10,18 @@
       "urls": [
         "/dutalents/favicon.ico",
         "/dutalents/index.html",
-        "/dutalents/main-es2015.dc05358d2f58063847cd.js",
-        "/dutalents/main-es5.dc05358d2f58063847cd.js",
+        "/dutalents/index.php",
+        "/dutalents/main-es2015.67db6b76f9bdb8fd4954.js",
+        "/dutalents/main-es5.67db6b76f9bdb8fd4954.js",
         "/dutalents/manifest.webmanifest",
+        "/dutalents/ngsw-worker.js",
         "/dutalents/polyfills-es2015.ca64e4516afbb1b890d5.js",
         "/dutalents/polyfills-es5.277e2e1d6fb2daf91a5c.js",
         "/dutalents/runtime-es2015.0811dcefd377500b5b1a.js",
         "/dutalents/runtime-es5.0811dcefd377500b5b1a.js",
-        "/dutalents/styles.abed7b92e5a669364b2d.css"
+        "/dutalents/safety-worker.js",
+        "/dutalents/styles.abed7b92e5a669364b2d.css",
+        "/dutalents/worker-basic.min.js"
       ],
       "patterns": []
     },
@@ -78,15 +82,19 @@
     "/dutalents/assets/themes/purple-green.css": "ad73b32f1788c8e76737acec6f19b96210a9c3f4",
     "/dutalents/assets/themes/teal-yellow.css": "d6a9674ffe98eb943f8610a891b8d767cba1b09a",
     "/dutalents/favicon.ico": "66bb5b9718f55d9fcde9bca21862cc2807d5bd83",
-    "/dutalents/index.html": "83d0e0409985dea416acfb258dcaf197953e5df2",
-    "/dutalents/main-es2015.dc05358d2f58063847cd.js": "6bb242b2de9f2fa61c5a6c81cd2bb27ce171e101",
-    "/dutalents/main-es5.dc05358d2f58063847cd.js": "748f040a679c8b59ca629860fbd1c7b9ddfc413b",
+    "/dutalents/index.html": "1b55bea8ccc22aec7d235873a831dd782407015f",
+    "/dutalents/index.php": "8e707e6bedcdcdb3038b767c69d7564c1b1098ad",
+    "/dutalents/main-es2015.67db6b76f9bdb8fd4954.js": "fdb52a232979e1b71d5f9420b370aab3240836c7",
+    "/dutalents/main-es5.67db6b76f9bdb8fd4954.js": "696fa791020e626ae849302ae1f796061a0fed94",
     "/dutalents/manifest.webmanifest": "698e4cb67babd69644cea3fb6898f357ee5edffb",
+    "/dutalents/ngsw-worker.js": "6e853c3ff46b5aaeb7c82f3bbbd24d01b1eb896a",
     "/dutalents/polyfills-es2015.ca64e4516afbb1b890d5.js": "8779ed8d9bf0580e1b50b352a9b8fd520be24433",
     "/dutalents/polyfills-es5.277e2e1d6fb2daf91a5c.js": "8d03638471d7374e81cf33adfdea439f84ac3873",
     "/dutalents/runtime-es2015.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/dutalents/runtime-es5.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/dutalents/styles.abed7b92e5a669364b2d.css": "53ee4e62dc1582501f65d0e6e2b791171385e839"
+    "/dutalents/safety-worker.js": "ae5c8be3955e38edeeec09ed94b63d1e57f003c9",
+    "/dutalents/styles.abed7b92e5a669364b2d.css": "53ee4e62dc1582501f65d0e6e2b791171385e839",
+    "/dutalents/worker-basic.min.js": "ae5c8be3955e38edeeec09ed94b63d1e57f003c9"
   },
   "navigationUrls": [
     {

@@ -62,9 +62,11 @@ if(session('access_token')) {
     <app-root></app-root>
   </div>
   <noscript><img src="assets/images/need-javascript.png" /></noscript>
-<script src="runtime-es2015.0811dcefd377500b5b1a.js" type="module"></script><script src="runtime-es5.0811dcefd377500b5b1a.js" nomodule defer></script><script src="polyfills-es5.277e2e1d6fb2daf91a5c.js" nomodule defer></script><script src="polyfills-es2015.ca64e4516afbb1b890d5.js" type="module"></script><script src="main-es2015.dc05358d2f58063847cd.js" type="module"></script><script src="main-es5.dc05358d2f58063847cd.js" nomodule defer></script></body>
+<script src="runtime-es2015.0811dcefd377500b5b1a.js" type="module"></script><script src="runtime-es5.0811dcefd377500b5b1a.js" nomodule defer></script><script src="polyfills-es5.277e2e1d6fb2daf91a5c.js" nomodule defer></script><script src="polyfills-es2015.ca64e4516afbb1b890d5.js" type="module"></script><script src="main-es2015.67db6b76f9bdb8fd4954.js" type="module"></script><script src="main-es5.67db6b76f9bdb8fd4954.js" nomodule defer></script></body>
 
 </html>
+
+
 EOL;
             }
         }
@@ -82,3 +84,4 @@ EOL;
 }
 
 ?>
+
