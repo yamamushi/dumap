@@ -1464,3 +1464,10 @@ app-nav-bar {
 .mat-option-text:hover:not(.mat-option-disabled) {
   color: rgba(0, 0, 0, 0.87);
   background-color: yellow; }
+
+.hsrc {
+  color: yellow; }
+
+.updating {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: yellow; }

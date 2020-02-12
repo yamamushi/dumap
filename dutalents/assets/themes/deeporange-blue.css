@@ -1460,3 +1460,10 @@ app-nav-bar {
 .mat-option-text:hover:not(.mat-option-disabled) {
   color: white;
   background-color: #2196f3; }
+
+.hsrc {
+  color: #2196f3; }
+
+.updating {
+  color: white;
+  background-color: #2196f3; }
