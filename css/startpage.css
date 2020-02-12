@@ -19,6 +19,11 @@ html{
     overflow:hidden;
 
 }
+@media screen and (max-width: 750px) {
+  html{
+    overflow:visible;
+  }
+}
 body{
     font-family: 'Roboto', sans-serif;
     color: var(--text);
