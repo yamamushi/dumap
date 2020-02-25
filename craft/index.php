@@ -46,7 +46,8 @@ if(session('access_token')) {
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
 <link rel="stylesheet" type="text/css" href="../css/craft2.css">
-<link href="https://fonts.googleapis.com/css?family=Aldrich&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Aldrich&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet"> 
 </head>
 <title>Dual Universe Alpha 3 Crafting Calculator</title>
 <html>
@@ -112,6 +113,7 @@ if(session('access_token')) {
 			<div class="list-header">Time</div>
 			<div></div>
 		</div>
+		<span class="totals"><pre style="padding:0;margin:0;">* Produced as byproduct.      Quantity: <span style="color:lime">Total</span> (<span style="color:orange">Byproduct</span>)</pre></span>
 	</div>
 </div>
 

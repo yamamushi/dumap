@@ -216,9 +216,6 @@ width:100%;
 .inv-item,.cft-item{
 	padding:0 0 0 5px;
 }
-.inv-quantity,.cft-quantity,.ore-quantity,.queue-quantity,.queue-time{
-text-align:right;
-}
 * { 
 	-webkit-box-sizing: border-box; 
 	-moz-box-sizing: border-box; 
@@ -227,6 +224,19 @@ text-align:right;
 }
 body{
 	background-color:#001926;
+}
+
+.inv-quantity,.cft-quantity,.ore-quantity,.queue-quantity,.queue-time{
+text-align:right;
+font-family:'Roboto Mono';
+}
+.queue-quantity-total{
+	color:lime;
+font-family:'Roboto Mono';
+}
+.queue-quantity-byproduct{
+	color:orange;
+font-family:'Roboto Mono';
 }
 
 /* The Modal (background) */
