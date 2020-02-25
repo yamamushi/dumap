@@ -40,6 +40,50 @@
     ]
   },
   {
+	"name": "Product",
+	"data":[
+		{
+			"name": "Time",
+			"data": [
+			  "Tier 1",
+			  "Tier 2",
+			  "Tier 3",
+			  "Tier 4",
+			  "Tier 5"
+			  ]
+		},
+		{
+			"name": "Material",
+			"data": [
+				"Al-Fe Alloy",
+				"Polycarbonate Plastic",
+				"Silumin",
+				"Steel",
+				"Glass",
+				"Calcium Reinforced Copper",
+				"Polycalcite Plastic","Duralumin",
+				"Stainless Steel",
+				"Advanced Glass",
+				"Cu-Ag Alloy",
+				"Polysulfide Plastic",
+				"Al-Li Alloy",
+				"Inconel",
+				"Ag-Li Reinforced Glass",
+				"Red Gold",
+				"Fluoropolymer",
+				"Sc-Al Alloy",
+				"Maraging Steel",
+				"Gold Coated Glass",
+				"Ti-Nb Supraconductor",
+				"Vanamer",
+				"Grade 5 Titanium Alloy",
+				"Mangalloy",
+				"Manganese Reinforced Glass"
+			]
+		}
+	]		
+  },
+  {
     "name": "Intermediary Part",
     "data": [
       {

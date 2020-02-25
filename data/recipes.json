@@ -241,7 +241,7 @@
   },
   {
     "name": "Oxygen Pure",
-    "tier": 0,
+    "tier": 1,
     "type": "Pure",
     "mass": 1,
     "volume": 1,
@@ -5564,7 +5564,7 @@
     "industries": [],
     "input": {
       "Basic Screw": 1296,
-      "Basic Power System": 525,
+      "Basic Power System": 625,
       "Basic Mobile Panel XL": 1,
       "Basic Reinforced Frame XL": 1
     }
@@ -6731,9 +6731,9 @@
     "industries": [],
     "input": {
       "Basic Component": 36,
-      "Basic Processor": 25,
+      "Basic Hydraulics": 25,
       "Basic Control System M": 1,
-      "Basic Casing M": 1
+      "Basic Standard Frame M": 1
     }
   },
   {
@@ -8531,7 +8531,7 @@
     "input": {
       "Polycarbonate Plastic": 1,
       "Basic Screw": 1,
-      "Basic Standard Frame XS": 1
+      "Basic Reinforced Frame XS": 1
     }
   },
   {
