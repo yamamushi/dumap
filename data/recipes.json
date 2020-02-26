@@ -10183,7 +10183,7 @@
     }
   },
   {
-    "name": "Extra-Small Cannon XS",
+    "name": "Cannon XS",
     "tier": 1,
     "type": "Cannon",
     "mass": 190.1,
@@ -10200,7 +10200,7 @@
     }
   },
   {
-    "name": "Small Cannon S",
+    "name": "Cannon S",
     "tier": 2,
     "type": "Cannon",
     "mass": 517.52,
@@ -10217,7 +10217,7 @@
     }
   },
   {
-    "name": "Medium Cannon M",
+    "name": "Cannon M",
     "tier": 3,
     "type": "Cannon",
     "mass": 2670,
@@ -10234,7 +10234,7 @@
     }
   },
   {
-    "name": "Large Cannon L",
+    "name": "Cannon L",
     "tier": 4,
     "type": "Cannon",
     "mass": 15240,
@@ -10251,7 +10251,7 @@
     }
   },
   {
-    "name": "Extra-Small Laser XS",
+    "name": "Laser XS",
     "tier": 1,
     "type": "Laser",
     "mass": 118.55,
@@ -10268,7 +10268,7 @@
     }
   },
   {
-    "name": "Small Laser S",
+    "name": "Laser S",
     "tier": 2,
     "type": "Laser",
     "mass": 508.26,
@@ -10285,7 +10285,7 @@
     }
   },
   {
-    "name": "Medium Laser M",
+    "name": "Laser M",
     "tier": 3,
     "type": "Laser",
     "mass": 2690,
@@ -10302,7 +10302,7 @@
     }
   },
   {
-    "name": "Large Laser L",
+    "name": "Laser L",
     "tier": 4,
     "type": "Laser",
     "mass": 14770,
@@ -10319,7 +10319,7 @@
     }
   },
   {
-    "name": "Extra-Small Missile XS",
+    "name": "Missile XS",
     "tier": 1,
     "type": "Missile",
     "mass": 207.67,
@@ -10336,7 +10336,7 @@
     }
   },
   {
-    "name": "Small Missile S",
+    "name": "Missile S",
     "tier": 2,
     "type": "Missile",
     "mass": 593.35,
@@ -10353,7 +10353,7 @@
     }
   },
   {
-    "name": "Medium Missile M",
+    "name": "Missile M",
     "tier": 3,
     "type": "Missile",
     "mass": 2970,
@@ -10370,7 +10370,7 @@
     }
   },
   {
-    "name": "Large Missile L",
+    "name": "Missile L",
     "tier": 4,
     "type": "Missile",
     "mass": 16130,
@@ -10387,7 +10387,7 @@
     }
   },
   {
-    "name": "Extra-Small Railgun XS",
+    "name": "Railgun XS",
     "tier": 1,
     "type": "Railgun",
     "mass": 232.02,
@@ -10404,7 +10404,7 @@
     }
   },
   {
-    "name": "Small Railgun S",
+    "name": "Railgun S",
     "tier": 2,
     "type": "Railgun",
     "mass": 517.52,
@@ -10421,7 +10421,7 @@
     }
   },
   {
-    "name": "Medium Railgun M",
+    "name": "Railgun M",
     "tier": 3,
     "type": "Railgun",
     "mass": 3010,
@@ -10438,7 +10438,7 @@
     }
   },
   {
-    "name": "Large Railgun L",
+    "name": "Railgun L",
     "tier": 4,
     "type": "Railgun",
     "mass": 16720,
@@ -12270,7 +12270,7 @@
     }
   },
   {
-    "name": "Missile Kinetic Ammo S",
+    "name": "Missile Kinetic Ammo M",
     "tier": 2,
     "type": "Missile Ammo",
     "mass": 7.92,
@@ -12438,7 +12438,7 @@
     }
   },
   {
-    "name": "Missile Kinetic Ammo S",
+    "name": "Missile Kinetic Ammo L",
     "tier": 2,
     "type": "Missile Ammo",
     "mass": 31.26,
