@@ -110,6 +110,12 @@ function recipeCalc(data){
 				{
 					newList[j].quantity+=list[i].quantity;
 					newList[j].bpquantity+=list[i].bpquantity;
+					
+					Object.keys(list[i]).forEach(function(item,index){
+						if(item=="quantity" || item=="bpquantity"){return;}
+						newList[j][item]=list[i][item];
+					});
+					
 					fnd=true;
 					break;
 				}
@@ -142,7 +148,7 @@ function recipeCalc(data){
 	//crafting simulation calculation
 	// returns list of required crafting queue for a given input of crafted items
 	this.simulate=function(input,inventory,skills){
-		var filter=["scasdfas"];
+		var filter=["sdfgsdf"];
 		
 		//console.log("SIMULATING "+JSON.stringify(input));
 		var itemSequence=[];
@@ -152,7 +158,7 @@ function recipeCalc(data){
 			
 			var doConsole=false;
 			filter.forEach(function(k,i){
-				if(iqPair.name.toLowerCase().search(k)!=-1){
+				if(iqPair.name.toLowerCase().search(k.toLowerCase())!=-1){
 					doConsole=true;
 					return;
 				}
@@ -178,15 +184,22 @@ function recipeCalc(data){
 			var skillLevel=0;
 			var perLevel=0;
 			
-			//console.log("check skills")
+			if(doConsole){
+			console.log("check skills")
+			}
 			if (skills[this.db[iqPair.name].type]!=null && skills[this.db[iqPair.name].type].Material!=null)
 			{
-				//console.log("is a skill")
+				if(doConsole){
+				console.log("is a skill")
+				}
 				if (this.db[iqPair.name].type=="Pure" || this.db[iqPair.name].type=="Product")
 				{
 					perLevel=2;
 					skillLevel=skills[this.db[iqPair.name].type].Material[iqPair.name]
 					skillReduction=skillLevel*perLevel;
+					if(doConsole){
+						console.log("Skill level: "+skillLevel);
+					}
 				}
 				else
 				{
@@ -196,15 +209,20 @@ function recipeCalc(data){
 				}
 				//console.log("skill level is "+skillLevel);
 			}
-			//console.log("skill:");
-			//console.log(skillReduction);
+			if(doConsole){
+			console.log("skill:");
+			console.log(skillReduction);
+			}
 			
 			
 			if(doConsole){
 				console.log("----checking ingredients of input");
-				console.log(JSON.stringify(this.db[iqPair.name].input));
+				console.log(JSON.stringify(ingredients));
 			}
 			if(ingredients.length!=0){
+				for(var ingPair of ingredients){
+					ingPair.quantity=ingPair.quantity-skillReduction;
+				}
 				while(inventory[iqPair.name].quantity+inventory[iqPair.name].bpquantity<iqPair.quantity)
 				{
 					if(doConsole){
@@ -218,7 +236,6 @@ function recipeCalc(data){
 						console.log("ing: "+ingPair.name+" "+ingPair.quantity);
 						}
 						
-						ingPair.quantity=ingPair.quantity-skillReduction
 						
 						if(inventory[ingPair.name].bpquantity>ingPair.quantity){
 							inventory[ingPair.name].bpquantity-=ingPair.quantity;
@@ -233,7 +250,7 @@ function recipeCalc(data){
 					},this);
 					inventory[iqPair.name].quantity+=oq;
 					
-					itemSequence=itemSequence.concat([{name:iqPair.name,quantity:oq}]);
+					itemSequence=itemSequence.concat([{name:iqPair.name,quantity:oq,effectivenessQ:skillReduction,skillQ:skillLevel}]);
 					
 					
 					
@@ -332,31 +349,40 @@ function recipeCalc(data){
 		//console.log("raw craft list "+JSON.stringify(craftList));
 		
 		var compressedList=this.reduceItems(JSON.parse(JSON.stringify(craftList)));
-		//console.log("compressed craft list "+JSON.stringify(compressedList));
+		//console.log("compressed craft list "+JSON.stringify(compressedList,null,2));
 		
 		function populate(k,i){
 			var time=this.db[k.name].time;
 			k.tier=this.db[k.name].tier;
 			k.type=this.db[k.name].type;
 			k.typeid=this.types.indexOf(k.type);
+			k.industries=this.db[k.name].industries;
+			k.skillT=0;
+			k.effectivenessT=1;
 			
-			//console.log(k.name);
+			//console.log(JSON.stringify(k,null,2));
 			if (skills[k.type]!=null && k.name.search("Oxygen")==-1 && k.name.search("Hydrogen")==-1) {
 				if (k.type=="Pure" || k.type=="Product" )
 				{
 					//console.log(k.name);
 					//console.log(skills[k.type].Time["Tier "+k.tier]);
-					time=time/(1+skills[k.type].Time["Tier "+k.tier]*0.05)
+					k.skillT=skills[k.type].Time["Tier "+k.tier];
+					k.effectivenessT=(1+k.skillT*0.05);
+					time=time/k.effectivenessT;
 					//console.log(time);
 					k.time=k.quantity/this.db[k.name].outputQuantity*time;
 					//console.log(k.time);
 				}else if (k.type.search("Honeycomb")!=-1){
-					time=time/(1+skills[k.type].Time*0.1)
+					k.skillT=skills[k.type].Time;
+					k.effectivenessT=(1+k.skillT*0.1);
+					time=time/k.effectivenessT;
 					k.time=k.quantity/this.db[k.name].outputQuantity*time;
 				}
 				else
 				{
-					time=time/(1+skills[k.type].Time["Tier "+k.tier]*0.1)
+					k.skillT=skills[k.type].Time["Tier "+k.tier];
+					k.effectivenessT=(1+k.skillT*0.1);
+					time=time/k.effectivenessT;
 					k.time=k.quantity/this.db[k.name].outputQuantity*time;
 				}
 			}
@@ -365,107 +391,21 @@ function recipeCalc(data){
 				k.time=k.quantity/this.db[k.name].outputQuantity*time;
 			}
 		}
-		
+		/*
+		for (var i=compressedList.length-1;i>=0;i--){
+			if (compressedList[i].quantity<=compressedList[i].bpquantity){
+				compressedList.splice(i,1);
+			}
+		}
+		*/
 		compressedList.forEach(populate,this);
 		compressedList.sort(sortFunc);
 		
 		
 		
 		//console.log("calcLists normal");
-		//console.log(JSON.stringify(compressedList));
+		//console.log(JSON.stringify(compressedList,null,2));
 		return {normal:compressedList,expanded:craftList,inventory:inventory}
 	};
-	
-	//return masses and volumes
-	this.getMassesAndVol=function(){
-		//console.log("getMasses start");
-		var data=[];
-		Object.keys(this.db).forEach(function(k,i){
-			data.push({name:k,mass:this.db[k].mass,volume:this.db[k].volume,type:this.types.indexOf(this.db[k].type),tier:this.db[k].tier});
-		},this);
-		
-		data.sort(function(l,r){
-			return (l.type+l.tier/10)-(r.type+r.tier/10);
-		})
-		
-		return data;
-	}
-	
-	//calculate price of a list of items
-	this.calcPrice=function(priceList,orePrices,itemList,settings,depth)
-	{
-		var price=0;
-		var orePrice=0;
-		
-		var mass=0;
-		var volume=0;
-		var time=0;
-		
-		if (depth==1) {
-		//console.log("begin price of list "+JSON.stringify(itemList))
-		}
-		
-		for (var i=0;i<itemList.length;i++)
-		{
-			//go through each ingredient and gather its:
-			//price
-			//time to craft mult by the tier setting
-			var item=itemList[i];
-			var name=item.name;
-			var q=item.quantity;
-			
-			//console.log(i+" list item "+name+" q: "+q);
-			
-			var ing=this.db[name].getIngredients();
-			
-			if (name.toLowerCase().indexOf(" ore")!=-1)
-			{
-				//console.log("ore "+name+" found. q="+q);
-				price+=q*orePrices[name];
-				orePrice+=q*orePrices[name];
-			}
-			else if (!this.db[name].reusable)
-			{
-				var n=q/this.db[name].outputQuantity;
-				//console.log("item "+name+" found. n="+n)
-				var out=this.calcPrice(priceList,orePrices,ing,settings,depth+1);
-				priceList=out[0]
-				var ingPrice=n*out[1];
-				orePrice+=n*out[2];
-				time+=out[3];
-				
-				var timeCharge=settings.timeSurcharge[this.db[name].tier-1]*this.db[name].time*n;
-				ingPrice+=timeCharge;
-				
-				//console.log("item "+name+" tc "+timeCharge);
-				//console.log("item "+name+" price "+ingPrice);
-				if (depth==0)
-				{
-					var itemMass=this.db[name].mass;
-					mass+=itemMass;
-					var massCharge=settings.massSurcharge[this.db[name].tier-1]*itemMass*n;
-					var itemVol=this.db[name].volume;
-					volume+=itemVol;
-					var volCharge=settings.volSurcharge[this.db[name].tier-1]*itemVol*n;
-					ingPrice+=massCharge+volCharge;
-					//console.log("item "+name+" fc "+settings.flatCharge[this.db[name].tier-1]*n);
-					ingPrice+=settings.flatCharge[this.db[name].tier-1]*n
-					priceList[priceList.length]=ingPrice
-				}
-				price+=ingPrice;
-			}
-			time+=this.db[name].time
-			
-		}
-		//now taking into account:
-		//mass
-		//volume
-		
-		//console.log("end price of list "+JSON.stringify(itemList));
-		//console.log(price);
-		//console.log("---");
-		var abc=[priceList,price,orePrice,time,volume,mass];
-		return abc;
-	}
 	
 }

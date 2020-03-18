@@ -38,10 +38,6 @@ button:active{
 	background-color:#0088cc;
 }
 
-#skillsButton{
-	float:left;
-}
-
 .legend{
 	color:#fff;
 	border:1px #fff solid;
@@ -119,7 +115,7 @@ background-color:#006699;
 	border-radius:5px;
 	padding:2px 5px;
 	margin:5px 0;
-	width:65%;
+	width:90%;
 	
 }
 .accordion-input2{
@@ -169,7 +165,7 @@ float:right;
 .grid-container2{
 	display:grid;
 	grid-gap: 10px 5px;
-	grid-template-columns: auto 100px 25px;
+	grid-template-columns: auto 100px 125px 25px;
   align-content: start;
   width:100%;
 	overflow:auto;
@@ -181,6 +177,19 @@ float:right;
 	align-content: start;
 	width:100%;
 	overflow:auto;
+}
+.grid-container4{
+	display:grid;
+	grid-gap: 10px 5px;
+	align-content: start;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+	width:100%;
+	overflow:auto;
+	background-color:#001926;
+	padding:0 0 0 5px;
+	color:#fff;
+	border-radius:20px;
+	height:90%;
 }
 .list-item{
 	border:1px;
@@ -195,9 +204,10 @@ float:right;
 	position: sticky;
 	top: 0;
 	background-color:#001926;
+	text-align:center;
 }
 .section-header{
-	display:block;
+	display:inline;
 	font-size:2em;
 	border-width:2px;
 	width:100%;
@@ -227,16 +237,14 @@ body{
 }
 
 .inv-quantity,.cft-quantity,.ore-quantity,.queue-quantity,.queue-time{
-text-align:right;
+text-align:center;
 font-family:'Roboto Mono';
 }
-.queue-quantity-total{
+.quantity-color{
 	color:lime;
-font-family:'Roboto Mono';
 }
-.queue-quantity-byproduct{
+.time-color{
 	color:orange;
-font-family:'Roboto Mono';
 }
 
 /* The Modal (background) */
@@ -254,6 +262,29 @@ font-family:'Roboto Mono';
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+.modal-craft{
+  position: absolute;
+  top:5%;
+  height:95%;
+  background-color: #001926;
+  border: 5px solid #fff;
+  border-radius:20px;
+  width: 99.5%;
+  padding-bottom:5px;
+}
+
+.modal-profile{
+  position: relative;
+  background-color: #001926;
+  margin: auto;
+  padding: 0;
+  border: 5px solid #fff;
+  border-radius:20px;
+  width: 20%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+overflow:auto;
+}
+
 /* Modal Content */
 .modal-content {
   position: relative;
@@ -262,8 +293,13 @@ font-family:'Roboto Mono';
   padding: 0;
   border: 5px solid #fff;
   border-radius:20px;
-  width: 25%;
+  width: 35%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+overflow:auto;
+}
+
+h3{
+	color:#fff;
 }
 
 
@@ -289,70 +325,6 @@ font-family:'Roboto Mono';
   color: white;
   border-radius:20px;
 }
-/*
-.silicon,.carbon,.aluminium,.quartz,.coal,.bauxite{
-background-color:#70eeff;
-color:black;
-}
-.sodium,.natron{
-background-color:#daffff;
-color:black;
-}
-.iron,.hematite{
-background-color:#23f45b;
-color:black;
-}
-.cobalt,.gold,.cobaltite{
-background-color:#ff6a1b;
-color:black;
-}
-.silver,.acanthite{
-background-color:#ffb51a;
-color:black;
-}
-.nickel,.copper,.garnierite,.malachite{
-background-color:#8fba1b;
-color:black;
-}
-.chromium,.chromite{
-background-color:#20e775;
-color:black;
-}
-.fluorine,.cryolite{
-background-color:#9c1a41;
-}
-.scandium,.kolbeckite{
-background-color:#4bd5ff;
-color:black;
-}
-.sulfur,.pyrite{
-background-color:#2cc9ff;
-color:black;
-}
-.manganese,.rhodonite{
-background-color:#20e778;
-color:black;
-}
-.calcium,.limestone{
-background-color:#f4e026;
-color:black;
-}
-.vanadium,.vanadinite{
-background-color:#1cc2ff;
-color:black;
-}
-.niobium,.columbite{
-background-color:#61a31a;
-color:black;
-}
-.lithium,.petalite{
-background-color:#d02233;
-}
-.titanium,.illmenite{
-background-color:#1bb4ff;
-color:black;
-}
-*/
 
 .basic{
 	background-color:#00cc00;
@@ -395,7 +367,7 @@ padding: 2px 16px 5px 16px;
 .totals{
 	font-style:italic;
 }
-#totalTime,#totalOre{
+#totalTime,#totalOre,#totalPrice{
 	color:orange;
 	font-style:normal;
 	font-weight:bold;
