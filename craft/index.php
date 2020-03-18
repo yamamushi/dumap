@@ -52,8 +52,12 @@ if(session('access_token')) {
 <title>Dual Universe Alpha 3 Crafting Calculator</title>
 <html>
 <body>
-<div class="navbar">
-<button id="skillsButton">Skills</button>
+
+<nav class="navbar">
+<button id="skillsButton" style="float:left;">Skills</button>
+<button id="priceButton" style="float:left;">Prices</button>
+<button id="profileButton" style="float:left;">Save/Load Profiles</button>
+<button id="clearButton" style="float:left;" class="bugButton">Reset</button>
 
 <button class="bugButton"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeK8yHUDnzTDGgJQ1AIss38JvC9m1JoFOCJw3WTuP9TKDDiaw/viewform" target="_blank"> >>> Report Issues!! <<< </a></button>
 
@@ -71,13 +75,14 @@ if(session('access_token')) {
 
 
 
-</div>
+</nav>
+
 <div class="main-container flex-container">
 	<div class="flex-box1 section-divider">
 		<div class="section-header list-item">Your Inventory</div>
 		<br>
 		<div id="invList" class="grid-container1">
-			<div></div>
+			<div class="list-header" style="margin-left:-5px;"></div>
 			<div class="list-header">Item Name</div>
 			<div class="list-header">Quantity</div>
 		</div>
@@ -87,7 +92,7 @@ if(session('access_token')) {
 		<div class="section-header list-item">Items To Craft</div>
 		<br>
 		<div id="cftList" class="grid-container1">
-			<div></div>
+			<div class="list-header" style="margin-left:-5px;"></div>
 			<div class="list-header">Item Name</div>
 			<div class="list-header">Quantity</div>
 		</div>
@@ -97,23 +102,29 @@ if(session('access_token')) {
 		<div class="section-header list-item">Required Ore</div>
 		<span class="totals">Total Ore: <span id="totalOre"></span> Liters</span>
 		<br>
+		<span class="totals">Total Price: <span id="totalPrice"></span> ħ</span>
+		<br>
 		<div id="oreList" class="grid-container2">
 			<div class="list-header">Item Name</div>
 			<div class="list-header">Quantity</div>
-			<div></div>
+			<div class="list-header">Price</div>
+			<div class="list-header" style="margin-left:-5px;"></div>
 		</div>
 	</div>
 	<div class="flex-box2 section-divider">
 		<div class="section-header list-item">Crafting Queue</div>
-		<span class="totals">Total Time: <span id="totalTime"></span></span>
+		<span class="totals">Total Time: 
+			<span id="totalTime"></span>
+			<button id="detailedCraftQueueButton" style="float:right">Detailed View</button>
+		</span>
+		
 		<br>
 		<div id="queueList" class="grid-container3">
 			<div class="list-header">Item Name</div>
 			<div class="list-header">Quantity</div>
 			<div class="list-header">Time</div>
-			<div></div>
+			<div class="list-header" style="margin-left:-5px;"></div>
 		</div>
-		<span class="totals"><pre style="padding:0;margin:0;">* Produced as byproduct.      Quantity: <span style="color:lime">Total</span> (<span style="color:orange">Byproduct</span>)</pre></span>
 	</div>
 </div>
 
@@ -143,6 +154,71 @@ if(session('access_token')) {
     </div>
     <div id="skillAccordion" class="modal-body">
     </div>
+  </div>
+
+</div>
+
+<!-- profile save modal -->
+<div id="profileModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-profile">
+    <div class="modal-header">
+      <span id="profileModalClose" class="modal-close">&times;</span>
+      <h2>Profiles</h2>
+    </div>
+    <div id="profileDialog" class="modal-body">
+	  <h3>Save</h3>
+	  <button id="profileSaveButton">Save</button><input type="text" id="profileSaveInput">
+	  <h3>Load</h3>
+	  <button id="profileLoadButton" >Load</button><select id="profileList"></select>
+	  <h3>Delete</h3>
+	  <button id="profileDeleteButton">Delete</button><select id="profileDeleteList"></select>
+	  <br>
+	  <br>
+	  <button id="clearProfiles" class="bugButton" style="float:right;margin-bottom:5px;">Delete all profiles</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- detailed craft queue modal -->
+
+<div id="craftQueueModal"  class="modal-craft" style="display:none;">
+	<div class="modal-header">
+	  <span id="craftQueueModalClose" class="modal-close">&times;</span>
+	  <h2>Crafting Queue Details</h2>
+	  
+	</div>
+
+	<div id="queueListDetailed" class="grid-container4">
+		<div class="list-header">Item Name</div>
+		<div class="list-header quantity-color">Quantity</div>
+		<div class="list-header quantity-color">Byproduct</div>
+		<div class="list-header quantity-color">Skill</div>
+		<div class="list-header quantity-color">Effectiveness</div>
+		<div class="list-header time-color">Time</div>
+		<div class="list-header time-color">Skill</div>
+		<div class="list-header time-color">Effectiveness</div>
+		<div class="list-header">Industry</div>
+		<div class="list-header">Price</div>
+	</div>
+
+</div>
+
+
+<!-- price modal -->
+<div id="priceModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span id="priceModalClose" class="modal-close">&times;</span>
+      <h2>Price Options</h2>
+    </div>
+    <div id="priceDialog" class="modal-body">
+    </div>
+	
   </div>
 
 </div>
