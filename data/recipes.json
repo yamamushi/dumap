@@ -4160,7 +4160,7 @@
     "outputQuantity": 1,
     "time": 28,
     "byproducts": {},
-    "industries": [],
+    "industries": ["3D Printer M"],
     "input": {
       "Polycarbonate Plastic": 2
     }
@@ -5212,7 +5212,7 @@
     "input": {
       "Basic Component": 432,
       "Basic Hydraulics": 250,
-      "Basic Reinforced Frame M": 2
+      "Basic Reinforced Frame L": 2
     }
   },
   {
