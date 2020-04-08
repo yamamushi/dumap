@@ -434,8 +434,8 @@ function newParse(numStr)
 //callback for clicking check on ore item. removes row from oreList and places it in invList
 function finishOreItem(event)
 {
-	var qty=newParse(event.target.previousSibling.innerHTML);
-	var name=event.target.previousSibling.previousSibling.innerHTML;
+	var qty=newParse(event.target.previousSibling.previousSibling.innerHTML);
+	var name=event.target.previousSibling.previousSibling.previousSibling.innerHTML;
 	
 	var ast=name.search(/\*/);
 	if (ast!=-1){
