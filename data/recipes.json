@@ -4411,7 +4411,7 @@
     "outputQuantity": 1,
     "time": 80,
     "byproducts": {},
-    "industries": [],
+    "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Steel": 2
     }
@@ -5814,7 +5814,7 @@
     "mass": 285.25,
     "volume": 116.6,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -6400,6 +6400,21 @@
       "Advanced Burner": 25,
       "Advanced Combustion Chamber M": 1,
       "Advanced Standard Frame M": 1
+    }
+  },
+  {
+    "name": "Vertical Booster XS",
+    "tier": 1,
+    "type": "Vertical Booster",
+    "mass": 22.7,
+    "volume": 11,
+    "outputQuantity": 1,
+    "time": 30,
+    "byproducts": {},
+    "industries": ["Nanopack","Assembly Line XS"],
+    "input": {
+      "Basic Pipe": 1,
+      "Basic Injector": 1
     }
   },
   {
@@ -7562,11 +7577,11 @@
     "byproducts": {},
     "industries": ["Assembly Line XS"],
     "input": {
-      "Basic Connector": 1,
-      "Uncommon Connector": 1,
-      "Uncommon Power System": 1,
-      "Uncommon Light XS": 1,
-      "Uncommon Casing XS": 1
+      "Basic Connector": 3,
+      "Uncommon Connector": 3,
+      "Uncommon Power System": 5,
+      "Uncommon Light S": 1,
+      "Uncommon Casing S": 1
     }
   },
   {
@@ -9619,7 +9634,7 @@
     "mass": 5.02,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
