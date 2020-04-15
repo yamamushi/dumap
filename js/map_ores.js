@@ -1,3 +1,24 @@
+const oreT1_1 = "hematite";
+const oreT1_2 = "coal";
+const oreT1_3 = "bauxite";
+const oreT1_4 = "quartz";
+const oreT2_1 = "limestone";
+const oreT2_2 = "natron";
+const oreT2_3 = "malachite";
+const oreT2_4 = "chromite";
+const oreT3_1 = "petalite";
+const oreT3_2 = "garnierite";
+const oreT3_3 = "acanthite";
+const oreT3_4 = "pyrite";
+const oreT4_1 = "cobaltite";
+const oreT4_2 = "cryolite";
+const oreT4_3 = "kolbeckite";
+const oreT4_4 = "gold_nuggets";
+const oreT5_1 = "rhodonite";
+const oreT5_2 = "columbite";
+const oreT5_3 = "illmenite";
+const oreT5_4 = "vanadinite";
+
 function get_ores_chart_html() {
     let temp_HTML_Text = "<div>";
     temp_HTML_Text = temp_HTML_Text + "<div id='ores_menu_title'>Ores Chart<span id='Exit_Button' onclick='minimize_Ores_Panel()'>X</span></div>";
