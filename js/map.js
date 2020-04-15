@@ -1032,68 +1032,68 @@ function Create_Ore_HTML_For_Info_Panel(i, body, home) {
     	}
     	temp_Ore_Text = '<tr><td align="center" id="info_ores">Ores<span id="Collapse_Button" onclick="hide_Menu_Ore(' + i + ', ' + "'" + body + "'" + ', ' + "'" + home + "'" + ')">▲</span></td></tr>';
     	if (eval(oreobj).hasOwnProperty("Sodium")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t1:Sodium ' + oreobj.Sodium + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T1: Sodium ' + oreobj.Sodium + '</td></tr>';
     	}
     	if (eval(oreobj).hasOwnProperty("Carbon")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t1:Carbon ' + oreobj.Carbon + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T1: Carbon ' + oreobj.Carbon + '</td></tr>';
     	}
     	if (eval(oreobj).hasOwnProperty("Silicon")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t1:Silicon ' + oreobj.Silicon + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T1: Silicon ' + oreobj.Silicon + '</td></tr>';
     	}
     	if (eval(oreobj).hasOwnProperty("Iron")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t1:Iron ' + oreobj.Iron + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T1: Iron ' + oreobj.Iron + '</td></tr>';
     	}
 
     	if (eval(oreobj).hasOwnProperty("Aluminium")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t2:Aluminium ' + oreobj.Aluminium + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T2: Aluminium ' + oreobj.Aluminium + '</td></tr>';
     	}
     	if (eval(oreobj).hasOwnProperty("Nickel")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t2:Nickel ' + oreobj.Nickel + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T2: Nickel ' + oreobj.Nickel + '</td></tr>';
     	}
     	if (eval(oreobj).hasOwnProperty("Lead")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t2:Lead ' + oreobj.Lead + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T2: Lead ' + oreobj.Lead + '</td></tr>';
     	}
     	if (eval(oreobj).hasOwnProperty("Tungsten")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t2:Tungsten ' + oreobj.Tungsten + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T2: Tungsten ' + oreobj.Tungsten + '</td></tr>';
     	}
 
     	if (eval(oreobj).hasOwnProperty("Scandium")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t3:Scandium ' + oreobj.Scandium + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T3: Scandium ' + oreobj.Scandium + '</td></tr>';
     	}
     	if (eval(oreobj).hasOwnProperty("Chromium")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t3:Chromium ' + oreobj.Chromium + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T3: Chromium ' + oreobj.Chromium + '</td></tr>';
     	}
     	if (eval(oreobj).hasOwnProperty("Copper")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t3:Copper ' + oreobj.Copper + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T3: Copper ' + oreobj.Copper + '</td></tr>';
     	}
     	if (eval(oreobj).hasOwnProperty("Platinum")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t3:Platinum ' + oreobj.Platinum + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T3: Platinum ' + oreobj.Platinum + '</td></tr>';
     	}
 
     	if (eval(oreobj).hasOwnProperty("Zirconium")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t4:Zirconium ' + oreobj.Zirconium + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T4: Zirconium ' + oreobj.Zirconium + '</td></tr>';
     	}
     	if (eval(oreobj).hasOwnProperty("Manganese")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t4:Manganese ' + oreobj.Manganese + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T4: Manganese ' + oreobj.Manganese + '</td></tr>';
     	}
     	if (eval(oreobj).hasOwnProperty("Molybdenum")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t4:Molybdenum ' + oreobj.Molybdenum + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T4: Molybdenum ' + oreobj.Molybdenum + '</td></tr>';
     	}
     	if (eval(oreobj).hasOwnProperty("Gold")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t4:Gold ' + oreobj.Gold + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T4: Gold ' + oreobj.Gold + '</td></tr>';
     	}
 
     	if (eval(oreobj).hasOwnProperty("Titanium")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t5:Titanium ' + oreobj.Titanium + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T5: Titanium ' + oreobj.Titanium + '</td></tr>';
     	}
     	if (eval(oreobj).hasOwnProperty("Vanadium")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t5:Vanadium ' + oreobj.Vanadium + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T5: Vanadium ' + oreobj.Vanadium + '</td></tr>';
     	}
     	if (eval(oreobj).hasOwnProperty("Niobium")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t5:Niobium ' + oreobj.Niobium + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T5: Niobium ' + oreobj.Niobium + '</td></tr>';
     	}
     	if (eval(oreobj).hasOwnProperty("Rhenium")) {
-    		temp_Ore_Text = temp_Ore_Text + '<tr><td>t5:Rhenium ' + oreobj.Rhenium + '</td></tr>';
+    		temp_Ore_Text = temp_Ore_Text + '<tr><td>T5: Rhenium ' + oreobj.Rhenium + '</td></tr>';
     	}
     	temp_Ore_Text = temp_Ore_Text + '<tr><td><hr></td></tr>';
     } else {
