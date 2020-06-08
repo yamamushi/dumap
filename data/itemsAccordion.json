@@ -1155,18 +1155,18 @@
 						]
 					}
 				]
-			  }
+			  },
 			  {
 				"name": "Warp Drives",
 				"data": [
 					"Warp Drive L"
-				}
+				]
 			  },
 			  {
 				"name": "Warp Beacons",
 				"data": [
 					"Warp Beacon XL"
-				}
+				]
 			  }
 			
 			]
@@ -1390,6 +1390,7 @@
 		"data": [
 			"Warp Cell"
 		]
+		}
     ]
   },
   {
