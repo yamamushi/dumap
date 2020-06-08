@@ -49,7 +49,7 @@ if(session('access_token')) {
 <link href="https://fonts.googleapis.com/css?family=Aldrich&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet"> 
 </head>
-<title>Dual Universe Alpha 3 Crafting Calculator</title>
+<title>Dual Universe Alpha 3.1 Crafting Calculator</title>
 <html>
 <body>
 
@@ -58,6 +58,8 @@ if(session('access_token')) {
 <button id="priceButton" style="float:left;">Prices</button>
 <button id="profileButton" style="float:left;">Save/Load Profiles</button>
 <button id="clearButton" style="float:left;" class="bugButton">Reset</button>
+
+<span style="color:#fff;float:left;padding:0 0 0 15px;">Last Updated: June 8, 2020</span>
 
 <button class="bugButton"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeK8yHUDnzTDGgJQ1AIss38JvC9m1JoFOCJw3WTuP9TKDDiaw/viewform" target="_blank"> >>> Report Issues!! <<< </a></button>
 

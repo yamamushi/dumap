@@ -776,6 +776,7 @@
                   {
                     "name": "Adjustors",
                     "data": [
+                      "Adjustor XS",
                       "Adjustor S",
                       "Adjustor M",
                       "Adjustor L"
@@ -826,10 +827,46 @@
                   {
                     "name": "Atmospheric Engines",
                     "data": [
-                      "Atmospheric Engine XS",
-                      "Atmospheric Engine S",
-                      "Atmospheric Engine M",
-                      "Atmospheric Engine L"
+						{
+							"name": "Atmospheric Engines XS",
+							"data": [
+							  "Atmospheric Engine XS",
+							  "Freight Atmospheric Engine XS",
+							  "Maneuver Atmospheric Engine XS",
+							  "Military Atmospheric Engine XS",
+							  "Safe Atmospheric Engine XS"
+							]
+						},
+						{
+							"name": "Atmospheric Engines S",
+							"data": [
+							  "Atmospheric Engine S",
+							  "Freight Atmospheric Engine S",
+							  "Maneuver Atmospheric Engine S",
+							  "Military Atmospheric Engine S",
+							  "Safe Atmospheric Engine S"
+							]
+						},
+						{
+							"name": "Atmospheric Engines M",
+							"data": [
+							  "Atmospheric Engine M",
+							  "Freight Atmospheric Engine M",
+							  "Maneuver Atmospheric Engine M",
+							  "Military Atmospheric Engine M",
+							  "Safe Atmospheric Engine M"
+							]
+						},
+						{
+							"name": "Atmospheric Engines L",
+							"data": [
+							  "Atmospheric Engine L",
+							  "Freight Atmospheric Engine L",
+							  "Maneuver Atmospheric Engine L",
+							  "Military Atmospheric Engine L",
+							  "Safe Atmospheric Engine L"
+							]
+						}
                     ]
                   },
                   {
@@ -860,16 +897,62 @@
                   {
                     "name": "Space Engines",
                     "data": [
-                      "Space Engine XS",
-                      "Space Engine S",
-                      "Space Engine M",
-                      "Space Engine L",
-                      "Space Engine XL"
+						{
+							"name": "Space Engines XS",
+							"data": [
+							  "Space Engine XS",
+							  "Freight Space Engine XS",
+							  "Maneuver Space Engine XS",
+							  "Military Space Engine XS",
+							  "Safe Space Engine XS"
+							]
+						},
+						{
+							"name": "Space Engines S",
+							"data": [
+							  "Space Engine S",
+							  "Freight Space Engine S",
+							  "Maneuver Space Engine S",
+							  "Military Space Engine S",
+							  "Safe Space Engine S"
+							]
+						},
+						{
+							"name": "Space Engines M",
+							"data": [
+							  "Space Engine M",
+							  "Freight Space Engine M",
+							  "Maneuver Space Engine M",
+							  "Military Space Engine M",
+							  "Safe Space Engine M"
+							]
+						},
+						{
+							"name": "Space Engines L",
+							"data": [
+							  "Space Engine L",
+							  "Freight Space Engine L",
+							  "Maneuver Space Engine L",
+							  "Military Space Engine L",
+							  "Safe Space Engine L"
+							]
+						},
+						{
+							"name": "Space Engines XL",
+							"data": [
+							  "Space Engine XL",
+							  "Freight Space Engine XL",
+							  "Maneuver Space Engine XL",
+							  "Military Space Engine XL",
+							  "Safe Space Engine XL"
+							]
+						}
                     ]
                   },
                   {
                     "name": "Vertical Boosters",
                     "data": [
+                      "Vertical Booster XS",
                       "Vertical Booster S",
                       "Vertical Booster M",
                       "Vertical Booster L"
@@ -900,7 +983,9 @@
                       "Expanded Gate S",
                       "Gate M",
                       "Expanded Gate L",
-                      "Gate XL"
+                      "Gate XL",
+					  "Hatch S",
+					  "Fuel Intake XS"
                     ]
                   },
                   {
@@ -1071,7 +1156,20 @@
 					}
 				]
 			  }
-            ]
+			  {
+				"name": "Warp Drives",
+				"data": [
+					"Warp Drive L"
+				}
+			  },
+			  {
+				"name": "Warp Beacons",
+				"data": [
+					"Warp Beacon XL"
+				}
+			  }
+			
+			]
           },
           {
             "name": "Planet Elements",
@@ -1185,7 +1283,7 @@
               "Ag-Li Reinforced Glass",
               "Al-Fe Alloy",
               "Al-Li Alloy",
-              "Biologic Matter",
+              "Biological Matter",
               "Brick",
               "Calcium Reinforced Copper",
               "Carbon Fiber",
@@ -1286,7 +1384,12 @@
               "Sodium Scrap",
               "Sulfur Scrap"
         ]
-      }
+      },
+	  {
+		"name": "Warp Cells",
+		"data": [
+			"Warp Cell"
+		]
     ]
   },
   {
@@ -1427,6 +1530,7 @@
 		  {
 			"name": "Anti-Matter Cores",
 			"data": [
+			  "Advanced Anti-Matter Core",
 			  "Exotic Anti-Matter Core"
 			]
 		  },

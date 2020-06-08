@@ -245,8 +245,8 @@
     "type": "Pure",
     "mass": 1,
     "volume": 1,
-    "outputQuantity": 45,
-    "time": 30,
+    "outputQuantity": 50,
+    "time": 100,
     "byproducts": {},
     "industries": ["Nanopack","Recycler M"],
     "input": {}
@@ -257,8 +257,8 @@
     "type": "Pure",
     "mass": 0.07,
     "volume": 1,
-    "outputQuantity": 45,
-    "time": 30,
+    "outputQuantity": 50,
+    "time": 100,
     "byproducts": {},
     "industries": ["Nanopack","Recycler M"],
     "input": {}
@@ -270,7 +270,7 @@
     "mass": 2.7,
     "volume": 1,
     "outputQuantity": 45,
-    "time": 50,
+    "time": 25,
     "byproducts": {"Hydrogen Pure":15},
     "industries": ["Nanopack","Refiner M"],
     "input": {
@@ -284,7 +284,7 @@
     "mass": 2.27,
     "volume": 1,
     "outputQuantity": 45,
-    "time": 50,
+    "time": 25,
     "byproducts": {"Oxygen Pure":7.5,"Hydrogen Pure":7.5},
     "industries": ["Nanopack","Refiner M"],
     "input": {
@@ -298,7 +298,7 @@
     "mass": 2.33,
     "volume": 1,
     "outputQuantity": 45,
-    "time": 50,
+    "time": 25,
     "byproducts": {"Oxygen Pure":15},
     "industries": ["Nanopack","Refiner M"],
     "input": {
@@ -312,7 +312,7 @@
     "mass": 7.85,
     "volume": 1,
     "outputQuantity": 45,
-    "time": 50,
+    "time": 25,
     "byproducts": {"Oxygen Pure":15},
     "industries": ["Nanopack","Refiner M"],
     "input": {
@@ -550,7 +550,7 @@
     "mass": 649.39,
     "volume": 1,
     "outputQuantity": 1,
-    "time": 2520,
+    "time": 2500,
     "byproducts": {},
     "industries": ["Chemical Industry M"],
     "input": {
@@ -567,7 +567,7 @@
     "mass": 606.65,
     "volume": 1,
     "outputQuantity": 1,
-    "time": 10800,
+    "time": 12480,
     "byproducts": {},
     "industries": ["Chemical Industry M"],
     "input": {
@@ -585,7 +585,7 @@
     "mass": 657.68,
     "volume": 1,
     "outputQuantity": 1,
-    "time": 61200,
+    "time": 62520,
     "byproducts": {},
     "industries": ["Chemical Industry M"],
     "input": {
@@ -604,7 +604,7 @@
     "mass": 4,
     "volume": 1,
     "outputQuantity": 100,
-    "time": 40,
+    "time": 20,
     "byproducts": {},
     "industries": ["Nanopack","Chemical Industry M"],
     "input": {
@@ -702,7 +702,7 @@
     "mass": 7.5,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 300,
+    "time": 150,
     "byproducts": {},
     "industries": ["Nanopack","Smelter M"],
     "input": {
@@ -733,7 +733,7 @@
     "mass": 8.1,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 780,
+    "time": 750,
     "byproducts": {},
     "industries": ["Smelter M"],
     "input": {
@@ -764,7 +764,7 @@
     "mass": 2.8,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 780,
+    "time": 750,
     "byproducts": {},
     "industries": ["Smelter M"],
     "input": {
@@ -779,7 +779,7 @@
     "mass": 4.43,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 93600,
+    "time": 93780,
     "byproducts": {"Catalyst 5":1},
     "industries": ["Smelter M"],
     "input": {
@@ -813,7 +813,7 @@
     "mass": 7.83,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 93600,
+    "time": 93780,
     "byproducts": {"Catalyst 5":1},
     "industries": ["Smelter M"],
     "input": {
@@ -830,7 +830,7 @@
     "mass": 8.23,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 18000,
+    "time": 18780,
     "byproducts": {"Catalyst 4":1},
     "industries": ["Smelter M"],
     "input": {
@@ -847,7 +847,7 @@
     "mass": 14.13,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 18000,
+    "time": 18780,
     "byproducts": {"Catalyst 4":1},
     "industries": ["Smelter M"],
     "input": {
@@ -863,7 +863,7 @@
     "mass": 2.85,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 18000,
+    "time": 18780,
     "byproducts": {"Catalyst 4":1},
     "industries": ["Smelter M"],
     "input": {
@@ -880,7 +880,7 @@
     "mass": 7.75,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 780,
+    "time": 750,
     "byproducts": {},
     "industries": ["Smelter M"],
     "input": {
@@ -896,7 +896,7 @@
     "mass": 10.1,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 93600,
+    "time": 93780,
     "byproducts": {"Catalyst 5":1},
     "industries": ["Smelter M"],
     "input": {
@@ -906,13 +906,13 @@
     }
   },
   {
-    "name": "Biologic Matter",
+    "name": "Biological Matter",
     "tier": 1,
     "type": "Product",
     "mass": 1,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 300,
+    "time": 150,
     "byproducts": {},
     "industries": ["Nanopack","Chemical Industry M"],
     "input": {
@@ -928,7 +928,7 @@
     "mass": 1.92,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 300,
+    "time": 150,
     "byproducts": {},
     "industries": ["Nanopack","Smelter M"],
     "input": {
@@ -944,7 +944,7 @@
     "mass": 2.7,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 780,
+    "time": 750,
     "byproducts": {},
     "industries": ["Smelter M"],
     "input": {
@@ -960,7 +960,7 @@
     "mass": 2.41,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 780,
+    "time": 750,
     "byproducts": {},
     "industries": ["Smelter M"],
     "input": {
@@ -976,7 +976,7 @@
     "mass": 1.5,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 300,
+    "time": 150,
     "byproducts": {},
     "industries": ["Nanopack","Smelter M"],
     "input": {
@@ -991,7 +991,7 @@
     "mass": 2.5,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 300,
+    "time": 150,
     "byproducts": {},
     "industries": ["Nanopack","Glass Furnace M"],
     "input": {
@@ -1006,7 +1006,7 @@
     "mass": 2.6,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 780,
+    "time": 750,
     "byproducts": {},
     "industries": ["Glass Furnace M"],
     "input": {
@@ -1023,7 +1023,7 @@
     "mass": 2.8,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 3780,
+    "time": 3750,
     "byproducts": {"Catalyst 3":1},
     "industries": ["Glass Furnace M"],
     "input": {
@@ -1041,7 +1041,7 @@
     "mass": 3,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 18000,
+    "time": 18780,
     "byproducts": {"Catalyst 4":1},
     "industries": ["Glass Furnace M"],
     "input": {
@@ -1059,7 +1059,7 @@
     "mass": 2.9,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 93600,
+    "time": 93780,
     "byproducts": {"Catalyst 5":1},
     "industries": ["Glass Furnace M"],
     "input": {
@@ -1077,7 +1077,7 @@
     "mass": 1.4,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 300,
+    "time": 150,
     "byproducts": {},
     "industries": ["Nanopack","Chemical Industry M"],
     "input": {
@@ -1092,7 +1092,7 @@
     "mass": 1.5,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 780,
+    "time": 750,
     "byproducts": {},
     "industries": ["Chemical Industry M"],
     "input": {
@@ -1108,7 +1108,7 @@
     "mass": 1.6,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 3780,
+    "time": 3750,
     "byproducts": {"Catalyst 3":1},
     "industries": ["Chemical Industry M"],
     "input": {
@@ -1125,7 +1125,7 @@
     "mass": 1.65,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 18000,
+    "time": 18780,
     "byproducts": {"Catalyst 4":1},
     "industries": ["Chemical Industry M"],
     "input": {
@@ -1142,7 +1142,7 @@
     "mass": 1.57,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 93600,
+    "time": 93780,
     "byproducts": {"Catalyst 5":1},
     "industries": ["Chemical Industry M"],
     "input": {
@@ -1160,7 +1160,7 @@
     "mass": 3,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 300,
+    "time": 150,
     "byproducts": {},
     "industries": ["Nanopack","Smelter M"],
     "input": {
@@ -1175,7 +1175,7 @@
     "mass": 8.05,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 300,
+    "time": 150,
     "byproducts": {},
     "industries": ["Nanopack","Smelter M"],
     "input": {
@@ -1190,7 +1190,7 @@
     "mass": 0.6,
     "volume": 1,
     "outputQuantity": 50,
-    "time": 300,
+    "time": 150,
     "byproducts": {},
     "industries": ["Nanopack","Smelter M"],
     "input": {
@@ -1205,7 +1205,7 @@
     "mass": 2.25,
     "volume": 0.5,
     "outputQuantity": 10,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
@@ -1250,7 +1250,7 @@
     "mass": 3.75,
     "volume": 0.8,
     "outputQuantity": 10,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
@@ -1309,7 +1309,7 @@
     "mass": 1.16,
     "volume": 1,
     "outputQuantity": 10,
-    "time": 480,
+    "time": 120,
     "byproducts": {},
     "industries": ["3D Printer M"],
     "input": {
@@ -1340,7 +1340,7 @@
     "mass": 1.25,
     "volume": 1,
     "outputQuantity": 10,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Glass Furnace M"],
     "input": {
@@ -1385,7 +1385,7 @@
     "mass": 2.4,
     "volume": 1,
     "outputQuantity": 10,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
@@ -1430,7 +1430,7 @@
     "mass": 8.05,
     "volume": 1,
     "outputQuantity": 10,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
@@ -1475,7 +1475,7 @@
     "mass": 24,
     "volume": 4.6,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Glass Furnace M"],
     "input": {
@@ -1542,7 +1542,7 @@
     "mass": 26.73,
     "volume": 4.6,
     "outputQuantity": 1,
-    "time": 14400,
+    "time": 15360,
     "byproducts": {},
     "industries": ["Glass Furnace M"],
     "input": {
@@ -1561,7 +1561,7 @@
     "mass": 50.2,
     "volume": 10,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
@@ -1610,7 +1610,7 @@
     "mass": 5.22,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
@@ -1677,7 +1677,7 @@
     "mass": 5.77,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 14400,
+    "time": 15360,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -1696,7 +1696,7 @@
     "mass": 18.72,
     "volume": 4.6,
     "outputQuantity": 1,
-    "time": 36,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Chemical Industry M"],
     "input": {
@@ -1727,7 +1727,7 @@
     "mass": 19.04,
     "volume": 4.6,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 960,
     "byproducts": {},
     "industries": ["Chemical Industry M"],
     "input": {
@@ -1745,7 +1745,7 @@
     "mass": 28.95,
     "volume": 10,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
@@ -1794,7 +1794,7 @@
     "mass": 20.3,
     "volume": 10,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","3D Printer M"],
     "input": {
@@ -1827,7 +1827,7 @@
     "mass": 63.3,
     "volume": 7.36,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
@@ -1894,7 +1894,7 @@
     "mass": 65.13,
     "volume": 7.36,
     "outputQuantity": 1,
-    "time": 14400,
+    "time": 15360,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -1913,7 +1913,7 @@
     "mass": 9.74,
     "volume": 10,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Glass Furnace M"],
     "input": {
@@ -1980,7 +1980,7 @@
     "mass": 60,
     "volume": 9.2,
     "outputQuantity": 1,
-    "time": 36,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
@@ -2047,7 +2047,7 @@
     "mass": 82.87,
     "volume": 9.2,
     "outputQuantity": 1,
-    "time": 14400,
+    "time": 15360,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -2066,7 +2066,7 @@
     "mass": 14.84,
     "volume": 5,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
@@ -2115,7 +2115,7 @@
     "mass": 21.47,
     "volume": 5,
     "outputQuantity": 1,
-    "time": 14400,
+    "time": 15360,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -2134,7 +2134,7 @@
     "mass": 10.72,
     "volume": 5,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","3D Printer M"],
     "input": {
@@ -2201,7 +2201,7 @@
     "mass": 11.66,
     "volume": 5,
     "outputQuantity": 1,
-    "time": 3840,
+    "time": 15360,
     "byproducts": {},
     "industries": ["3D Printer M"],
     "input": {
@@ -2220,7 +2220,7 @@
     "mass": 45.36,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 30,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
@@ -2287,7 +2287,7 @@
     "mass": 46.98,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 14400,
+    "time": 15360,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -2360,7 +2360,7 @@
     "mass": 123.22,
     "volume": 22.5,
     "outputQuantity": 1,
-    "time": 18000,
+    "time": 18780,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -2383,7 +2383,7 @@
     "mass": 133.06,
     "volume": 25,
     "outputQuantity": 1,
-    "time": 93600,
+    "time": 93780,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -2453,7 +2453,7 @@
     "mass": 43.24,
     "volume": 30,
     "outputQuantity": 1,
-    "time": 93600,
+    "time": 93780,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -2492,19 +2492,63 @@
     }
   },
   {
+    "name": "Advanced Anti-Matter Core Unit",
+    "tier": 3,
+    "type": "Exceptional Part",
+    "mass": 107.08,
+    "volume": 21.5,
+    "outputQuantity": 1,
+    "time": 3780,
+    "byproducts": {},
+    "industries": ["Electronics Industry M"],
+    "input": {
+      "Al-Fe Alloy": 5,
+      "Basic Component": 10,
+      "Basic Anti-Matter Capsule": 3,
+      "Calcium Reinforced Copper": 5,
+      "Uncommon Anti-Matter Capsule": 1,
+      "Cu-Ag Alloy": 5,
+      "Advanced Anti-Matter Capsule": 1
+    }
+  },
+  {
+    "name": "Exotic Anti-Matter Core Unit",
+    "tier": 5,
+    "type": "Exceptional Part",
+    "mass": 158.05,
+    "volume": 26.5,
+    "outputQuantity": 1,
+    "time": 93780,
+    "byproducts": {},
+    "industries": ["Electronics Industry M"],
+    "input": {
+      "Al-Fe Alloy": 5,
+      "Basic Anti-Matter Capsule": 1,
+      "Calcium Reinforced Copper": 5,
+      "Uncommon Component": 5,
+      "Uncommon Anti-Matter Capsule": 1,
+      "Cu-Ag Alloy": 5,
+      "Advanced Component": 5,
+      "Advanced Anti-Matter Capsule": 1,
+      "Red Gold": 5,
+      "Rare Anti-Matter Capsule": 1,
+      "Ti-Nb Supraconductor": 5,
+      "Exotic Anti-Matter Capsule": 1
+    }
+  },
+  {
     "name": "Basic Antenna XS",
     "tier": 1,
     "type": "Functional Part",
     "mass": 60.44,
     "volume": 8.96,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
       "Al-Fe Alloy": 1,
-      "Basic Screw": 1,
-      "Basic Power System": 1
+      "Basic Screw": 1
     }
   },
   {
@@ -2514,13 +2558,12 @@
     "mass": 314.2,
     "volume": 46.4,
     "outputQuantity": 1,
-    "time": 720,
+    "time": 180,
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
       "Al-Fe Alloy": 7,
-      "Basic Screw": 5,
-      "Basic Power System": 5
+      "Basic Screw": 5
     }
   },
   {
@@ -2584,7 +2627,7 @@
     "mass": 2140,
     "volume": 250.56,
     "outputQuantity": 1,
-    "time": 136800,
+    "time": 138240,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -2602,7 +2645,7 @@
     "mass": 11250,
     "volume": 1301.76,
     "outputQuantity": 1,
-    "time": 432000,
+    "time": 414000,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -2620,7 +2663,7 @@
     "mass": 61580,
     "volume": 7028.16,
     "outputQuantity": 1,
-    "time": 1209600,
+    "time": 1245600,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -2638,13 +2681,12 @@
     "mass": 8.13,
     "volume": 4.8,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Silumin": 1,
-      "Basic Screw": 1,
-      "Basic Electronics": 1
+      "Basic Screw": 1
     }
   },
   {
@@ -2654,13 +2696,12 @@
     "mass": 43.67,
     "volume": 25.6,
     "outputQuantity": 1,
-    "time": 720,
+    "time": 180,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Silumin": 7,
-      "Basic Screw": 5,
-      "Basic Electronics": 5
+      "Basic Screw": 5
     }
   },
   {
@@ -2670,13 +2711,12 @@
     "mass": 239.38,
     "volume": 139.2,
     "outputQuantity": 1,
-    "time": 1080,
+    "time": 540,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Silumin": 49,
-      "Basic Screw": 25,
-      "Basic Electronics": 25
+      "Basic Screw": 25
     }
   },
   {
@@ -2686,9 +2726,9 @@
     "mass": 1340,
     "volume": 774.4,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 1620,
     "byproducts": {},
-    "industries": ["Nanopack","Metalwork Industry M"],
+    "industries": ["Metalwork Industry M"],
     "input": {
       "Silumin": 343,
       "Basic Screw": 125,
@@ -2702,9 +2742,9 @@
     "mass": 7750,
     "volume": 4420.80,
     "outputQuantity": 1,
-    "time": 2940,
+    "time": 4860,
     "byproducts": {},
-    "industries": ["Nanopack","Metalwork Industry M"],
+    "industries": ["Metalwork Industry M"],
     "input": {
       "Silumin": 2401,
       "Basic Screw": 625,
@@ -2738,7 +2778,7 @@
     "mass": 235.25,
     "volume": 143.2,
     "outputQuantity": 1,
-    "time": 7200,
+    "time": 8640,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -2758,7 +2798,7 @@
     "mass": 1270,
     "volume": 778.4,
     "outputQuantity": 1,
-    "time": 25200,
+    "time": 25920,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -2778,7 +2818,7 @@
     "mass": 7190,
     "volume": 4424.8,
     "outputQuantity": 1,
-    "time": 79200,
+    "time": 77760,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -2798,13 +2838,12 @@
     "mass": 60.65,
     "volume": 9.6,
     "outputQuantity": 1,
-    "time": 36,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Steel": 1,
-      "Basic Pipe": 1,
-      "Basic Burner": 1
+      "Basic Pipe": 1
     }
   },
   {
@@ -2814,13 +2853,12 @@
     "mass": 319.35,
     "volume": 49.6,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 180,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Steel": 7,
-      "Basic Pipe": 5,
-      "Basic Burner": 5
+      "Basic Pipe": 5
     }
   },
   {
@@ -2830,13 +2868,12 @@
     "mass": 1710,
     "volume": 259.2,
     "outputQuantity": 1,
-    "time": 300,
+    "time": 540,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Steel": 49,
-      "Basic Pipe": 25,
-      "Basic Burner": 25
+      "Basic Pipe": 25
     }
   },
   {
@@ -2846,13 +2883,85 @@
     "mass": 9340,
     "volume": 1374.4,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 1620,
     "byproducts": {},
-    "industries": ["Nanopack","Metalwork Industry M"],
+    "industries": ["Metalwork Industry M"],
     "input": {
       "Steel": 343,
       "Basic Pipe": 125,
       "Basic Burner": 125
+    }
+  },
+  {
+    "name": "Uncommon Combustion Chamber XS",
+    "tier": 2,
+    "type": "Functional Part",
+    "mass": 112.07,
+    "volume": 18.4,
+    "outputQuantity": 1,
+    "time": 240,
+    "byproducts": {},
+    "industries": ["Nanopack","Metalwork Industry M"],
+    "input": {
+      "Basic Pipe": 1,
+      "Basic Burner": 1,
+      "Stainless Steel": 1,
+      "Uncommon Burnder": 1,
+      "Uncommon Pipe": 1
+    }
+  },
+  {
+    "name": "Uncommon Combustion Chamber S",
+    "tier": 2,
+    "type": "Functional Part",
+    "mass": 366.33,
+    "volume": 58.4,
+    "outputQuantity": 1,
+    "time": 720,
+    "byproducts": {},
+    "industries": ["Nanopack","Metalwork Industry M"],
+    "input": {
+      "Basic Pipe": 2,
+      "Basic Burner": 2,
+      "Stainless Steel": 7,
+      "Uncommon Burnder": 4,
+      "Uncommon Pipe": 4
+    }
+  },
+  {
+    "name": "Uncommon Combustion Chamber M",
+    "tier": 2,
+    "type": "Functional Part",
+    "mass": 1730,
+    "volume": 268,
+    "outputQuantity": 1,
+    "time": 2160,
+    "byproducts": {},
+    "industries": ["Nanopack","Metalwork Industry M"],
+    "input": {
+      "Basic Pipe": 8,
+      "Basic Burner": 8,
+      "Stainless Steel": 49,
+      "Uncommon Burnder": 18,
+      "Uncommon Pipe": 18
+    }
+  },
+  {
+    "name": "Uncommon Combustion Chamber L",
+    "tier": 2,
+    "type": "Functional Part",
+    "mass": 9210,
+    "volume": 1383.2,
+    "outputQuantity": 1,
+    "time": 6480,
+    "byproducts": {},
+    "industries": ["Metalwork Industry M"],
+    "input": {
+      "Basic Pipe": 1,
+      "Basic Burner": 1,
+      "Stainless Steel": 1,
+      "Uncommon Burnder": 1,
+      "Uncommon Pipe": 1
     }
   },
   {
@@ -2899,7 +3008,7 @@
     "mass": 1760,
     "volume": 268,
     "outputQuantity": 1,
-    "time": 7200,
+    "time": 8640,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -2919,13 +3028,12 @@
     "mass": 9.25,
     "volume": 5.2,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
       "Polycarbonate Plastic": 1,
-      "Basic Component": 1,
-      "Basic Processor": 1
+      "Basic Component": 1
     }
   },
   {
@@ -2935,13 +3043,12 @@
     "mass": 47.63,
     "volume": 27.6,
     "outputQuantity": 1,
-    "time": 720,
+    "time": 180,
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
       "Polycarbonate Plastic": 7,
-      "Basic Component": 5,
-      "Basic Processor": 5
+      "Basic Component": 5
     }
   },
   {
@@ -2951,13 +3058,12 @@
     "mass": 247.97,
     "volume": 149.2,
     "outputQuantity": 1,
-    "time": 1080,
+    "time": 540,
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
       "Polycarbonate Plastic": 49,
-      "Basic Component": 25,
-      "Basic Processor": 25
+      "Basic Component": 25
     }
   },
   {
@@ -2987,7 +3093,7 @@
     "mass": 272.97,
     "volume": 153.6,
     "outputQuantity": 1,
-    "time": 720,
+    "time": 8640,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -3007,7 +3113,7 @@
     "mass": 1410,
     "volume": 828.8,
     "outputQuantity": 1,
-    "time": 25200,
+    "time": 25920,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -3027,13 +3133,12 @@
     "mass": 4.43,
     "volume": 4.4,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
       "Polycarbonate Plastic": 1,
-      "Basic Component": 1,
-      "Basic Electronics": 1
+      "Basic Component": 1
     }
   },
   {
@@ -3043,13 +3148,12 @@
     "mass": 23.57,
     "volume": 23.6,
     "outputQuantity": 1,
-    "time": 720,
+    "time": 180,
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
       "Polycarbonate Plastic": 7,
-      "Basic Component": 5,
-      "Basic Electronics": 5
+      "Basic Component": 5
     }
   },
   {
@@ -3113,7 +3217,7 @@
     "mass": 139.61,
     "volume": 132.8,
     "outputQuantity": 1,
-    "time": 7200,
+    "time": 8640,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -3133,7 +3237,7 @@
     "mass": 783.65,
     "volume": 728,
     "outputQuantity": 1,
-    "time": 104400,
+    "time": 103680,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -3152,7 +3256,7 @@
     "mass": 28.62,
     "volume": 26.8,
     "outputQuantity": 1,
-    "time": 46800,
+    "time": 46080,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -3170,13 +3274,12 @@
     "mass": 377.75,
     "volume": 39.04,
     "outputQuantity": 1,
-    "time": 720,
+    "time": 180,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Silumin": 7,
-      "Basic Screw": 5,
-      "Basic Magnet": 5
+      "Basic Screw": 5
     }
   },
   {
@@ -3186,13 +3289,12 @@
     "mass": 1930,
     "volume": 206.4,
     "outputQuantity": 1,
-    "time": 1080,
+    "time": 540,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Silumin": 49,
-      "Basic Screw": 25,
-      "Basic Magnet": 25
+      "Basic Screw": 25
     }
   },
   {
@@ -3202,7 +3304,7 @@
     "mass": 50800,
     "volume": 6107.49,
     "outputQuantity": 1,
-    "time": 18000,
+    "time": 19440,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -3220,13 +3322,12 @@
     "mass":60.65,
     "volume": 9.6,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Steel": 1,
-      "Basic Pipe": 1,
-      "Basic Burner": 1
+      "Basic Pipe": 1
     }
   },
   {
@@ -3273,7 +3374,7 @@
     "mass": 1760,
     "volume": 268,
     "outputQuantity": 1,
-    "time": 7200,
+    "time": 8640,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -3293,7 +3394,7 @@
     "mass": 9410,
     "volume": 1383.2,
     "outputQuantity": 1,
-    "time": 25200,
+    "time": 25920,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -3313,13 +3414,12 @@
     "mass": 15.68,
     "volume": 9.6,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Silumin": 1,
-      "Basic Screw": 1,
-      "Basic Injector": 1
+      "Basic Screw": 1
     }
   },
   {
@@ -3329,13 +3429,12 @@
     "mass": 81.38,
     "volume": 49.6,
     "outputQuantity": 1,
-    "time": 720,
+    "time": 180,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Silumin": 7,
-      "Basic Screw": 5,
-      "Basic Injector": 5
+      "Basic Screw": 5
     }
   },
   {
@@ -3345,13 +3444,12 @@
     "mass": 427.88,
     "volume": 259.2,
     "outputQuantity": 1,
-    "time": 1080,
+    "time": 540,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Silumin": 49,
-      "Basic Screw": 5,
-      "Basic Injector": 5
+      "Basic Screw": 25
     }
   },
   {
@@ -3361,13 +3459,12 @@
     "mass": 75.1,
     "volume": 7.33,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Steel": 1,
-      "Basic Connector": 1,
-      "Basic Magnet": 1
+      "Basic Connector": 1
     }
   },
   {
@@ -3377,13 +3474,12 @@
     "mass": 391.6,
     "volume": 38.24,
     "outputQuantity": 1,
-    "time": 720,
+    "time": 180,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Steel": 7,
-      "Basic Connector": 5,
-      "Basic Magnet": 5
+      "Basic Connector": 5
     }
   },
   {
@@ -3393,25 +3489,24 @@
     "mass": 2070,
     "volume": 202.4,
     "outputQuantity": 1,
-    "time": 1080,
+    "time": 540,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Steel": 49,
-      "Basic Connector": 25,
-      "Basic Magnet": 25
+      "Basic Connector": 25
     }
   },
   {
     "name": "Basic Ionic Chamber L",
     "tier": 1,
     "type": "Functional Part",
-    "mass": 11140,
+    "mass": 1620,
     "volume": 1090.4,
     "outputQuantity": 1,
     "time": 960,
     "byproducts": {},
-    "industries": ["Nanopack","Metalwork Industry M"],
+    "industries": ["Metalwork Industry M"],
     "input": {
       "Steel": 343,
       "Basic Connector": 125,
@@ -3425,9 +3520,9 @@
     "mass": 61230,
     "volume": 6000.8,
     "outputQuantity": 1,
-    "time": 2940,
+    "time": 4860,
     "byproducts": {},
-    "industries": ["Nanopack","Metalwork Industry M"],
+    "industries": ["Metalwork Industry M"],
     "input": {
       "Steel": 2401,
       "Basic Connector": 625,
@@ -3438,7 +3533,7 @@
     "name": "Advanced Ionic Chamber M",
     "tier": 3,
     "type": "Functional Part",
-    "mass": 2160,
+    "mass": 8640,
     "volume": 208.93,
     "outputQuantity": 1,
     "time": 7200,
@@ -3519,7 +3614,7 @@
     "mass": 429.89,
     "volume": 268,
     "outputQuantity": 1,
-    "time": 2880,
+    "time": 8640,
     "byproducts": {},
     "industries": ["Glass Furnace M"],
     "input": {
@@ -3539,7 +3634,7 @@
     "mass": 2380,
     "volume": 1383.2,
     "outputQuantity": 1,
-    "time": 25200,
+    "time": 25920,
     "byproducts": {},
     "industries": ["Glass Furnace M"],
     "input": {
@@ -3559,7 +3654,7 @@
     "mass": 90.49,
     "volume": 58.4,
     "outputQuantity": 1,
-    "time": 10800,
+    "time": 11520,
     "byproducts": {},
     "industries": ["Glass Furnace M"],
     "input": {
@@ -3654,7 +3749,7 @@
     "mass": 2120,
     "volume": 213.09,
     "outputQuantity": 1,
-    "time": 7200,
+    "time": 8640,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -3674,7 +3769,7 @@
     "mass": 11160,
     "volume": 1117.09,
     "outputQuantity": 1,
-    "time": 25200,
+    "time": 25920,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -3694,13 +3789,12 @@
     "mass": 35.96,
     "volume": 7.49,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
       "Al-Fe Alloy": 1,
-      "Basic Fixation": 1,
-      "Basic Magnet": 1
+      "Basic Fixation": 1
     }
   },
   {
@@ -3730,7 +3824,7 @@
     "mass": 102.37,
     "volume": 19.26,
     "outputQuantity": 1,
-    "time": 14400,
+    "time": 15360,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -3788,7 +3882,7 @@
     "mass": 1460,
     "volume": 268,
     "outputQuantity": 1,
-    "time": 7200,
+    "time": 8640,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -3808,7 +3902,7 @@
     "mass": 7360,
     "volume": 1383.2,
     "outputQuantity": 1,
-    "time": 25200,
+    "time": 25920,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -3828,13 +3922,12 @@
     "mass": 20,
     "volume": 9.6,
     "outputQuantity": 1,
-    "time": 120,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Silumin": 1,
-      "Basic Screw": 1,
-      "Basic Hydraulics": 1
+      "Basic Screw": 1
     }
   },
   {
@@ -3844,13 +3937,12 @@
     "mass": 103,
     "volume": 49.6,
     "outputQuantity": 1,
-    "time": 720,
+    "time": 180,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Silumin": 7,
-      "Basic Screw": 5,
-      "Basic Hydraulics": 5
+      "Basic Screw": 5
     }
   },
   {
@@ -3860,13 +3952,12 @@
     "mass": 536,
     "volume": 259.2,
     "outputQuantity": 1,
-    "time": 1080,
+    "time": 540,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Silumin": 49,
-      "Basic Screw": 25,
-      "Basic Hydraulics": 25
+      "Basic Screw": 25
     }
   },
   {
@@ -3876,9 +3967,9 @@
     "mass": 2830,
     "volume": 1374.4,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 1620,
     "byproducts": {},
-    "industries": ["Nanopack","Metalwork Industry M"],
+    "industries": ["Metalwork Industry M"],
     "input": {
       "Silumin": 343,
       "Basic Screw": 125,
@@ -3892,9 +3983,9 @@
     "mass": 15160,
     "volume": 7420.8,
     "outputQuantity": 1,
-    "time": 2940,
+    "time": 4860,
     "byproducts": {},
-    "industries": ["Nanopack","Metalwork Industry M"],
+    "industries": ["Metalwork Industry M"],
     "input": {
       "Silumin": 2401,
       "Basic Screw": 625,
@@ -3908,7 +3999,7 @@
     "mass": 109.19,
     "volume": 96,
     "outputQuantity": 1,
-    "time": 7200,
+    "time": 8640,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -3928,7 +4019,7 @@
     "mass": 1870,
     "volume": 2702.9,
     "outputQuantity": 1,
-    "time": 18000,
+    "time": 19440,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -3946,13 +4037,12 @@
     "mass": 1020,
     "volume": 196.4,
     "outputQuantity": 1,
-    "time": 1080,
+    "time": 540,
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
       "Steel": 49,
-      "Basic Component": 25,
-      "Basic Magnet": 25
+      "Basic Component": 25
     }
   },
   {
@@ -3982,7 +4072,7 @@
     "mass": 5570,
     "volume": 1066.69,
     "outputQuantity": 1,
-    "time": 104400,
+    "time": 103680,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -4001,7 +4091,7 @@
     "mass": 30540,
     "volume": 5857.09,
     "outputQuantity": 1,
-    "time": 345600,
+    "time": 311040,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -4020,7 +4110,7 @@
     "mass": 5570,
     "volume": 1066.29,
     "outputQuantity": 1,
-    "time": 432000,
+    "time": 414720,
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
@@ -4038,13 +4128,12 @@
     "mass": 927,
     "volume": 249.2,
     "outputQuantity": 1,
-    "time": 1080,
+    "time": 540,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
       "Silumin": 49,
-      "Basic Component": 25,
-      "Basic Hydraulics": 25
+      "Basic Component": 25
     }
   },
   {
@@ -4054,9 +4143,9 @@
     "mass": 4930,
     "volume": 1324.4,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 1620,
     "byproducts": {},
-    "industries": ["Nanopack","Metalwork Industry M"],
+    "industries": ["Metalwork Industry M"],
     "input": {
       "Silumin": 343,
       "Basic Component": 125,
@@ -4070,9 +4159,9 @@
     "mass": 26700,
     "volume": 7170.8,
     "outputQuantity": 1,
-    "time": 2940,
+    "time": 4860,
     "byproducts": {},
-    "industries": ["Nanopack","Metalwork Industry M"],
+    "industries": ["Metalwork Industry M"],
     "input": {
       "Silumin": 2401,
       "Basic Component": 625,
@@ -4086,13 +4175,12 @@
     "mass": 115.17,
     "volume": 139.2,
     "outputQuantity": 1,
-    "time": 1080,
+    "time": 540,
     "byproducts": {},
     "industries": ["Nanopack","3D Printer M"],
     "input": {
       "Polycarbonate Plastic": 49,
-      "Basic LED": 25,
-      "Basic Electronics": 25
+      "Basic LED": 25
     }
   },
   {
@@ -4120,7 +4208,7 @@
     "mass": 3860,
     "volume": 4424.8,
     "outputQuantity": 1,
-    "time": 18000,
+    "time": 19440,
     "byproducts": {},
     "industries": ["3D Printer M"],
     "input": {
@@ -4158,7 +4246,7 @@
     "mass": 1.4,
     "volume": 2,
     "outputQuantity": 1,
-    "time": 28,
+    "time": 40,
     "byproducts": {},
     "industries": ["3D Printer M"],
     "input": {
@@ -4172,7 +4260,7 @@
     "mass": 7.7,
     "volume": 11,
     "outputQuantity": 1,
-    "time": 60,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","3D Printer M"],
     "input": {
@@ -4186,7 +4274,7 @@
     "mass": 51.8,
     "volume": 74,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 360,
     "byproducts": {},
     "industries": ["Nanopack","3D Printer M"],
     "input": {
@@ -4200,7 +4288,7 @@
     "mass": 360.50,
     "volume": 515,
     "outputQuantity": 1,
-    "time": 780,
+    "time": 1080,
     "byproducts": {},
     "industries": ["Nanopack","3D Printer M"],
     "input": {
@@ -4214,7 +4302,7 @@
     "mass": 1.45,
     "volume": 2,
     "outputQuantity": 1,
-    "time": 180,
+    "time": 160,
     "byproducts": {},
     "industries": ["3D Printer M"],
     "input": {
@@ -4274,7 +4362,7 @@
     "mass": 2640,
     "volume": 3602,
     "outputQuantity": 1,
-    "time": 14400,
+    "time": 12960,
     "byproducts": {},
     "industries": ["3D Printer M"],
     "input": {
@@ -4289,7 +4377,7 @@
     "mass": 1.5,
     "volume": 2,
     "outputQuantity": 1,
-    "time": 660,
+    "time": 640,
     "byproducts": {},
     "industries": ["3D Printer M"],
     "input": {
@@ -4334,7 +4422,7 @@
     "mass": 394.8,
     "volume": 515,
     "outputQuantity": 1,
-    "time": 18000,
+    "time": 17280,
     "byproducts": {},
     "industries": ["3D Printer M"],
     "input": {
@@ -4349,7 +4437,7 @@
     "mass": 2760,
     "volume": 3602,
     "outputQuantity": 1,
-    "time": 660,
+    "time": 51840,
     "byproducts": {},
     "industries": ["3D Printer M"],
     "input": {
@@ -4364,7 +4452,7 @@
     "mass": 1.52,
     "volume": 2,
     "outputQuantity": 1,
-    "time": 2580,
+    "time": 2560,
     "byproducts": {},
     "industries": ["3D Printer M"],
     "input": {
@@ -4379,7 +4467,7 @@
     "mass": 8.57,
     "volume": 11,
     "outputQuantity": 1,
-    "time": 7200,
+    "time": 7680,
     "byproducts": {},
     "industries": ["3D Printer M"],
     "input": {
@@ -4394,7 +4482,7 @@
     "mass": 8.29,
     "volume": 11,
     "outputQuantity": 1,
-    "time": 32400,
+    "time": 30720,
     "byproducts": {},
     "industries": ["3D Printer M"],
     "input": {
@@ -4409,7 +4497,7 @@
     "mass": 12.88,
     "volume": 2,
     "outputQuantity": 1,
-    "time": 80,
+    "time": 40,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
@@ -4423,7 +4511,7 @@
     "mass": 70.84,
     "volume": 11,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
@@ -4437,7 +4525,7 @@
     "mass": 476,
     "volume": 74,
     "outputQuantity": 1,
-    "time": 720,
+    "time": 360,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
@@ -4451,7 +4539,7 @@
     "mass": 3320,
     "volume": 515,
     "outputQuantity": 1,
-    "time": 780,
+    "time": 1080,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
@@ -4465,7 +4553,7 @@
     "mass": 23200,
     "volume": 3602,
     "outputQuantity": 1,
-    "time": 2280,
+    "time": 3240,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
@@ -4479,7 +4567,7 @@
     "mass": 12.64,
     "volume": 2,
     "outputQuantity": 1,
-    "time": 180,
+    "time": 160,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -4539,7 +4627,7 @@
     "mass": 22620,
     "volume": 3602,
     "outputQuantity": 1,
-    "time": 14400,
+    "time": 12960,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -4554,7 +4642,7 @@
     "mass": 13.24,
     "volume": 2,
     "outputQuantity": 1,
-    "time": 660,
+    "time": 640,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -4599,7 +4687,7 @@
     "mass": 3440,
     "volume": 515,
     "outputQuantity": 1,
-    "time": 18000,
+    "time": 17280,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -4614,7 +4702,7 @@
     "mass": 3370,
     "volume": 515,
     "outputQuantity": 1,
-    "time": 68400,
+    "time": 69120,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -4629,7 +4717,7 @@
     "mass": 23540,
     "volume": 3602,
     "outputQuantity": 1,
-    "time": 68400,
+    "time": 207360,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -4644,7 +4732,7 @@
     "mass": 468.05,
     "volume": 74,
     "outputQuantity": 1,
-    "time": 93600,
+    "time": 92160,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -4659,7 +4747,7 @@
     "mass": 3260,
     "volume": 515,
     "outputQuantity": 1,
-    "time": 259200,
+    "time": 276480,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -4674,7 +4762,7 @@
     "mass": 22780,
     "volume": 3602,
     "outputQuantity": 1,
-    "time": 864000,
+    "time": 829440,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -4689,7 +4777,7 @@
     "mass": 4.2,
     "volume": 2,
     "outputQuantity": 1,
-    "time": 80,
+    "time": 40,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
@@ -4703,7 +4791,7 @@
     "mass": 23.1,
     "volume": 11,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
@@ -4717,7 +4805,7 @@
     "mass": 155.4,
     "volume": 74,
     "outputQuantity": 1,
-    "time": 720,
+    "time": 360,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
@@ -4731,7 +4819,7 @@
     "mass": 1080,
     "volume": 515,
     "outputQuantity": 1,
-    "time": 780,
+    "time": 1080,
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
@@ -4745,7 +4833,7 @@
     "mass": 4.06,
     "volume": 2,
     "outputQuantity": 1,
-    "time": 180,
+    "time": 160,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -4805,7 +4893,7 @@
     "mass": 3.85,
     "volume": 2,
     "outputQuantity": 1,
-    "time": 660,
+    "time": 640,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -4850,7 +4938,7 @@
     "mass": 961.45,
     "volume": 515,
     "outputQuantity": 1,
-    "time": 18000,
+    "time": 17280,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -4865,7 +4953,7 @@
     "mass": 1050,
     "volume": 515,
     "outputQuantity": 1,
-    "time": 68400,
+    "time": 69120,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -4880,7 +4968,7 @@
     "mass": 5.2,
     "volume": 2,
     "outputQuantity": 1,
-    "time": 10800,
+    "time": 10240,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -4895,7 +4983,7 @@
     "mass": 1420,
     "volume": 515,
     "outputQuantity": 1,
-    "time": 259200,
+    "time": 276480,
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
@@ -4910,7 +4998,7 @@
     "mass": 70.89,
     "volume": 16.1,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -4980,7 +5068,7 @@
     "mass": 70.89,
     "volume": 16.1,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -4997,7 +5085,7 @@
     "mass": 360.18,
     "volume": 83.6,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -5239,7 +5327,7 @@
     "mass": 35.03,
     "volume": 17.8,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -5256,7 +5344,7 @@
     "mass": 182.67,
     "volume": 92.6,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -5307,7 +5395,7 @@
     "mass": 182.67,
     "volume": 92.6,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -5490,9 +5578,9 @@
     "mass": 100.93,
     "volume": 21.8,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
-    "industries": ["Nanopack"],
+    "industries": ["Nanopack", "Assembly Line XS"],
     "input": {
       "Basic Screw": 1,
       "Basic Power System": 1,
@@ -5746,7 +5834,7 @@
     "mass": 137.55,
     "volume": 20.33,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -5763,7 +5851,7 @@
     "mass": 714,
     "volume": 105.24,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -5797,7 +5885,7 @@
     "mass": 55.55,
     "volume": 22.6,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -5848,7 +5936,7 @@
     "mass": 61.2,
     "volume": 22.6,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -5865,7 +5953,7 @@
     "mass": 319.15,
     "volume": 116.6,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -5899,7 +5987,7 @@
     "mass": 122.4,
     "volume": 45.2,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -5916,7 +6004,7 @@
     "mass": 638.3,
     "volume": 233.2,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -5950,7 +6038,7 @@
     "mass": 69.88,
     "volume": 22.6,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -5967,7 +6055,7 @@
     "mass": 366.89,
     "volume": 116.6,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -6018,7 +6106,7 @@
     "mass": 61.2,
     "volume": 22.6,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -6035,7 +6123,7 @@
     "mass": 319.15,
     "volume": 116.6,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -6086,7 +6174,7 @@
     "mass": 101.88,
     "volume": 22.6,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -6103,7 +6191,7 @@
     "mass": 539.99,
     "volume": 116.6,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -6154,7 +6242,7 @@
     "mass": 146.23,
     "volume": 20.33,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -6171,7 +6259,7 @@
     "mass": 761.74,
     "volume": 105.24,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -6239,7 +6327,7 @@
     "mass": 56.91,
     "volume": 22.6,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -6256,7 +6344,7 @@
     "mass": 302.02,
     "volume": 116.6,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -6301,13 +6389,28 @@
     }
   },
   {
+    "name": "Adjustor XS",
+    "tier": 1,
+    "type": "Adjustor",
+    "mass": 22.7,
+    "volume": 11,
+    "outputQuantity": 1,
+    "time": 30,
+    "byproducts": {},
+    "industries": ["Assembly Line XS"],
+    "input": {
+      "Basic Pipe": 1,
+      "Basic Injector": 1
+    }
+  },
+  {
     "name": "Adjustor S",
     "tier": 1,
     "type": "Adjustor",
     "mass": 42.58,
     "volume": 22.6,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -6324,7 +6427,7 @@
     "mass": 220.38,
     "volume": 116.6,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -6411,7 +6514,7 @@
     "outputQuantity": 1,
     "time": 30,
     "byproducts": {},
-    "industries": ["Nanopack","Assembly Line XS"],
+    "industries": ["Assembly Line XS"],
     "input": {
       "Basic Pipe": 1,
       "Basic Injector": 1
@@ -6424,7 +6527,7 @@
     "mass": 102,
     "volume": 20.33,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -6441,7 +6544,7 @@
     "mass": 530.6,
     "volume": 105.24,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -6493,7 +6596,7 @@
     "mass": 49.88,
     "volume": 13,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -6642,7 +6745,7 @@
     "mass": 104.41,
     "volume": 17.65,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -6692,7 +6795,7 @@
     "mass": 110.33,
     "volume": 61.6,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -6724,7 +6827,7 @@
     "mass": 158.45,
     "volume": 66.6,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -6758,7 +6861,7 @@
     "mass": 27.74,
     "volume": 12.7,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -6901,7 +7004,7 @@
     "mass": 749.15,
     "volume": 102.04,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 480,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -7120,7 +7223,7 @@
     "mass": 8.87,
     "volume": 6.5,
     "outputQuantity": 1,
-    "time": 180,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -7328,7 +7431,7 @@
     "mass": 69.31,
     "volume": 15.46,
     "outputQuantity": 1,
-    "time": 240,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -7603,20 +7706,21 @@
     }
   },
   {
-    "name": "Radar S",
+    "name": "Atmospheric Radar S",
     "tier": 1,
     "type": "Radar",
-    "mass": 507.56,
-    "volume": 88.4,
+    "mass": 486.72,
+    "volume": 96.56,
     "outputQuantity": 1,
-    "time": 960,
+    "time": 1440,
     "byproducts": {},
-    "industries": ["Nanopack","Assembly Line S"],
+    "industries": ["Assembly Line S"],
     "input": {
-      "Basic Screw": 6,
-      "Basic Processor": 5,
-      "Basic Antenna S": 1,
-      "Basic Reinforced Frame S": 1
+      "Basic LED": 3,
+      "Uncommon LED": 3,
+      "Uncommon Magnet": 5,
+      "Uncommon Antenna S": 1,
+      "Uncommon Standard Frame S": 1
     }
   },
   {
@@ -7986,7 +8090,7 @@
     "mass": 916.52,
     "volume": 13,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -8001,7 +8105,7 @@
     "mass": 39.62,
     "volume": 24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -8017,7 +8121,7 @@
     "mass": 2.52,
     "volume": 2,
     "outputQuantity": 1,
-    "time": 130,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8187,7 +8291,7 @@
     "mass": 24.68,
     "volume": 3.8,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8252,7 +8356,7 @@
     "mass": 14.65,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8268,7 +8372,7 @@
     "mass": 14.65,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8284,7 +8388,7 @@
     "mass": 14.65,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8300,7 +8404,7 @@
     "mass": 6.72,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8316,7 +8420,7 @@
     "mass": 25.62,
     "volume": 13,
     "outputQuantity": 1,
-    "time": 180,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8332,7 +8436,7 @@
     "mass": 8.32,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8348,7 +8452,7 @@
     "mass": 6.72,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8364,7 +8468,7 @@
     "mass": 6.72,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8380,7 +8484,7 @@
     "mass": 14.1,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 10150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8396,7 +8500,7 @@
     "mass": 14.1,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 10150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8412,7 +8516,7 @@
     "mass": 14.1,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 10150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8428,7 +8532,7 @@
     "mass": 14.1,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 10150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8444,7 +8548,7 @@
     "mass": 14.1,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 10150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8460,7 +8564,7 @@
     "mass": 14.1,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 10150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8476,7 +8580,7 @@
     "mass": 14.1,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 10150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8492,7 +8596,7 @@
     "mass": 14.1,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 10150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8508,7 +8612,7 @@
     "mass": 14.1,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 10150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8524,7 +8628,7 @@
     "mass": 8.32,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8540,7 +8644,7 @@
     "mass": 22.33,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8556,7 +8660,7 @@
     "mass": 5.92,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8572,7 +8676,7 @@
     "mass": 39.62,
     "volume": 24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -8588,7 +8692,7 @@
     "mass": 39.62,
     "volume": 24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -8620,7 +8724,7 @@
     "mass": 6.72,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8652,7 +8756,7 @@
     "mass": 6.72,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8668,7 +8772,7 @@
     "mass": 39.62,
     "volume": 24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -8684,7 +8788,7 @@
     "mass": 2.52,
     "volume": 2,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8750,7 +8854,7 @@
     "mass": 1.72,
     "volume": 2,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8780,7 +8884,7 @@
     "mass": 2.52,
     "volume": 2,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8795,7 +8899,7 @@
     "mass": 34.02,
     "volume": 24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -8811,7 +8915,7 @@
     "mass": 34.02,
     "volume": 24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -8827,7 +8931,7 @@
     "mass": 34.02,
     "volume": 24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -8843,7 +8947,7 @@
     "mass": 8.32,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8859,7 +8963,7 @@
     "mass": 8.32,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8875,7 +8979,7 @@
     "mass": 8.32,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8891,7 +8995,7 @@
     "mass": 128.94,
     "volume": 24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -8907,7 +9011,7 @@
     "mass": 112.72,
     "volume": 9,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8956,7 +9060,7 @@
     "mass": 13.39,
     "volume": 12.5,
     "outputQuantity": 1,
-    "time": 180,
+    "time": 120,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -8972,7 +9076,7 @@
     "mass": 69.9,
     "volume": 64,
     "outputQuantity": 1,
-    "time": 720,
+    "time": 360,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -8988,7 +9092,7 @@
     "mass": 13.37,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9004,7 +9108,7 @@
     "mass": 13.37,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9020,7 +9124,7 @@
     "mass": 14.65,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9036,7 +9140,7 @@
     "mass": 14.65,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9052,7 +9156,7 @@
     "mass": 14.65,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9164,7 +9268,7 @@
     "mass": 21.42,
     "volume":24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -9180,7 +9284,7 @@
     "mass": 3.52,
     "volume":4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9196,7 +9300,7 @@
     "mass": 3.52,
     "volume":4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9212,7 +9316,7 @@
     "mass": 3.52,
     "volume":4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9228,7 +9332,7 @@
     "mass": 3.52,
     "volume":4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9244,7 +9348,7 @@
     "mass": 3.52,
     "volume":4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9260,7 +9364,7 @@
     "mass": 3.52,
     "volume":4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9276,7 +9380,7 @@
     "mass": 3.52,
     "volume":4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9292,7 +9396,7 @@
     "mass": 3.52,
     "volume":4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9308,7 +9412,7 @@
     "mass": 3.52,
     "volume":4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9324,7 +9428,7 @@
     "mass": 3.52,
     "volume":4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9358,7 +9462,7 @@
     "mass": 31.9,
     "volume":24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -9374,7 +9478,7 @@
     "mass": 31.9,
     "volume":24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -9390,7 +9494,7 @@
     "mass": 31.9,
     "volume":24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -9406,7 +9510,7 @@
     "mass": 31.9,
     "volume":24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -9422,7 +9526,7 @@
     "mass": 31.9,
     "volume":24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -9438,7 +9542,7 @@
     "mass": 31.9,
     "volume":24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -9454,7 +9558,7 @@
     "mass": 31.9,
     "volume":24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -9470,7 +9574,7 @@
     "mass": 31.9,
     "volume":24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -9486,7 +9590,7 @@
     "mass": 31.9,
     "volume":24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -9502,7 +9606,7 @@
     "mass": 47.32,
     "volume": 24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -9518,7 +9622,7 @@
     "mass": 94.64,
     "volume": 48,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -9534,7 +9638,7 @@
     "mass": 189.28,
     "volume": 96,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -9550,7 +9654,7 @@
     "mass": 378.56,
     "volume": 192,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -9650,7 +9754,7 @@
     "mass": 20.08,
     "volume": 16,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9666,7 +9770,7 @@
     "mass": 31.92,
     "volume": 24,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -9698,7 +9802,7 @@
     "mass": 20.3,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9714,7 +9818,7 @@
     "mass": 20.3,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9730,7 +9834,7 @@
     "mass": 20.3,
     "volume": 4,
     "outputQuantity": 1,
-    "time": 150,
+    "time": 60,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
@@ -9746,7 +9850,7 @@
     "mass": 127.75,
     "volume": 24,
     "outputQuantity": 1,
-    "time": 600,
+    "time": 300,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -10475,7 +10579,7 @@
     "type": "Cannon Ammo",
     "mass": 1.61,
     "volume": 1,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -10483,7 +10587,7 @@
       "Advanced Solid Warhead": 1,
       "Uncommon Explosive Module": 1,
       "Al-Li Alloy": 1,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -10492,7 +10596,7 @@
     "type": "Cannon Ammo",
     "mass": 1.59,
     "volume": 1,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -10500,7 +10604,7 @@
       "Advanced Solid Warhead": 1,
       "Uncommon Explosive Module": 1,
       "Polysulfide Plastic": 1,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -10509,7 +10613,7 @@
     "type": "Cannon Ammo",
     "mass": 1.73,
     "volume": 1,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -10517,7 +10621,7 @@
       "Advanced Solid Warhead": 1,
       "Uncommon Explosive Module": 1,
       "Inconel": 1,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -10526,14 +10630,14 @@
     "type": "Cannon Ammo",
     "mass": 1.54,
     "volume": 1,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 180,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
     "input": {
       "Uncommon Solid Warhead": 1,
       "Basic Explosive Module": 1,
-      "Basic Reinforced Frame S": 1
+      "Basic Reinforced Frame XS": 1
     }
   },
   {
@@ -10542,7 +10646,7 @@
     "type": "Cannon Ammo",
     "mass": 1.54,
     "volume": 1,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -10550,7 +10654,7 @@
       "Advanced Solid Warhead": 1,
       "Uncommon Explosive Module": 1,
       "Ag-Li Reinforced Glass": 1,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -10559,7 +10663,7 @@
     "type": "Cannon Ammo",
     "mass": 1.07,
     "volume": 1,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -10567,7 +10671,7 @@
       "Advanced Explosive Module": 1,
       "Uncommon Explosive Module": 1,
       "Al-Li Alloy": 1,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -10576,7 +10680,7 @@
     "type": "Cannon Ammo",
     "mass": 1.05,
     "volume": 1,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -10584,7 +10688,7 @@
       "Advanced Explosive Module": 1,
       "Uncommon Explosive Module": 1,
       "Polysulfide Plastic": 1,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -10593,7 +10697,7 @@
     "type": "Cannon Ammo",
     "mass": 1.19,
     "volume": 1,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -10601,7 +10705,7 @@
       "Advanced Explosive Module": 1,
       "Uncommon Explosive Module": 1,
       "Inconel": 1,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -10610,7 +10714,7 @@
     "type": "Cannon Ammo",
     "mass": 1.08,
     "volume": 1,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -10618,7 +10722,7 @@
       "Advanced Explosive Module": 1,
       "Uncommon Explosive Module": 1,
       "Ag-Li Reinforced Glass": 1,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -10627,14 +10731,14 @@
     "type": "Cannon Ammo",
     "mass": 1.01,
     "volume": 1,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 180,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
     "input": {
       "Uncommon Explosive Module": 1,
       "Basic Explosive Module": 1,
-      "Basic Reinforced Frame S": 1
+      "Basic Reinforced Frame XS": 1
     }
   },
   {
@@ -10643,7 +10747,7 @@
     "type": "Cannon Ammo",
     "mass": 4.1,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -10651,7 +10755,7 @@
       "Advanced Solid Warhead": 2,
       "Uncommon Explosive Module": 2,
       "Al-Li Alloy": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -10660,7 +10764,7 @@
     "type": "Cannon Ammo",
     "mass": 4.07,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -10668,7 +10772,7 @@
       "Advanced Solid Warhead": 2,
       "Uncommon Explosive Module": 2,
       "Polysulfide Plastic": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -10677,7 +10781,7 @@
     "type": "Cannon Ammo",
     "mass": 4.34,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -10685,7 +10789,7 @@
       "Advanced Solid Warhead": 2,
       "Uncommon Explosive Module": 2,
       "Inconel": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -10694,14 +10798,14 @@
     "type": "Cannon Ammo",
     "mass": 3.98,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line S"],
     "input": {
       "Uncommon Solid Warhead": 2,
       "Basic Explosive Module": 2,
-      "Basic Reinforced Frame S": 1
+      "Basic Reinforced Frame XS": 2
     }
   },
   {
@@ -10710,7 +10814,7 @@
     "type": "Cannon Ammo",
     "mass": 4.11,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -10718,7 +10822,7 @@
       "Advanced Solid Warhead": 2,
       "Uncommon Explosive Module": 2,
       "Ag-Li Reinforced Glass": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -10727,7 +10831,7 @@
     "type": "Cannon Ammo",
     "mass": 3.2,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -10735,7 +10839,7 @@
       "Advanced Explosive Module": 2,
       "Uncommon Explosive Module": 2,
       "Al-Li Alloy": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -10744,7 +10848,7 @@
     "type": "Cannon Ammo",
     "mass": 2.99,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -10752,7 +10856,7 @@
       "Advanced Explosive Module": 2,
       "Uncommon Explosive Module": 2,
       "Polysulfide Plastic": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -10761,7 +10865,7 @@
     "type": "Cannon Ammo",
     "mass": 3.28,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -10769,7 +10873,7 @@
       "Advanced Explosive Module": 2,
       "Uncommon Explosive Module": 2,
       "Inconel": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -10778,7 +10882,7 @@
     "type": "Cannon Ammo",
     "mass": 3.2,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -10786,7 +10890,7 @@
       "Advanced Explosive Module": 2,
       "Uncommon Explosive Module": 2,
       "Ag-Li Reinforced Glass": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -10795,14 +10899,14 @@
     "type": "Cannon Ammo",
     "mass": 2.93,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
     "input": {
       "Uncommon Explosive Module": 2,
       "Basic Explosive Module": 2,
-      "Basic Reinforced Frame S": 1
+      "Basic Reinforced Frame XS": 2
     }
   },
   {
@@ -10811,7 +10915,7 @@
     "type": "Cannon Ammo",
     "mass": 14.73,
     "volume": 25,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -10828,7 +10932,7 @@
     "type": "Cannon Ammo",
     "mass": 14.66,
     "volume": 25,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -10845,7 +10949,7 @@
     "type": "Cannon Ammo",
     "mass": 15.21,
     "volume": 25,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -10862,7 +10966,7 @@
     "type": "Cannon Ammo",
     "mass": 14.66,
     "volume": 25,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -10878,7 +10982,7 @@
     "type": "Cannon Ammo",
     "mass": 14.76,
     "volume": 25,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -10895,7 +10999,7 @@
     "type": "Cannon Ammo",
     "mass": 12.57,
     "volume": 25,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -10912,7 +11016,7 @@
     "type": "Cannon Ammo",
     "mass": 12.5,
     "volume": 25,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -10929,7 +11033,7 @@
     "type": "Cannon Ammo",
     "mass": 13.05,
     "volume": 25,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -10946,7 +11050,7 @@
     "type": "Cannon Ammo",
     "mass": 12.6,
     "volume": 25,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -10963,7 +11067,7 @@
     "type": "Cannon Ammo",
     "mass": 12.55,
     "volume": 25,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -10979,7 +11083,7 @@
     "type": "Cannon Ammo",
     "mass": 75.56,
     "volume": 125,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -10987,7 +11091,7 @@
       "Advanced Solid Warhead": 8,
       "Uncommon Explosive Module": 8,
       "Al-Li Alloy": 8,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame S": 2
     }
   },
   {
@@ -10996,7 +11100,7 @@
     "type": "Cannon Ammo",
     "mass": 75.42,
     "volume": 125,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11004,7 +11108,7 @@
       "Advanced Solid Warhead": 8,
       "Uncommon Explosive Module": 8,
       "Polysulfide Plastic": 8,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame S": 2
     }
   },
   {
@@ -11013,7 +11117,7 @@
     "type": "Cannon Ammo",
     "mass": 76.52,
     "volume": 125,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11021,7 +11125,7 @@
       "Advanced Solid Warhead": 8,
       "Uncommon Explosive Module": 8,
       "Inconel": 8,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame S": 2
     }
   },
   {
@@ -11030,14 +11134,14 @@
     "type": "Cannon Ammo",
     "mass": 76.58,
     "volume": 125,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line L"],
     "input": {
       "Uncommon Solid Warhead": 8,
       "Basic Explosive Module": 8,
-      "Basic Reinforced Frame S": 1
+      "Basic Reinforced Frame S": 2
     }
   },
   {
@@ -11046,7 +11150,7 @@
     "type": "Cannon Ammo",
     "mass": 75.61,
     "volume": 125,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11054,7 +11158,7 @@
       "Advanced Solid Warhead": 8,
       "Uncommon Explosive Module": 8,
       "Ag-Li Reinforced Glass": 8,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame S": 2
     }
   },
   {
@@ -11063,7 +11167,7 @@
     "type": "Cannon Ammo",
     "mass": 71.24,
     "volume": 125,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11071,7 +11175,7 @@
       "Advanced Explosive Module": 8,
       "Uncommon Explosive Module": 8,
       "Al-Li Alloy": 8,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame S": 2
     }
   },
   {
@@ -11080,7 +11184,7 @@
     "type": "Cannon Ammo",
     "mass": 71.1,
     "volume": 125,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11088,7 +11192,7 @@
       "Advanced Explosive Module": 8,
       "Uncommon Explosive Module": 8,
       "Polysulfide Plastic": 8,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame S": 2
     }
   },
   {
@@ -11097,7 +11201,7 @@
     "type": "Cannon Ammo",
     "mass": 72.2,
     "volume": 125,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11105,7 +11209,7 @@
       "Advanced Explosive Module": 8,
       "Uncommon Explosive Module": 8,
       "Inconel": 8,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame S": 2
     }
   },
   {
@@ -11114,7 +11218,7 @@
     "type": "Cannon Ammo",
     "mass": 71.29,
     "volume": 125,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11122,7 +11226,7 @@
       "Advanced Explosive Module": 8,
       "Uncommon Explosive Module": 8,
       "Ag-Li Reinforced Glass": 8,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame S": 2
     }
   },
   {
@@ -11131,14 +11235,14 @@
     "type": "Cannon Ammo",
     "mass": 72.37,
     "volume": 125,
-    "outputQuantity": 1,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line L"],
     "input": {
       "Uncommon Explosive Module": 8,
       "Basic Explosive Module": 8,
-      "Basic Reinforced Frame S": 1
+      "Basic Reinforced Frame S": 2
     }
   },
   {
@@ -11147,7 +11251,7 @@
     "type": "Laser Ammo",
     "mass": 31.56,
     "volume": 2,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11164,7 +11268,7 @@
     "type": "Laser Ammo",
     "mass": 1.54,
     "volume": 2,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11181,14 +11285,14 @@
     "type": "Laser Ammo",
     "mass": 1.46,
     "volume": 2,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 180,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
     "input": {
       "Uncommon Magnet": 1,
       "Basic Optics": 1,
-      "Basic Casing S": 1
+      "Basic Casing XS": 1
     }
   },
   {
@@ -11197,7 +11301,7 @@
     "type": "Laser Ammo",
     "mass": 1.68,
     "volume": 2,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11205,7 +11309,7 @@
       "Advanced Magnet": 1,
       "Uncommon Optics": 1,
       "Inconel": 1,
-      "Uncommon Casing S": 1
+      "Uncommon Casing XS": 1
     }
   },
   {
@@ -11214,7 +11318,7 @@
     "type": "Laser Ammo",
     "mass":1.56,
     "volume": 2,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11222,7 +11326,7 @@
       "Advanced Magnet": 1,
       "Uncommon Optics": 1,
       "Ag-Li Reinforced Glass": 1,
-      "Uncommon Casing S": 1
+      "Uncommon Casing XS": 1
     }
   },
   {
@@ -11231,7 +11335,7 @@
     "type": "Laser Ammo",
     "mass": 0.67,
     "volume": 2,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11239,7 +11343,7 @@
       "Advanced Explosive Module": 1,
       "Uncommon Optics": 1,
       "Al-Li Alloy": 1,
-      "Uncommon Casing S": 1
+      "Uncommon Casing XS": 1
     }
   },
   {
@@ -11248,7 +11352,7 @@
     "type": "Laser Ammo",
     "mass": 0.65,
     "volume": 2,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11256,7 +11360,7 @@
       "Advanced Explosive Module": 1,
       "Uncommon Optics": 1,
       "Polysulfide Plastic": 1,
-      "Uncommon Casing S": 1
+      "Uncommon Casing XS": 1
     }
   },
   {
@@ -11265,7 +11369,7 @@
     "type": "Laser Ammo",
     "mass": 0.79,
     "volume": 2,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11273,7 +11377,7 @@
       "Advanced Explosive Module": 1,
       "Uncommon Optics": 1,
       "Inconel": 1,
-      "Uncommon Casing S": 1
+      "Uncommon Casing XS": 1
     }
   },
   {
@@ -11282,7 +11386,7 @@
     "type": "Laser Ammo",
     "mass": 0.67,
     "volume": 2,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11290,7 +11394,7 @@
       "Advanced Explosive Module": 1,
       "Uncommon Optics": 1,
       "Ag-Li Reinforced Glass": 1,
-      "Uncommon Casing S": 1
+      "Uncommon Casing XS": 1
     }
   },
   {
@@ -11299,14 +11403,14 @@
     "type": "Laser Ammo",
     "mass": 0.6,
     "volume": 2,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 180,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
     "input": {
       "Uncommon Explosive Module": 1,
       "Basic Optics": 1,
-      "Basic Casing S": 1
+      "Basic Casing XS": 1
     }
   },
   {
@@ -11315,7 +11419,7 @@
     "type": "Laser Ammo",
     "mass": 3.21,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -11323,7 +11427,7 @@
       "Advanced Magnet": 2,
       "Uncommon Optics": 2,
       "Al-Li Alloy": 2,
-      "Uncommon Casing S": 1
+      "Uncommon Casing XS": 2
     }
   },
   {
@@ -11332,7 +11436,7 @@
     "type": "Laser Ammo",
     "mass": 3.18,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -11340,7 +11444,7 @@
       "Advanced Magnet": 2,
       "Uncommon Optics": 2,
       "Polysulfide Plastic": 2,
-      "Uncommon Casing S": 1
+      "Uncommon Casing XS": 2
     }
   },
   {
@@ -11349,14 +11453,14 @@
     "type": "Laser Ammo",
     "mass": 3.03,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line S"],
     "input": {
       "Uncommon Magnet": 2,
       "Basic Optics": 2,
-      "Basic Casing S": 1
+      "Basic Casing XS": 2
     }
   },
   {
@@ -11365,7 +11469,7 @@
     "type": "Laser Ammo",
     "mass": 3.45,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -11373,7 +11477,7 @@
       "Advanced Magnet": 2,
       "Uncommon Optics": 2,
       "Inconel": 2,
-      "Uncommon Casing S": 1
+      "Uncommon Casing XS": 2
     }
   },
   {
@@ -11382,7 +11486,7 @@
     "type": "Laser Ammo",
     "mass": 3.23,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -11390,7 +11494,7 @@
       "Advanced Magnet": 2,
       "Uncommon Optics": 2,
       "Ag-Li Reinforced Glass": 2,
-      "Uncommon Casing S": 1
+      "Uncommon Casing XS": 2
     }
   },
   {
@@ -11399,7 +11503,7 @@
     "type": "Laser Ammo",
     "mass": 1.44,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -11407,7 +11511,7 @@
       "Advanced Explosive Module": 2,
       "Uncommon Optics": 2,
       "Al-Li Alloy": 2,
-      "Uncommon Casing S": 1
+      "Uncommon Casing XS": 2
     }
   },
   {
@@ -11416,7 +11520,7 @@
     "type": "Laser Ammo",
     "mass": 1.4,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -11424,7 +11528,7 @@
       "Advanced Explosive Module": 2,
       "Uncommon Optics": 2,
       "Polysulfide Plastic": 2,
-      "Uncommon Casing S": 1
+      "Uncommon Casing XS": 2
     }
   },
   {
@@ -11433,7 +11537,7 @@
     "type": "Laser Ammo",
     "mass": 1.68,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -11441,7 +11545,7 @@
       "Advanced Explosive Module": 2,
       "Uncommon Optics": 2,
       "Inconel": 2,
-      "Uncommon Casing S": 1
+      "Uncommon Casing XS": 2
     }
   },
   {
@@ -11450,7 +11554,7 @@
     "type": "Laser Ammo",
     "mass": 1.45,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -11458,7 +11562,7 @@
       "Advanced Explosive Module": 2,
       "Uncommon Optics": 2,
       "Ag-Li Reinforced Glass": 2,
-      "Uncommon Casing S": 1
+      "Uncommon Casing XS": 2
     }
   },
   {
@@ -11467,14 +11571,14 @@
     "type": "Laser Ammo",
     "mass": 1.31,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line S"],
     "input": {
       "Uncommon Explosive Module": 2,
       "Basic Optics": 2,
-      "Basic Casing S": 1
+      "Basic Casing XS": 2
     }
   },
   {
@@ -11483,7 +11587,7 @@
     "type": "Laser Ammo",
     "mass": 7.19,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -11500,7 +11604,7 @@
     "type": "Laser Ammo",
     "mass": 7.12,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -11517,7 +11621,7 @@
     "type": "Laser Ammo",
     "mass": 6.78,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -11533,7 +11637,7 @@
     "type": "Laser Ammo",
     "mass": 7.67,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -11550,7 +11654,7 @@
     "type": "Laser Ammo",
     "mass": 7.22,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -11567,7 +11671,7 @@
     "type": "Laser Ammo",
     "mass": 3.64,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -11584,7 +11688,7 @@
     "type": "Laser Ammo",
     "mass": 3.56,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -11601,7 +11705,7 @@
     "type": "Laser Ammo",
     "mass": 3.56,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -11618,7 +11722,7 @@
     "type": "Laser Ammo",
     "mass": 4.12,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -11635,7 +11739,7 @@
     "type": "Laser Ammo",
     "mass": 3.34,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -11651,7 +11755,7 @@
     "type": "Laser Ammo",
     "mass": 19.77,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11668,7 +11772,7 @@
     "type": "Laser Ammo",
     "mass": 19.62,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11685,7 +11789,7 @@
     "type": "Laser Ammo",
     "mass": 18.7,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11701,7 +11805,7 @@
     "type": "Laser Ammo",
     "mass": 20.73,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11718,7 +11822,7 @@
     "type": "Laser Ammo",
     "mass": 19.81,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11735,7 +11839,7 @@
     "type": "Laser Ammo",
     "mass": 12.65,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11752,7 +11856,7 @@
     "type": "Laser Ammo",
     "mass": 12.51,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11769,7 +11873,7 @@
     "type": "Laser Ammo",
     "mass": 13.61,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11786,7 +11890,7 @@
     "type": "Laser Ammo",
     "mass": 12.7,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11803,7 +11907,7 @@
     "type": "Laser Ammo",
     "mass": 11.81,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -11819,7 +11923,7 @@
     "type": "Missile Ammo",
     "mass": 0.94,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11827,7 +11931,7 @@
       "Advanced Anti-Matter Capsule": 1,
       "Uncommon Processor": 1,
       "Al-Li Alloy": 1,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 1
     }
   },
   {
@@ -11836,14 +11940,14 @@
     "type": "Missile Ammo",
     "mass": 0.87,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 180,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
     "input": {
       "Uncommon Anti-Matter Capsule": 1,
       "Basic Processor": 1,
-      "Basic Standard Frame S": 1
+      "Basic Standard Frame XS": 1
     }
   },
   {
@@ -11852,7 +11956,7 @@
     "type": "Missile Ammo",
     "mass": 0.92,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11860,7 +11964,7 @@
       "Advanced Anti-Matter Capsule": 1,
       "Uncommon Processor": 1,
       "Polysulfide Plastic": 1,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 1
     }
   },
   {
@@ -11869,7 +11973,7 @@
     "type": "Missile Ammo",
     "mass": 1.06,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11877,7 +11981,7 @@
       "Advanced Anti-Matter Capsule": 1,
       "Uncommon Processor": 1,
       "Inconel": 1,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 1
     }
   },
   {
@@ -11886,7 +11990,7 @@
     "type": "Missile Ammo",
     "mass": 0.95,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11894,7 +11998,7 @@
       "Advanced Anti-Matter Capsule": 1,
       "Uncommon Processor": 1,
       "Ag-Li Reinforced Glass": 1,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 1
     }
   },
   {
@@ -11903,7 +12007,7 @@
     "type": "Missile Ammo",
     "mass": 1.37,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11911,7 +12015,7 @@
       "Advanced Solid Warhead": 1,
       "Uncommon Processor": 1,
       "Al-Li Alloy": 1,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 1
     }
   },
   {
@@ -11920,7 +12024,7 @@
     "type": "Missile Ammo",
     "mass": 1.35,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11928,7 +12032,7 @@
       "Advanced Solid Warhead": 1,
       "Uncommon Processor": 1,
       "Polysulfide Plastic": 1,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 1
     }
   },
   {
@@ -11937,7 +12041,7 @@
     "type": "Missile Ammo",
     "mass": 1.49,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11945,7 +12049,7 @@
       "Advanced Solid Warhead": 1,
       "Uncommon Processor": 1,
       "Inconel": 1,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 1
     }
   },
   {
@@ -11954,14 +12058,14 @@
     "type": "Missile Ammo",
     "mass": 1.29,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 180,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
     "input": {
       "Uncommon Solid Warhead": 1,
       "Basic Processor": 2,
-      "Basic Standard Frame S": 1
+      "Basic Standard Frame XS": 1
     }
   },
   {
@@ -11970,7 +12074,7 @@
     "type": "Missile Ammo",
     "mass": 1.38,
     "volume": 5,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -11978,7 +12082,7 @@
       "Advanced Solid Warhead": 1,
       "Uncommon Processor": 1,
       "Ag-Li Reinforced Glass": 1,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 1
     }
   },
   {
@@ -11987,7 +12091,7 @@
     "type": "Missile Ammo",
     "mass": 2.16,
     "volume": 25,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -11995,7 +12099,7 @@
       "Advanced Anti-Matter Capsule": 2,
       "Uncommon Processor": 2,
       "Al-Li Alloy": 2,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 2
     }
   },
   {
@@ -12004,14 +12108,14 @@
     "type": "Missile Ammo",
     "mass": 2.16,
     "volume": 25,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line S"],
     "input": {
       "Uncommon Anti-Matter Capsule": 2,
       "Basic Processor": 2,
-      "Basic Standard Frame S": 1
+      "Basic Standard Frame XS": 2
     }
   },
   {
@@ -12020,7 +12124,7 @@
     "type": "Missile Ammo",
     "mass": 2.12,
     "volume": 25,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -12028,7 +12132,7 @@
       "Advanced Anti-Matter Capsule": 2,
       "Uncommon Processor": 2,
       "Polysulfide Plastic": 2,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 2
     }
   },
   {
@@ -12037,7 +12141,7 @@
     "type": "Missile Ammo",
     "mass": 2.40,
     "volume": 25,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -12045,7 +12149,7 @@
       "Advanced Anti-Matter Capsule": 2,
       "Uncommon Processor": 2,
       "Inconel": 2,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 2
     }
   },
   {
@@ -12054,7 +12158,7 @@
     "type": "Missile Ammo",
     "mass": 2.17,
     "volume": 25,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -12062,7 +12166,7 @@
       "Advanced Anti-Matter Capsule": 2,
       "Uncommon Processor": 2,
       "Ag-Li Reinforced Glass": 2,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 2
     }
   },
   {
@@ -12071,7 +12175,7 @@
     "type": "Missile Ammo",
     "mass": 3.02,
     "volume": 25,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -12079,7 +12183,7 @@
       "Advanced Solid Warhead": 2,
       "Uncommon Processor": 2,
       "Al-Li Alloy": 2,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 2
     }
   },
   {
@@ -12088,7 +12192,7 @@
     "type": "Missile Ammo",
     "mass": 2.99,
     "volume": 25,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -12096,7 +12200,7 @@
       "Advanced Solid Warhead": 2,
       "Uncommon Processor": 2,
       "Polysulfide Plastic": 2,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 2
     }
   },
   {
@@ -12105,7 +12209,7 @@
     "type": "Missile Ammo",
     "mass": 3.26,
     "volume": 25,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -12113,7 +12217,7 @@
       "Advanced Solid Warhead": 2,
       "Uncommon Processor": 2,
       "Inconel": 2,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 2
     }
   },
   {
@@ -12122,14 +12226,14 @@
     "type": "Missile Ammo",
     "mass": 2.87,
     "volume": 25,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line S"],
     "input": {
       "Uncommon Solid Warhead": 2,
       "Basic Processor": 2,
-      "Basic Standard Frame S": 1
+      "Basic Standard Frame XS": 2
     }
   },
   {
@@ -12138,7 +12242,7 @@
     "type": "Missile Ammo",
     "mass": 3.03,
     "volume": 25,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -12146,7 +12250,7 @@
       "Advanced Solid Warhead": 2,
       "Uncommon Processor": 2,
       "Ag-Li Reinforced Glass": 2,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame XS": 2
     }
   },
   {
@@ -12155,7 +12259,7 @@
     "type": "Missile Ammo",
     "mass": 6.41,
     "volume": 125,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12172,7 +12276,7 @@
     "type": "Missile Ammo",
     "mass": 6.24,
     "volume": 125,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12188,7 +12292,7 @@
     "type": "Missile Ammo",
     "mass": 6.33,
     "volume": 125,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12205,7 +12309,7 @@
     "type": "Missile Ammo",
     "mass": 6.89,
     "volume": 125,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12222,7 +12326,7 @@
     "type": "Missile Ammo",
     "mass": 6.43,
     "volume": 125,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12239,7 +12343,7 @@
     "type": "Missile Ammo",
     "mass": 8.13,
     "volume": 125,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12256,7 +12360,7 @@
     "type": "Missile Ammo",
     "mass": 8.06,
     "volume": 125,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12273,7 +12377,7 @@
     "type": "Missile Ammo",
     "mass": 8.61,
     "volume": 125,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12290,7 +12394,7 @@
     "type": "Missile Ammo",
     "mass": 7.92,
     "volume": 125,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12306,7 +12410,7 @@
     "type": "Missile Ammo",
     "mass": 8.15,
     "volume": 125,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12323,7 +12427,7 @@
     "type": "Missile Ammo",
     "mass": 27.54,
     "volume": 625,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -12331,7 +12435,7 @@
       "Advanced Anti-Matter Capsule": 8,
       "Uncommon Processor": 8,
       "Al-Li Alloy": 8,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame S": 2
     }
   },
   {
@@ -12340,14 +12444,14 @@
     "type": "Missile Ammo",
     "mass": 27.9,
     "volume": 625,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line L"],
     "input": {
       "Uncommon Anti-Matter Capsule": 8,
       "Basic Processor": 8,
-      "Basic Standard Frame S": 1
+      "Basic Standard Frame S": 2
     }
   },
   {
@@ -12356,7 +12460,7 @@
     "type": "Missile Ammo",
     "mass": 6.33,
     "volume": 625,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -12364,7 +12468,7 @@
       "Advanced Anti-Matter Capsule": 8,
       "Uncommon Processor": 8,
       "Polysulfide Plastic": 8,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame S": 2
     }
   },
   {
@@ -12373,7 +12477,7 @@
     "type": "Missile Ammo",
     "mass": 27.4,
     "volume": 625,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -12381,7 +12485,7 @@
       "Advanced Anti-Matter Capsule": 8,
       "Uncommon Processor": 8,
       "Inconel": 8,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame S": 2
     }
   },
   {
@@ -12390,7 +12494,7 @@
     "type": "Missile Ammo",
     "mass": 27.59,
     "volume": 625,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -12398,7 +12502,7 @@
       "Advanced Anti-Matter Capsule": 8,
       "Uncommon Processor": 8,
       "Ag-Li Reinforced Glass": 8,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame S": 2
     }
   },
   {
@@ -12407,7 +12511,7 @@
     "type": "Missile Ammo",
     "mass": 30.99,
     "volume": 625,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -12415,7 +12519,7 @@
       "Advanced Solid Warhead": 8,
       "Uncommon Processor": 8,
       "Al-Li Alloy": 8,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame S": 2
     }
   },
   {
@@ -12424,7 +12528,7 @@
     "type": "Missile Ammo",
     "mass": 30.84,
     "volume": 625,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -12432,7 +12536,7 @@
       "Advanced Solid Warhead": 8,
       "Uncommon Processor": 8,
       "Polysulfide Plastic": 8,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame S": 2
     }
   },
   {
@@ -12441,7 +12545,7 @@
     "type": "Missile Ammo",
     "mass": 31.95,
     "volume": 625,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -12449,7 +12553,7 @@
       "Advanced Solid Warhead": 8,
       "Uncommon Processor": 8,
       "Inconel": 8,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame S": 2
     }
   },
   {
@@ -12458,14 +12562,14 @@
     "type": "Missile Ammo",
     "mass": 31.26,
     "volume": 625,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line L"],
     "input": {
       "Uncommon Solid Warhead": 8,
       "Basic Processor": 8,
-      "Basic Standard Frame S": 1
+      "Basic Standard Frame S": 2
     }
   },
   {
@@ -12474,7 +12578,7 @@
     "type": "Missile Ammo",
     "mass": 31.04,
     "volume": 625,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -12482,7 +12586,7 @@
       "Advanced Solid Warhead": 8,
       "Uncommon Processor": 8,
       "Ag-Li Reinforced Glass": 8,
-      "Uncommon Standard Frame S": 1
+      "Uncommon Standard Frame S": 2
     }
   },
   {
@@ -12491,7 +12595,7 @@
     "type": "Railgun Ammo",
     "mass": 2.04,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -12499,7 +12603,7 @@
       "Advanced Anti-Matter Capsule": 1,
       "Uncommon Magnet": 1,
       "Al-Li Alloy": 1,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -12508,14 +12612,14 @@
     "type": "Railgun Ammo",
     "mass": 2.01,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 180,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
     "input": {
       "Uncommon Anti-Matter Capsule": 1,
       "Basic Magnet": 1,
-      "Basic Reinforced Frame S": 1
+      "Basic Reinforced Frame XS": 1
     }
   },
   {
@@ -12524,7 +12628,7 @@
     "type": "Railgun Ammo",
     "mass": 2.02,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -12532,7 +12636,7 @@
       "Advanced Anti-Matter Capsule": 1,
       "Uncommon Magnet": 1,
       "Polysulfide Plastic": 1,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -12541,7 +12645,7 @@
     "type": "Railgun Ammo",
     "mass": 2.16,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -12549,7 +12653,7 @@
       "Advanced Anti-Matter Capsule": 1,
       "Uncommon Magnet": 1,
       "Inconel": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -12558,7 +12662,7 @@
     "type": "Railgun Ammo",
     "mass": 2.05,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -12566,7 +12670,7 @@
       "Advanced Anti-Matter Capsule": 1,
       "Uncommon Magnet": 1,
       "Ag-Li Reinforced Glass": 1,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -12575,7 +12679,7 @@
     "type": "Railgun Ammo",
     "mass": 2.77,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -12583,7 +12687,7 @@
       "Advanced Magnet": 1,
       "Uncommon Magnet": 1,
       "Al-Li Alloy": 1,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -12592,7 +12696,7 @@
     "type": "Railgun Ammo",
     "mass": 2.8,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -12600,7 +12704,7 @@
       "Advanced Magnet": 1,
       "Uncommon Magnet": 1,
       "Polysulfide Plastic": 1,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -12609,14 +12713,14 @@
     "type": "Railgun Ammo",
     "mass": 6.43,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 180,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
     "input": {
       "Uncommon Magnet": 1,
       "Basic Magnet": 1,
-      "Basic Reinforced Frame S": 1
+      "Basic Reinforced Frame XS": 1
     }
   },
   {
@@ -12625,7 +12729,7 @@
     "type": "Railgun Ammo",
     "mass": 2.94,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -12633,7 +12737,7 @@
       "Advanced Magnet": 1,
       "Uncommon Magnet": 1,
       "Inconel": 1,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -12642,7 +12746,7 @@
     "type": "Railgun Ammo",
     "mass": 2.83,
     "volume": 10,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line XS"],
@@ -12650,7 +12754,7 @@
       "Advanced Magnet": 1,
       "Uncommon Magnet": 1,
       "Ag-Li Reinforced Glass": 1,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 1
     }
   },
   {
@@ -12659,7 +12763,7 @@
     "type": "Railgun Ammo",
     "mass": 4.96,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -12667,7 +12771,7 @@
       "Advanced Anti-Matter Capsule": 2,
       "Uncommon Magnet": 2,
       "Al-Li Alloy": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -12676,14 +12780,14 @@
     "type": "Railgun Ammo",
     "mass": 4.92,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line S"],
     "input": {
       "Uncommon Anti-Matter Capsule": 2,
       "Basic Magnet": 2,
-      "Basic Reinforced Frame S": 1
+      "Basic Reinforced Frame XS": 2
     }
   },
   {
@@ -12692,7 +12796,7 @@
     "type": "Railgun Ammo",
     "mass": 4.93,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -12700,7 +12804,7 @@
       "Advanced Anti-Matter Capsule": 2,
       "Uncommon Magnet": 2,
       "Polysulfide Plastic": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -12709,7 +12813,7 @@
     "type": "Railgun Ammo",
     "mass": 5.2,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -12717,7 +12821,7 @@
       "Advanced Anti-Matter Capsule": 2,
       "Uncommon Magnet": 2,
       "Inconel": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -12726,7 +12830,7 @@
     "type": "Railgun Ammo",
     "mass": 4.97,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -12734,7 +12838,7 @@
       "Advanced Anti-Matter Capsule": 2,
       "Uncommon Magnet": 2,
       "Ag-Li Reinforced Glass": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -12743,7 +12847,7 @@
     "type": "Railgun Ammo",
     "mass": 6.52,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -12751,7 +12855,7 @@
       "Advanced Magnet": 2,
       "Uncommon Magnet": 2,
       "Al-Li Alloy": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -12760,7 +12864,7 @@
     "type": "Railgun Ammo",
     "mass": 6.49,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -12768,7 +12872,7 @@
       "Advanced Magnet": 2,
       "Uncommon Magnet": 2,
       "Polysulfide Plastic": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -12777,14 +12881,14 @@
     "type": "Railgun Ammo",
     "mass": 6.43,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 420,
     "byproducts": {},
     "industries": ["Assembly Line S"],
     "input": {
       "Uncommon Magnet": 2,
       "Basic Magnet": 2,
-      "Basic Reinforced Frame S": 1
+      "Basic Reinforced Frame XS": 2
     }
   },
   {
@@ -12793,7 +12897,7 @@
     "type": "Railgun Ammo",
     "mass": 6.76,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -12801,7 +12905,7 @@
       "Advanced Magnet": 2,
       "Uncommon Magnet": 2,
       "Inconel": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -12810,7 +12914,7 @@
     "type": "Railgun Ammo",
     "mass": 6.53,
     "volume": 50,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line S"],
@@ -12818,7 +12922,7 @@
       "Advanced Magnet": 2,
       "Uncommon Magnet": 2,
       "Ag-Li Reinforced Glass": 2,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame XS": 2
     }
   },
   {
@@ -12827,7 +12931,7 @@
     "type": "Railgun Ammo",
     "mass": 16.45,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12844,7 +12948,7 @@
     "type": "Railgun Ammo",
     "mass": 16.54,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12860,7 +12964,7 @@
     "type": "Railgun Ammo",
     "mass": 16.38,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12877,7 +12981,7 @@
     "type": "Railgun Ammo",
     "mass": 16.93,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12894,7 +12998,7 @@
     "type": "Railgun Ammo",
     "mass": 16.48,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12911,7 +13015,7 @@
     "type": "Railgun Ammo",
     "mass": 19.58,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12928,7 +13032,7 @@
     "type": "Railgun Ammo",
     "mass": 19.5,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12945,7 +13049,7 @@
     "type": "Railgun Ammo",
     "mass": 19.56,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 780,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12961,7 +13065,7 @@
     "type": "Railgun Ammo",
     "mass": 20.06,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12978,7 +13082,7 @@
     "type": "Railgun Ammo",
     "mass": 19.6,
     "volume": 250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line M"],
@@ -12995,7 +13099,7 @@
     "type": "Railgun Ammo",
     "mass": 79,
     "volume": 1250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -13003,7 +13107,7 @@
       "Advanced Anti-Matter Capsule": 8,
       "Uncommon Magnet": 8,
       "Al-Li Alloy": 8,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame S": 2
     }
   },
   {
@@ -13012,14 +13116,14 @@
     "type": "Railgun Ammo",
     "mass": 80.35,
     "volume": 1250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line L"],
     "input": {
       "Uncommon Anti-Matter Capsule": 8,
       "Basic Magnet": 8,
-      "Basic Reinforced Frame S": 1
+      "Basic Reinforced Frame S": 2
     }
   },
   {
@@ -13028,7 +13132,7 @@
     "type": "Railgun Ammo",
     "mass": 78.86,
     "volume": 1250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -13036,7 +13140,7 @@
       "Advanced Anti-Matter Capsule": 8,
       "Uncommon Magnet": 8,
       "Polysulfide Plastic": 8,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame S": 2
     }
   },
   {
@@ -13045,7 +13149,7 @@
     "type": "Railgun Ammo",
     "mass": 79.96,
     "volume": 1250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -13053,7 +13157,7 @@
       "Advanced Anti-Matter Capsule": 8,
       "Uncommon Magnet": 8,
       "Inconel": 8,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame S": 2
     }
   },
   {
@@ -13062,7 +13166,7 @@
     "type": "Railgun Ammo",
     "mass": 79.05,
     "volume": 1250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -13070,7 +13174,7 @@
       "Advanced Anti-Matter Capsule": 8,
       "Uncommon Magnet": 8,
       "Ag-Li Reinforced Glass": 8,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame S": 2
     }
   },
   {
@@ -13079,7 +13183,7 @@
     "type": "Railgun Ammo",
     "mass": 85.24,
     "volume": 1250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -13087,7 +13191,7 @@
       "Advanced Magnet": 8,
       "Uncommon Magnet": 8,
       "Al-Li Alloy": 8,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame S": 2
     }
   },
   {
@@ -13096,7 +13200,7 @@
     "type": "Railgun Ammo",
     "mass": 85.1,
     "volume": 1250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -13104,7 +13208,7 @@
       "Advanced Magnet": 8,
       "Uncommon Magnet": 8,
       "Polysulfide Plastic": 8,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame S": 2
     }
   },
   {
@@ -13113,14 +13217,14 @@
     "type": "Railgun Ammo",
     "mass": 86.4,
     "volume": 1250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 1620,
     "byproducts": {},
     "industries": ["Assembly Line L"],
     "input": {
       "Uncommon Magnet": 8,
       "Basic Magnet": 8,
-      "Basic Reinforced Frame S": 1
+      "Basic Reinforced Frame S": 2
     }
   },
   {
@@ -13129,7 +13233,7 @@
     "type": "Railgun Ammo",
     "mass": 86.2,
     "volume": 1250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -13137,7 +13241,7 @@
       "Advanced Magnet": 8,
       "Uncommon Magnet": 8,
       "Inconel": 8,
-      "Uncommon Reinforced Frame S": 1
+      "Uncommon Reinforced Frame S": 2
     }
   },
   {
@@ -13146,7 +13250,7 @@
     "type": "Railgun Ammo",
     "mass": 85.29,
     "volume": 1250,
-    "outputQuantity": 5,
+    "outputQuantity": 40,
     "time": 3180,
     "byproducts": {},
     "industries": ["Assembly Line L"],
@@ -13154,7 +13258,737 @@
       "Advanced Magnet": 8,
       "Uncommon Magnet": 8,
       "Ag-Li Reinforced Glass": 8,
+      "Uncommon Reinforced Frame S": 2
+    }
+  },
+  {
+    "name": "Warp Cell",
+    "tier": 2,
+    "type": "Warp Cell",
+    "mass": 195,
+    "volume": 75,
+    "outputQuantity": 1,
+    "time": 3000,
+    "byproducts": {},
+    "industries": ["Glass Furnace M"],
+    "input": {
+      "Advanced Quantum Alignment Unit": 1,
+      "Advanced Anti-Matter Core Unit": 1
+    }
+  },
+  {
+    "name": "Warp Drive L",
+    "tier": 1,
+    "type": "Warp Drive Unit",
+    "mass": 31360,
+    "volume": 75,
+    "outputQuantity": 1,
+    "time": 86400,
+    "byproducts": {},
+    "industries": ["Assembly Line L"],
+    "input": {
+      "Uncommon Screw": 216,
+      "Advanced Magnet": 125,
+      "Advanced Ionic Chamber L": 1,
+      "Advanced Anti-Matter Core Unit": 64,
+      "Advanced Reinforced Frame L": 1
+    }
+  },
+  {
+    "name": "Warp Beacon XL",
+    "tier": 5,
+    "type": "Warp Beacon Unit",
+    "mass": 148940,
+    "volume": 25360,
+    "outputQuantity": 1,
+    "time": 3110400,
+    "byproducts": {},
+    "industries": ["Assembly Line XL"],
+    "input": {
+      "Advanced LED": 1296,
+      "Exotic Power System": 625,
+      "Exotic Antenna XL": 1,
+      "Exotic Quantum Alignment Unit": 256,
+      "Exotic Reinforced Frame XL": 1
+    }
+  },
+  {
+    "name": "Hatch S",
+    "tier": 1,
+    "type": "Door/Gate",
+    "mass": 229.09,
+    "volume": 64,
+    "outputQuantity": 1,
+    "time": 360,
+    "byproducts": {},
+    "industries": ["Nanopack", "Assembly Line S"],
+    "input": {
+      "Silumin": 7,
+      "Basic Fixation": 6,
+      "Basic Reinforced Frame S": 1
+    }
+  },
+  {
+    "name": "Fuel Intake XS",
+    "tier": 1,
+    "type": "Door/Gate",
+    "mass": 4.12,
+    "volume": 2,
+    "outputQuantity": 1,
+    "time": 18,
+    "byproducts": {},
+    "industries": ["Nanopack", "Assembly Line XS"],
+    "input": {
+      "Silumin": 2,
+      "Basic Fixation": 1
+    }
+  },
+  {
+    "name": "Freight Atmospheric Engine XS",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 101.88,
+    "volume": 22.6,
+    "outputQuantity": 1,
+    "time": 360,
+    "byproducts": {},
+    "industries": ["Assembly Line XS"],
+    "input": {
+      "Basic Screw": 1,
+      "Uncommon Screw": 1,
+      "Uncommon Injector": 1,
+      "Uncommon Combustion Chamber XS": 1,
+      "Uncommon Reinforced Frame XS": 1
+    }
+  },
+  {
+    "name": "Safe Atmospheric Engine XS",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 101.88,
+    "volume": 22.6,
+    "outputQuantity": 1,
+    "time": 360,
+    "byproducts": {},
+    "industries": ["Assembly Line XS"],
+    "input": {
+      "Basic Screw": 1,
+      "Uncommon Screw": 1,
+      "Uncommon Injector": 1,
+      "Uncommon Combustion Chamber XS": 1,
+      "Uncommon Reinforced Frame XS": 1
+    }
+  },
+  {
+    "name": "Maneuver Atmospheric Engine XS",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 101.88,
+    "volume": 22.6,
+    "outputQuantity": 1,
+    "time": 360,
+    "byproducts": {},
+    "industries": ["Assembly Line XS"],
+    "input": {
+      "Basic Screw": 1,
+      "Uncommon Screw": 1,
+      "Uncommon Injector": 1,
+      "Uncommon Combustion Chamber XS": 1,
+      "Uncommon Reinforced Frame XS": 1
+    }
+  },
+  {
+    "name": "Military Atmospheric Engine XS",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 101.88,
+    "volume": 22.6,
+    "outputQuantity": 1,
+    "time": 360,
+    "byproducts": {},
+    "industries": ["Assembly Line XS"],
+    "input": {
+      "Basic Screw": 1,
+      "Uncommon Screw": 1,
+      "Uncommon Injector": 1,
+      "Uncommon Combustion Chamber XS": 1,
+      "Uncommon Reinforced Frame XS": 1
+    }
+  },
+  {
+    "name": "Freight Atmospheric Engine S",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 539.99,
+    "volume": 116.6,
+    "outputQuantity": 1,
+    "time": 1440,
+    "byproducts": {},
+    "industries": ["Assembly Line S"],
+    "input": {
+      "Basic Screw": 3,
+      "Uncommon Screw": 3,
+      "Uncommon Injector": 5,
+      "Uncommon Combustion Chamber S": 1,
       "Uncommon Reinforced Frame S": 1
+    }
+  },
+  {
+    "name": "Maneuver Atmospheric Engine S",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 539.99,
+    "volume": 116.6,
+    "outputQuantity": 1,
+    "time": 1440,
+    "byproducts": {},
+    "industries": ["Assembly Line S"],
+    "input": {
+      "Basic Screw": 3,
+      "Uncommon Screw": 3,
+      "Uncommon Injector": 5,
+      "Uncommon Combustion Chamber S": 1,
+      "Uncommon Reinforced Frame S": 1
+    }
+  },
+  {
+    "name": "Military Atmospheric Engine S",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 539.99,
+    "volume": 116.6,
+    "outputQuantity": 1,
+    "time": 1440,
+    "byproducts": {},
+    "industries": ["Assembly Line S"],
+    "input": {
+      "Basic Screw": 3,
+      "Uncommon Screw": 3,
+      "Uncommon Injector": 5,
+      "Uncommon Combustion Chamber S": 1,
+      "Uncommon Reinforced Frame S": 1
+    }
+  },
+  {
+    "name": "Safe Atmospheric Engine S",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 539.99,
+    "volume": 116.6,
+    "outputQuantity": 1,
+    "time": 1440,
+    "byproducts": {},
+    "industries": ["Assembly Line S"],
+    "input": {
+      "Basic Screw": 3,
+      "Uncommon Screw": 3,
+      "Uncommon Injector": 5,
+      "Uncommon Combustion Chamber S": 1,
+      "Uncommon Reinforced Frame S": 1
+    }
+  },
+  {
+    "name": "Freight Atmospheric Engine M",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 2980,
+    "volume": 619.2,
+    "outputQuantity": 1,
+    "time": 5760,
+    "byproducts": {},
+    "industries": ["Assembly Line M"],
+    "input": {
+      "Basic Screw": 18,
+      "Uncommon Screw": 18,
+      "Uncommon Injector": 25,
+      "Uncommon Combustion Chamber M": 1,
+      "Uncommon Reinforced Frame M": 1
+    }
+  },
+  {
+    "name": "Maneuver Atmospheric Engine M",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 2980,
+    "volume": 619.2,
+    "outputQuantity": 1,
+    "time": 5760,
+    "byproducts": {},
+    "industries": ["Assembly Line M"],
+    "input": {
+      "Basic Screw": 18,
+      "Uncommon Screw": 18,
+      "Uncommon Injector": 25,
+      "Uncommon Combustion Chamber M": 1,
+      "Uncommon Reinforced Frame M": 1
+    }
+  },
+  {
+    "name": "Military Atmospheric Engine M",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 2980,
+    "volume": 619.2,
+    "outputQuantity": 1,
+    "time": 5760,
+    "byproducts": {},
+    "industries": ["Assembly Line M"],
+    "input": {
+      "Basic Screw": 18,
+      "Uncommon Screw": 18,
+      "Uncommon Injector": 25,
+      "Uncommon Combustion Chamber M": 1,
+      "Uncommon Reinforced Frame M": 1
+    }
+  },
+  {
+    "name": "Safe Atmospheric Engine M",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 2980,
+    "volume": 619.2,
+    "outputQuantity": 1,
+    "time": 5760,
+    "byproducts": {},
+    "industries": ["Assembly Line M"],
+    "input": {
+      "Basic Screw": 18,
+      "Uncommon Screw": 18,
+      "Uncommon Injector": 25,
+      "Uncommon Combustion Chamber M": 1,
+      "Uncommon Reinforced Frame M": 1
+    }
+  },
+  {
+    "name": "Freight Atmospheric Engine L",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 16930,
+    "volume": 3355.4,
+    "outputQuantity": 1,
+    "time": 23040,
+    "byproducts": {},
+    "industries": ["Assembly Line L"],
+    "input": {
+      "Basic Screw": 108,
+      "Uncommon Screw": 108,
+      "Uncommon Injector": 125,
+      "Uncommon Combustion Chamber L": 1,
+      "Uncommon Reinforced Frame L": 1
+    }
+  },
+  {
+    "name": "Maneuver Atmospheric Engine L",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 16930,
+    "volume": 3355.4,
+    "outputQuantity": 1,
+    "time": 23040,
+    "byproducts": {},
+    "industries": ["Assembly Line L"],
+    "input": {
+      "Basic Screw": 108,
+      "Uncommon Screw": 108,
+      "Uncommon Injector": 125,
+      "Uncommon Combustion Chamber L": 1,
+      "Uncommon Reinforced Frame L": 1
+    }
+  },
+  {
+    "name": "Military Atmospheric Engine L",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 16930,
+    "volume": 3355.4,
+    "outputQuantity": 1,
+    "time": 23040,
+    "byproducts": {},
+    "industries": ["Assembly Line L"],
+    "input": {
+      "Basic Screw": 108,
+      "Uncommon Screw": 108,
+      "Uncommon Injector": 125,
+      "Uncommon Combustion Chamber L": 1,
+      "Uncommon Reinforced Frame L": 1
+    }
+  },
+  {
+    "name": "Safe Atmospheric Engine L",
+    "tier": 2,
+    "type": "Atmospheric Engine",
+    "mass": 16930,
+    "volume": 3355.4,
+    "outputQuantity": 1,
+    "time": 23040,
+    "byproducts": {},
+    "industries": ["Assembly Line L"],
+    "input": {
+      "Basic Screw": 108,
+      "Uncommon Screw": 108,
+      "Uncommon Injector": 125,
+      "Uncommon Combustion Chamber L": 1,
+      "Uncommon Reinforced Frame L": 1
+    }
+  },
+  {
+    "name": "Freight Space Engine XS",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 146.23,
+    "volume": 20.33,
+    "outputQuantity": 1,
+    "time": 360,
+    "byproducts": {},
+    "industries": ["Assembly Line XS"],
+    "input": {
+      "Basic Screw": 1,
+      "Uncommon Screw": 1,
+      "Uncommon Burner": 1,
+      "Uncommon Ionic Chamber XS": 1,
+      "Uncommon Reinforced Frame XS": 1
+    }
+  },
+  {
+    "name": "Maneuver Space Engine XS",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 146.23,
+    "volume": 20.33,
+    "outputQuantity": 1,
+    "time": 360,
+    "byproducts": {},
+    "industries": ["Assembly Line XS"],
+    "input": {
+      "Basic Screw": 1,
+      "Uncommon Screw": 1,
+      "Uncommon Burner": 1,
+      "Uncommon Ionic Chamber XS": 1,
+      "Uncommon Reinforced Frame XS": 1
+    }
+  },
+  {
+    "name": "Military Space Engine XS",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 146.23,
+    "volume": 20.33,
+    "outputQuantity": 1,
+    "time": 360,
+    "byproducts": {},
+    "industries": ["Assembly Line XS"],
+    "input": {
+      "Basic Screw": 1,
+      "Uncommon Screw": 1,
+      "Uncommon Burner": 1,
+      "Uncommon Ionic Chamber XS": 1,
+      "Uncommon Reinforced Frame XS": 1
+    }
+  },
+  {
+    "name": "Safe Space Engine XS",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 146.23,
+    "volume": 20.33,
+    "outputQuantity": 1,
+    "time": 360,
+    "byproducts": {},
+    "industries": ["Assembly Line XS"],
+    "input": {
+      "Basic Screw": 1,
+      "Uncommon Screw": 1,
+      "Uncommon Burner": 1,
+      "Uncommon Ionic Chamber XS": 1,
+      "Uncommon Reinforced Frame XS": 1
+    }
+  },
+  {
+    "name": "Freight Space Engine S",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 761.74,
+    "volume": 105.24,
+    "outputQuantity": 1,
+    "time": 1440,
+    "byproducts": {},
+    "industries": ["Assembly Line S"],
+    "input": {
+      "Basic Screw": 3,
+      "Uncommon Screw": 3,
+      "Uncommon Burner": 5,
+      "Uncommon Ionic Chamber S": 1,
+      "Uncommon Reinforced Frame S": 1
+    }
+  },
+  {
+    "name": "Maneuver Space Engine S",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 761.74,
+    "volume": 105.24,
+    "outputQuantity": 1,
+    "time": 1440,
+    "byproducts": {},
+    "industries": ["Assembly Line S"],
+    "input": {
+      "Basic Screw": 3,
+      "Uncommon Screw": 3,
+      "Uncommon Burner": 5,
+      "Uncommon Ionic Chamber S": 1,
+      "Uncommon Reinforced Frame S": 1
+    }
+  },
+  {
+    "name": "Military Space Engine S",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 761.74,
+    "volume": 105.24,
+    "outputQuantity": 1,
+    "time": 1440,
+    "byproducts": {},
+    "industries": ["Assembly Line S"],
+    "input": {
+      "Basic Screw": 3,
+      "Uncommon Screw": 3,
+      "Uncommon Burner": 5,
+      "Uncommon Ionic Chamber S": 1,
+      "Uncommon Reinforced Frame S": 1
+    }
+  },
+  {
+    "name": "Safe Space Engine S",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 761.74,
+    "volume": 105.24,
+    "outputQuantity": 1,
+    "time": 1440,
+    "byproducts": {},
+    "industries": ["Assembly Line S"],
+    "input": {
+      "Basic Screw": 3,
+      "Uncommon Screw": 3,
+      "Uncommon Burner": 5,
+      "Uncommon Ionic Chamber S": 1,
+      "Uncommon Reinforced Frame S": 1
+    }
+  },
+  {
+    "name": "Freight Space Engine M",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 4090,
+    "volume": 562.4,
+    "outputQuantity": 1,
+    "time": 5760,
+    "byproducts": {},
+    "industries": ["Assembly Line M"],
+    "input": {
+      "Basic Screw": 18,
+      "Uncommon Screw": 18,
+      "Uncommon Burner": 25,
+      "Uncommon Ionic Chamber M": 1,
+      "Uncommon Reinforced Frame M": 1
+    }
+  },
+  {
+    "name": "Maneuver Space Engine M",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 4090,
+    "volume": 562.4,
+    "outputQuantity": 1,
+    "time": 5760,
+    "byproducts": {},
+    "industries": ["Assembly Line M"],
+    "input": {
+      "Basic Screw": 18,
+      "Uncommon Screw": 18,
+      "Uncommon Burner": 25,
+      "Uncommon Ionic Chamber M": 1,
+      "Uncommon Reinforced Frame M": 1
+    }
+  },
+  {
+    "name": "Military Space Engine M",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 4090,
+    "volume": 562.4,
+    "outputQuantity": 1,
+    "time": 5760,
+    "byproducts": {},
+    "industries": ["Assembly Line M"],
+    "input": {
+      "Basic Screw": 18,
+      "Uncommon Screw": 18,
+      "Uncommon Burner": 25,
+      "Uncommon Ionic Chamber M": 1,
+      "Uncommon Reinforced Frame M": 1
+    }
+  },
+  {
+    "name": "Safe Space Engine M",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 4090,
+    "volume": 562.4,
+    "outputQuantity": 1,
+    "time": 5760,
+    "byproducts": {},
+    "industries": ["Assembly Line M"],
+    "input": {
+      "Basic Screw": 18,
+      "Uncommon Screw": 18,
+      "Uncommon Burner": 25,
+      "Uncommon Ionic Chamber M": 1,
+      "Uncommon Reinforced Frame M": 1
+    }
+  },
+  {
+    "name": "Freight Space Engine L",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 22470,
+    "volume": 3071.4,
+    "outputQuantity": 1,
+    "time": 23040,
+    "byproducts": {},
+    "industries": ["Assembly Line L"],
+    "input": {
+      "Basic Screw": 108,
+      "Uncommon Screw": 108,
+      "Uncommon Burner": 125,
+      "Uncommon Ionic Chamber L": 1,
+      "Uncommon Reinforced Frame L": 1
+    }
+  },
+  {
+    "name": "Maneuver Space Engine L",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 22470,
+    "volume": 3071.4,
+    "outputQuantity": 1,
+    "time": 23040,
+    "byproducts": {},
+    "industries": ["Assembly Line L"],
+    "input": {
+      "Basic Screw": 108,
+      "Uncommon Screw": 108,
+      "Uncommon Burner": 125,
+      "Uncommon Ionic Chamber L": 1,
+      "Uncommon Reinforced Frame L": 1
+    }
+  },
+  {
+    "name": "Military Space Engine L",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 22470,
+    "volume": 3071.4,
+    "outputQuantity": 1,
+    "time": 23040,
+    "byproducts": {},
+    "industries": ["Assembly Line L"],
+    "input": {
+      "Basic Screw": 108,
+      "Uncommon Screw": 108,
+      "Uncommon Burner": 125,
+      "Uncommon Ionic Chamber L": 1,
+      "Uncommon Reinforced Frame L": 1
+    }
+  },
+  {
+    "name": "Safe Space Engine L",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 22470,
+    "volume": 3071.4,
+    "outputQuantity": 1,
+    "time": 23040,
+    "byproducts": {},
+    "industries": ["Assembly Line L"],
+    "input": {
+      "Basic Screw": 108,
+      "Uncommon Screw": 108,
+      "Uncommon Burner": 125,
+      "Uncommon Ionic Chamber L": 1,
+      "Uncommon Reinforced Frame L": 1
+    }
+  },
+  {
+    "name": "Freight Space Engine XL",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 126240,
+    "volume": 17150,
+    "outputQuantity": 1,
+    "time": 92160,
+    "byproducts": {},
+    "industries": ["Assembly Line XL"],
+    "input": {
+      "Basic Screw": 648,
+      "Uncommon Screw": 648,
+      "Uncommon Burner": 625,
+      "Uncommon Ionic Chamber XL": 1,
+      "Uncommon Reinforced Frame XL": 1
+    }
+  },
+  {
+    "name": "Maneuver Space Engine XL",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 126240,
+    "volume": 17150,
+    "outputQuantity": 1,
+    "time": 92160,
+    "byproducts": {},
+    "industries": ["Assembly Line XL"],
+    "input": {
+      "Basic Screw": 648,
+      "Uncommon Screw": 648,
+      "Uncommon Burner": 625,
+      "Uncommon Ionic Chamber XL": 1,
+      "Uncommon Reinforced Frame XL": 1
+    }
+  },
+  {
+    "name": "Military Space Engine XL",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 126240,
+    "volume": 17150,
+    "outputQuantity": 1,
+    "time": 92160,
+    "byproducts": {},
+    "industries": ["Assembly Line XL"],
+    "input": {
+      "Basic Screw": 648,
+      "Uncommon Screw": 648,
+      "Uncommon Burner": 625,
+      "Uncommon Ionic Chamber XL": 1,
+      "Uncommon Reinforced Frame XL": 1
+    }
+  },
+  {
+    "name": "Safe Space Engine XL",
+    "tier": 2,
+    "type": "Space Engine",
+    "mass": 126240,
+    "volume": 17150,
+    "outputQuantity": 1,
+    "time": 92160,
+    "byproducts": {},
+    "industries": ["Assembly Line XL"],
+    "input": {
+      "Basic Screw": 648,
+      "Uncommon Screw": 648,
+      "Uncommon Burner": 625,
+      "Uncommon Ionic Chamber XL": 1,
+      "Uncommon Reinforced Frame XL": 1
     }
   }
 ]
