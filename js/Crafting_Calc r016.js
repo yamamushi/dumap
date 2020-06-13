@@ -164,8 +164,8 @@ function recipeCalc(data){
 				}
 			})
 			if(doConsole){
-			console.log("number of "+iqPair.name+" required "+iqPair.quantity);
-			console.log("checking inventory "+JSON.stringify(inventory[iqPair.name]));
+				console.log("number of "+iqPair.name+" required "+iqPair.quantity);
+				console.log("checking inventory "+JSON.stringify(inventory[iqPair.name]));
 			}
 			if (iqPair.quantity<=(inventory[iqPair.name].quantity+inventory[iqPair.name].bpquantity)){
 				if(doConsole){
