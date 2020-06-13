@@ -1090,9 +1090,9 @@
                   {
                     "name": "Radars",
                     "data": [
-                      "Radar S",
-                      "Radar M",
-                      "Radar L",
+                      "Small Atmospheric Radar PvP S",
+                      "Medium Atmospheric Radar PvP M",
+                      "Large Atmospheric Radar PvP L",
                       "Space Radar S",
                       "Space Radar M",
                       "Space Radar L"
@@ -1529,10 +1529,10 @@
 			]
 		  },
 		  {
-			"name": "Anti-Matter Cores",
+			"name": "Anti-Matter Core Units",
 			"data": [
-			  "Advanced Anti-Matter Core",
-			  "Exotic Anti-Matter Core"
+			  "Advanced Anti-Matter Core Unit",
+			  "Exotic Anti-Matter Core Unit"
 			]
 		  },
 		  {
@@ -1703,7 +1703,8 @@
               "Basic Ionic Chamber M",
               "Basic Ionic Chamber L",
               "Basic Ionic Chamber XL",
-              "Advanced Ionic Chamber M"
+              "Advanced Ionic Chamber M",
+              "Advanced Ionic Chamber L"
             ]
           },
           {

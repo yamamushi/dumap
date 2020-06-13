@@ -1803,6 +1803,22 @@
     }
   },
   {
+    "name": "Uncommon Injector",
+    "tier": 2,
+    "type": "Complex Part",
+    "mass": 20.5,
+    "volume": 10,
+    "outputQuantity": 1,
+    "time": 240,
+    "byproducts": {},
+    "industries": ["Nanopack","3D Printer M"],
+    "input": {
+      "Polycarbonate Plastic": 2,
+      "Polycalcite Plastic": 4,
+      "Basic Screw": 4
+    }
+  },
+  {
     "name": "Advanced Injector",
     "tier": 3,
     "type": "Complex Part",
@@ -2402,31 +2418,6 @@
     }
   },
   {
-    "name": "Exotic Anti-Matter Core",
-    "tier": 5,
-    "type": "Exceptional Part",
-    "mass": 158.05,
-    "volume": 26.5,
-    "outputQuantity": 1,
-    "time": 93600,
-    "byproducts": {},
-    "industries": ["Electronics Industry M"],
-    "input": {
-      "Al-Fe Alloy": 5,
-      "Basic Anti-Matter Capsule": 1,
-      "Calcium Reinforced Copper": 5,
-      "Uncommon Component": 5,
-      "Uncommon Anti-Matter Capsule": 1,
-      "Cu-Ag Alloy": 5,
-      "Advanced Component": 5,
-      "Advanced Anti-Matter Capsule": 1,
-      "Red Gold": 5,
-      "Rare Anti-Matter Capsule": 1,
-      "Ti-Nb Supraconductor": 5,
-      "Exotic Anti-Matter Capsule": 1
-    }
-  },
-  {
     "name": "Advanced Quantum Alignment Unit",
     "tier": 3,
     "type": "Exceptional Part",
@@ -2906,7 +2897,7 @@
       "Basic Pipe": 1,
       "Basic Burner": 1,
       "Stainless Steel": 1,
-      "Uncommon Burnder": 1,
+      "Uncommon Burner": 1,
       "Uncommon Pipe": 1
     }
   },
@@ -2924,7 +2915,7 @@
       "Basic Pipe": 2,
       "Basic Burner": 2,
       "Stainless Steel": 7,
-      "Uncommon Burnder": 4,
+      "Uncommon Burner": 4,
       "Uncommon Pipe": 4
     }
   },
@@ -2942,7 +2933,7 @@
       "Basic Pipe": 8,
       "Basic Burner": 8,
       "Stainless Steel": 49,
-      "Uncommon Burnder": 18,
+      "Uncommon Burner": 18,
       "Uncommon Pipe": 18
     }
   },
@@ -2960,7 +2951,7 @@
       "Basic Pipe": 1,
       "Basic Burner": 1,
       "Stainless Steel": 1,
-      "Uncommon Burnder": 1,
+      "Uncommon Burner": 1,
       "Uncommon Pipe": 1
     }
   },
@@ -3528,6 +3519,95 @@
       "Basic Connector": 625,
       "Basic Magnet": 625
     }
+  },{
+    "name": "Uncommon Ionic Chamber XS",
+    "tier": 1,
+    "type": "Functional Part",
+    "mass": 140.8,
+    "volume": 13.86,
+    "outputQuantity": 1,
+    "time": 240,
+    "byproducts": {},
+    "industries": ["Metalwork Industry M"],
+    "input": {
+      "Basic Connector": 1,
+      "Basic Magnet": 1,
+      "Stainless Steel": 1,
+      "Uncommon Connector": 1,
+      "Uncommon Magnet": 1
+    }
+  },
+  {
+    "name": "Uncommon Ionic Chamber S",
+    "tier": 1,
+    "type": "Functional Part",
+    "mass": 452.35,
+    "volume": 44.77,
+    "outputQuantity": 1,
+    "time": 720,
+    "byproducts": {},
+    "industries": ["Metalwork Industry M"],
+    "input": {
+      "Basic Connector": 2,
+      "Basic Magnet": 2,
+      "Stainless Steel": 7,
+      "Uncommon Connector": 4,
+      "Uncommon Magnet": 4
+    }
+  },
+  {
+    "name": "Uncommon Ionic Chamber M",
+    "tier": 1,
+    "type": "Functional Part",
+    "mass": 2100,
+    "volume": 208.93,
+    "outputQuantity": 1,
+    "time": 2160,
+    "byproducts": {},
+    "industries": ["Metalwork Industry M"],
+    "input": {
+      "Basic Connector": 8,
+      "Basic Magnet": 8,
+      "Stainless Steel": 49,
+      "Uncommon Connector": 18,
+      "Uncommon Magnet": 18
+    }
+  },
+  {
+    "name": "Uncommon Ionic Chamber L",
+    "tier": 1,
+    "type": "Functional Part",
+    "mass": 11010,
+    "volume": 1096.93,
+    "outputQuantity": 1,
+    "time": 6480,
+    "byproducts": {},
+    "industries": ["Metalwork Industry M"],
+    "input": {
+      "Basic Connector": 38,
+      "Basic Magnet": 38,
+      "Stainless Steel": 343,
+      "Uncommon Connector": 88,
+      "Uncommon Magnet": 88
+    }
+  },
+  {
+    "name": "Uncommon Ionic Chamber XL",
+    "tier": 1,
+    "type": "Functional Part",
+    "mass": 60120,
+    "volume": 6007.33,
+    "outputQuantity": 1,
+    "time": 19440,
+    "byproducts": {},
+    "industries": ["Metalwork Industry M"],
+    "input": {
+      "Basic Connector": 188,
+      "Basic Magnet": 188,
+      "Stainless Steel": 2401,
+      "Uncommon Connector": 438,
+      "Uncommon Magnet": 438
+    }
   },
   {
     "name": "Advanced Ionic Chamber M",
@@ -3547,6 +3627,26 @@
       "Inconel": 49,
       "Advanced Connector": 10,
       "Advanced Magnet": 10
+    }
+  },
+  {
+    "name": "Advanced Ionic Chamber L",
+    "tier": 3,
+    "type": "Functional Part",
+    "mass": 11370,
+    "volume": 1096.93,
+    "outputQuantity": 1,
+    "time": 15540,
+    "byproducts": {},
+    "industries": ["Metalwork Industry M"],
+    "input": {
+      "Basic Connector": 38,
+      "Basic Magnet": 38,
+      "Uncommon Connector": 38,
+      "Uncommon Magnet": 38,
+      "Inconel": 343,
+      "Advanced Connector": 50,
+      "Advanced Magnet": 50
     }
   },
   {
@@ -5217,7 +5317,7 @@
       "Advanced Fixation": 216,
       "Exotic Processor": 125,
       "Exotic Power Converter L": 1,
-      "Exotic Anti-Matter Core": 64,
+      "Exotic Anti-Matter Core Unit": 64,
       "Exotic Standard Frame L": 1
     }
   },
@@ -7706,7 +7806,7 @@
     }
   },
   {
-    "name": "Atmospheric Radar S",
+    "name": "Small Atmospheric Radar PvP S",
     "tier": 1,
     "type": "Radar",
     "mass": 486.72,
@@ -7721,6 +7821,42 @@
       "Uncommon Magnet": 5,
       "Uncommon Antenna S": 1,
       "Uncommon Standard Frame S": 1
+    }
+  },
+  {
+    "name": "Medium Atmospheric Radar PvP M",
+    "tier": 2,
+    "type": "Radar",
+    "mass": 2910,
+    "volume": 486336,
+    "outputQuantity": 1,
+    "time": 5760,
+    "byproducts": {},
+    "industries": ["Assembly Line M"],
+    "input": {
+      "Basic Screw": 18,
+      "Uncommon Screw": 18,
+      "Uncommon Processor": 25,
+      "Uncommon Antenna M": 1,
+      "Uncommon Reinforced Frame M": 1
+    }
+  },
+  {
+    "name": "Large Atmospheric Radar PvP L",
+    "tier": 2,
+    "type": "Radar",
+    "mass": 16140,
+    "volume": 2658.56,
+    "outputQuantity": 1,
+    "time": 21600,
+    "byproducts": {},
+    "industries": ["Assembly Line L"],
+    "input": {
+      "Basic Screw": 108,
+      "Uncommon Screw": 108,
+      "Uncommon Processor": 125,
+      "Uncommon Antenna L": 1,
+      "Uncommon Reinforced Frame L": 1
     }
   },
   {
@@ -7775,42 +7911,6 @@
       "Uncommon Processor": 125,
       "Uncommon Antenna L": 1,
       "Uncommon Standard Frame L": 1
-    }
-  },
-  {
-    "name": "Radar M",
-    "tier": 2,
-    "type": "Radar",
-    "mass": 2910,
-    "volume": 486336,
-    "outputQuantity": 1,
-    "time": 5760,
-    "byproducts": {},
-    "industries": ["Assembly Line M"],
-    "input": {
-      "Basic Screw": 18,
-      "Uncommon Screw": 18,
-      "Uncommon Processor": 25,
-      "Uncommon Antenna M": 1,
-      "Uncommon Reinforced Frame M": 1
-    }
-  },
-  {
-    "name": "Radar L",
-    "tier": 2,
-    "type": "Radar",
-    "mass": 16140,
-    "volume": 2658.56,
-    "outputQuantity": 1,
-    "time": 21600,
-    "byproducts": {},
-    "industries": ["Assembly Line L"],
-    "input": {
-      "Basic Screw": 108,
-      "Uncommon Screw": 108,
-      "Uncommon Processor": 125,
-      "Uncommon Antenna L": 1,
-      "Uncommon Reinforced Frame L": 1
     }
   },
   {
