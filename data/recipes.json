@@ -2362,11 +2362,11 @@
     "input": {
       "Silumin": 5,
       "Basic Component": 10,
-      "Basic Anti-Matter Capsule": 3,
+      "Basic Singularity Container": 3,
       "Duralumin": 5,
-      "Uncommon Anti-Matter Capsule": 1,
+      "Uncommon Singularity Container": 1,
       "Al-Li Alloy": 5,
-      "Advanced Anti-Matter Capsule": 1
+      "Advanced Singularity Container": 1
     }
   },
   {
@@ -2382,14 +2382,14 @@
     "input": {
       "Silumin": 5,
       "Basic Component": 5,
-      "Basic Anti-Matter Capsule": 2,
+      "Basic Singularity Container": 2,
       "Duralumin": 5,
       "Uncommon Component": 5,
-      "Uncommon Anti-Matter Capsule": 1,
+      "Uncommon Singularity Container": 1,
       "Al-Li Alloy": 5,
-      "Advanced Anti-Matter Capsule": 1,
+      "Advanced Singularity Container": 1,
       "Sc-Al Alloy": 5,
-      "Rare Anti-Matter Capsule": 1
+      "Rare Singularity Container": 1
     }
   },
   {
@@ -2404,17 +2404,17 @@
     "industries": ["Electronics Industry M"],
     "input": {
       "Silumin": 5,
-      "Basic Anti-Matter Capsule": 2,
+      "Basic Singularity Container": 2,
       "Duralumin": 5,
       "Uncommon Component": 5,
-      "Uncommon Anti-Matter Capsule": 1,
+      "Uncommon Singularity Container": 1,
       "Al-Li Alloy": 5,
       "Advanced Component": 5,
-      "Advanced Anti-Matter Capsule": 1,
+      "Advanced Singularity Container": 1,
       "Sc-Al Alloy": 5,
-      "Rare Anti-Matter Capsule": 1,
+      "Rare Singularity Container": 1,
       "Grade 5 Titanium Alloy": 5,
-      "Exotic Anti-Matter Capsule": 1
+      "Exotic Singularity Container": 1
     }
   },
   {
@@ -4072,8 +4072,7 @@
     "industries": ["Metalwork Industry M"],
     "input": {
       "Silumin": 343,
-      "Basic Screw": 125,
-      "Basic Hydraulics": 125
+      "Basic Screw": 125
     }
   },
   {
@@ -4088,8 +4087,7 @@
     "industries": ["Metalwork Industry M"],
     "input": {
       "Silumin": 2401,
-      "Basic Screw": 625,
-      "Basic Hydraulics": 625
+      "Basic Screw": 625
     }
   },
   {
@@ -7161,7 +7159,7 @@
       "Basic Screw": 36,
       "Basic Power System": 25,
       "Basic Electric Engine M": 1,
-      "Basic Standard Frame M": 1
+      "Basic Reinforced Frame M": 1
     }
   },
   {
@@ -7178,7 +7176,7 @@
       "Basic Screw": 36,
       "Basic Power System": 25,
       "Basic Electric Engine M": 1,
-      "Basic Standard Frame M": 1
+      "Basic Reinforced Frame M": 1
     }
   },
   {
@@ -10288,7 +10286,7 @@
     "mass": 27.19,
     "volume": 10,
     "outputQuantity": 10,
-    "time": 20,
+    "time": 10,
     "byproducts": {},
     "industries": ["Nanopack","Honeycomb Refinery M"],
     "input": {
