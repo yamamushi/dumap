@@ -57,7 +57,7 @@ if(session('access_token')) {
     $found = FALSE;
     if($isbanned == false) {
         foreach ($data->roles as $field) {
-            if ($field == ALPHA_AUTHORIZED_ROLE_ID) {
+            if ($field == ALPHA_AUTHORIZED_ROLE_ID || $field == NQSTAFF_ROLE_ID) {
                 $found = TRUE;
             }
             // INIT HERE
