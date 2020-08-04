@@ -55,14 +55,14 @@ if(session('access_token')) {
   <link rel="apple-touch-icon" href="assets/icons/icon-180x180.png">
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#1976d2">
-<link rel="stylesheet" type="text/css" href="styles.be6c6058f0da3b91fd1a.css"></head>
+<link rel="stylesheet" type="text/css" href="styles.c0322a572495800b08f7.css"></head>
 
 <body style="background-color: #303030;">
   <div class="app-root">
     <app-root></app-root>
   </div>
   <noscript><img src="assets/images/need-javascript.png" /></noscript>
-<script src="runtime-es2015.409e6590615fb48d139f.js" type="module"></script><script src="runtime-es5.409e6590615fb48d139f.js" nomodule defer></script><script src="polyfills-es5.2dcde1efe3c1bf4aaa25.js" nomodule defer></script><script src="polyfills-es2015.a0fa45e0fa52702b64f0.js" type="module"></script><script src="main-es2015.b4f22cf379fc90763235.js" type="module"></script><script src="main-es5.b4f22cf379fc90763235.js" nomodule defer></script></body>
+<script src="runtime.e227d1a0e31cbccbf8ec.js" defer></script><script src="polyfills.fa70ca150ae09dfd08a8.js" defer></script><script src="main.0851dd80ff1a06195851.js" defer></script></body>
 
 </html>
 
