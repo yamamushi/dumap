@@ -5,8 +5,9 @@
   "background_color": "#303030",
   "display": "standalone",
   "scope": "/dutalents/",
-  "start_url": "/dutalents/",
-  "icons": [{
+  "start_url": "/dutalents/index.php",
+  "icons": [
+    {
       "src": "assets/icons/icon-72x72.png",
       "sizes": "72x72",
       "type": "image/png"

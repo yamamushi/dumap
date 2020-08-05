@@ -62,7 +62,7 @@ if(session('access_token')) {
     <app-root></app-root>
   </div>
   <noscript><img src="assets/images/need-javascript.png" /></noscript>
-<script src="runtime.e227d1a0e31cbccbf8ec.js" defer></script><script src="polyfills.fa70ca150ae09dfd08a8.js" defer></script><script src="main.0851dd80ff1a06195851.js" defer></script></body>
+<script src="runtime.e227d1a0e31cbccbf8ec.js" defer></script><script src="polyfills.fa70ca150ae09dfd08a8.js" defer></script><script src="main.b2ed1237011fd49a8e55.js" defer></script></body>
 
 </html>
 
