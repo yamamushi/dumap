@@ -18,9 +18,9 @@ Header set Content-Security-Policy "script-src 'self'; style-src 'self' 'unsafe-
     # internally, but if user presses F5, the server receives it.
     RewriteCond %{SCRIPT_FILENAME} !-f
     RewriteCond %{SCRIPT_FILENAME} !-d
-    RewriteRule ^[a-z][a-z0-9/]+$ index.php [L]
+    RewriteRule ^[a-z][a-z0-9/]+$ index.html [L]
 
-    RewriteRule ^index\.html$ index.php [L]
+    #RewriteRule ^index\.html$ index.html [L]
 </IfModule>
 
 # Content caching, tuned for an Angular application

@@ -24,7 +24,7 @@ require_once '../library/class.Diff.php';
 
 ini_set('magic_quotes_runtime', 0);
 
-if(session('access_token')) {
+if(true) {
 
     //CHECK SESSION TIMEOUT
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
@@ -39,27 +39,8 @@ if(session('access_token')) {
     }
     $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
-    $user = apiRequest($apiURLBase);
-    $guilds = apiRequest($apiURLGuilds);
-    $guildmember = apiBotRequest($apiURLGuildMember, $user->id);
-    $data = json_decode($guildmember);
-    $blacklistfile = file_get_contents('../data/blacklist.json');
-    $blacklist = json_decode($blacklistfile, false);
-    define('FOOTER_TEXT', 'Currently logged in as <b>'.$user->username.'</b> || <a href="http://dual.sh/">Click here</a> to go back to the Dual.sh main menu || <a href="?action=logout">Click here</a> to log out || Powered by <a href="https://github.com/smasty/WikWiki">WikWiki</a>.');
+    if(true) {
 
-    $isbanned = false;
-    foreach($blacklist as $banned){
-        if($banned->id == $user->id) {
-            $isbanned = true;
-        }
-    }
-
-    $found = FALSE;
-    if($isbanned == false) {
-        foreach ($data->roles as $field) {
-            if ($field == ALPHA_AUTHORIZED_ROLE_ID || $field == NQSTAFF_ROLE_ID) {
-                $found = TRUE;
-            }
             // INIT HERE
 
             if (!@file_exists(dirname(__FILE__) . '/wikdata') || !@is_writable(dirname(__FILE__) . '/wikdata')) {
@@ -149,19 +130,7 @@ if(session('access_token')) {
                 header('Location: ./?Special:NotFound');
                 exit;
             }
-
         }
-    }
-
-    if ($found == FALSE) {
-        echo '<h3>Unauthorized</h3>';
-        echo '<p><a href="?action=logout">Log Out</a></p>';
-        die();
-    }
-} else {
-    echo '<h3>You must login before you can view this page, taking you back to the homepage now.</h3>';
-    echo '<p>If this page does not automatically redirect you, <a href="http://dual.sh/index.php">click here.</a></p>';
-    header('Refresh: 5; URL=http://dual.sh/index.php');
 }
 
 
