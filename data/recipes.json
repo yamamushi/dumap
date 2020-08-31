@@ -2558,6 +2558,24 @@
     }
   },
   {
+    "name": "Uncommon Antenna XS",
+    "tier": 2,
+    "type": "Functional Part",
+    "mass": 117.16,
+    "volume": 17.12,
+    "outputQuantity": 1,
+    "time": 168,
+    "byproducts": {},
+    "industries": ["Electronics Industry M"],
+    "input": {
+      "Basic Screw": 1,
+      "Basic Power System": 1,
+      "Calcium Reinforced Copper": 1,
+      "Uncommon Screw": 1,
+      "Uncommon Power System": 1
+    }
+  },
+  {
     "name": "Uncommon Antenna S",
     "tier": 2,
     "type": "Functional Part",
@@ -2609,6 +2627,26 @@
       "Calcium Reinforced Copper": 343,
       "Uncommon Screw": 88,
       "Uncommon Power System": 88
+    }
+  },
+  {
+    "name": "Advanced Antenna S",
+    "tier": 3,
+    "type": "Functional Part",
+    "mass": 389.74,
+    "volume": 54.56,
+    "outputQuantity": 1,
+    "time": 2016,
+    "byproducts": {},
+    "industries": ["Electronics Industry M"],
+    "input": {
+      "Basic Screw": 2,
+      "Basic Power System": 2,
+      "Uncommon Screw": 2,
+      "Uncommon Power System": 2,
+      "Cu-Ag Alloy": 7,
+      "Advanced Screw": 2,
+      "Advanced Power System": 2
     }
   },
   {
@@ -4129,7 +4167,7 @@
     }
   },
   {
-    "name": "Basic Power Converter M",
+    "name": "Basic Power Transformer M",
     "tier": 1,
     "type": "Functional Part",
     "mass": 1020,
@@ -4144,27 +4182,43 @@
     }
   },
   {
-    "name": "Advanced Power Converter S",
-    "tier": 3,
+    "name": "Uncommon Power Transformer S",
+    "tier": 2,
     "type": "Functional Part",
-    "mass": 226.13,
+    "mass": 221.56,
     "volume": 43.33,
     "outputQuantity": 1,
-    "time": 2880,
+    "time": 540,
     "byproducts": {},
-    "industries": ["Electronics Industry M"],
+    "industries": ["Nanopack","Electronics Industry M"],
     "input": {
       "Basic Component": 2,
-      "Basic Magnet": 2,
-      "Uncommon Component": 2,
-      "Uncommon Magnet": 2,
-      "Inconel": 7,
-      "Advanced Component": 2,
-      "Advanced Magnet": 2
+	  "Basic Magnet": 2,
+      "Stainless Steel": 7,
+      "Uncommon Component": 4,
+	  "Uncommon Magnet": 4
     }
   },
   {
-    "name": "Rare Power Converter L",
+    "name": "Uncommon Power Transformer M",
+    "tier": 2,
+    "type": "Functional Part",
+    "mass": 1030,
+    "volume": 202.69,
+    "outputQuantity": 1,
+    "time": 1512,
+    "byproducts": {},
+    "industries": ["Nanopack","Electronics Industry M"],
+    "input": {
+      "Basic Component": 8,
+	  "Basic Magnet": 8,
+      "Stainless Steel": 49,
+      "Uncommon Component": 18,
+	  "Uncommon Magnet": 18
+    }
+  },
+  {
+    "name": "Rare Power Transformer L",
     "tier": 4,
     "type": "Functional Part",
     "mass": 5570,
@@ -4183,7 +4237,7 @@
     }
   },
   {
-    "name": "Rare Power Converter XL",
+    "name": "Rare Power Transformer XL",
     "tier": 4,
     "type": "Functional Part",
     "mass": 30540,
@@ -4202,7 +4256,7 @@
     }
   },
   {
-    "name": "Exotic Power Converter L",
+    "name": "Exotic Power Transformer L",
     "tier": 5,
     "type": "Functional Part",
     "mass": 5570,
@@ -4264,6 +4318,21 @@
       "Silumin": 2401,
       "Basic Component": 625,
       "Basic Hydraulics": 625
+    }
+  },
+  {
+    "name": "Basic Screen S",
+    "tier": 1,
+    "type": "Functional Part",
+    "mass": 21.07,
+    "volume": 25.6,
+    "outputQuantity": 1,
+    "time": 63,
+    "byproducts": {},
+    "industries": ["Nanopack","3D Printer M"],
+    "input": {
+      "Polycarbonate Plastic": 7,
+      "Basic LED": 5
     }
   },
   {
@@ -4730,7 +4799,7 @@
     "industries": ["Metalwork Industry M"],
     "input": {
       "Steel": 1201,
-      "Stainless Steel": 1401
+      "Stainless Steel": 2401
     }
   },
   {
@@ -5305,18 +5374,18 @@
     "name": "Territory Unit",
     "tier": 5,
     "type": "Core Unit",
-    "mass": 7680,
-    "volume": 1383,
+    "mass": 20050,
+    "volume": 4118.29,
     "outputQuantity": 1,
-    "time": 259200,
+    "time": 5760,
     "byproducts": {},
-    "industries": ["Assembly Line L"],
+    "industries": ["Assembly Line M"],
     "input": {
-      "Advanced Fixation": 216,
-      "Exotic Processor": 125,
-      "Exotic Power Converter L": 1,
-      "Exotic Anti-Matter Core Unit": 64,
-      "Exotic Standard Frame L": 1
+      "Basic Fixation": 18,
+      "Uncommon Fixation": 125,
+      "Uncommon Processor": 25,
+      "Uncommon Power Transformer M": 1,
+      "Uncommon Standard Frame M": 1
     }
   },
   {
@@ -5344,7 +5413,7 @@
     "mass": 229.09,
     "volume": 64,
     "outputQuantity": 1,
-    "time": 720,
+    "time": 360,
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
@@ -7208,11 +7277,11 @@
     "byproducts": {},
     "industries": ["Assembly Line XL"],
     "input": {
-      "Basic Screw": 648,
-      "Uncommon Screw": 648,
-      "Uncommon Power System": 625,
-      "Uncommon Electric Engine XL": 1,
-      "Uncommon Reinforced Frame XL": 1
+      "Basic Screw": 1296,
+      "Uncommon Screw": 1296,
+      "Uncommon Power System": 1250,
+      "Uncommon Electric Engine XL": 2,
+      "Uncommon Reinforced Frame XL": 2
     }
   },
   {
@@ -7226,11 +7295,11 @@
     "byproducts": {},
     "industries": ["Assembly Line XL"],
     "input": {
-      "Basic Screw": 648,
-      "Uncommon Screw": 648,
-      "Uncommon Power System": 625,
-      "Uncommon Electric Engine XL": 1,
-      "Uncommon Reinforced Frame XL": 1
+      "Basic Screw": 2592,
+      "Uncommon Screw": 2592,
+      "Uncommon Power System": 2500,
+      "Uncommon Electric Engine XL": 4,
+      "Uncommon Reinforced Frame XL": 4
     }
   },
   {
@@ -7244,11 +7313,11 @@
     "byproducts": {},
     "industries": ["Assembly Line XL"],
     "input": {
-      "Basic Screw": 648,
-      "Uncommon Screw": 648,
-      "Uncommon Power System": 625,
-      "Uncommon Electric Engine XL": 1,
-      "Uncommon Reinforced Frame XL": 1
+      "Basic Screw": 3240,
+      "Uncommon Screw": 3240,
+      "Uncommon Power System": 3125,
+      "Uncommon Electric Engine XL": 5,
+      "Uncommon Reinforced Frame XL": 5
     }
   },
   {
@@ -7262,11 +7331,11 @@
     "byproducts": {},
     "industries": ["Assembly Line XL"],
     "input": {
-      "Basic Screw": 648,
-      "Uncommon Screw": 648,
-      "Uncommon Power System": 625,
-      "Uncommon Electric Engine XL": 1,
-      "Uncommon Reinforced Frame XL": 1
+      "Basic Screw": 5184,
+      "Uncommon Screw": 5184,
+      "Uncommon Power System": 5000,
+      "Uncommon Electric Engine XL": 8,
+      "Uncommon Reinforced Frame XL": 8
     }
   },
   {
@@ -8178,6 +8247,24 @@
       "Uncommon Component": 1,
       "Uncommon Electronics": 1,
       "Uncommon Screen XS": 1,
+      "Uncommon Casing XS": 1
+    }
+  },
+  {
+    "name": "Sensors S",
+    "tier": 1,
+    "type": "Surrogate Element",
+    "mass": 28,
+    "volume": 27,
+    "outputQuantity": 1,
+    "time": 360,
+    "byproducts": {},
+    "industries": ["Nanopack", "Assembly Line XS"],
+    "input": {
+      "Basic LED": 1,
+      "Uncommon LED": 1,
+      "Uncommon Electronics": 1,
+      "Uncommon Antenna XS": 1,
       "Uncommon Casing XS": 1
     }
   },
@@ -10185,7 +10272,7 @@
     "name": "Iron Honeycomb",
     "tier": 1,
     "type": "Pure Honeycomb",
-    "mass": 94.2,
+    "mass": 78.5,
     "volume": 10,
     "outputQuantity": 10,
     "time": 5,
@@ -10197,12 +10284,12 @@
   },
   {
     "name": "Aluminium Honeycomb",
-    "tier": 2,
+    "tier": 1,
     "type": "Pure Honeycomb",
-    "mass": 27.19,
+    "mass": 27,
     "volume": 5,
     "outputQuantity": 10,
-    "time": 20,
+    "time": 5,
     "byproducts": {},
     "industries": ["Nanopack","Honeycomb Refinery M"],
     "input": {
@@ -10210,10 +10297,38 @@
     }
   },
   {
-    "name": "Copper Honeycomb",
-    "tier": 3,
+    "name": "Carbon Honeycomb",
+    "tier": 1,
     "type": "Pure Honeycomb",
-    "mass": 89.28,
+    "mass": 22.7,
+    "volume": 10,
+    "outputQuantity": 10,
+    "time": 5,
+    "byproducts": {},
+    "industries": ["Nanopack","Honeycomb Refinery M"],
+    "input": {
+      "Iron Pure": 100
+    }
+  },
+  {
+    "name": "Silicon Honeycomb",
+    "tier": 1,
+    "type": "Pure Honeycomb",
+    "mass": 23.3,
+    "volume": 10,
+    "outputQuantity": 10,
+    "time": 5,
+    "byproducts": {},
+    "industries": ["Nanopack","Honeycomb Refinery M"],
+    "input": {
+      "Silicon Pure": 100
+    }
+  },
+  {
+    "name": "Copper Honeycomb",
+    "tier": 2,
+    "type": "Pure Honeycomb",
+    "mass": 89.6,
     "volume": 10,
     "outputQuantity": 10,
     "time": 15,
@@ -10225,9 +10340,9 @@
   },
   {
     "name": "Chromium Honeycomb",
-    "tier": 3,
+    "tier": 2,
     "type": "Pure Honeycomb",
-    "mass": 86.28,
+    "mass": 71.9,
     "volume": 10,
     "outputQuantity": 10,
     "time": 15,
@@ -10238,10 +10353,94 @@
     }
   },
   {
+    "name": "Calcium Honeycomb",
+    "tier": 2,
+    "type": "Pure Honeycomb",
+    "mass": 15.5,
+    "volume": 10,
+    "outputQuantity": 10,
+    "time": 15,
+    "byproducts": {},
+    "industries": ["Honeycomb Refinery M"],
+    "input": {
+      "Calcium Pure": 100
+    }
+  },
+  {
+    "name": "Sodium Honeycomb",
+    "tier": 2,
+    "type": "Pure Honeycomb",
+    "mass": 9.7,
+    "volume": 10,
+    "outputQuantity": 10,
+    "time": 15,
+    "byproducts": {},
+    "industries": ["Honeycomb Refinery M"],
+    "input": {
+      "Sodium Pure": 100
+    }
+  },
+  {
+    "name": "Lithium Honeycomb",
+    "tier": 3,
+    "type": "Pure Honeycomb",
+    "mass": 5.3,
+    "volume": 10,
+    "outputQuantity": 10,
+    "time": 45,
+    "byproducts": {},
+    "industries": ["Honeycomb Refinery M"],
+    "input": {
+      "Lithium Pure": 100
+    }
+  },
+  {
+    "name": "Nickel Honeycomb",
+    "tier": 3,
+    "type": "Pure Honeycomb",
+    "mass": 89.1,
+    "volume": 10,
+    "outputQuantity": 10,
+    "time": 45,
+    "byproducts": {},
+    "industries": ["Honeycomb Refinery M"],
+    "input": {
+      "Nickel Pure": 100
+    }
+  },
+  {
+    "name": "Silver Honeycomb",
+    "tier": 3,
+    "type": "Pure Honeycomb",
+    "mass": 104.9,
+    "volume": 10,
+    "outputQuantity": 10,
+    "time": 45,
+    "byproducts": {},
+    "industries": ["Honeycomb Refinery M"],
+    "input": {
+      "Silver Pure": 100
+    }
+  },
+  {
+    "name": "Sulfur Honeycomb",
+    "tier": 3,
+    "type": "Pure Honeycomb",
+    "mass": 18.19,
+    "volume": 10,
+    "outputQuantity": 10,
+    "time": 45,
+    "byproducts": {},
+    "industries": ["Honeycomb Refinery M"],
+    "input": {
+      "Sulfur Pure": 100
+    }
+  },
+  {
     "name": "Gold Honeycomb",
     "tier": 4,
     "type": "Pure Honeycomb",
-    "mass": 231.6,
+    "mass": 193,
     "volume": 10,
     "outputQuantity": 10,
     "time": 120,
@@ -10252,10 +10451,80 @@
     }
   },
   {
+    "name": "Cobalt Honeycomb",
+    "tier": 4,
+    "type": "Pure Honeycomb",
+    "mass": 89,
+    "volume": 10,
+    "outputQuantity": 10,
+    "time": 120,
+    "byproducts": {},
+    "industries": ["Honeycomb Refinery M"],
+    "input": {
+      "Cobalt Pure": 100
+    }
+  },
+  {
+    "name": "Fluorine Honeycomb",
+    "tier": 4,
+    "type": "Pure Honeycomb",
+    "mass": 16.96,
+    "volume": 10,
+    "outputQuantity": 10,
+    "time": 120,
+    "byproducts": {},
+    "industries": ["Honeycomb Refinery M"],
+    "input": {
+      "Fluorine Pure": 100
+    }
+  },
+  {
+    "name": "Scandium Honeycomb",
+    "tier": 4,
+    "type": "Pure Honeycomb",
+    "mass": 29.85,
+    "volume": 10,
+    "outputQuantity": 10,
+    "time": 120,
+    "byproducts": {},
+    "industries": ["Honeycomb Refinery M"],
+    "input": {
+      "Scandium Pure": 100
+    }
+  },
+  {
+    "name": "Manganese Honeycomb",
+    "tier": 5,
+    "type": "Pure Honeycomb",
+    "mass": 72.1,
+    "volume": 10,
+    "outputQuantity": 10,
+    "time": 420,
+    "byproducts": {},
+    "industries": ["Honeycomb Refinery M"],
+    "input": {
+      "Manganese Pure": 100
+    }
+  },
+  {
+    "name": "Niobium Honeycomb",
+    "tier": 5,
+    "type": "Pure Honeycomb",
+    "mass": 85.7,
+    "volume": 10,
+    "outputQuantity": 10,
+    "time": 420,
+    "byproducts": {},
+    "industries": ["Honeycomb Refinery M"],
+    "input": {
+      "Niobium Pure": 100
+    }
+  },
+  {
     "name": "Titanium Honeycomb",
     "tier": 5,
     "type": "Pure Honeycomb",
-    "mass": 54.07,
+    "mass": 45.1,
     "volume": 10,
     "outputQuantity": 10,
     "time": 420,
@@ -10263,6 +10532,20 @@
     "industries": ["Honeycomb Refinery M"],
     "input": {
       "Titanium Pure": 100
+    }
+  },
+  {
+    "name": "Vanadium Honeycomb",
+    "tier": 5,
+    "type": "Pure Honeycomb",
+    "mass": 60,
+    "volume": 10,
+    "outputQuantity": 10,
+    "time": 420,
+    "byproducts": {},
+    "industries": ["Honeycomb Refinery M"],
+    "input": {
+      "Vanadium Pure": 100
     }
   },
   {
@@ -10364,8 +10647,23 @@
     }
   },
   {
+    "name": "Luminescent White Glass",
+    "tier": 1,
+    "type": "Product Honeycomb",
+    "mass": 26,
+    "volume": 10,
+    "outputQuantity": 10,
+    "time": 15,
+    "byproducts": {},
+    "industries": ["Glass Furnace M"],
+    "input": {
+      "Advanced Glass": 100,
+	  "Uncommon LED": 10
+    }
+  },
+  {
     "name": "Resurrection Node",
-    "tier":1,
+    "tier": 2,
     "type": "Resurrection Node",
     "mass": 728.43,
     "volume": 203.33,
@@ -10374,11 +10672,11 @@
     "byproducts": {},
     "industries": ["Assembly Line S"],
     "input": {
-      "Uncommon Component": 6,
-      "Advanced Power System": 5,
-      "Advanced Power Converter S": 1,
-      "Advanced Quantum Alignment Unit": 4,
-      "Advanced Standard Frame S": 1
+      "Basic Component": 3,
+      "Uncommon Component": 3,
+      "Uncommon Power System": 5,
+      "Uncommon Power Transformer S": 1,
+      "Uncommon Standard Frame S": 1
     }
   },
   {
@@ -14087,6 +14385,58 @@
       "Uncommon Burner": 625,
       "Uncommon Ionic Chamber XL": 1,
       "Uncommon Reinforced Frame XL": 1
+    }
+  },
+  {
+    "name": "Repair Unit",
+    "tier": 1,
+    "type": "Combat Element",
+    "mass": 400,
+    "volume": 0,
+    "outputQuantity": 1,
+    "time": 86400,
+    "byproducts": {},
+    "industries": ["Assembly Line L"],
+    "input": {
+      "Uncommon Component": 216,
+      "Advanced Hydraulics": 125,
+      "Advanced Magnetic Rail": 1,
+      "Advanced Anti-Matter Core Unit": 64,
+      "Advanced Reinforced Frame L": 1
+    }
+  },
+  {
+    "name": "Surrogate Pod Station",
+    "tier": 1,
+    "type": "Surrogate Element",
+    "mass": 569.52,
+    "volume": 360,
+    "outputQuantity": 1,
+    "time": 4320,
+    "byproducts": {},
+    "industries": ["Assembly Line S"],
+    "input": {
+      "Uncommon Component": 6,
+      "Advanced Hydraulics": 5,
+      "Advanced Antenna S": 1,
+      "Advanced Standard Frame S": 1
+    }
+  },
+  {
+    "name": "Surrogate VR Station",
+    "tier": 1,
+    "type": "Surrogate Element",
+    "mass": 742.42,
+    "volume": 360.2,
+    "outputQuantity": 1,
+    "time": 480,
+    "byproducts": {},
+    "industries": ["Nanopack", "Assembly Line S"],
+    "input": {
+      "Basic Component": 6,
+      "Basic Processor": 5,
+      "Basic Screen S": 1,
+      "Basic Standard Frame S": 1
     }
   }
 ]
