@@ -686,9 +686,6 @@
                 "name": "Control Units",
                 "data": [
                   "Emergency Controller",
-                  "Gunner Module S",
-                  "Gunner Module M",
-                  "Gunner Module L",
                   "Hovercraft Seat Controller",
                   "Cockpit Controller",
                   "Command Seat Controller",
@@ -1029,7 +1026,8 @@
 					  "Sign L",
 					  "Sign Vertical XS",
 					  "Sign Vertical M",
-					  "Sign Vertical L"
+					  "Sign Vertical L",
+					  "Sensors S"
                     ]
                   }
                 ]
@@ -1115,46 +1113,67 @@
 				  "Virtual Scaffolding Projector"
 				]
 			  },
-			  {
-				"name": "Weapon Units",
+			  { 
+				"name": "Combat Elements",
 				"data": [
-					{
-						"name": "Cannons",
-						"data": [
-							"Cannon XS",
-							"Cannon S",
-							"Cannon M",
-							"Cannon L"
-						]
-					},
-					{
-						"name": "Lasers",
-						"data": [
-							"Laser XS",
-							"Laser S",
-							"Laser M",
-							"Laser L"
-						]
-					},
-					{
-						"name": "Missile Pods",
-						"data": [
-							"Missile XS",
-							"Missile S",
-							"Missile M",
-							"Missile L"
-						]
-					},
-					{
-						"name": "Railguns",
-						"data": [
-							"Railgun XS",
-							"Railgun S",
-							"Railgun M",
-							"Railgun L"
-						]
-					}
+				  {
+					"name": "Weapon Units",
+					"data": [
+						{
+							"name": "Cannons",
+							"data": [
+								"Cannon XS",
+								"Cannon S",
+								"Cannon M",
+								"Cannon L"
+							]
+						},
+						{
+							"name": "Lasers",
+							"data": [
+								"Laser XS",
+								"Laser S",
+								"Laser M",
+								"Laser L"
+							]
+						},
+						{
+							"name": "Missile Pods",
+							"data": [
+								"Missile XS",
+								"Missile S",
+								"Missile M",
+								"Missile L"
+							]
+						},
+						{
+							"name": "Railguns",
+							"data": [
+								"Railgun XS",
+								"Railgun S",
+								"Railgun M",
+								"Railgun L"
+							]
+						}
+					]
+				  },
+				  {
+					"name":"Gunner Seats",
+					"data":[
+					  "Gunner Module S",
+					  "Gunner Module M",
+					  "Gunner Module L"
+					  ]
+				  },
+				  "Repair Unit"
 				]
+			  },
+			  {
+				"name": "Surrogate VR Elements",
+				"data": [
+					"Surrogate Pod Station",
+					"Surrogate VR Station"
+					]
 			  },
 			  {
 				"name": "Warp Drives",
@@ -1260,18 +1279,33 @@
                   "Marble Honeycomb",
                   "Plastic Honeycomb",
                   "Steel Honeycomb",
-                  "Wood Honeycomb"
+                  "Wood Honeycomb",
+                  "Luminescent White Glass"
                 ]
               },
               {
                 "name": "Pure Honeycomb",
                 "data": [
                   "Aluminium Honeycomb",
+                  "Carbon Honeycomb",
+                  "Iron Honeycomb",
+                  "Silicon Honeycomb",
+                  "Calcium Honeycomb",
                   "Chromium Honeycomb",
                   "Copper Honeycomb",
+                  "Sodium Honeycomb",
+                  "Lithium Honeycomb",
+                  "Nickel Honeycomb",
+                  "Silver Honeycomb",
+                  "Sulfur Honeycomb",
+                  "Cobalt Honeycomb",
+                  "Fluorine Honeycomb",
                   "Gold Honeycomb",
-                  "Iron Honeycomb",
-                  "Titanium Honeycomb"
+                  "Scandium Honeycomb",
+                  "Manganese Honeycomb",
+                  "Niobium Honeycomb",
+                  "Titanium Honeycomb",
+                  "Vanadium Honeycomb"
                 ]
               }
             ]
@@ -1779,13 +1813,14 @@
             ]
           },
           {
-            "name": "Power Converters",
+            "name": "Power Transformers",
             "data": [
-              "Basic Power Converter M",
-              "Advanced Power Converter S",
-              "Rare Power Converter L",
-              "Rare Power Converter XL",
-              "Exotic Power Converter L"
+              "Basic Power Transformer M",
+              "Uncommon Power Transformer S",
+              "Uncommon Power Transformer M",
+              "Rare Power Transformer L",
+              "Rare Power Transformer XL",
+              "Exotic Power Transformer L"
             ]
           },
           {

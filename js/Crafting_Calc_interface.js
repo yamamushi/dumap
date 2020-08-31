@@ -156,7 +156,7 @@ function calculate()
 	for (var i=0;i<list.length;i++)
 	{
 		//console.log("creating elements for "+JSON.stringify(list[i]));
-		if (list[i].type.search("Ore")!=-1)
+		if (list[i].type=="Ore")
 		{
 			var item=document.createElement("div");
 			item.classList.add("ore-item");
@@ -234,7 +234,7 @@ function calculate()
 			
 			var indSel=document.createElement("SELECT");
 			indSel.style.color="white";
-			for(var j=0;j<list[i].industries.length;j++){
+			for(var j=list[i].industries.length-1;j>=0;j--){
 				var ind=document.createElement("option");
 				ind.text=list[i].industries[j];
 				ind.style.color="white";
@@ -251,10 +251,13 @@ function calculate()
 			indSel.onchange=updateIndSel;
 			line.push(indSel);
 			var indPrice=list[i].time*industryPrices[indSel.options[indSel.selectedIndex].text];
+			//console.log(list[i].name+" has ind price of "+industryPrices[indSel.options[indSel.selectedIndex].text]);
 			if (isNaN(indPrice)){
 				console.log(list[i].name+" is nan price");
 			}
-			totPrice+=indPrice;
+			else{
+				totPrice+=indPrice;
+			}
 			
 			var price=document.createElement("div");
 			price.innerHTML=formatNum(indPrice);
@@ -291,7 +294,6 @@ function calculate()
 			time.classList.add("queue-time");
 			time.innerHTML=formatNum(list[i].time,0);
 			totTime+=list[i].time;
-			totPrice+=list[i].time*industryPrices[indSel.options[indSel.selectedIndex].text];
 			
 			var check=document.createElement("button");
 			check.classList.add("queue-done");
@@ -329,23 +331,35 @@ function calculate()
 
 //function to create the accordion for the item list in the modal
 //cause i sure as hell won't write all that
-function createItemsAcc(list,depth)
+function createItemsAcc(list,depth,filter="",override=false)
 {
+	if (filter==undefined){filter="";}
 	//console.log("ca "+depth);
 	var output=[];
 	var tab=""
-	for (var j=0;j<=depth;j++){tab+="\t";}
+	var found=false;
+	for (var j=0;j<=depth;j++){tab+=" ";}
 	
 	for (var i=0;i<list.length;i++)
 	{
 		//console.log("list i "+list[i]);
 		if (typeof list[i]=="object")
 		{
-			output.push(tab+'<div class="accordion unselectable"><span>+</span><span class="accordion-title">');
-			output.push(list[i].name);
-			output.push('</span></div>\n'+tab+'\t<div class="accordion-panel unselectable">\n');
-			output.push(createItemsAcc(list[i].data,depth+1).join(''));
-			output.push(tab+'\t</div>\n');
+			var or=override;
+			if (filter!="" && list[i].name.toLowerCase().search(filter.toLowerCase())!=-1){ or=true; }
+			var deeperOutput=createItemsAcc(list[i].data,depth+1,filter,or);
+			//console.log("list i "+list[i].name);
+			//console.log("found item on deeper list? "+deeperOutput[1]);
+			//console.log("override? "+or);
+			if(deeperOutput[1] || override){
+				found=true;
+				output.push(tab+'<div class="accordion unselectable"><span>+</span><span class="accordion-title">');
+				output.push(list[i].name);
+				output.push('</span></div>\n'+tab+'\t<div class="accordion-panel unselectable">\n');
+				output.push(deeperOutput[0].join(''));
+				output.push(tab+'\t</div>\n');
+			}
+			
 		}else{
 			if (!cc.db[list[i]]) {
 				console.log('Item ' + list[i] + ' has no recipe');
@@ -357,17 +371,62 @@ function createItemsAcc(list,depth)
 			{
 				cn=list[i].split(" ")[0].toLowerCase();
 			}
-			output.push(tab+"\t<div class='accordion-item unselectable "+cn+"'>");
-			output.push(list[i]);
-			output.push("</div>\n");
+			if (filter=="" || list[i].toLowerCase().search(filter.toLowerCase())!=-1 || override){
+				output.push(tab+"\t<div class='accordion-item unselectable "+cn+"'>");
+				output.push(list[i]);
+				output.push("</div>\n");
+			}
 		}
 	}
-	
-	return output;
+	if (output.length>0){
+		found=true;
+	}
+	if (!found && depth==0){output=['<span style="color:#fff">No results</span>'];}
+	return [output,found];
 }
-var itemsAccList=createItemsAcc(itemsAccordion,0);
+
+var itemsAccList=createItemsAcc(itemsAccordion,0,"")[0];
 var itemsAccStr=itemsAccList.join('')
 itemAccordion.innerHTML=itemsAccStr;
+
+var keyHit=(new Date()).getTime();
+
+async function setFilter(){
+	/*
+	var t=(new Date()).getTime();
+	if (t-filterTime>3000){
+		itemsAccList=createItemsAcc(itemsAccordion,0,itemFilter.value)[0];
+		itemsAccStr=itemsAccList.join('')
+		itemAccordion.innerHTML=itemsAccStr;
+		filterTime=t;
+	}
+	*/
+	//console.log('key hit');
+	var t=(new Date()).getTime();
+	if (t-keyHit>=2000){
+		//console.log("waiting");
+		let promise = new Promise((resolve, reject) => {
+			setTimeout(() => resolve(), 2000)
+		});
+		let result = await promise;
+		
+		//console.log("filtering");
+		//console.log(itemFilter.value);
+		itemsAccList=createItemsAcc(itemsAccordion,0,itemFilter.value)[0];
+		itemsAccStr=itemsAccList.join('')
+		itemAccordion.innerHTML=itemsAccStr;
+		setupCallbacks();
+	}
+	
+	
+	
+}
+var itemFilter=document.getElementById("itemFilter");
+itemFilter.onkeydown=setFilter;
+
+document.body.addEventListener("keydown",function(){
+	keyHit=(new Date()).getTime();
+});
 
 
 function createSkillsAcc(){
@@ -462,35 +521,36 @@ function finishCraftItem(event)
 
 
 // modal accordion callbacks
-var acc = document.getElementsByClassName("accordion");
-var i;
+function setupCallbacks(){
+	var acc = document.getElementsByClassName("accordion");
+	var i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-	this.classList.toggle("accordion-active");
-	var panel = this.nextElementSibling;
-	if (panel.style.display === "block") {
-	  panel.style.display = "none";
-	} else {
-	  panel.style.display = "block";
+	for (i = 0; i < acc.length; i++) {
+	  acc[i].addEventListener("click", function() {
+		this.classList.toggle("accordion-active");
+		var panel = this.nextElementSibling;
+		if (panel.style.display === "block") {
+		  panel.style.display = "none";
+		} else {
+		  panel.style.display = "block";
+		}
+		
+		if (this.children[0].innerHTML=="+") {
+			this.children[0].innerHTML="-";
+		}else{
+			this.children[0].innerHTML="+";
+		}
+	  });
 	}
-	
-	if (this.children[0].innerHTML=="+") {
-		this.children[0].innerHTML="-";
-	}else{
-		this.children[0].innerHTML="+";
+
+	var accItems=document.getElementsByClassName("accordion-item");
+
+	for (var i = 0; i < accItems.length; i++) {
+		accItems[i].addEventListener("click",addItem)
 	}
-  });
 }
 
-var accItems=document.getElementsByClassName("accordion-item");
-
-for (var i = 0; i < accItems.length; i++) {
-	accItems[i].addEventListener("click",addItem)
-}
-
-
-
+setupCallbacks();
 var which="";
 //callback for displaying and hiding modal. keeps track of which button opened it with "which"
 function displayItemsModal(input){
@@ -623,6 +683,7 @@ function updateInvList(){
 	}
 	for(var i=0;i<inv.length;i++){
 		var name=inv[i].name;
+		var type=cc.db[name].type;
 		var quantity=inv[i].quantity.toString()
 		
 		var minus=document.createElement("button");
@@ -632,13 +693,14 @@ function updateInvList(){
 		var item=document.createElement("div");
 		item.classList.add("inv-item");
 		item.innerHTML=name;
-		if (name.search("Ore")!=-1 || name.search("Pure")!=-1)
+		console.log(name+" "+type);
+		if (type=="Ore" || type=="Pure")
 		{
-			var cn=name.split(" ")[0].toLowerCase();
-			item.classList.add(cn);
+			item.classList.add(name);
 			item.style.padding="0 0 0 5px";
 			item.style["border-radius"]="3px";
 		}
+		item.classList.add(tierNames[cc.db[name].tier-1].toLowerCase());
 		var qty=document.createElement("input");
 		qty.type="number";
 		qty.classList.add("inv-quantity");
@@ -669,13 +731,15 @@ function updateCraftList(){
 		var item=document.createElement("div");
 		item.classList.add("cft-item");
 		item.innerHTML=name;
-		if (name.search("Pure")!=-1)
+		var type=cc.db[name].type;
+		if (type=="Pure")
 		{
 			var cn=name.split(" ")[0].toLowerCase();
 			item.classList.add(cn);
 			item.style.padding="0 0 0 5px";
 			item.style["border-radius"]="3px";
 		}
+		item.classList.add(tierNames[cc.db[name].tier-1].toLowerCase());
 		var qty=document.createElement("input");
 		qty.type="number";
 		qty.classList.add("cft-quantity");
