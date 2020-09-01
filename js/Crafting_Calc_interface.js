@@ -683,8 +683,11 @@ function updateInvList(){
 	}
 	for(var i=0;i<inv.length;i++){
 		var name=inv[i].name;
-		var type=cc.db[name].type;
+		var tp=cc.db[name].type;
 		var quantity=inv[i].quantity.toString()
+		if (quantity<=0){continue;}
+		
+		//console.log(i+" "+name+", "+tp);
 		
 		var minus=document.createElement("button");
 		minus.classList.add("inv-remove");
@@ -693,10 +696,10 @@ function updateInvList(){
 		var item=document.createElement("div");
 		item.classList.add("inv-item");
 		item.innerHTML=name;
-		console.log(name+" "+type);
-		if (type=="Ore" || type=="Pure")
+		//console.log(name+" "+type);
+		if (tp=="Ore" || tp=="Pure")
 		{
-			item.classList.add(name);
+			item.classList.add(name.replace(" ","_"));
 			item.style.padding="0 0 0 5px";
 			item.style["border-radius"]="3px";
 		}
@@ -1151,7 +1154,7 @@ function tryRestoreState(profile) {
 		}
 
 		var state = JSON.parse(profile);
-		console.log("restoring...");
+		//console.log("restoring...");
 		
 		// restore skils
 		/*
@@ -1234,7 +1237,7 @@ function trySaveState() {
 		if (!window.localStorage) {
 			return;
 		}
-		console.log("saving...");
+		//console.log("saving...");
 		window.localStorage.setItem('crafting_state',getState());
 	} catch (e) {
 		console.log('Could not save crafting calculator state.', e);
