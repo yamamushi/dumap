@@ -5888,7 +5888,7 @@
     "input": {
       "Basic Pipe": 36,
       "Basic Burner": 25,
-      "Basic Power Converter M": 1,
+      "Basic Power Transformer M": 1,
       "Basic Reinforced Frame M": 1
     }
   },
@@ -7103,7 +7103,7 @@
       "Uncommon Component": 108,
       "Advanced Component": 108,
       "Rare Power System": 125,
-      "Rare Power Converter L": 1,
+      "Rare Power Transformer L": 1,
       "Rare Anti-Gravity Core": 64,
       "Rare Reinforced Frame L": 1
     }
@@ -7122,7 +7122,7 @@
       "Uncommon Component": 648,
       "Advanced Component": 648,
       "Rare Power System": 625,
-      "Rare Power Converter XL": 1,
+      "Rare Power Transformer XL": 1,
       "Rare Anti-Gravity Core": 256,
       "Rare Reinforced Frame XL": 1
     }
@@ -7141,7 +7141,7 @@
       "Uncommon Component": 2592,
       "Advanced Component": 2592,
       "Rare Power System": 2500,
-      "Rare Power Converter XL": 4,
+      "Rare Power Transformer XL": 4,
       "Rare Anti-Gravity Core": 1024,
       "Rare Reinforced Frame XL": 4
     }
