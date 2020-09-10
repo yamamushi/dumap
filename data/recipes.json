@@ -9457,7 +9457,7 @@
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line S"],
     "input": {
-      "Biologic Matter": 7,
+      "Biological Matter": 7,
       "Basic Fixation": 6,
       "Basic Casing S": 1
     }
@@ -9473,7 +9473,7 @@
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
-      "Biologic Matter": 1,
+      "Biological Matter": 1,
       "Basic Fixation": 1,
       "Basic Casing XS": 1
     }
@@ -9489,7 +9489,7 @@
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
-      "Biologic Matter": 1,
+      "Biological Matter": 1,
       "Basic Fixation": 1,
       "Basic Casing XS": 1
     }
@@ -9505,7 +9505,7 @@
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
-      "Biologic Matter": 1,
+      "Biological Matter": 1,
       "Basic Fixation": 1,
       "Basic Casing XS": 1
     }
@@ -9521,7 +9521,7 @@
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
-      "Biologic Matter": 1,
+      "Biological Matter": 1,
       "Basic Fixation": 1,
       "Basic Casing XS": 1
     }
@@ -9537,7 +9537,7 @@
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
-      "Biologic Matter": 1,
+      "Biological Matter": 1,
       "Basic Fixation": 1,
       "Basic Casing XS": 1
     }
@@ -9553,7 +9553,7 @@
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
-      "Biologic Matter": 1,
+      "Biological Matter": 1,
       "Basic Fixation": 1,
       "Basic Casing XS": 1
     }
@@ -9569,7 +9569,7 @@
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
-      "Biologic Matter": 1,
+      "Biological Matter": 1,
       "Basic Fixation": 1,
       "Basic Casing XS": 1
     }
@@ -9585,7 +9585,7 @@
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
-      "Biologic Matter": 1,
+      "Biological Matter": 1,
       "Basic Fixation": 1,
       "Basic Casing XS": 1
     }
@@ -9601,7 +9601,7 @@
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
-      "Biologic Matter": 1,
+      "Biological Matter": 1,
       "Basic Fixation": 1,
       "Basic Casing XS": 1
     }
@@ -9617,7 +9617,7 @@
     "byproducts": {},
     "industries": ["Nanopack","Assembly Line XS"],
     "input": {
-      "Biologic Matter": 1,
+      "Biological Matter": 1,
       "Basic Fixation": 1,
       "Basic Casing XS": 1
     }
@@ -14400,7 +14400,7 @@
     "input": {
       "Uncommon Component": 216,
       "Advanced Hydraulics": 125,
-      "Advanced Magnetic Rail": 1,
+      "Advanced Magnetic Rail L": 1,
       "Advanced Anti-Matter Core Unit": 64,
       "Advanced Reinforced Frame L": 1
     }
