@@ -20,9 +20,11 @@
         <span class="pull-right" ><a class="link accent-link" id="editBtn" href="#">Edit</a></span>
     </div>
     <div class="flexbar">
-        <form id="search" autocomplete="off" action="wiki/" method="post">
-            <input type="hidden" name="search" value="Search">
-            <input  type="text" name="searchphrase" placeholder="Wiki Search...">
+        <form id="search" autocomplete="off" action="https://dualuniverse.gamepedia.com/index.php?" method="get">
+            <input type="hidden" name="title" value="special">
+            <input type="hidden" name="fulltext" value="1">
+            <input type="hidden" name="profile" value="default">
+            <input  type="text" name="search" placeholder="Wiki Search...">
         </form>
     </div>
 
@@ -75,7 +77,6 @@
 
     </div>
 </section>
-<span class="log-out"><a href="?action=logout">Log Out</a></span>
 
 <script type="text/javascript">
     //var username = "<?php echo json_encode($user->id);?>"

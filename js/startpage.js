@@ -28,13 +28,13 @@ let bookmarks = [{
             name:'Lua Codex',
             url:'./codex/'
         },
-    ]
-},{
-    title : 'Trackers',
-    items : [
         {
-            name:'Talents Tracker',
-            url:'./dutalents/'
+            name:'Ore Chart',
+            url:'./ores/'
+        },
+        {
+            name:'Planet DU Industry Planning',
+            url:'./industry-planning/'
         },
     ]
 },{
@@ -57,17 +57,33 @@ let bookmarks = [{
     title : 'Tools',
     items : [
         {
-            name:'Helios Map',
-            url:'./map/'
-        },
-        {
             name:'JayleBreak\'s Voxel Planner',
             url:'./voxelplanner/'
+        },
+        {
+            name:'NIS.do Circuit Planner',
+            url:'./circuitry/'
         },
         {
             name:'Stan\'s Offline Voxel Planner',
             url:'./downloads/2DVoxelDesigner_V2.zip'
         },
+    ]
+},{
+    title : 'Other',
+    items : [
+        {
+            name:'Helios Map',
+            url:'./map/'
+        },
+        {
+            name:'Talents Tracker',
+            url:'./dutalents/'
+        },
+        {
+            name:'Dimencia\'s Orbital Hud',
+            url:'./dimencia/'
+        }
     ]
 }]
 
