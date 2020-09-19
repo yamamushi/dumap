@@ -52,6 +52,10 @@ let bookmarks = [{
             name:'JayleBreak\'s Braking Calculator',
             url:'./brake/'
         },
+        {
+            name:'Tueradoor\'s Engine Calculator',
+            url:'https://docs.google.com/spreadsheets/d/1RpzAyLLdENR88TYp3sk535fY9x4PBxKy5CbGBSGjQc4/edit?usp=sharing'
+        },
     ]
 },{
     title : 'Tools',
