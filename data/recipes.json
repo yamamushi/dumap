@@ -2917,8 +2917,7 @@
     "industries": ["Metalwork Industry M"],
     "input": {
       "Steel": 343,
-      "Basic Pipe": 125,
-      "Basic Burner": 125
+      "Basic Pipe": 125
     }
   },
   {
