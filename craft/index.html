@@ -4,21 +4,22 @@
 <meta content="utf-8" http-equiv="encoding">
 <link rel="stylesheet" type="text/css" href="../css/craft2.css">
 <link href="https://fonts.googleapis.com/css?family=Aldrich&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 <title>Dual Universe Beta Crafting Calculator</title>
 <html>
 <body>
 
 <nav class="navbar">
-<button id="skillsButton" style="float:left;">Skills</button>
-<button id="priceButton" style="float:left;">Prices</button>
-<button id="profileButton" style="float:left;">Save/Load Profiles</button>
-<button id="clearButton" style="float:left;" class="bugButton">Reset</button>
+<button class="bugButton" style="float:left;margin:0 5px;"><a href="https://github.com/yamamushi/dumap/issues" target="_blank"> >>> Report Issues!! <<< </a></button>
+<button id="skillsButton" style="float:left;margin:0 5px;">Skills</button>
+<button id="priceButton" style="float:left;margin:0 5px;">Prices</button>
+<button id="profileButton" style="float:left;margin:0 5px;">Save/Load Profiles</button>
+<button id="clearButton" style="float:left;margin:0 5px;" class="bugButton">Reset</button>
+<button id="langButton" style="float:left;margin:0 5px;">&#128214;</button>
 
-<span style="color:#fff;float:left;padding:0 0 0 15px;">Last Updated: September 4, 2020</span>
+<span style="color:#fff;float:left;padding:0 0 0 15px;">Ver:2020-10-03</span>
 
-<button class="bugButton"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeK8yHUDnzTDGgJQ1AIss38JvC9m1JoFOCJw3WTuP9TKDDiaw/viewform" target="_blank"> >>> Report Issues!! <<< </a></button>
 
 
 <a class="navright" href="http://dual.sh">Back to Dual.sh</a>
@@ -176,9 +177,28 @@
   <div class="modal-content">
     <div class="modal-header">
       <span id="priceModalClose" class="modal-close">&times;</span>
-      <h2>Price Options</h2>
+      <h2>Price Settings</h2>
     </div>
     <div id="priceDialog" class="modal-body">
+    </div>
+	
+  </div>
+
+</div>
+
+<!-- lang modal -->
+<div id="langModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span id="langModalClose" class="modal-close">&times;</span>
+      <h2>Language Settings</h2>
+    </div>
+    <div id="langDialog" class="modal-body">
+	<button id="lb_english">English</button>
+	<button id="lb_french">Français</button>
+	<button id="lb_german">Deutsch</button>
     </div>
 	
   </div>

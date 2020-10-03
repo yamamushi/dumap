@@ -19,7 +19,11 @@ function loadJSON(path, callback) {
 
 var tierNames=["Basic","Uncommon","Advanced","Rare","Exotic"];
 
-var itemsAccordion,skillsAccordion,industryPrices,prices,recipes;
+var itemsAccordion,skillsAccordion,industryPrices,prices,recipes,german,french;
+
+var ver="2020-10-02"
+
+var language="english"
 
 loadJSON("../data/itemsAccordion.json",function(json){itemsAccordion=JSON.parse(json);})
 loadJSON("../data/skillsAccordion.json",function(json){skillsAccordion=JSON.parse(json);})
@@ -28,8 +32,12 @@ loadJSON("../data/orePrices.json",function(json){prices=JSON.parse(json);})
 loadJSON("../data/recipes.json",function(json){recipes=json;})
 
 
+loadJSON("../data/craft_trans_german.json",function(json){german=json;})
+loadJSON("../data/craft_trans_french.json",function(json){french=json;})
 
-//console.log(JSON.stringify(skills,null,2));
+
+
+//console.log(JSON.stringify(skillsAccordion,null,2));
 
 
 function formatNum(num,places)
@@ -74,32 +82,44 @@ var inv=[];
 var craft=[];
 var industrySelection={};
 var itemLists=[];
-var skills={};
 //populate skills
-for (var i=0;i<skillsAccordion.length;i++)
+
+function getSkills(list,upperName)
 {
-	var type=skillsAccordion[i].name;
-	skills[type]={};
-	var iData=skillsAccordion[i].data;
-	for (var j=0;j<iData.length; j++)
+	var s=[]
+	for (var i=0;i<list.length;i++)
 	{
-		if (typeof iData[j] =="string"){
-			skills[type][iData[j]]=0;
-		}else{
-			var list=iData[j].data;
-			var data={}
-			for (var k=0;k<list.length;k++)
-			{
-				if(list[k]!=null) {data[list[k]]=0;}
+		var skill=JSON.parse(JSON.stringify(list[i]));
+		//console.log(skill.name);
+		if (typeof skill.data[0] != "string"){
+			if(upperName!=""){
+				s=s.concat(getSkills(skill.data,upperName+"."+skill.name));
+			}else{
+				s=s.concat(getSkills(skill.data,skill.name));
 			}
-			skills[type][iData[j].name]=data;
+				
 		}
+		else{
+			if(upperName!=""){
+				skill.name=upperName+"."+skill.name;
+			}
+			skill.values=[];
+			for (var j=0;j<skill.data.length;j++){
+				skill.values[j]=0;
+			}
+			s.push(skill);
+		}
+		
 	}
+	return s
 }
+var skills=getSkills(skillsAccordion,"")
+//console.log(JSON.stringify(skills,null,2));
 
 //console.log(recipes);
 //console.log(typeof recipes);
 var cc=new recipeCalc(recipes);
+cc.addTrans({"german":JSON.parse(german),"french":JSON.parse(french)});
 //console.log(JSON.stringify(cc.db));
 
 var invListCols=invList.children.length;
@@ -160,7 +180,7 @@ function calculate()
 		{
 			var item=document.createElement("div");
 			item.classList.add("ore-item");
-			item.innerHTML=list[i].name;
+			item.innerHTML=cc.trans(language,list[i].name);
 			item.style.padding="0 0 0 5px";
 			item.style["border-radius"]="3px";
 			
@@ -194,7 +214,7 @@ function calculate()
 			var line=[];
 			var item2=document.createElement("div");
 			item2.classList.add("queue-item");
-			item2.innerHTML=list[i].name;
+			item2.innerHTML=cc.trans(language,list[i].name);
 			line.push(item2);
 			
 			var qty2=document.createElement("div");
@@ -236,21 +256,21 @@ function calculate()
 			indSel.style.color="white";
 			for(var j=list[i].industries.length-1;j>=0;j--){
 				var ind=document.createElement("option");
-				ind.text=list[i].industries[j];
+				ind.text=cc.trans(language,list[i].industries[j]);
 				ind.style.color="white";
 				indSel.add(ind)
 			}
 			if(industrySelection[list[i].name]!=null){
-				indSel.value=industrySelection[list[i].name];
+				indSel.value=cc.trans(language,industrySelection[list[i].name]);
 			}else{
 				//console.log(list[i].name+" didn't have an industrySelection");
-				industrySelection[list[i].name]=indSel.options[indSel.selectedIndex].text;
+				industrySelection[list[i].name]=cc.transr(language,indSel.options[indSel.selectedIndex].text);
 				//console.log(indSel.options[indSel.selectedIndex].text);
 				
 			}
 			indSel.onchange=updateIndSel;
 			line.push(indSel);
-			var indPrice=list[i].time*industryPrices[indSel.options[indSel.selectedIndex].text];
+			var indPrice=list[i].time*industryPrices[cc.transr(language,indSel.options[indSel.selectedIndex].text)];
 			//console.log(list[i].name+" has ind price of "+industryPrices[indSel.options[indSel.selectedIndex].text]);
 			if (isNaN(indPrice)){
 				console.log(list[i].name+" is nan price");
@@ -282,7 +302,7 @@ function calculate()
 			
 			var item=document.createElement("div");
 			item.classList.add("queue-item");
-			item.innerHTML=list[i].name;
+			item.innerHTML=cc.trans(language,list[i].name);
 			
 			
 			var qty=document.createElement("div");
@@ -346,7 +366,7 @@ function createItemsAcc(list,depth,filter="",override=false)
 		if (typeof list[i]=="object")
 		{
 			var or=override;
-			if (filter!="" && list[i].name.toLowerCase().search(filter.toLowerCase())!=-1){ or=true; }
+			if (filter!="" && cc.trans(language,list[i].name).toLowerCase().search(filter.toLowerCase())!=-1){ or=true; }
 			var deeperOutput=createItemsAcc(list[i].data,depth+1,filter,or);
 			//console.log("list i "+list[i].name);
 			//console.log("found item on deeper list? "+deeperOutput[1]);
@@ -354,7 +374,7 @@ function createItemsAcc(list,depth,filter="",override=false)
 			if(deeperOutput[1] || override){
 				found=true;
 				output.push(tab+'<div class="accordion unselectable"><span>+</span><span class="accordion-title">');
-				output.push(list[i].name);
+				output.push(cc.trans(language,list[i].name));
 				output.push('</span></div>\n'+tab+'\t<div class="accordion-panel unselectable">\n');
 				output.push(deeperOutput[0].join(''));
 				output.push(tab+'\t</div>\n');
@@ -371,9 +391,9 @@ function createItemsAcc(list,depth,filter="",override=false)
 			{
 				cn=list[i].split(" ")[0].toLowerCase();
 			}
-			if (filter=="" || list[i].toLowerCase().search(filter.toLowerCase())!=-1 || override){
+			if (filter=="" || cc.trans(language,list[i]).toLowerCase().search(filter.toLowerCase())!=-1 || override){
 				output.push(tab+"\t<div class='accordion-item unselectable "+cn+"'>");
-				output.push(list[i]);
+				output.push(cc.trans(language,list[i]));
 				output.push("</div>\n");
 			}
 		}
@@ -429,55 +449,121 @@ document.body.addEventListener("keydown",function(){
 });
 
 
-function createSkillsAcc(){
-	function makeSkillInput(type, skill, index) {
-		var typeStr = '"' + type + '"';
-		var skillStr = '"' + skill + '"';
-		var indexStr = index === null ? "null" : '"' + index + '"';
-
-		return "<input" +
-			" oninput='setSkill(" + typeStr + "," + skillStr + "," + indexStr + ",this.value)'" +
-			" data-skill='" + (type + "_" + skill + "_" + index) + "'" +
-			" class='accordion-input2' type='number' min='0' max='5' value='0'>";
+function createSkillsAcc(list,depth,upperName,filter="",override=false){
+	
+	function makeSkillInput(fullName) {
+		var namestr='"'+fullName+'"'
+		return "<input oninput='setSkill(" + namestr + ",this.value)'" +
+			" data-skill='" + fullName+ "' class='accordion-input2' type='number' min='0' max='5' value='0'>";
 	}
-
+	
+	if (filter==undefined){filter="";}
 	//console.log("ca "+depth);
 	var output=[];
+	var tab=""
+	var found=false;
+	for (var j=0;j<=depth;j++){tab+=" ";}
 	
-	for (var i=0;i<skillsAccordion.length;i++){
-		
-		output.push('<div class="accordion unselectable"><span>+</span><span class="accordion-title">');
-		output.push(skillsAccordion[i].name);
-		output.push('</span></div>\n<div class="accordion-panel unselectable">\n');
-		var data=skillsAccordion[i].data;
-		var type=skillsAccordion[i].name;
-		for(var j=0;j<data.length;j++){
-			if (typeof data[j] =="string")
-			{
-				output.push("\t<div class='accordion-item2 unselectable'>Time   " + makeSkillInput(type, data[j], null) + "</div>\n");
-			}else{
-				output.push('\t<div class="accordion unselectable"><span>+</span><span class="accordion-title">'+data[j].name+'</span></div>\n\t<div class="accordion-panel unselectable">\n');
-				for(var k=0;k<data[j].data.length;k++)
-				{
-					if (data[j].data[k]==null){continue;}
-					cn="";
-					if (data[j].data[k].search("Pure")!=-1) {cn=data[j].data[k].split(" ")[0].toLowerCase();}
-					output.push("\t\t<div class='accordion-item2 unselectable "+cn+"'>"+data[j].data[k]);
-					output.push(makeSkillInput(type, data[j].name, data[j].data[k]) + "</div><br>\n");
-				}
-				output.push('\n\t</div>');
+	for (var i=0;i<list.length;i++)
+	{
+		//console.log("list i "+list[i]);
+		if (typeof list[i]=="object")
+		{
+			var or=override;
+			if (filter!="" && list[i].name.toLowerCase().search(filter.toLowerCase())!=-1){ or=true; }
+			var nextName=list[i].name;
+			if(upperName!=""){nextName=upperName+"."+list[i].name;}
+			var deeperOutput=createSkillsAcc(list[i].data,depth+1,nextName,filter,or);
+			//console.log("list i "+list[i].name);
+			//console.log("found item on deeper list? "+deeperOutput[1]);
+			//console.log("override? "+or);
+			if(deeperOutput[1] || override){
+				found=true;
+				output.push(tab+'<div class="accordion unselectable"><span>+</span><span class="accordion-title">');
+				output.push(list[i].name);
+				output.push('</span></div>\n'+tab+'\t<div class="accordion-panel unselectable">\n');
+				output.push(deeperOutput[0].join(''));
+				output.push(tab+'\t</div>\n');
+			}
+			
+		}else{
+
+			if (filter=="" || list[i].toLowerCase().search(filter.toLowerCase())!=-1 || override){
+				output.push(tab+"\t<div class='accordion-item2 unselectable'>");
+				output.push(list[i]);
+				
+				var nextName=list[i].name;
+				if(upperName!=""){nextName=upperName+"."+list[i];}
+				
+				output.push(makeSkillInput(nextName));
+				output.push("</div>\n");
 			}
 		}
-		
-		output.push('</div>\n');
-	
 	}
+	if (output.length>0){
+		found=true;
+	}
+	if (!found && depth==0){output=['<span style="color:#fff">No results</span>'];}
+	return [output,found];
 	
-	return output;
 }
-var skillsAccList=createSkillsAcc();
+//console.log(JSON.stringify(skillsAccordion,null,2))
+var skillsAccList=createSkillsAcc(skillsAccordion,0,"")[0];
 var skillsAccStr=skillsAccList.join('');
 skillAccordion.innerHTML=skillsAccStr;
+
+
+// skill modal callback to modify skill variable
+function setSkill(skillNames,value){
+	//console.log("setting skill")
+	
+	var names=skillNames.split(".");
+	var lastName=names[names.length-1];
+	names.pop();
+	var checkName=names.join(".");
+	
+	//console.log(skillNames);
+	//console.log(checkName);
+	
+	for(var i=0;i<skills.length;i++){
+		if (skills[i].name==checkName){
+			for(var j=0;j<skills[i].data.length;j++){
+				if(skills[i].data[j]==lastName){
+					//console.log("found the skill in script");
+					//console.log(JSON.stringify(skills[i],null,2));
+					skills[i].values[j]=parseInt(value);
+					//console.log(JSON.stringify(skills[i],null,2));
+				}
+			}
+		}	
+	}
+	
+	
+	cc.updateSkills(skills,industrySelection);
+	updateSkills();
+	calculate();
+
+}
+function updateSkills(){
+	
+	for(var i=0;i<skills.length;i++){
+		var skill=skills[i]
+		for(var j=0;j<skill.data.length;j++){
+			
+			var value=skill.values[j];
+			var input = document.querySelector && document.querySelector('input[data-skill="' + skill.name +"."+skill.data[j]+ '"');
+			if (input && input.value.toString() !== value.toString()) {
+				//console.log("looking for");
+				//console.log(skill.name +"."+skill.data[j]);
+				//console.log("html value "+input.value.toString());
+				//console.log("script value "+value.toString());
+				input.value = value.toString();
+			}
+			
+		}
+	}
+}
+
 
 //-----------------------------------------------------------------------------------
 // callbacks
@@ -495,6 +581,7 @@ function finishOreItem(event)
 {
 	var qty=newParse(event.target.previousSibling.previousSibling.innerHTML);
 	var name=event.target.previousSibling.previousSibling.previousSibling.innerHTML;
+	name=cc.transr(language,name);
 	
 	var ast=name.search(/\*/);
 	if (ast!=-1){
@@ -507,6 +594,7 @@ function finishCraftItem(event)
 {
 	var qty=newParse(event.target.previousSibling.previousSibling.innerHTML);
 	var name=event.target.previousSibling.previousSibling.previousSibling.innerHTML;
+	name=cc.transr(language,name);
 	
 	//console.log("finish ore item "+name+" "+qty);
 	//console.log(typeof name)
@@ -526,21 +614,24 @@ function setupCallbacks(){
 	var i;
 
 	for (i = 0; i < acc.length; i++) {
-	  acc[i].addEventListener("click", function() {
-		this.classList.toggle("accordion-active");
-		var panel = this.nextElementSibling;
-		if (panel.style.display === "block") {
-		  panel.style.display = "none";
-		} else {
-		  panel.style.display = "block";
-		}
-		
-		if (this.children[0].innerHTML=="+") {
-			this.children[0].innerHTML="-";
-		}else{
-			this.children[0].innerHTML="+";
-		}
-	  });
+		acc[i].replaceWith(acc[i].cloneNode(true));
+		//console.log("setting up "+acc[i].innerHTML+" with event listener");
+		acc[i].addEventListener("click", function() {
+			//console.log("an accordion was clicked");
+			this.classList.toggle("accordion-active");
+			var panel = this.nextElementSibling;
+			if (panel.style.display === "block") {
+				panel.style.display = "none";
+			} else {
+				panel.style.display = "block";
+			}
+
+			if (this.children[0].innerHTML=="+") {
+				this.children[0].innerHTML="-";
+			}else{
+				this.children[0].innerHTML="+";
+			}
+		});
 	}
 
 	var accItems=document.getElementsByClassName("accordion-item");
@@ -550,7 +641,6 @@ function setupCallbacks(){
 	}
 }
 
-setupCallbacks();
 var which="";
 //callback for displaying and hiding modal. keeps track of which button opened it with "which"
 function displayItemsModal(input){
@@ -570,6 +660,7 @@ window.onclick = function(event) {
     hideItemsModal();
     hideSkillsModal();
 	hideProfileModal();
+	hideLangModal();
   }
 }
 invAddBut.onclick=displayItemsModal;
@@ -618,6 +709,17 @@ function hidePriceModal(){
 // When the user clicks on <span> (x), close the modal
 priceModalClose.onclick = hidePriceModal;
 
+function displayLangModal(input){
+	langModal.style.display = "block";
+}
+function hideLangModal(){
+	langModal.style.display = "none";
+}
+// When the user clicks on <span> (x), close the modal
+langModalClose.onclick = hideLangModal;
+
+
+
 
 priceButton.onclick=displayPriceModal;
 detailedCraftQueueButton.onclick=displayQueueModal;
@@ -625,10 +727,43 @@ profileButton.onclick=displayProfileModal;
 skillsButton.onclick=displaySkillsModal;
 clearButton.onclick=clearLists;
 
+var doTrans=function(){
+	skillsAccList=createSkillsAcc(skillsAccordion,0,"")[0];
+	skillsAccStr=skillsAccList.join('');
+	skillAccordion.innerHTML=skillsAccStr;
+	
+	itemsAccList=createItemsAcc(itemsAccordion,0,"")[0];
+	itemsAccStr=itemsAccList.join('')
+	itemAccordion.innerHTML=itemsAccStr;
+	
+	updateCraftList();
+	updateInvList();
+	
+	calculate();
+	setupCallbacks();
+}
+
+
+langButton.onclick=displayLangModal;
+lb_english.onclick=function(){
+	language="english";
+	doTrans()
+};
+lb_german.onclick=function(){
+	language="german";
+	doTrans()
+};
+lb_french.onclick=function(){
+	language="french";
+	doTrans()
+};
+
+
 // updates the inv variable based on each number input
 function updateInv(event)
 {
 	var name=event.target.previousSibling.innerHTML
+	name=cc.transr(language,name)
 	for(var i=0;i<inv.length;i++)
 	{
 		if (inv[i].name==name)
@@ -645,6 +780,7 @@ function updateInv(event)
 function updateCft(event)
 {
 	var name=event.target.previousSibling.innerHTML
+	name=cc.transr(language,name);
 	//console.log("craft event name "+name);
 	for(var i=0;i<craft.length;i++)
 	{
@@ -695,7 +831,7 @@ function updateInvList(){
 		minus.onclick=removeItem;
 		var item=document.createElement("div");
 		item.classList.add("inv-item");
-		item.innerHTML=name;
+		item.innerHTML=cc.trans(language,name);
 		//console.log(name+" "+type);
 		if (tp=="Ore" || tp=="Pure")
 		{
@@ -733,7 +869,7 @@ function updateCraftList(){
 		minus.onclick=removeItem;
 		var item=document.createElement("div");
 		item.classList.add("cft-item");
-		item.innerHTML=name;
+		item.innerHTML=cc.trans(language,name);
 		var type=cc.db[name].type;
 		if (type=="Pure")
 		{
@@ -758,7 +894,7 @@ function updateCraftList(){
 //callback to add the modal item clicked on to the appropriate list
 function addItem(event)
 {
-	var name = event.target.innerHTML;
+	var name = cc.transr(language,event.target.innerHTML);
 	var quantity = 1;
 
 	if (which==invAddBut)
@@ -796,7 +932,7 @@ function removeItem(event)
 		invList.removeChild(qty);
 		for(var i=0;i<inv.length;i++)
 		{
-			if(inv[i].name==item.innerHTML)
+			if(inv[i].name==cc.transr(language,item.innerHTML))
 			{
 				inv.splice(i,1);
 			}
@@ -807,43 +943,13 @@ function removeItem(event)
 		cftList.removeChild(qty);
 		for(var i=0;i<craft.length;i++)
 		{
-			if(craft[i].name==item.innerHTML)
+			if(craft[i].name==cc.transr(language,item.innerHTML))
 			{
 				craft.splice(i,1);
 			}
 		}
 	}
 	calculate();
-}
-
-// skill modal callback to modify skill variable
-function setSkill(type,skill,index,value){
-	//console.log("setting")
-	//console.log(skills[index].name)
-	//console.log(skills[index].data[type].name)
-	
-	//console.log(type);
-	//console.log(index);
-	//console.log(skill);
-	//console.log(value);
-	//console.log(skills[type][skill][index]);
-	skills[type][skill][index]=value;
-	updateSkills();
-	calculate();
-
-}
-function updateSkills(){
-	Object.keys(skills).forEach(function(type,i){
-		Object.keys(skills[type]).forEach(function(skill,j){
-			Object.keys(skills[type][skill]).forEach(function(index,k){
-				var value=skills[type][skill][index];
-				var input = document.querySelector && document.querySelector('input[data-skill="' + type + "_" + skill + "_" + index + '"');
-				if (input && input.value.toString() !== value.toString()) {
-					input.value = value.toString();
-				}
-			});
-		});
-	});
 }
 
 var priceHeader1=document.createElement("h3");
@@ -855,7 +961,7 @@ Object.keys(prices).forEach(function(ore,i){
 	label.classList.add("accordion-item2");
 	label.classList.add("unselectable");
 	label.classList.add(tierNames[cc.db[ore].tier-1].toLowerCase());
-	label.innerHTML=ore;
+	label.innerHTML=cc.trans(language,ore);
 	
 	var qty=document.createElement("INPUT");
 	qty.setAttribute("type","text");
@@ -881,7 +987,7 @@ Object.keys(industryPrices).forEach(function(ind,i){
 	var label=document.createElement("div");
 	label.classList.add("accordion-item2");
 	label.classList.add("unselectable");
-	label.innerHTML=ind;
+	label.innerHTML=cc.trans(language,ind);
 	
 	
 	var qty=document.createElement("INPUT");
@@ -900,6 +1006,7 @@ Object.keys(industryPrices).forEach(function(ind,i){
 
 function updatePrice(event){
 	var name=event.target.parentElement.innerText;
+	name=cc.transr(language,name);
 	//console.log(event.target.value);
 	//console.log(parseFloat("lol"));
 	if(isNaN(parseFloat(event.target.value))){
@@ -941,6 +1048,7 @@ function updatePrices(){
 	//console.log(JSON.stringify(prices));
 	for(var i=0;i<priceDialog.children.length;i++){
 		var ore=priceDialog.children[i].innerText;
+		ore=cc.transr(language,ore);
 		//console.log(ore);
 		//console.log(priceDialog.children[i].children.length);
 		if (priceDialog.children[i].children.length<1){continue;}
@@ -977,22 +1085,23 @@ function updateIndSel(event){
 		if (flag){ break; }
 		item=item.previousSibling;
 	}
-	
-	industrySelection[item.innerText]=event.target.value;
+	var ind=cc.transr(language,item.innerText);
+	industrySelection[ind]=event.target.value;
 	updateIndSelections();
+	cc.updateSkills(skills,industrySelection);
 	calculate();
 }
 function updateIndSelections(){
 	Object.keys(industrySelection).forEach(function(name,i){
 		for(var el of queueListDetailed.children){
-			if (el.innerText==name){
+			if (cc.transr(language,el.innerText)==name){
 				var indSel=el;
 				var tagname=indSel.tagName;
 				while (tagname.toLowerCase()!="select"){
 					indSel=indSel.nextSibling;
 					tagname=indSel.tagName;
 				}
-				indSel.value=industrySelection[name];
+				indSel.value=cc.trans(language,industrySelection[name]);
 				break;
 			}
 		}
@@ -1011,7 +1120,9 @@ function clearLists(){
 	
 	industrySelection={};
 	
-	
+	skills=getSkills(skillsAccordion,"")
+	console.log(JSON.stringify(skills,null,2));
+	cc.updateSkills(skills,industrySelection)
 	calculate();
 	
 }
@@ -1024,10 +1135,12 @@ function getState(){
 		skills:skills,
 		prices:prices,
 		industryPrices:industryPrices,
-		industrySelection:industrySelection
+		industrySelection:industrySelection,
+		ver:ver,
+		language:language
 	};
 	//console.log("get state: prices:");
-	//console.log(JSON.stringify(state.skills.Pure.Time,null,2));
+	//console.log(JSON.stringify(prices,null,2));
 	return JSON.stringify(state);
 }
 
@@ -1154,77 +1267,73 @@ function tryRestoreState(profile) {
 		}
 
 		var state = JSON.parse(profile);
+		
+		if (state.ver!=ver){
+			alert("Old profile detected. You may have to reset the calculator (button at the top) to get it to work.\nHere's the raw data, which you may want to save:\n\n"+profile);
+		}
 		//console.log("restoring...");
 		
+		var oldSkills=skills;
+		var oldInv=inv;
+		var oldCraft=craft;
+		var oldPrices=prices;
+		var oldIndSel=industrySelection;
+		
 		// restore skils
-		/*
-		console.log(JSON.stringify(state.skills.Pure.Time,null,2))
-		if (state.skills && state.skills.length > 0) {
-			for (var i = 0; i < state.skills.length; i++) {
-				var type = state.skills[i].type;
-				var skill = state.skills[i].skill;
-				var index = state.skills[i].index;
-				var value = parseInt(state.skills[i].value);
-
-				setSkill(type, skill, index, value);
-			}
+		try{
+			skills=state.skills;
+			updateSkills();
 		}
-		*/
-		skills=state.skills;
-		updateSkills()
-		
-		//console.log(JSON.stringify(state.skills.Pure.Time,null,2))
-		
+		catch(e){
+			console.log("failed to load skills");
+			skills=oldSkills;
+		}
 		// restore inventory
-		/*
-		if (state.inv && state.inv.length > 0) {
-			for (var i = 0; i < state.inv.length; i++) {
-				var name = state.inv[i].name;
-				var quantity = parseFloat(state.inv[i].quantity);
-
-				if (!(name in cc.db)) {
-					continue;
-				}
-				if (!isFinite(quantity)) {
-					continue;
-				}
-
-				addInvItem(name, quantity);
-			}
+		try{
+			inv=state.inv;
+			updateInvList();
 		}
-		*/
-		inv=state.inv;
-		updateInvList();
+		catch(e){
+			console.log("failed to load inv");
+			inv=oldInv;
+		}
 		
 		// restore items to craft
-		/*
-		if (state.craft && state.craft.length > 0) {
-			for (var i = 0; i < state.craft.length; i++) {
-				var name = state.craft[i].name;
-				var quantity = parseFloat(state.craft[i].quantity);
-
-				if (!(name in cc.db)) {
-					continue;
-				}
-				if (!isFinite(quantity)) {
-					continue;
-				}
-
-				addCraftItem(name, quantity);
-			}
+		try{
+			craft=state.craft;
+			updateCraftList();
 		}
-		*/
-		craft=state.craft;
-		updateCraftList();
+		catch(e){
+			console.log("failed to load craft");
+			craft=oldCraft;
+		}
 		
 		//restore prices
-		prices=state.prices
-		industryPrices=state.industryPrices;
-		updatePrices();
+		try{
+			prices=state.prices;
+			industryPrices=state.industryPrices;
+			updatePrices();
+		}
+		catch(e){
+			console.log("failed to load prices");
+			prices=oldPrices;
+		}
+		try{
+			industrySelection=state.industrySelection;
+			updateIndSelections();
+		}
+		catch(e){
+			console.log("failed to load indsel");
+			industrySelection=oldIndSel;
+		}
 		
-		industrySelection=state.industrySelection;
-		updateIndSelections();
-		
+		try{
+			languageChanges[state.language]();
+		}
+		catch(e){
+			console.log("failed to load indsel");
+		}
+			
 		
 		
 	} catch (e) {
@@ -1254,6 +1363,11 @@ function trySaveState() {
 }
 
 //window.localStorage.clear();
+//console.log("attempting restore state");
 tryRestoreState();
-
+//console.log("attempting cc.updateSkills");
+cc.updateSkills(skills,industrySelection);
+updateSkills();
+//console.log("attempting ccalc");
+setupCallbacks();
 calculate();
