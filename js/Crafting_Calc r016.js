@@ -13,8 +13,8 @@ function removeInvZeros(inv){
 }
 
 // class for defining and item and its recipe
-function itemRecipe(data){
-	this.name=data.name;
+function itemRecipe(name,data){
+	this.name=name;
 	this.tier=data.tier;
 	this.type=data.type;
 	this.mass=data.mass;
@@ -24,12 +24,20 @@ function itemRecipe(data){
 	this.byproducts=data.byproducts;
 	this.industries=data.industries;
 	this.input=data.input
+	this.lang={"english":this.name}
+	
+	// skills affect these stats
+	this.actualOQ=this.outputQuantity;
+	this.actualInput=this.input;
+	this.actualTime=this.time;
+	this.actualB=this.byproducts;
+	
 	if (this.input==null){this.input={};}
 	
 	this.getIngredients=function(){
 		var out=[];
 		Object.keys(this.input).forEach(function(name,i,a){
-			out.push({name:name,quantity:this.input[name]});
+			out.push({name:name,quantity:this.actualInput[name]});
 		},this);
 		return out;
 	};
@@ -37,7 +45,7 @@ function itemRecipe(data){
 	this.getByproducts=function(){
 		var out=[];
 		Object.keys(this.byproducts).forEach(function(name,i,a){
-			out.push({name:name,quantity:this.byproducts[name]});
+			out.push({name:name,quantity:this.actualB[name]});
 		},this);
 		return out;
 	};
@@ -47,41 +55,69 @@ function itemRecipe(data){
 function recipeCalc(data){
 	
 	//parse db from JSON
+	this.types=[];
+	
+	
+	this.lang={"english":{}};
+	this.langr={"english":{}}
+	
+	this.trans=function(lang,name){
+		//console.log("lang: "+lang);
+		//console.log("name: "+name);
+		if ( this.lang[lang][name] ){return this.lang[lang][name];}
+		else{ return name}
+	}
+	this.transr=function(lang,name){
+		if ( this.langr[lang][name] ){return this.langr[lang][name];}
+		else{ return name}
+	}
+	
 	this.parseDb=function(db){
 		var lines;
 		var cols;
 		var headers;
 		this.db={};
 		
-		try{ 
-			db=JSON.parse(db);
-			this.types=[];
-			for (var j=0;j<db.length;j++){
-				var item=db[j];
-				var fnd=false;
-				for (var i=0;i<this.types.length;i++)
+		var db=JSON.parse(db);
+		Object.keys(db).forEach(function(name,i){
+			var fnd=false;
+			for (var j=0;j<this.types.length;j++)
+			{
+				if(this.types[j]==db[name].type)
 				{
-					if(this.types[i]==item.type)
-					{
-						fnd=true;
-						break;
-					}
+					fnd=true;
+					break;
 				}
-				if(!fnd){
-					this.types.push(item.type);
-				}
-				this.db[item.name]=new itemRecipe(item)
 			}
+			if(!fnd){
+				this.types.push(db[name].type);
+			}
+			this.db[name]=new itemRecipe(name,db[name]);
+			this.lang.english[name]=name;
+			this.langr.english[name]=name;
+		},this);
+				
 		
-		}
-		catch(e) {
-			console.log(e);
-		}
+		//console.log(JSON.stringify(this.types,null,2));
 		
 		
 		//console.log("parse db return");
 		//console.log(JSON.stringify(this.db));
+		
 	};
+	
+	this.addTrans=function(trans){
+		Object.keys(trans).forEach(function(lang,i){
+			this.lang[lang]=trans[lang];
+			//console.log(JSON.stringify(this.lang[lang],null,2));
+			this.langr[lang]={}
+			Object.keys(trans[lang]).forEach(function(english,j){
+				this.langr[lang][trans[lang][english]]=english;
+				//console.log(trans[lang][english]+" : "+english);
+			},this);
+		},this);
+	};
+		
 	
 	//console.log("constructor data");
 	//console.log(data);
@@ -145,6 +181,126 @@ function recipeCalc(data){
 		return newList;
 	};
 	
+	this.modifyItemStat=function(name,type,amount,relative){
+		if (type=="Time"){
+			if(relative){
+				this.db[name].actualTime=this.db[name].actualTime*(1-relative*amount);
+			}else{
+				this.db[name].actualTime=this.db[name].actualTime-amount;
+			}
+		}
+		else if (type=="Speed"){
+			if(relative){
+				var speed=this.db[name].outputQuantity/this.db[name].actualTime*(1+relative*amount)
+				this.db[name].actualTime=this.db[name].outputQuantity/speed;
+			}else{
+				var speed=this.db[name].outputQuantity/this.db[name].actualTime+amount
+				this.db[name].actualTime=this.db[name].outputQuantity/speed;
+			}
+		}
+		else if (type=="Output"){
+			if(relative){
+				this.db[name].actualOQ=this.db[name].actualOQ*(1+relative*amount);
+				Object.keys(this.db[name].actualB).forEach(function(k,i){
+					this.db[name].actualB[k]=this.db[name].byproducts[k]*(1+relative*amount);
+				},this);
+			}else{
+				this.db[name].actualOQ=this.db[name].actualOQ+amount;
+				Object.keys(this.db[name].actualB).forEach(function(k,i){
+					this.db[name].actualB[k]=this.db[name].byproducts[k]+amount;
+				},this);
+			}
+		}
+		else if (type=="Input"){
+			if(relative){
+				Object.keys(this.db[name].actualInput).forEach(function(k,i){
+					this.db[name].actualInput[k]=this.db[name].actualInput[k]*(1-relative*amount);
+				},this);
+			}else{
+				Object.keys(this.db[name].actualInput).forEach(function(k,i){
+					this.db[name].actualInput[k]=this.db[name].actualInput[k]-amount;
+				},this);
+			}
+		}
+	}		
+	
+	this.resetItemStats=function(){
+		Object.keys(this.db).forEach(function(name,i){
+			
+			this.db[name].actualOQ=this.db[name].outputQuantity;
+			this.db[name].actualInput=this.db[name].input;
+			this.db[name].actualTime=this.db[name].time;
+			this.db[name].actualB=this.db[name].byproducts;
+		},this);
+	}
+		
+	this.updateSkills=function(skills,indConfig){
+		this.resetItemStats();
+		this.skills=skills;
+		
+		for(var i=0;i<skills.length;i++){
+			var skill=skills[i]
+			
+			if (skill.subject=="Industry") {
+				Object.keys(this.db).forEach(function(name,i){
+					if (indConfig[name]){
+						if(skill.target==indConfig[name]){
+							for (var d=0;d<skill.data.length;d++){
+								this.modifyItemStat(name,skill.targets[d].type,skill.targets[d].amount*skill.values[d],skill.targets[d].relative);
+							}
+						}
+					}
+					else{
+						var ind=this.db[name].industries[0];
+						if(this.db[name].industries.length>1){
+							ind=this.db[name].industries[1]
+						}
+						if(skill.target==ind){
+							for (var d=0;d<skill.data.length;d++){
+								this.modifyItemStat(name,skill.targets[d].type,skill.targets[d].amount*skill.values[d],skill.targets[d].relative);
+							}
+						}
+					}
+				},this);
+				return;
+			}
+			
+			var candidates=[];
+			var modify=[];
+			Object.keys(this.db).forEach(function(name,i){
+				var item=this.db[name];
+				if (item.skill==""||item.skill==null){
+					if(item.type.search(skill.target)!=-1 || name.search(skill.target)!=-1){
+						candidates.push(name);
+					}
+				}
+				else if (item.skill==skill.target){
+					
+						candidates.push(name);
+				}
+			},this);
+		
+			for (var d=0;d<skill.data.length;d++){
+				var found=false;
+				for(var f=0;f<candidates.length;f++){
+					if (candidates[f].search(skill.data[d])!=-1){
+						found=true;
+						this.modifyItemStat(candidates[f],skill.targets[d].type,skill.targets[d].amount*skill.values[d],skill.targets[d].relative);
+						
+						break;
+					}
+				}
+				if (!found) {
+					for(var f=0;f<candidates.length;f++){
+						this.modifyItemStat(candidates[f],skill.targets[d].type,skill.targets[d].amount*skill.values[d],skill.targets[d].relative);
+					}
+				}
+			}
+		}
+	}
+	
+	
+	
 	//crafting simulation calculation
 	// returns list of required crafting queue for a given input of crafted items
 	this.simulate=function(input,inventory,skills){
@@ -174,45 +330,10 @@ function recipeCalc(data){
 				continue;
 			}
 			
-			
+			//console.log(JSON.stringify(this.db[iqPair.name],null,2));
 			var ingredients=this.db[iqPair.name].getIngredients();
 			var byproducts=this.db[iqPair.name].getByproducts();
-			var oq=this.db[iqPair.name].outputQuantity;
-			
-			
-			var skillReduction=0;
-			var skillLevel=0;
-			var perLevel=0;
-			
-			if(doConsole){
-			console.log("check skills")
-			}
-			if (skills[this.db[iqPair.name].type]!=null && skills[this.db[iqPair.name].type].Material!=null)
-			{
-				if(doConsole){
-				console.log("is a skill")
-				}
-				if (this.db[iqPair.name].type=="Pure" || this.db[iqPair.name].type=="Product")
-				{
-					perLevel=2;
-					skillLevel=skills[this.db[iqPair.name].type].Material[iqPair.name]
-					skillReduction=skillLevel*perLevel;
-					if(doConsole){
-						console.log("Skill level: "+skillLevel);
-					}
-				}
-				else
-				{
-					perLevel=5;
-					skillLevel=skills[this.db[iqPair.name].type].Material["Tier "+this.db[iqPair.name].tier];
-					skillReduction=skillLevel*perLevel;
-				}
-				//console.log("skill level is "+skillLevel);
-			}
-			if(doConsole){
-			console.log("skill:");
-			console.log(skillReduction);
-			}
+			var oq=this.db[iqPair.name].actualOQ;
 			
 			
 			if(doConsole){
@@ -220,9 +341,6 @@ function recipeCalc(data){
 				console.log(JSON.stringify(ingredients));
 			}
 			if(ingredients.length!=0){
-				for(var ingPair of ingredients){
-					ingPair.quantity=ingPair.quantity-skillReduction;
-				}
 				while(inventory[iqPair.name].quantity+inventory[iqPair.name].bpquantity<iqPair.quantity)
 				{
 					if(doConsole){
@@ -250,7 +368,7 @@ function recipeCalc(data){
 					},this);
 					inventory[iqPair.name].quantity+=oq;
 					
-					itemSequence=itemSequence.concat([{name:iqPair.name,quantity:oq,effectivenessQ:skillReduction,skillQ:skillLevel}]);
+					itemSequence=itemSequence.concat([{name:iqPair.name,quantity:oq,effectivenessQ:0,skillQ:0}]);
 					
 					
 					
@@ -352,44 +470,13 @@ function recipeCalc(data){
 		//console.log("compressed craft list "+JSON.stringify(compressedList,null,2));
 		
 		function populate(k,i){
-			var time=this.db[k.name].time;
+			k.time=k.quantity/this.db[k.name].outputQuantity*this.db[k.name].actualTime;
 			k.tier=this.db[k.name].tier;
 			k.type=this.db[k.name].type;
 			k.typeid=this.types.indexOf(k.type);
 			k.industries=this.db[k.name].industries;
 			k.skillT=0;
 			k.effectivenessT=1;
-			
-			//console.log(JSON.stringify(k,null,2));
-			if (skills[k.type]!=null && k.name.search("Oxygen")==-1 && k.name.search("Hydrogen")==-1) {
-				if (k.type=="Pure" || k.type=="Product" )
-				{
-					//console.log(k.name);
-					//console.log(skills[k.type].Time["Tier "+k.tier]);
-					k.skillT=skills[k.type].Time["Tier "+k.tier];
-					k.effectivenessT=(1+k.skillT*0.05);
-					time=time/k.effectivenessT;
-					//console.log(time);
-					k.time=k.quantity/this.db[k.name].outputQuantity*time;
-					//console.log(k.time);
-				}else if (k.type.search("Honeycomb")!=-1){
-					k.skillT=skills[k.type].Time;
-					k.effectivenessT=(1+k.skillT*0.1);
-					time=time/k.effectivenessT;
-					k.time=k.quantity/this.db[k.name].outputQuantity*time;
-				}
-				else
-				{
-					k.skillT=skills[k.type].Time["Tier "+k.tier];
-					k.effectivenessT=(1+k.skillT*0.1);
-					time=time/k.effectivenessT;
-					k.time=k.quantity/this.db[k.name].outputQuantity*time;
-				}
-			}
-			else
-			{
-				k.time=k.quantity/this.db[k.name].outputQuantity*time;
-			}
 		}
 		/*
 		for (var i=compressedList.length-1;i>=0;i--){

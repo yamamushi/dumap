@@ -627,7 +627,9 @@
                   {
                     "name": "Dispensers",
                     "data": [
-                      "Dispenser"
+                      "Dispenser",
+                      "Medium Dispenser",
+                      "Heavy Dispenser"
                     ]
                   },
                   {
@@ -1093,7 +1095,8 @@
                       "Large Atmospheric Radar PvP L",
                       "Space Radar S",
                       "Space Radar M",
-                      "Space Radar L"
+                      "Space Radar L",
+					  "Transponder"
                     ]
                   },
                   {
@@ -1850,12 +1853,9 @@
             "data": [
               "Basic Casing XS",
               "Basic Casing S",
-              "Basic Casing M",
-              "Basic Casing L",
               "Uncommon Casing XS",
               "Uncommon Casing S",
               "Uncommon Casing M",
-              "Uncommon Casing L",
               "Uncommon Casing XL",
               "Advanced Casing XS",
               "Advanced Casing S",
