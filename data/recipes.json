@@ -1204,7 +1204,7 @@
     "time": 150,
     "skill": "",
     "byproducts": {},
-    "industries": ["Nanopack","Smelter M"],
+    "industries": ["Nanopack","Refiner M"],
     "input": {
       "Carbon Pure": 100,
       "Oxygen Pure": 50
