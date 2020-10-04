@@ -990,7 +990,7 @@
     "time": 150,
     "skill": "",
     "byproducts": {},
-    "industries": ["Nanopack","Smelter M"],
+    "industries": ["Nanopack","3D Printer M"],
     "input": {
       "Polycarbonate Plastic": 50,
       "Carbon Pure": 50
