@@ -666,6 +666,7 @@ function setSkill(skillNames,value){
 	calculate();
 
 }
+// set skill values visible in skill modal
 function updateSkills(){
 	
 	for(var i=0;i<skills.length;i++){
