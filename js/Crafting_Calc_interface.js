@@ -17,6 +17,40 @@ function loadJSON(path, callback) {
     xobj.send(null);
 }
 
+function copyStringToClipboard (str) {
+   // Create new element
+   var el = document.createElement('textarea');
+   // Set value (string to be copied)
+   el.value = str;
+   // Set non-editable to avoid focus and move outside of view
+   el.setAttribute('readonly', '');
+   el.style = {position: 'absolute', left: '-9999px'};
+   document.body.appendChild(el);
+   // Select text inside element
+   el.select();
+   // Copy text to clipboard
+   document.execCommand('copy');
+   // Remove temporary element
+   document.body.removeChild(el);
+}
+function getStringFromClipboard () {
+   // Create new element
+   var el = document.createElement('textarea');
+   // Set value (string to be copied)
+   el.style = {position: 'absolute', left: '-9999px'};
+   document.body.appendChild(el);
+   // Select text inside element
+   el.value="";
+   el.select();
+   // Copy text to clipboard
+   document.execCommand('paste');
+   // Remove temporary element
+   var val=el.value;
+   console.log("clipboard val is: "+el.textContent);
+   document.body.removeChild(el);
+   return val
+}
+
 var tierNames=["Basic","Uncommon","Advanced","Rare","Exotic"];
 
 var itemsAccordion,skillsAccordion,industryPrices,prices,recipes,german,french;
@@ -150,7 +184,6 @@ function calculate()
 	if(craft.length===0)
 	{
 		totalTime.innerHTML="0".toHHMMSS();
-		totalOre.innerHTML=0;
 		totalPrice.innerHTML=0;
 		trySaveState();
 		return;
@@ -170,11 +203,72 @@ function calculate()
 	var totOre=0;
 	var totTime=0;
 	var totPrice=0;
+	var orePrice=0;
 	
 	var striped=false;
 	
+	var currentTypeIndex=0;
+	
 	for (var i=0;i<list.length;i++)
 	{
+		var typeIndex=cc.types.indexOf( cc.db[list[i].name].type );
+		if(i>0 && typeIndex!=0){
+			var typeIndexLast=cc.types.indexOf( cc.db[list[i-1].name].type );
+			if(typeIndex!=typeIndexLast){
+			var line1=[];
+			
+			var gapdet1=document.createElement("div");
+			gapdet1.innerHTML=cc.db[list[i].name].type;
+			line1.push(gapdet1);
+			
+			var gapdet2=document.createElement("div");
+			line1.push(gapdet2);
+			
+			var gapdet3=document.createElement("div");
+			line1.push(gapdet3);
+			
+			var gapdet4=document.createElement("div");
+			line1.push(gapdet4);
+				
+			var gapdet5=document.createElement("div");
+			line1.push(gapdet5);
+			
+			var gapdet6=document.createElement("div");
+			line1.push(gapdet6);
+			
+			var gapdet7=document.createElement("div");
+			line1.push(gapdet7);
+			
+			line1.forEach(function(it,k){
+				it.style.backgroundColor="#777777";
+				queueListDetailed.appendChild(it);
+			});
+			
+			
+			
+			line2=[];
+			var gap4=document.createElement("div");
+			gap4.innerHTML=cc.db[list[i].name].type;
+			gap4.style.padding="0 0 0 5px";
+			line2.push(gap4);
+				
+			var gap5=document.createElement("div");
+			line2.push(gap5);
+			
+			var gap6=document.createElement("div");
+			line2.push(gap6);
+			
+			var gap7=document.createElement("div");
+			line2.push(gap7);
+			
+			line2.forEach(function(it,k){
+				it.style.backgroundColor="#777777";
+				it.style["border-radius"]="3px";
+				queueList.appendChild(it);
+			});
+			
+			}
+		}
 		//console.log("creating elements for "+JSON.stringify(list[i]));
 		if (list[i].type=="Ore")
 		{
@@ -192,7 +286,7 @@ function calculate()
 			var price=document.createElement("div");
 			price.classList.add("ore-quantity");
 			price.innerHTML=formatNum(list[i].quantity*prices[list[i].name],0);
-			totPrice+=list[i].quantity*prices[list[i].name];
+			orePrice+=list[i].quantity*prices[list[i].name];
 			
 			var check=document.createElement("button");
 			check.classList.add("ore-done");
@@ -217,6 +311,10 @@ function calculate()
 			item2.innerHTML=cc.trans(language,list[i].name);
 			line.push(item2);
 			
+			var price=document.createElement("div");
+			price.classList.add("queue-time");
+			line.push(price);
+			
 			var qty2=document.createElement("div");
 			qty2.classList.add("queue-quantity");
 			qty2.innerHTML=formatNum(list[i].quantity,0);
@@ -227,30 +325,10 @@ function calculate()
 			bp.innerHTML=formatNum(list[i].bpquantity,0);
 			line.push(bp);
 				
-			var qtySkill=document.createElement("div");
-			qtySkill.classList.add("queue-quantity");
-			qtySkill.innerHTML=list[i].skillQ;
-			line.push(qtySkill);
-			
-			var qtyEff=document.createElement("div");
-			qtyEff.classList.add("queue-quantity");
-			qtyEff.innerHTML=list[i].effectivenessQ;
-			line.push(qtyEff);
-				
 			var time2=document.createElement("div");
 			time2.classList.add("queue-time");
 			time2.innerHTML=formatNum(list[i].time,0);
 			line.push(time2);
-				
-			var timeSkill=document.createElement("div");
-			timeSkill.classList.add("queue-time");
-			timeSkill.innerHTML=list[i].skillT;
-			line.push(timeSkill);
-			
-			var timeEff=document.createElement("div");
-			timeEff.classList.add("queue-time");
-			timeEff.innerHTML=list[i].effectivenessT;
-			line.push(timeEff);
 			
 			var indSel=document.createElement("SELECT");
 			indSel.style.color="white";
@@ -260,6 +338,7 @@ function calculate()
 				ind.style.color="white";
 				indSel.add(ind)
 			}
+			
 			if(industrySelection[list[i].name]!=null){
 				indSel.value=cc.trans(language,industrySelection[list[i].name]);
 			}else{
@@ -270,6 +349,7 @@ function calculate()
 			}
 			indSel.onchange=updateIndSel;
 			line.push(indSel);
+			
 			var indPrice=list[i].time*industryPrices[cc.transr(language,indSel.options[indSel.selectedIndex].text)];
 			//console.log(list[i].name+" has ind price of "+industryPrices[indSel.options[indSel.selectedIndex].text]);
 			if (isNaN(indPrice)){
@@ -279,17 +359,32 @@ function calculate()
 				totPrice+=indPrice;
 			}
 			
-			var price=document.createElement("div");
 			price.innerHTML=formatNum(indPrice);
-			price.classList.add("queue-time");
-			line.push(price);
+			
+			var maintain=document.createElement("div");
+			maintain.classList.add("queue-quantity");
+			var mv=0;
+			for(var j=i+1;j<list.length;j++){
+				var ings=cc.db[list[j].name].getIngredients();
+				for (var k=0;k<ings.length;k++){
+					var ing=ings[k]
+					if(ing.name==list[i].name){
+						mv=Math.max(mv,ing.quantity);
+					}
+				}
+			}
+			
+			maintain.innerHTML=formatNum(mv,0);
+			line.push(maintain);
+			
 			
 			line.forEach(function(it,k){
 				if(k%queueListDetailedCols!=0){
-				it.style.backgroundColor=bgcolor;
+					it.style.backgroundColor=bgcolor;
 				}
 				queueListDetailed.appendChild(it);
 			});
+			
 			striped=!striped;
 			
 			item2.classList.add(tierNames[list[i].tier-1].toLowerCase());
@@ -334,6 +429,33 @@ function calculate()
 		item.style["border-radius"]="3px";
 			
 	}
+	
+	var item=document.createElement("div");
+	item.classList.add("ore-item");
+	item.innerHTML="Totals";
+	item.style.padding="0 0 0 5px";
+	item.style["border-radius"]="3px";
+	
+	var qty=document.createElement("div");
+	qty.classList.add("ore-quantity");
+	qty.innerHTML=formatNum(totOre,0);
+	qty.id="totalOre";
+	
+	var price=document.createElement("div");
+	price.classList.add("ore-quantity");
+	price.innerHTML=formatNum(orePrice,0);
+	price.id="totalOrePrice";
+	
+	var check=document.createElement("div");
+	
+	
+	oreList.appendChild(item);
+	oreList.appendChild(qty);
+	oreList.appendChild(price);
+	oreList.appendChild(check);
+	
+	
+	
 	totalTime.innerHTML=totTime.toString().toHHMMSS();
 	totalOre.innerHTML=formatNum(totOre,0);
 	
@@ -661,6 +783,8 @@ window.onclick = function(event) {
     hideSkillsModal();
 	hideProfileModal();
 	hideLangModal();
+	hidePriceModal();
+	hideDataModal();
   }
 }
 invAddBut.onclick=displayItemsModal;
@@ -718,6 +842,15 @@ function hideLangModal(){
 // When the user clicks on <span> (x), close the modal
 langModalClose.onclick = hideLangModal;
 
+function displayDataModal(input){
+	dataModal.style.display = "block";
+}
+function hideDataModal(){
+	dataModal.style.display = "none";
+}
+// When the user clicks on <span> (x), close the modal
+dataModalClose.onclick = hideDataModal;
+
 
 
 
@@ -726,6 +859,30 @@ detailedCraftQueueButton.onclick=displayQueueModal;
 profileButton.onclick=displayProfileModal;
 skillsButton.onclick=displaySkillsModal;
 clearButton.onclick=clearLists;
+
+invClearBut.onclick=function(){
+	inv=[];
+	updateInvList();
+	calculate();
+}
+craftClearBut.onclick=function(){
+	craft=[];
+	updateCraftList();
+	calculate();
+}
+
+getDataButton.onclick=function(){
+	copyStringToClipboard(getState());
+}
+doconfigBut.onclick=function(){
+	trySaveState(configta.value);
+	tryRestoreState();
+	cc.updateSkills(skills,industrySelection);
+	updateSkills();
+	setupCallbacks();
+	calculate();
+}
+setDataButton.onclick=displayDataModal;
 
 var doTrans=function(){
 	skillsAccList=createSkillsAcc(skillsAccordion,0,"")[0];
@@ -821,7 +978,7 @@ function updateInvList(){
 		var name=inv[i].name;
 		var tp=cc.db[name].type;
 		var quantity=inv[i].quantity.toString()
-		if (quantity<=0){continue;}
+		//if (quantity<=0){continue;}
 		
 		//console.log(i+" "+name+", "+tp);
 		
@@ -907,8 +1064,6 @@ function addItem(event)
 		addInvItem(name);
 		
 	}else{
-		if (name.search("Ore")!=-1){alert("You have to mine ore, not craft it");return;}
-		
 		var items=document.getElementsByClassName("cft-item")
 		for (var i=0;i<items.length;i++)
 		{
@@ -992,7 +1147,7 @@ Object.keys(industryPrices).forEach(function(ind,i){
 	
 	var qty=document.createElement("INPUT");
 	qty.setAttribute("type","text");
-	qty.setAttribute("value",industryPrices[ind].toFixed(2).toString());
+	qty.setAttribute("value",industryPrices[ind].toFixed(3).toString());
 	qty.style.width="25%";
 	qty.style.float="right";
 	qty.classList.add("accordion-item2");
@@ -1062,7 +1217,7 @@ function updatePrices(){
 				inp.value=prices[ore].toFixed(2).toString();
 				//console.log("updating ore price "+ore);
 			}else if(inp.classList[j]=="price-ind"){
-				inp.value=industryPrices[ore].toFixed(2).toString();
+				inp.value=industryPrices[ore].toFixed(3).toString();
 				//console.log("updating ind price "+ore);
 			}
 		}
@@ -1114,6 +1269,8 @@ function clearLists(){
 	inv=[];
 	updateInvList();
 	
+	window.localStorage.setItem("profiles","[]");
+	
 	loadJSON("../data/industryTimePrices.json",function(json){industryPrices=JSON.parse(json);})
 	loadJSON("../data/orePrices.json",function(json){prices=JSON.parse(json);})
 	updatePrices();
@@ -1121,7 +1278,7 @@ function clearLists(){
 	industrySelection={};
 	
 	skills=getSkills(skillsAccordion,"")
-	console.log(JSON.stringify(skills,null,2));
+	//console.log(JSON.stringify(skills,null,2));
 	cc.updateSkills(skills,industrySelection)
 	calculate();
 	
@@ -1341,13 +1498,17 @@ function tryRestoreState(profile) {
 	}
 }
 
-function trySaveState() {
+function trySaveState(data) {
 	try {
 		if (!window.localStorage) {
 			return;
 		}
 		//console.log("saving...");
-		window.localStorage.setItem('crafting_state',getState());
+		if(data==null){
+			window.localStorage.setItem('crafting_state',getState());
+		}else{
+			window.localStorage.setItem('crafting_state',data);
+		}
 	} catch (e) {
 		console.log('Could not save crafting calculator state.', e);
 	}
@@ -1359,7 +1520,6 @@ function trySaveState() {
 	// restore skils
 	//console.log(JSON.stringify(state.skills.Pure.Material,null,2))
 	*/
-	
 }
 
 //window.localStorage.clear();

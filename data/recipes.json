@@ -958,7 +958,7 @@
     "time": 750,
     "skill": "",
     "byproducts": {},
-    "industries": ["Smelter M"],
+    "industries": ["Refiner M"],
     "input": {
       "Calcium Pure": 100,
       "Carbon Pure": 50,
@@ -974,7 +974,7 @@
     "time": 750,
     "skill": "",
     "byproducts": {},
-    "industries": ["Smelter M"],
+    "industries": ["Refiner M"],
     "input": {
       "Calcium Pure": 100,
       "Carbon Pure": 50,
@@ -990,7 +990,7 @@
     "time": 150,
     "skill": "",
     "byproducts": {},
-    "industries": ["Nanopack","Smelter M"],
+    "industries": ["Nanopack","3D Printer M"],
     "input": {
       "Polycarbonate Plastic": 50,
       "Carbon Pure": 50
@@ -1204,7 +1204,7 @@
     "time": 150,
     "skill": "",
     "byproducts": {},
-    "industries": ["Nanopack","Smelter M"],
+    "industries": ["Nanopack","Refiner M"],
     "input": {
       "Carbon Pure": 100,
       "Oxygen Pure": 50
@@ -2997,11 +2997,11 @@
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
-      "Basic Pipe": 1,
-      "Basic Burner": 1,
-      "Stainless Steel": 1,
-      "Uncommon Burner": 1,
-      "Uncommon Pipe": 1
+      "Basic Pipe": 38,
+      "Basic Burner": 38,
+      "Stainless Steel": 343,
+      "Uncommon Burner": 88,
+      "Uncommon Pipe": 88
     }
   },
   "Advanced Combustion Chamber XS":{ 
@@ -3015,6 +3015,9 @@
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
+      "Basic Pipe": 1,
+      "Basic Burner": 1,
+      "Uncommon Pipe": 1,
       "Uncommon Burner": 1,
       "Inconel": 1,
       "Advanced Pipe": 1,
@@ -3549,8 +3552,7 @@
     "industries": ["Metalwork Industry M"],
     "input": {
       "Steel": 343,
-      "Basic Connector": 125,
-      "Basic Magnet": 125
+      "Basic Connector": 125
     }
   },
   "Basic Ionic Chamber XL":{ 
@@ -3565,8 +3567,7 @@
     "industries": ["Metalwork Industry M"],
     "input": {
       "Steel": 2401,
-      "Basic Connector": 625,
-      "Basic Magnet": 625
+      "Basic Connector": 625
     }
   },"Uncommon Ionic Chamber XS":{ 
     "tier": 1,
@@ -4311,8 +4312,7 @@
     "industries": ["Metalwork Industry M"],
     "input": {
       "Silumin": 343,
-      "Basic Component": 125,
-      "Basic Hydraulics": 125
+      "Basic Component": 125
     }
   },
   "Basic Robotic Arm XL":{ 
@@ -4327,8 +4327,7 @@
     "industries": ["Metalwork Industry M"],
     "input": {
       "Silumin": 2401,
-      "Basic Component": 625,
-      "Basic Hydraulics": 625
+      "Basic Component": 625
     }
   },
   "Basic Screen S":{ 
@@ -6892,7 +6891,7 @@
     "input": {
       "Uncommon Component": 1,
       "Advanced Power System": 1,
-      "Advanced Quantum Alignment Unit": 1
+      "Advanced Quantum Barrier": 1
     }
   },
   "Force Field S":{ 
@@ -7025,7 +7024,7 @@
       "Basic Component": 6,
       "Basic Electronics": 5,
       "Basic Control System S": 1,
-      "Basic Casing S": 1
+      "Basic Standard Frame S": 1
     }
   },
   "Emergency Controller":{ 
@@ -7057,7 +7056,7 @@
       "Basic Component": 6,
       "Basic Processor": 5,
       "Basic Control System S": 1,
-      "Basic Casing S": 1
+      "Basic Standard Frame S": 1
     }
   },
   "Cockpit Controller":{ 
@@ -7267,7 +7266,7 @@
       "Basic Screw": 36,
       "Basic Power System": 25,
       "Basic Electric Engine M": 1,
-      "Basic Standard Frame M": 1
+      "Basic Reinforced Frame M": 1
     }
   },
   "Interior Door":{ 
@@ -7952,17 +7951,17 @@
   "Medium Atmospheric Radar PvP M":{ 
     "tier": 2,
     "type": "Radar",
-    "mass": 2910,
-    "volume": 486336,
+    "mass": 1740,
+    "volume": 420,
     "outputQuantity": 1,
     "time": 5760,
     "skill": "Combat",
     "byproducts": {},
     "industries": ["Assembly Line M"],
     "input": {
-      "Basic Screw": 18,
-      "Uncommon Screw": 18,
-      "Uncommon Processor": 25,
+      "Basic LED": 18,
+      "Uncommon LED": 18,
+      "Uncommon Magnet": 25,
       "Uncommon Antenna M": 1,
       "Uncommon Reinforced Frame M": 1
     }
@@ -7970,17 +7969,17 @@
   "Large Atmospheric Radar PvP L":{ 
     "tier": 2,
     "type": "Radar",
-    "mass": 16140,
-    "volume": 2658.56,
+    "mass": 6640,
+    "volume": 1500,
     "outputQuantity": 1,
-    "time": 21600,
+    "time": 23040,
     "skill": "Combat",
     "byproducts": {},
     "industries": ["Assembly Line L"],
     "input": {
-      "Basic Screw": 108,
-      "Uncommon Screw": 108,
-      "Uncommon Processor": 125,
+      "Basic LED": 108,
+      "Uncommon LED": 108,
+      "Uncommon Magnet": 125,
       "Uncommon Antenna L": 1,
       "Uncommon Reinforced Frame L": 1
     }
@@ -8342,7 +8341,7 @@
       "Basic Fixation": 6
     }
   },
-  "Executive Chair":{ 
+  "Navigator Chair":{ 
     "tier": 1,
     "type": "Chair",
     "mass": 39.62,
@@ -10004,7 +10003,7 @@
     "input": {
       "Glass": 4,
       "Basic Fixation": 4,
-      "Basic Casing S": 4
+      "Basic Casing XS": 4
     }
   },
   "Glass Panel L":{ 
