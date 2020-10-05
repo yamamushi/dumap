@@ -17,8 +17,10 @@
 <button id="profileButton" style="float:left;margin:0 5px;">Save/Load Profiles</button>
 <button id="clearButton" style="float:left;margin:0 5px;" class="bugButton">Reset</button>
 <button id="langButton" style="float:left;margin:0 5px;">&#128214;</button>
+<button id="getDataButton" style="float:left;margin:0 5px;">Copy Config</button>
+<button id="setDataButton" style="float:left;margin:0 5px;">Paste Config</button>
 
-<span style="color:#fff;float:left;padding:0 0 0 15px;">Ver:2020-10-03</span>
+<span style="color:#fff;float:left;padding:0 0 0 15px;">Ver:2020-10-04</span>
 
 
 
@@ -39,7 +41,10 @@
 
 <div class="main-container flex-container">
 	<div class="flex-box1 section-divider">
-		<div class="section-header list-item">Your Inventory</div>
+		<div class="section-header list-item" style="justify-content:space-between;">
+		Your Inventory
+		<button id="invClearBut" style="flex:end">Clear</button>
+		</div>
 		<br>
 		<div id="invList" class="grid-container1">
 			<div class="list-header" style="margin-left:-5px;"></div>
@@ -49,7 +54,10 @@
 		<button id="invAddBut">+ Add More Items +</button>
 	</div>
 	<div class="flex-box1 section-divider">
-		<div class="section-header list-item">Items To Craft</div>
+		<div class="section-header list-item" style="justify-content:space-between;">
+		Items To Craft
+		<button id="craftClearBut" style="position:relative;top:0;right:0;">Clear</button>
+		</div>
 		<br>
 		<div id="cftList" class="grid-container1">
 			<div class="list-header" style="margin-left:-5px;"></div>
@@ -60,9 +68,7 @@
 	</div>
 	<div class="flex-box1 section-divider">
 		<div class="section-header list-item">Required Ore</div>
-		<span class="totals">Total Ore: <span id="totalOre"></span> Liters</span>
 		<br>
-		<span class="totals">Total Price: <span id="totalPrice"></span> ħ</span>
 		<br>
 		<div id="oreList" class="grid-container2">
 			<div class="list-header">Item Name</div>
@@ -73,10 +79,11 @@
 	</div>
 	<div class="flex-box2 section-divider">
 		<div class="section-header list-item">Crafting Queue</div>
-		<span class="totals">Total Time: 
+		<span class="totals">Crafting Time: 
 			<span id="totalTime"></span>
 			<button id="detailedCraftQueueButton" style="float:right">Detailed View</button>
 		</span>
+		<span class="totals">Crafting Price: <span id="totalPrice"></span> ħ</span>
 		
 		<br>
 		<div id="queueList" class="grid-container3">
@@ -156,15 +163,12 @@
 
 	<div id="queueListDetailed" class="grid-container4">
 		<div class="list-header">Item Name</div>
+		<div class="list-header">Price</div>
 		<div class="list-header quantity-color">Quantity</div>
 		<div class="list-header quantity-color">Byproduct</div>
-		<div class="list-header quantity-color">Skill</div>
-		<div class="list-header quantity-color">Effectiveness</div>
 		<div class="list-header time-color">Time</div>
-		<div class="list-header time-color">Skill</div>
-		<div class="list-header time-color">Effectiveness</div>
 		<div class="list-header">Industry</div>
-		<div class="list-header">Price</div>
+		<div class="list-header">Maintain Minimum</div>
 	</div>
 
 </div>
@@ -201,6 +205,21 @@
 	<button id="lb_german">Deutsch</button>
     </div>
 	
+  </div>
+
+</div>
+
+<!-- data modal -->
+<div id="dataModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span id="dataModalClose" class="modal-close">&times;</span>
+      <h2>Input Config</h2>
+    </div>
+	<textarea id="configta" rows="20" cols="50"></textarea>
+	<button id="doconfigBut">Insert</button>
   </div>
 
 </div>
