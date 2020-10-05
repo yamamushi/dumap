@@ -3497,14 +3497,14 @@
     "type": "Functional Part",
     "mass": 75.1,
     "volume": 7.33,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
-      "Steel": 1,
-      "Basic Connector": 1
+      "Steel": 3,
+      "Basic Connector": 3
     }
   },
   "Basic Ionic Chamber S":{ 
@@ -3549,8 +3549,7 @@
     "industries": ["Metalwork Industry M"],
     "input": {
       "Steel": 343,
-      "Basic Connector": 125,
-      "Basic Magnet": 125
+      "Basic Connector": 125
     }
   },
   "Basic Ionic Chamber XL":{ 
@@ -3565,11 +3564,10 @@
     "industries": ["Metalwork Industry M"],
     "input": {
       "Steel": 2401,
-      "Basic Connector": 625,
-      "Basic Magnet": 625
+      "Basic Connector": 625
     }
   },"Uncommon Ionic Chamber XS":{ 
-    "tier": 1,
+    "tier": 2,
     "type": "Functional Part",
     "mass": 140.8,
     "volume": 13.86,
@@ -3587,7 +3585,7 @@
     }
   },
   "Uncommon Ionic Chamber S":{ 
-    "tier": 1,
+    "tier": 2,
     "type": "Functional Part",
     "mass": 452.35,
     "volume": 44.77,
@@ -3605,7 +3603,7 @@
     }
   },
   "Uncommon Ionic Chamber M":{ 
-    "tier": 1,
+    "tier": 2,
     "type": "Functional Part",
     "mass": 2100,
     "volume": 208.93,
@@ -3623,7 +3621,7 @@
     }
   },
   "Uncommon Ionic Chamber L":{ 
-    "tier": 1,
+    "tier": 2,
     "type": "Functional Part",
     "mass": 11010,
     "volume": 1096.93,
@@ -3641,7 +3639,7 @@
     }
   },
   "Uncommon Ionic Chamber XL":{ 
-    "tier": 1,
+    "tier": 2,
     "type": "Functional Part",
     "mass": 60120,
     "volume": 6007.33,
