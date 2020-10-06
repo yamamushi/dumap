@@ -280,13 +280,13 @@
     "type": "Pure",
     "mass": 2.7,
     "volume": 1,
-    "outputQuantity": 45,
-    "time": 25,
+    "outputQuantity": 405,
+    "time": 225,
     "skill": "",
-    "byproducts": {"Hydrogen Pure":15},
+    "byproducts": {"Hydrogen Pure":135},
     "industries": ["Nanopack","Refiner M"],
     "input": {
-      "Bauxite": 65
+      "Bauxite": 585
     }
   },
   "Carbon Pure":{ 
@@ -294,13 +294,13 @@
     "type": "Pure",
     "mass": 2.27,
     "volume": 1,
-    "outputQuantity": 45,
-    "time": 25,
+    "outputQuantity": 405,
+    "time": 225,
     "skill": "",
-    "byproducts": {"Oxygen Pure":7.5,"Hydrogen Pure":7.5},
+    "byproducts": {"Oxygen Pure":67.5,"Hydrogen Pure":67.5},
     "industries": ["Nanopack","Refiner M"],
     "input": {
-      "Coal": 65
+      "Coal": 585
     }
   },
   "Silicon Pure":{ 
@@ -308,13 +308,13 @@
     "type": "Pure",
     "mass": 2.33,
     "volume": 1,
-    "outputQuantity": 45,
-    "time": 25,
+    "outputQuantity": 405,
+    "time": 225,
     "skill": "",
-    "byproducts": {"Oxygen Pure":15},
+    "byproducts": {"Oxygen Pure":135},
     "industries": ["Nanopack","Refiner M"],
     "input": {
-      "Quartz": 65
+      "Quartz": 585
     }
   },
   "Iron Pure":{ 
@@ -322,13 +322,13 @@
     "type": "Pure",
     "mass": 7.85,
     "volume": 1,
-    "outputQuantity": 45,
-    "time": 25,
+    "outputQuantity": 405,
+    "time": 225,
     "skill": "",
-    "byproducts": {"Oxygen Pure":15},
+    "byproducts": {"Oxygen Pure":135},
     "industries": ["Nanopack","Refiner M"],
     "input": {
-      "Hematite": 65
+      "Hematite": 585
     }
   },
   "Calcium Pure":{ 
@@ -944,9 +944,9 @@
     "byproducts": {},
     "industries": ["Nanopack","Smelter M"],
     "input": {
-      "Silicon Pure": 100,
+      "Silicon Pure": 50,
       "Aluminium Pure": 50,
-	  "Oxygen Pure": 50
+	    "Oxygen Pure": 50
     }
   },
   "Marble":{ 
@@ -960,7 +960,7 @@
     "byproducts": {},
     "industries": ["Refiner M"],
     "input": {
-      "Calcium Pure": 100,
+      "Calcium Pure": 50,
       "Carbon Pure": 50,
       "Oxygen Pure": 50
     }
@@ -976,9 +976,9 @@
     "byproducts": {},
     "industries": ["Refiner M"],
     "input": {
-      "Calcium Pure": 100,
-      "Carbon Pure": 50,
-      "Silicon Pure": 50
+      "Calcium Pure": 5,
+      "Carbon Pure": 37.5,
+      "Silicon Pure": 37.5
     }
   },
   "Carbon Fiber":{ 
@@ -1206,7 +1206,7 @@
     "byproducts": {},
     "industries": ["Nanopack","Refiner M"],
     "input": {
-      "Carbon Pure": 100,
+      "Carbon Pure": 50,
       "Oxygen Pure": 50
     }
   },
