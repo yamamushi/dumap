@@ -6408,7 +6408,7 @@
     }
   },
   "Atmospheric Engine S":{ 
-    "tier": 2,
+    "tier": 1,
     "type": "Atmospheric Engine",
     "mass": 539.99,
     "volume": 116.6,
@@ -6425,7 +6425,7 @@
     }
   },
   "Atmospheric Engine M":{ 
-    "tier": 2,
+    "tier": 1,
     "type": "Atmospheric Engine",
     "mass": 2980,
     "volume": 619.2,
@@ -6442,7 +6442,7 @@
     }
   },
   "Atmospheric Engine L":{ 
-    "tier": 2,
+    "tier": 1,
     "type": "Atmospheric Engine",
     "mass": 16930,
     "volume": 3355.4,
