@@ -27,10 +27,10 @@ function itemRecipe(name,data){
 	this.lang={"english":this.name}
 	
 	// skills affect these stats
-	this.actualOQ=this.outputQuantity;
-	this.actualInput=this.input;
-	this.actualTime=this.time;
-	this.actualB=this.byproducts;
+	this.actualOQ=JSON.parse(JSON.stringify(this.outputQuantity));
+	this.actualInput=JSON.parse(JSON.stringify(this.input));
+	this.actualTime=JSON.parse(JSON.stringify(this.time));
+	this.actualB=JSON.parse(JSON.stringify(this.byproducts));
 	
 	if (this.input==null){this.input={};}
 	
@@ -226,11 +226,10 @@ function recipeCalc(data){
 	
 	this.resetItemStats=function(){
 		Object.keys(this.db).forEach(function(name,i){
-			
-			this.db[name].actualOQ=this.db[name].outputQuantity;
-			this.db[name].actualInput=this.db[name].input;
-			this.db[name].actualTime=this.db[name].time;
-			this.db[name].actualB=this.db[name].byproducts;
+			this.db[name].actualOQ=JSON.parse(JSON.stringify(this.db[name].outputQuantity));
+			this.db[name].actualInput=JSON.parse(JSON.stringify(this.db[name].input));
+			this.db[name].actualTime=JSON.parse(JSON.stringify(this.db[name].time));
+			this.db[name].actualB=JSON.parse(JSON.stringify(this.db[name].byproducts));
 		},this);
 	}
 		

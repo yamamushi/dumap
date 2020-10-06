@@ -182,7 +182,7 @@ float:right;
 	display:grid;
 	grid-gap: 10px 5px;
 	align-content: start;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto auto;
 	width:100%;
 	overflow:auto;
 	background-color:#001926;
@@ -214,6 +214,7 @@ float:right;
 	display:flex;
 	justify-content:center;
 	margin: 0 0 10px 0;
+	
 }
 .inv-item, .inv-quantity, .cft-item,.cft-quantity{
 cursor:pointer;
@@ -367,7 +368,7 @@ padding: 2px 16px 5px 16px;
 .totals{
 	font-style:italic;
 }
-#totalTime,#totalOre,#totalPrice{
+#totalTime,#totalOre,#totalPrice,#totalOrePrice{
 	color:orange;
 	font-style:normal;
 	font-weight:bold;
