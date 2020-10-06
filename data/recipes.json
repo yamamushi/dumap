@@ -5403,7 +5403,7 @@
     "industries": ["Assembly Line M"],
     "input": {
       "Basic Fixation": 18,
-      "Uncommon Fixation": 125,
+      "Uncommon Fixation": 18,
       "Uncommon Processor": 25,
       "Uncommon Power Transformer M": 1,
       "Uncommon Standard Frame M": 1
@@ -5691,7 +5691,7 @@
     "industries": ["Assembly Line M"],
     "input": {
       "Uncommon Pipe": 36,
-      "Advanced Injector": 65,
+      "Advanced Injector": 25,
       "Advanced Chemical Container M": 1,
       "Advanced Casing M": 1
     }
