@@ -1261,7 +1261,7 @@
     "mass": 3.75,
     "volume": 0.8,
     "outputQuantity": 20,
-    "time": 120,
+    "time": 240,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
