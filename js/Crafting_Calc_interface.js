@@ -487,17 +487,23 @@ function createItemsAcc(list,depth,filter="",override=false)
 		//console.log("list i "+list[i]);
 		if (typeof list[i]=="object")
 		{
+			//console.log("["+i+","+depth+"]"+list[i].name);
 			var or=override;
-			if (filter!="" && cc.trans(language,list[i].name).toLowerCase().search(filter.toLowerCase())!=-1){ or=true; }
+			if (filter!="" && cc.trans(language,list[i].name).toLowerCase().search(filter.toLowerCase())!=-1){ or=true;}
 			var deeperOutput=createItemsAcc(list[i].data,depth+1,filter,or);
-			//console.log("list i "+list[i].name);
 			//console.log("found item on deeper list? "+deeperOutput[1]);
 			//console.log("override? "+or);
 			if(deeperOutput[1] || override){
 				found=true;
-				output.push(tab+'<div class="accordion unselectable"><span>+</span><span class="accordion-title">');
+				output.push(tab+'<div class="accordion unselectable"><span>');
+				if (!or && filter!="" && deeperOutput[1]) { output.push('-'); } else { output.push('+'); } 
+				output.push('</span><span class="accordion-title">');
 				output.push(cc.trans(language,list[i].name));
-				output.push('</span></div>\n'+tab+'\t<div class="accordion-panel unselectable">\n');
+				output.push('</span></div>\n'+tab+'\t<div class="accordion-panel unselectable');
+				if (!or && filter!="" && deeperOutput[1]) {
+					output.push(' active" style="display:block"')
+				}
+				output.push('">\n'); 
 				output.push(deeperOutput[0].join(''));
 				output.push(tab+'\t</div>\n');
 			}
