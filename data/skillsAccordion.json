@@ -518,6 +518,30 @@
 	]
   },
   {
+    "name": "Structural Part",
+    "data": [
+		{
+			"name":"Manufacturer",
+			"target":"Structural Part",
+			"subject":"Recipe",
+			"data":[
+				"Basic",
+				"Uncommon",
+				"Advanced",
+				"Rare",
+				"Exotic"
+			],
+			"targets":[
+				{"type":"Time","amount":0.1,"relative":true},
+				{"type":"Time","amount":0.1,"relative":true},
+				{"type":"Time","amount":0.1,"relative":true},
+				{"type":"Time","amount":0.1,"relative":true},
+				{"type":"Time","amount":0.1,"relative":true}
+			]
+		}
+	]
+  },
+  {
     "name": "Uncommon Ammo",
     "data": [
 		{
