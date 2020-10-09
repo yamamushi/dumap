@@ -55,7 +55,8 @@ var tierNames=["Basic","Uncommon","Advanced","Rare","Exotic"];
 
 var itemsAccordion,skillsAccordion,industryPrices,prices,recipes,german,french;
 
-var ver = document.getElementById("version").innerHTML
+var ver = "2020-10-09"
+document.getElementById("version").innerHTML = ver;
 console.log("Crafing Calculator Version: " + ver)
 
 var language="english"
