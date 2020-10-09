@@ -280,13 +280,13 @@
     "type": "Pure",
     "mass": 2.7,
     "volume": 1,
-    "outputQuantity": 45,
-    "time": 25,
+    "outputQuantity": 405,
+    "time": 225,
     "skill": "",
-    "byproducts": {"Hydrogen Pure":15},
+    "byproducts": {"Hydrogen Pure":135},
     "industries": ["Nanopack","Refiner M"],
     "input": {
-      "Bauxite": 65
+      "Bauxite": 585
     }
   },
   "Carbon Pure":{ 
@@ -294,13 +294,13 @@
     "type": "Pure",
     "mass": 2.27,
     "volume": 1,
-    "outputQuantity": 45,
-    "time": 25,
+    "outputQuantity": 405,
+    "time": 225,
     "skill": "",
-    "byproducts": {"Oxygen Pure":7.5,"Hydrogen Pure":7.5},
+    "byproducts": {"Oxygen Pure":67.5,"Hydrogen Pure":67.5},
     "industries": ["Nanopack","Refiner M"],
     "input": {
-      "Coal": 65
+      "Coal": 585
     }
   },
   "Silicon Pure":{ 
@@ -308,13 +308,13 @@
     "type": "Pure",
     "mass": 2.33,
     "volume": 1,
-    "outputQuantity": 45,
-    "time": 25,
+    "outputQuantity": 405,
+    "time": 225,
     "skill": "",
-    "byproducts": {"Oxygen Pure":15},
+    "byproducts": {"Oxygen Pure":135},
     "industries": ["Nanopack","Refiner M"],
     "input": {
-      "Quartz": 65
+      "Quartz": 585
     }
   },
   "Iron Pure":{ 
@@ -322,13 +322,13 @@
     "type": "Pure",
     "mass": 7.85,
     "volume": 1,
-    "outputQuantity": 45,
-    "time": 25,
+    "outputQuantity": 405,
+    "time": 225,
     "skill": "",
-    "byproducts": {"Oxygen Pure":15},
+    "byproducts": {"Oxygen Pure":135},
     "industries": ["Nanopack","Refiner M"],
     "input": {
-      "Hematite": 65
+      "Hematite": 585
     }
   },
   "Calcium Pure":{ 
@@ -944,9 +944,9 @@
     "byproducts": {},
     "industries": ["Nanopack","Smelter M"],
     "input": {
-      "Silicon Pure": 100,
+      "Silicon Pure": 50,
       "Aluminium Pure": 50,
-	  "Oxygen Pure": 50
+	    "Oxygen Pure": 50
     }
   },
   "Marble":{ 
@@ -960,7 +960,7 @@
     "byproducts": {},
     "industries": ["Refiner M"],
     "input": {
-      "Calcium Pure": 100,
+      "Calcium Pure": 50,
       "Carbon Pure": 50,
       "Oxygen Pure": 50
     }
@@ -976,9 +976,9 @@
     "byproducts": {},
     "industries": ["Refiner M"],
     "input": {
-      "Calcium Pure": 100,
-      "Carbon Pure": 50,
-      "Silicon Pure": 50
+      "Calcium Pure": 5,
+      "Carbon Pure": 37.5,
+      "Silicon Pure": 37.5
     }
   },
   "Carbon Fiber":{ 
@@ -1206,7 +1206,7 @@
     "byproducts": {},
     "industries": ["Nanopack","Refiner M"],
     "input": {
-      "Carbon Pure": 100,
+      "Carbon Pure": 50,
       "Oxygen Pure": 50
     }
   },
@@ -1215,20 +1215,20 @@
     "type": "Intermediary Part",
     "mass": 2.25,
     "volume": 0.5,
-    "outputQuantity": 10,
-    "time": 120,
+    "outputQuantity": 20,
+    "time": 240,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
-      "Al-Fe Alloy": 10
+      "Al-Fe Alloy": 20
     }
   },
   "Uncommon Component":{ 
     "tier": 2,
     "type": "Intermediary Part",
     "mass": 2.34,
-    "volume": 0.8,
+    "volume": 0.5,
     "outputQuantity": 10,
     "time": 480,
     "skill": "",
@@ -1243,7 +1243,7 @@
     "tier": 3,
     "type": "Intermediary Part",
     "mass": 2.51,
-    "volume": 0.8,
+    "volume": 0.5,
     "outputQuantity": 10,
     "time": 1920,
     "skill": "",
@@ -1260,13 +1260,13 @@
     "type": "Intermediary Part",
     "mass": 3.75,
     "volume": 0.8,
-    "outputQuantity": 10,
-    "time": 120,
+    "outputQuantity": 20,
+    "time": 240,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
-      "Al-Fe Alloy": 10
+      "Al-Fe Alloy": 20
     }
   },
   "Uncommon Connector":{ 
@@ -1395,13 +1395,13 @@
     "type": "Intermediary Part",
     "mass": 2.4,
     "volume": 1,
-    "outputQuantity": 10,
-    "time": 120,
+    "outputQuantity": 20,
+    "time": 240,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
-      "Silumin": 10
+      "Silumin": 20
     }
   },
   "Uncommon Pipe":{ 
@@ -1440,13 +1440,13 @@
     "type": "Intermediary Part",
     "mass": 8.05,
     "volume": 1,
-    "outputQuantity": 10,
-    "time": 120,
+    "outputQuantity": 20,
+    "time": 240,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
-      "Steel": 10
+      "Steel": 20
     }
   },
   "Uncommon Screw":{ 
@@ -1475,9 +1475,9 @@
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
-      "Steel": 5,
-      "Stainless Steel": 5,
-      "Inconel": 5
+      "Steel": 3,
+      "Stainless Steel": 3,
+      "Inconel": 4
     }
   },
   "Basic Anti-Matter Capsule":{ 
@@ -1571,14 +1571,14 @@
     "type": "Complex Part",
     "mass": 50.2,
     "volume": 10,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
-      "Silumin": 6,
-      "Basic Screw": 4
+      "Silumin": 18,
+      "Basic Screw": 12
     }
   },
   "Uncommon Burner":{ 
@@ -1620,14 +1620,14 @@
     "type": "Complex Part",
     "mass": 5.22,
     "volume": 4,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
-      "Polycarbonate Plastic": 6,
-      "Basic Component": 4
+      "Polycarbonate Plastic": 18,
+      "Basic Component": 12
     }
   },
   "Uncommon Electronics":{ 
@@ -1755,14 +1755,14 @@
     "type": "Complex Part",
     "mass": 28.95,
     "volume": 10,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
-      "Steel": 6,
-      "Basic Pipe": 4
+      "Steel": 18,
+      "Basic Pipe": 12
     }
   },
   "Uncommon Hydraulics":{ 
@@ -1853,14 +1853,14 @@
     "type": "Complex Part",
     "mass": 63.3,
     "volume": 7.36,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
-      "Steel": 6,
-      "Basic Connector": 4
+      "Steel": 18,
+      "Basic Connector": 12
     }
   },
   "Uncommon Magnet":{ 
@@ -2006,14 +2006,14 @@
     "type": "Complex Part",
     "mass": 60,
     "volume": 9.2,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
-      "Al-Fe Alloy": 6,
-      "Basic Connector": 4
+      "Al-Fe Alloy": 18,
+      "Basic Connector": 12
     }
   },
   "Uncommon Power System":{ 
@@ -2092,14 +2092,14 @@
     "type": "Complex Part",
     "mass": 14.84,
     "volume": 5,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
-      "Al-Fe Alloy": 6,
-      "Basic Fixation": 4
+      "Al-Fe Alloy": 18,
+      "Basic Fixation": 12
     }
   },
   "Uncommon Processor":{ 
@@ -2113,15 +2113,15 @@
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
-      "Al-Fe Alloy": 6,
+      "Al-Fe Alloy": 2,
       "Basic Fixation": 4,
-      "Calcium Reinforced Copper": 6
+      "Calcium Reinforced Copper": 4
     }
   },
   "Advanced Processor":{ 
     "tier": 3,
     "type": "Complex Part",
-    "mass": 15.56,
+    "mass": 16.25,
     "volume": 5,
     "outputQuantity": 1,
     "time": 960,
@@ -2246,14 +2246,14 @@
     "type": "Complex Part",
     "mass": 45.36,
     "volume": 4,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
-      "Steel": 6,
-      "Basic Component": 4
+      "Steel": 18,
+      "Basic Component": 12
     }
   },
   "Uncommon Singularity Container":{ 
@@ -2416,7 +2416,7 @@
     "industries": ["Electronics Industry M"],
     "input": {
       "Silumin": 5,
-      "Basic Singularity Container": 2,
+      "Basic Singularity Container": 1,
       "Duralumin": 5,
       "Uncommon Component": 5,
       "Uncommon Singularity Container": 1,
@@ -2544,14 +2544,14 @@
     "type": "Functional Part",
     "mass": 60.44,
     "volume": 8.96,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
-      "Al-Fe Alloy": 1,
-      "Basic Screw": 1
+      "Al-Fe Alloy": 3,
+      "Basic Screw": 3
     }
   },
   "Basic Antenna S":{ 
@@ -2720,14 +2720,14 @@
     "type": "Functional Part",
     "mass": 8.13,
     "volume": 4.8,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
-      "Silumin": 1,
-      "Basic Screw": 1
+      "Silumin": 3,
+      "Basic Screw": 3
     }
   },
   "Basic Chemical Container S":{ 
@@ -2772,8 +2772,7 @@
     "industries": ["Metalwork Industry M"],
     "input": {
       "Silumin": 343,
-      "Basic Screw": 125,
-      "Basic Electronics": 125
+      "Basic Screw": 125
     }
   },
   "Basic Chemical Container XL":{ 
@@ -2788,8 +2787,7 @@
     "industries": ["Metalwork Industry M"],
     "input": {
       "Silumin": 2401,
-      "Basic Screw": 625,
-      "Basic Electronics": 625
+      "Basic Screw": 625
     }
   },
   "Advanced Chemical Container S":{ 
@@ -2877,14 +2875,14 @@
     "type": "Functional Part",
     "mass": 60.65,
     "volume": 9.6,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
-      "Steel": 1,
-      "Basic Pipe": 1
+      "Steel": 3,
+      "Basic Pipe": 3
     }
   },
   "Basic Combustion Chamber S":{ 
@@ -3069,14 +3067,14 @@
     "type": "Functional Part",
     "mass": 9.25,
     "volume": 5.2,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
-      "Polycarbonate Plastic": 1,
-      "Basic Component": 1
+      "Polycarbonate Plastic": 3,
+      "Basic Component": 3
     }
   },
   "Basic Control System S":{ 
@@ -3174,14 +3172,14 @@
     "type": "Functional Part",
     "mass": 4.43,
     "volume": 4.4,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Electronics Industry M"],
     "input": {
-      "Polycarbonate Plastic": 1,
-      "Basic Component": 1
+      "Polycarbonate Plastic": 3,
+      "Basic Component": 3
     }
   },
   "Basic Core System S":{ 
@@ -3220,8 +3218,8 @@
   "Uncommon Core System M":{ 
     "tier": 2,
     "type": "Functional Part",
-    "mass": 28.08,
-    "volume": 135.75,
+    "mass": 135.75,
+    "volume": 132.80,
     "outputQuantity": 1,
     "time": 2160,
     "skill": "",
@@ -3363,14 +3361,14 @@
     "type": "Functional Part",
     "mass":60.65,
     "volume": 9.6,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
-      "Steel": 1,
-      "Basic Pipe": 1
+      "Steel": 3,
+      "Basic Pipe": 3
     }
   },
   "Advanced Firing System XS":{ 
@@ -3384,6 +3382,9 @@
     "byproducts": {},
     "industries": ["Metalwork Industry M"],
     "input": {
+      "Basic Pipe": 1,
+      "Basic Burner": 1,
+      "Uncommon Pipe": 1,
       "Uncommon Burner": 1,
       "Inconel": 1,
       "Advanced Pipe": 1,
@@ -3455,14 +3456,14 @@
     "type": "Functional Part",
     "mass": 15.68,
     "volume": 9.6,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
-      "Silumin": 1,
-      "Basic Screw": 1
+      "Silumin": 3,
+      "Basic Screw": 3
     }
   },
   "Basic Gas Cylinder S":{ 
@@ -3937,14 +3938,14 @@
     "type": "Functional Part",
     "mass": 35.96,
     "volume": 7.49,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
-      "Al-Fe Alloy": 1,
-      "Basic Fixation": 1
+      "Al-Fe Alloy": 3,
+      "Basic Fixation": 3
     }
   },
   "Advanced Mechanical Sensor XS":{ 
@@ -4070,14 +4071,14 @@
     "type": "Functional Part",
     "mass": 20,
     "volume": 9.6,
-    "outputQuantity": 1,
-    "time": 60,
+    "outputQuantity": 3,
+    "time": 180,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
-      "Silumin": 1,
-      "Basic Screw": 1
+      "Silumin": 3,
+      "Basic Screw": 3
     }
   },
   "Basic Mobile Panel S":{ 
@@ -4205,10 +4206,10 @@
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
       "Basic Component": 2,
-	  "Basic Magnet": 2,
+	    "Basic Magnet": 2,
       "Stainless Steel": 7,
       "Uncommon Component": 4,
-	  "Uncommon Magnet": 4
+	    "Uncommon Magnet": 4
     }
   },
   "Uncommon Power Transformer M":{ 
@@ -4223,10 +4224,10 @@
     "industries": ["Nanopack","Electronics Industry M"],
     "input": {
       "Basic Component": 8,
-	  "Basic Magnet": 8,
+	    "Basic Magnet": 8,
       "Stainless Steel": 49,
       "Uncommon Component": 18,
-	  "Uncommon Magnet": 18
+	    "Uncommon Magnet": 18
     }
   },
   "Rare Power Transformer L":{ 
@@ -4667,13 +4668,13 @@
     "type": "Structural Part",
     "mass": 12.88,
     "volume": 2,
-    "outputQuantity": 1,
-    "time": 40,
+    "outputQuantity": 5,
+    "time": 200,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
-      "Steel": 2
+      "Steel": 10
     }
   },
   "Basic Reinforced Frame S":{ 
@@ -4947,13 +4948,13 @@
     "type": "Structural Part",
     "mass": 4.2,
     "volume": 2,
-    "outputQuantity": 1,
-    "time": 40,
+    "outputQuantity": 5,
+    "time": 200,
     "skill": "",
     "byproducts": {},
     "industries": ["Nanopack","Metalwork Industry M"],
     "input": {
-      "Silumin": 2
+      "Silumin": 10
     }
   },
   "Basic Standard Frame S":{ 
@@ -5402,7 +5403,7 @@
     "industries": ["Assembly Line M"],
     "input": {
       "Basic Fixation": 18,
-      "Uncommon Fixation": 125,
+      "Uncommon Fixation": 18,
       "Uncommon Processor": 25,
       "Uncommon Power Transformer M": 1,
       "Uncommon Standard Frame M": 1
@@ -5690,7 +5691,7 @@
     "industries": ["Assembly Line M"],
     "input": {
       "Uncommon Pipe": 36,
-      "Advanced Injector": 65,
+      "Advanced Injector": 25,
       "Advanced Chemical Container M": 1,
       "Advanced Casing M": 1
     }
@@ -6407,7 +6408,7 @@
     }
   },
   "Atmospheric Engine S":{ 
-    "tier": 2,
+    "tier": 1,
     "type": "Atmospheric Engine",
     "mass": 539.99,
     "volume": 116.6,
@@ -6424,7 +6425,7 @@
     }
   },
   "Atmospheric Engine M":{ 
-    "tier": 2,
+    "tier": 1,
     "type": "Atmospheric Engine",
     "mass": 2980,
     "volume": 619.2,
@@ -6441,7 +6442,7 @@
     }
   },
   "Atmospheric Engine L":{ 
-    "tier": 2,
+    "tier": 1,
     "type": "Atmospheric Engine",
     "mass": 16930,
     "volume": 3355.4,
