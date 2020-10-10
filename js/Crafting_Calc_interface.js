@@ -55,7 +55,9 @@ var tierNames=["Basic","Uncommon","Advanced","Rare","Exotic"];
 
 var itemsAccordion,skillsAccordion,industryPrices,prices,recipes,german,french;
 
-var ver="2020-10-02"
+var ver = "2020-10-09"
+document.getElementById("version").innerHTML = ver;
+console.log("Crafing Calculator Version: " + ver)
 
 var language="english"
 
@@ -1446,6 +1448,9 @@ function tryRestoreState(profile) {
 		// restore skils
 		try{
 			skills=state.skills;
+			if(Object.keys(skills)=== 0) {
+				throw 'skills is empty'
+			}
 			updateSkills();
 		}
 		catch(e){
@@ -1455,6 +1460,9 @@ function tryRestoreState(profile) {
 		// restore inventory
 		try{
 			inv=state.inv;
+			if(Object.keys(inv)=== 0) {
+				throw 'inv is empty'
+			}
 			updateInvList();
 		}
 		catch(e){
@@ -1465,6 +1473,9 @@ function tryRestoreState(profile) {
 		// restore items to craft
 		try{
 			craft=state.craft;
+			if(Object.keys(craft)=== 0) {
+				throw 'craft is empty'
+			}
 			updateCraftList();
 		}
 		catch(e){
@@ -1476,6 +1487,9 @@ function tryRestoreState(profile) {
 		try{
 			prices=state.prices;
 			industryPrices=state.industryPrices;
+			if(Object.keys(prices)=== 0 || Object.keys(industryPrices)=== 0 ) {
+				throw 'prices are empty'
+			}
 			updatePrices();
 		}
 		catch(e){
@@ -1484,6 +1498,9 @@ function tryRestoreState(profile) {
 		}
 		try{
 			industrySelection=state.industrySelection;
+			if(Object.keys(industrySelection)=== 0) {
+				throw 'industrySelection is empty'
+			}
 			updateIndSelections();
 		}
 		catch(e){
@@ -1495,7 +1512,7 @@ function tryRestoreState(profile) {
 			languageChanges[state.language]();
 		}
 		catch(e){
-			console.log("failed to load indsel");
+			console.log("failed to change languages");
 		}
 			
 		
