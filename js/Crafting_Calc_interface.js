@@ -193,6 +193,7 @@ function calculate()
 	
 	//console.log("calculating the craft");
 	itemLists=cc.calcList(craft,inv,skills);
+	//console.log(JSON.stringify(cc.debug,null,2));
 	//console.log("got the craft list");
 	var list=itemLists.normal;
 	
