@@ -123,6 +123,7 @@ function recipeCalc(data){
 	//console.log(data);
 	this.data=data;
 	this.parseDb(data);
+	this.debug=[];
 	//console.log(JSON.stringify(this.db,null,2));
 	
 	// eliminate 0 quantity list items and combine repeated ones
@@ -303,7 +304,6 @@ function recipeCalc(data){
 	//crafting simulation calculation
 	// returns list of required crafting queue for a given input of crafted items
 	this.simulate=function(input,inventory,skills){
-		var filter=["sdfgsdf"];
 		
 		//console.log("SIMULATING "+JSON.stringify(input));
 		var itemSequence=[];
@@ -311,21 +311,11 @@ function recipeCalc(data){
 		for (var jj=0;jj<input.length;jj++){
 			var iqPair=input[jj];
 			
-			var doConsole=false;
-			filter.forEach(function(k,i){
-				if(iqPair.name.toLowerCase().search(k.toLowerCase())!=-1){
-					doConsole=true;
-					return;
-				}
-			})
-			if(doConsole){
-				console.log("number of "+iqPair.name+" required "+iqPair.quantity);
-				console.log("checking inventory "+JSON.stringify(inventory[iqPair.name]));
-			}
+			this.debug.push("number of "+iqPair.name+" required "+iqPair.quantity);
+			this.debug.push("checking inventory "+JSON.stringify(inventory[iqPair.name]));
 			if (iqPair.quantity<=(inventory[iqPair.name].quantity+inventory[iqPair.name].bpquantity)){
-				if(doConsole){
-					console.log("inventory has enough of input, moving on to next input");
-				}
+				
+				this.debug.push("inventory has enough of input, moving on to next input");
 				continue;
 			}
 			
@@ -335,24 +325,17 @@ function recipeCalc(data){
 			var oq=this.db[iqPair.name].actualOQ;
 			
 			
-			if(doConsole){
-				console.log("----checking ingredients of input");
-				console.log(JSON.stringify(ingredients));
-			}
+			this.debug.push("----checking ingredients of input");
+			this.debug.push(JSON.stringify(ingredients));
+			this.debug.push("----checking inventory for ingredients");
 			if(ingredients.length!=0){
+				this.debug.push(iqPair.name+": "+inventory[iqPair.name].quantity+" of "+iqPair.quantity);
 				while(inventory[iqPair.name].quantity+inventory[iqPair.name].bpquantity<iqPair.quantity)
 				{
-					if(doConsole){
-					console.log(iqPair.name+": "+inventory[iqPair.name].quantity+" of "+iqPair.quantity);
-					console.log("crafting ingredients for "+iqPair.name);
-					}
+					this.debug.push("crafting ingredients for "+iqPair.name);
 					ingredients.forEach(function(ingPair,i){
+						this.debug.push("");
 						var subSeq=this.simulate([ingPair],inventory,skills)
-						
-						if(doConsole){
-						console.log("ing: "+ingPair.name+" "+ingPair.quantity);
-						}
-						
 						
 						if(inventory[ingPair.name].bpquantity>ingPair.quantity){
 							inventory[ingPair.name].bpquantity-=ingPair.quantity;
@@ -367,6 +350,8 @@ function recipeCalc(data){
 					},this);
 					inventory[iqPair.name].quantity+=oq;
 					
+					this.debug.push(iqPair.name+" now has: "+inventory[iqPair.name].quantity+" of "+iqPair.quantity);
+					
 					itemSequence=itemSequence.concat([{name:iqPair.name,quantity:oq,effectivenessQ:0,skillQ:0}]);
 					
 					
@@ -380,15 +365,11 @@ function recipeCalc(data){
 				}
 			}
 			else{
-				if(doConsole){
-				console.log("this is a base recipe, giving desired amount")
-				}
+				this.debug.push("this is a base recipe, inserting desired amount to inventory");
 				itemSequence=itemSequence.concat([iqPair]);
 				
 				inventory[iqPair.name].quantity+=iqPair.quantity;
-				if(doConsole){
-					console.log("have "+inventory[iqPair.name].quantity+" of "+iqPair.quantity);
-				}
+				this.debug.push("have "+inventory[iqPair.name].quantity+" of "+iqPair.quantity);
 				
 				byproducts.forEach(function(bPair,i){
 					inventory[bPair.name].bpquantity+=iqPair.quantity*bPair.quantity;
@@ -459,6 +440,7 @@ function recipeCalc(data){
 		
 		//console.log("inv before");
 		//console.log(JSON.stringify(removeInvZeros(inventory)));
+		this.debug=[];
 		var craftList=this.simulate(inputRed,inventory,skills);
 		//console.log("inv after");
 		//console.log(JSON.stringify(removeInvZeros(inventory)));
