@@ -85,6 +85,10 @@ let bookmarks = [{
             url:'./dutalents/'
         },
         {
+            name:'Ship Store',
+            url:'./shipstore/'
+        },
+        {
             name:'Dimencia\'s Orbital Hud',
             url:'./dimencia/'
         }
