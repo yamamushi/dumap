@@ -286,8 +286,7 @@ function recipeCalc(data){
 					if (candidates[f].search(skill.data[d])!=-1){
 						found=true;
 						this.modifyItemStat(candidates[f],skill.targets[d].type,skill.targets[d].amount*skill.values[d],skill.targets[d].relative);
-						
-						break;
+						//break;
 					}
 				}
 				if (!found) {
