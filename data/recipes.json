@@ -13717,10 +13717,10 @@
     }
   },
   "Warp Cell":{ 
-    "tier": 2,
+    "tier": 3,
     "type": "Warp Cell",
-    "mass": 195,
-    "volume": 75,
+    "mass": 100,
+    "volume": 40,
     "outputQuantity": 1,
     "time": 3000,
     "skill": "Systems",
