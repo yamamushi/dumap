@@ -276,10 +276,16 @@ Skills have already been applied to recipes
 	})
 	list = []
 	Object.keys(craftQueue).forEach(function(name){
-		bpqty = 0
+		var bpqty = 0
 		if(byproducts[name] != undefined) {
 			bpqty = byproducts[name].quantity
 			// console.log("Byproduct: " + name + "x" + bpqty)
+		}
+		var type = cc.db[name].type
+		var typeid = cc.types[cc.db[name].type]
+		if (craftQueue[name].quantity < 1) {
+			type = "Byproduct"
+			typeid = 999
 		}
 		if (bpqty < 1 && craftQueue[name].quantity < 1) { return }
 		list.push({
@@ -289,15 +295,17 @@ Skills have already been applied to recipes
 			name:name,
 			time:(craftQueue[name].quantity/cc.db[name].actualOQ)*cc.db[name].actualTime,
 			tier:cc.db[name].tier,
-			type:cc.db[name].type,
-			typeid:cc.types[cc.db[name].type],
+			type:type,
+			typeid:typeid,
 			industries:cc.db[name].industries,
 			skillT:0,
 			effectivenessT:1
 		})
 	})
 	list.sort(function(l,r){
-		return (l.stage+l.typeid/100+l.tier/1000)-(r.stage+r.typeid/100+r.tier/1000);
+		var lAlpha = l.name.charCodeAt(0)
+		var rAlpha = r.name.charCodeAt(0)
+		return (l.stage + (l.typeid / 1000) + (l.tier / 100000) + (lAlpha / 10000000)) - (r.stage + (r.typeid / 1000) + (r.tier / 100000) + (rAlpha / 10000000));
 	})
 	//console.log("calculating the craft");
 	//itemLists=cc.calcList(craft,inv,skills);
@@ -322,14 +330,14 @@ Skills have already been applied to recipes
 	
 	for (var i=0;i<list.length;i++)
 	{
-		var typeIndex=cc.types[ cc.db[list[i].name].type ];
+		var typeIndex=list[i].typeid;
 		if(i>0 && typeIndex!=0){
-			var typeIndexLast=cc.types[ cc.db[list[i-1].name].type ];
+			var typeIndexLast=list[i-1].typeid;
 			if(typeIndex!=typeIndexLast){
 			var line1=[];
 			
 			var gapdet1=document.createElement("div");
-			gapdet1.innerHTML=cc.db[list[i].name].type;
+			gapdet1.innerHTML=list[i].type;
 			line1.push(gapdet1);
 			
 			var gapdet2=document.createElement("div");
@@ -359,7 +367,7 @@ Skills have already been applied to recipes
 			
 			line2=[];
 			var gap4=document.createElement("div");
-			gap4.innerHTML=cc.db[list[i].name].type;
+			gap4.innerHTML=list[i].type;
 			gap4.style.padding="0 0 0 5px";
 			line2.push(gap4);
 				
