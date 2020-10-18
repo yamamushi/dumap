@@ -197,6 +197,7 @@ The addition of craft/inventory items prevents duplicates
 Skills have already been applied to recipes
 */
 	craftQueue = {}
+	byproducts = {}
 	function addInputs(name,qty) {
 		if (craftQueue[name] == undefined ) { 
 			craftQueue[name] = {quantity:qty,stage:0}
@@ -215,10 +216,16 @@ Skills have already been applied to recipes
 		})
 		// Subtract byproducts from required list, this will cause them to not show up if they are less than 0
 		// This might not be great for catalysts?
-		var byproducts = cc.db[name].getByproducts()
-		byproducts.forEach(function (byproduct) { 
-			// console.log("byproducts: "+byproduct.quantity+" " +byproduct.name)
-			addInputs(byproduct.name, -byproduct.quantity * qty/cc.db[name].actualOQ); 
+		var bps = cc.db[name].getByproducts()
+		bps.forEach(function (byproduct) { 
+			bpqty = (byproduct.quantity * qty/cc.db[name].actualOQ)
+			// console.log("byproducts: "+bpqty+" " +byproduct.name)
+			if(byproducts[byproduct.name] == undefined){
+				byproducts[byproduct.name]={quantity:bpqty}
+			}
+			else {
+				byproducts[byproduct.name].quantity += bpqty
+			}
 		})
 		// console.log("adding "+qty+" "+name+" at stage "+craftQueue[name].stage)
 	}
@@ -234,20 +241,26 @@ Skills have already been applied to recipes
 		if (inv[item[0]] != undefined) {
 			// console.log("found Inventory for "+item[0]+ " X "+inv[item[0]].quantity)
 			if (inv[item[0]].quantity > 0) {
-				adjustment -=inv[item[0]].quantity
+				adjustment -= inv[item[0]].quantity
 			}
 		}
-		if (craftQueue[item[0]].quantity + adjustment >= 1) {
-			var batchSize = cc.db[item[0]].actualOQ
-			var mq = Math.ceil(craftQueue[item[0]].quantity / batchSize) * batchSize
-			if (mq > craftQueue[item[0]].quantity) {
-				var w = mq - craftQueue[item[0]].quantity
-				waste[item[0]] = w
-				adjustment += w
+		if (byproducts[item[0]] != undefined) {
+			// console.log("found byproduct for " + item[0] + " X " + byproducts[item[0]].quantity)
+			if (byproducts[item[0]].quantity > 0) {
+				adjustment -= byproducts[item[0]].quantity
 			}
 		}
 		if (adjustment != 0) {
 			addInputs(item[0], adjustment)
+		}
+		if (craftQueue[item[0]].quantity >= 1) {
+			var batchSize = cc.db[item[0]].actualOQ
+			var mq = Math.ceil((craftQueue[item[0]].quantity) / batchSize) * batchSize
+			if (mq > craftQueue[item[0]].quantity) {
+				var w = mq - craftQueue[item[0]].quantity
+				waste[item[0]] = w
+				addInputs(item[0], w)
+			}
 		}
 		if (craftQueue[item[0]].quantity < 1) {
 			// console.log("Removing " + item[0])
@@ -255,11 +268,23 @@ Skills have already been applied to recipes
 		}
 	})
 
-
+	Object.keys(byproducts).forEach(function (name) {
+		if (craftQueue[name] == undefined) {
+			// console.log("adding " + name + " to queue")
+			craftQueue[name] = { quantity: 0, stage: 0 }
+		}
+	})
 	list = []
 	Object.keys(craftQueue).forEach(function(name){
+		bpqty = 0
+		if(byproducts[name] != undefined) {
+			bpqty = byproducts[name].quantity
+			// console.log("Byproduct: " + name + "x" + bpqty)
+		}
+		if (bpqty < 1 && craftQueue[name].quantity < 1) { return }
 		list.push({
 			quantity:craftQueue[name].quantity,
+			bpquantity:bpqty,
 			stage:craftQueue[name].stage,
 			name:name,
 			time:(craftQueue[name].quantity/cc.db[name].actualOQ)*cc.db[name].actualTime,
