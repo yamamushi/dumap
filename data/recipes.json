@@ -3700,6 +3700,26 @@
       "Advanced Magnet": 50
     }
   },
+  "Advanced Ionic Chamber XL":{ 
+    "tier": 3,
+    "type": "Functional Part",
+    "mass": 62430,
+    "volume": 6007.33,
+    "outputQuantity": 1,
+    "time": 15540,
+    "skill": "",
+    "byproducts": {},
+    "industries": ["Metalwork Industry M"],
+    "input": {
+      "Basic Connector": 188,
+      "Basic Magnet": 188,
+      "Uncommon Connector": 188,
+      "Uncommon Magnet": 188,
+      "Inconel": 2401,
+      "Advanced Connector": 250,
+      "Advanced Magnet": 250
+    }
+  },
   "Uncommon Laser Chamber XS":{ 
     "tier": 2,
     "type": "Functional Part",
@@ -4866,6 +4886,21 @@
     "input": {
       "Steel": 172,
       "Inconel": 343
+    }
+  },
+  "Advanced Reinforced Frame XL":{ 
+    "tier": 3,
+    "type": "Structural Part",
+    "mass": 24060,
+    "volume": 3602,
+    "outputQuantity": 1,
+    "time": 51,840,
+    "skill": "",
+    "byproducts": {},
+    "industries": ["Metalwork Industry M"],
+    "input": {
+      "Steel": 1201,
+      "Inconel": 2401
     }
   },
   "Rare Reinforced Frame L":{ 
