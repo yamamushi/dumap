@@ -14463,6 +14463,23 @@
       "Uncommon Reinforced Frame XL": 1
     }
   },
+  "Advanced Military Space Engine XL":{ 
+    "tier": 3,
+    "type": "Space Engine",
+    "mass": 126240,
+    "volume": 17150,
+    "outputQuantity": 1,
+    "time": 259500,
+    "skill": "Systems",
+    "byproducts": {},
+    "industries": ["Assembly Line XL"],
+    "input": {
+      "Uncommon Screw": 1296,
+      "Advanced Burner": 625,
+      "Advanced Ionic Chamber XL": 1,
+      "Advanced Reinforced Frame XL": 1
+    }
+  },
   "Safe Space Engine XL":{ 
     "tier": 2,
     "type": "Space Engine",
