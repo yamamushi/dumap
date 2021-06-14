@@ -55,7 +55,7 @@ var tierNames=["Basic","Uncommon","Advanced","Rare","Exotic"];
 
 var itemsAccordion,skillsAccordion,industryPrices,prices,recipes,german,french;
 
-var ver = "2020-10-09"
+var ver = "2020-10-17"
 document.getElementById("version").innerHTML = ver;
 console.log("Crafing Calculator Version: " + ver)
 
@@ -114,7 +114,7 @@ String.prototype.toHHMMSS = function () {
 
 //-----------------------------------------------------------------------------------
 // crafting calculator variables and calculation
-var inv=[];
+var inv={};
 var craft=[];
 var industrySelection={};
 var itemLists=[];
@@ -191,11 +191,127 @@ function calculate()
 		return;
 	}
 	
+
+/* Assumptions:
+The addition of craft/inventory items prevents duplicates
+Skills have already been applied to recipes
+*/
+	craftQueue = {}
+	byproducts = {}
+	function addInputs(name,qty) {
+		if (craftQueue[name] == undefined ) { 
+			craftQueue[name] = {quantity:qty,stage:0}
+		} else { 
+			craftQueue[name].quantity+=qty
+		}
+		var ingredients = cc.db[name].getIngredients()
+		// Add each ingredient, we allow for fractional additions as we are assumed all ingredients are in
+		// a giant pool for the crafting of all products.
+		ingredients.forEach(function (ingredient) { 
+			// console.log("requires: "+ingredient.quantity+" " +ingredient.name)
+			addInputs(ingredient.name, ingredient.quantity * qty/cc.db[name].actualOQ); 
+			if (craftQueue[ingredient.name].stage >= craftQueue[name].stage) {
+				craftQueue[name].stage = craftQueue[ingredient.name].stage + 1; 
+			}
+		})
+		// Subtract byproducts from required list, this will cause them to not show up if they are less than 0
+		// This might not be great for catalysts?
+		var bps = cc.db[name].getByproducts()
+		bps.forEach(function (byproduct) { 
+			bpqty = (byproduct.quantity * qty/cc.db[name].actualOQ)
+			// console.log("byproducts: "+bpqty+" " +byproduct.name)
+			if(byproducts[byproduct.name] == undefined){
+				byproducts[byproduct.name]={quantity:bpqty}
+			}
+			else {
+				byproducts[byproduct.name].quantity += bpqty
+			}
+		})
+		// console.log("adding "+qty+" "+name+" at stage "+craftQueue[name].stage)
+	}
+	craft.forEach(function(item){addInputs(item.name,item.quantity)})
+	craftA = Object.entries(craftQueue)
+	craftA.sort(function(l,r){return r[1].stage - l[1].stage})
+	// Reduce by items in inventory
+
+	waste={}
+	craftA.forEach(function (item) {
+		// console.log("item[0]: "+item[0]+" at stage "+craftQueue[item[0]].stage)
+		var adjustment = 0
+		if (inv[item[0]] != undefined) {
+			// console.log("found Inventory for "+item[0]+ " X "+inv[item[0]].quantity)
+			if (inv[item[0]].quantity > 0) {
+				adjustment -= inv[item[0]].quantity
+			}
+		}
+		if (byproducts[item[0]] != undefined) {
+			// console.log("found byproduct for " + item[0] + " X " + byproducts[item[0]].quantity)
+			if (byproducts[item[0]].quantity > 0) {
+				adjustment -= byproducts[item[0]].quantity
+			}
+		}
+		if (adjustment != 0) {
+			addInputs(item[0], adjustment)
+		}
+		if (craftQueue[item[0]].quantity >= 1) {
+			var batchSize = cc.db[item[0]].actualOQ
+			var mq = Math.ceil((craftQueue[item[0]].quantity) / batchSize) * batchSize
+			if (mq > craftQueue[item[0]].quantity) {
+				var w = mq - craftQueue[item[0]].quantity
+				waste[item[0]] = w
+				addInputs(item[0], w)
+			}
+		}
+		if (craftQueue[item[0]].quantity < 1) {
+			// console.log("Removing " + item[0])
+			delete craftQueue[item[0]]
+		}
+	})
+
+	Object.keys(byproducts).forEach(function (name) {
+		if (craftQueue[name] == undefined) {
+			// console.log("adding " + name + " to queue")
+			craftQueue[name] = { quantity: 0, stage: 0 }
+		}
+	})
+	list = []
+	Object.keys(craftQueue).forEach(function(name){
+		var bpqty = 0
+		if(byproducts[name] != undefined) {
+			bpqty = byproducts[name].quantity
+			// console.log("Byproduct: " + name + "x" + bpqty)
+		}
+		var type = cc.db[name].type
+		var typeid = cc.types[cc.db[name].type]
+		if (craftQueue[name].quantity < 1) {
+			type = "Byproduct"
+			typeid = 999
+		}
+		if (bpqty < 1 && craftQueue[name].quantity < 1) { return }
+		list.push({
+			quantity:craftQueue[name].quantity,
+			bpquantity:bpqty,
+			stage:craftQueue[name].stage,
+			name:name,
+			time:(craftQueue[name].quantity/cc.db[name].actualOQ)*cc.db[name].actualTime,
+			tier:cc.db[name].tier,
+			type:type,
+			typeid:typeid,
+			industries:cc.db[name].industries,
+			skillT:0,
+			effectivenessT:1
+		})
+	})
+	list.sort(function(l,r){
+		var lAlpha = l.name.charCodeAt(0)
+		var rAlpha = r.name.charCodeAt(0)
+		return (l.stage + (l.typeid / 1000) + (l.tier / 100000) + (lAlpha / 10000000)) - (r.stage + (r.typeid / 1000) + (r.tier / 100000) + (rAlpha / 10000000));
+	})
 	//console.log("calculating the craft");
-	itemLists=cc.calcList(craft,inv,skills);
+	//itemLists=cc.calcList(craft,inv,skills);
 	//console.log(JSON.stringify(cc.debug,null,2));
 	//console.log("got the craft list");
-	var list=itemLists.normal;
+	//var list=itemLists.normal;
 	
 	//console.log("result of craftcalc is");
 	//console.log(JSON.stringify(list,null,2));
@@ -214,14 +330,14 @@ function calculate()
 	
 	for (var i=0;i<list.length;i++)
 	{
-		var typeIndex=cc.types.indexOf( cc.db[list[i].name].type );
+		var typeIndex=list[i].typeid;
 		if(i>0 && typeIndex!=0){
-			var typeIndexLast=cc.types.indexOf( cc.db[list[i-1].name].type );
+			var typeIndexLast=list[i-1].typeid;
 			if(typeIndex!=typeIndexLast){
 			var line1=[];
 			
 			var gapdet1=document.createElement("div");
-			gapdet1.innerHTML=cc.db[list[i].name].type;
+			gapdet1.innerHTML=list[i].type;
 			line1.push(gapdet1);
 			
 			var gapdet2=document.createElement("div");
@@ -251,7 +367,7 @@ function calculate()
 			
 			line2=[];
 			var gap4=document.createElement("div");
-			gap4.innerHTML=cc.db[list[i].name].type;
+			gap4.innerHTML=list[i].type;
 			gap4.style.padding="0 0 0 5px";
 			line2.push(gap4);
 				
@@ -871,7 +987,7 @@ skillsButton.onclick=displaySkillsModal;
 clearButton.onclick=clearLists;
 
 invClearBut.onclick=function(){
-	inv=[];
+	inv={};
 	updateInvList();
 	calculate();
 }
@@ -931,14 +1047,7 @@ function updateInv(event)
 {
 	var name=event.target.previousSibling.innerHTML
 	name=cc.transr(language,name)
-	for(var i=0;i<inv.length;i++)
-	{
-		if (inv[i].name==name)
-		{
-			inv[i].quantity=newParse(event.target.value);
-			break;
-		}
-	}
+	inv[name].quantity=newParse(event.target.value);
 	//console.log(JSON.stringify(inv));
 	calculate();
 }
@@ -965,18 +1074,13 @@ function updateCft(event)
 function addInvItem(name,quantity)
 {
 	if (quantity==null) {quantity=1;}
-	
-	for (var i=0;i<inv.length;i++)
-	{
-		if (inv[i].name==name)
-		{
-			inv[i].quantity+=quantity;
-			updateInvList();
-			calculate();
-			return;
-		}
+	console.log("Adding "+name+"x"+quantity+" to inventory")
+	if(inv[name] == undefined) {
+		inv[name]={quantity:quantity}
 	}
-	inv.push({name:name,quantity:quantity});
+	else {
+		inv[name].quantity += quantity
+	}
 	updateInvList();
 	calculate();
 }
@@ -984,10 +1088,11 @@ function updateInvList(){
 	while(invList.children.length>invListCols){
 		invList.removeChild(invList.children[invListCols]);
 	}
-	for(var i=0;i<inv.length;i++){
-		var name=inv[i].name;
+	// for(var i=0;i<inv.length;i++){
+		Object.keys(inv).forEach(function(name){
+		//var name=inv[i].name;
 		var tp=cc.db[name].type;
-		var quantity=inv[i].quantity.toString()
+		var quantity=inv[name].quantity.toString()
 		//if (quantity<=0){continue;}
 		
 		//console.log(i+" "+name+", "+tp);
@@ -1016,7 +1121,7 @@ function updateInvList(){
 		invList.appendChild(minus)
 		invList.appendChild(item);
 		invList.appendChild(qty);
-	}
+	})
 }
 
 function addCraftItem(name, quantity) {
@@ -1095,13 +1200,14 @@ function removeItem(event)
 		invList.removeChild(minus);
 		invList.removeChild(item);
 		invList.removeChild(qty);
-		for(var i=0;i<inv.length;i++)
-		{
-			if(inv[i].name==cc.transr(language,item.innerHTML))
-			{
-				inv.splice(i,1);
-			}
-		}
+		delete inv[cc.transr(language,item.innerHTML)]
+		// for(var i=0;i<inv.length;i++)
+		// {
+		// 	if(inv[i].name==cc.transr(language,item.innerHTML))
+		// 	{
+		// 		inv.splice(i,1);
+		// 	}
+		// }
 	}else{
 		cftList.removeChild(minus);
 		cftList.removeChild(item);
@@ -1276,7 +1382,7 @@ function updateIndSelections(){
 function clearLists(){
 	craft=[];
 	updateCraftList();
-	inv=[];
+	inv={};
 	updateInvList();
 	
 	window.localStorage.setItem("profiles","[]");
