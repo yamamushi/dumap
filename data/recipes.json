@@ -3700,6 +3700,26 @@
       "Advanced Magnet": 50
     }
   },
+  "Advanced Ionic Chamber XL":{ 
+    "tier": 3,
+    "type": "Functional Part",
+    "mass": 62430,
+    "volume": 6007.33,
+    "outputQuantity": 1,
+    "time": 15540,
+    "skill": "",
+    "byproducts": {},
+    "industries": ["Metalwork Industry M"],
+    "input": {
+      "Basic Connector": 188,
+      "Basic Magnet": 188,
+      "Uncommon Connector": 188,
+      "Uncommon Magnet": 188,
+      "Inconel": 2401,
+      "Advanced Connector": 250,
+      "Advanced Magnet": 250
+    }
+  },
   "Uncommon Laser Chamber XS":{ 
     "tier": 2,
     "type": "Functional Part",
@@ -4866,6 +4886,21 @@
     "input": {
       "Steel": 172,
       "Inconel": 343
+    }
+  },
+  "Advanced Reinforced Frame XL":{ 
+    "tier": 3,
+    "type": "Structural Part",
+    "mass": 24060,
+    "volume": 3602,
+    "outputQuantity": 1,
+    "time": 51840,
+    "skill": "",
+    "byproducts": {},
+    "industries": ["Metalwork Industry M"],
+    "input": {
+      "Steel": 1201,
+      "Inconel": 2401
     }
   },
   "Rare Reinforced Frame L":{ 
@@ -14444,6 +14479,74 @@
       "Uncommon Burner": 625,
       "Uncommon Ionic Chamber XL": 1,
       "Uncommon Reinforced Frame XL": 1
+    }
+  },
+  "Advanced Space Engine XS":{ 
+    "tier": 3,
+    "type": "Space Engine",
+    "mass": 146.23,
+    "volume": 20.33,
+    "outputQuantity": 1,
+    "time": 1080,
+    "skill": "Systems",
+    "byproducts": {},
+    "industries": ["Assembly Line XS"],
+    "input": {
+      "Uncommon Screw": 1,
+      "Advanced Burner": 1,
+      "Advanced Ionic Chamber XS": 1,
+      "Advanced Reinforced Frame XS": 1
+    }
+  },
+  "Advanced Space Engine S":{ 
+    "tier": 3,
+    "type": "Space Engine",
+    "mass": 761.74,
+    "volume": 105.24,
+    "outputQuantity": 1,
+    "time": 4320,
+    "skill": "Systems",
+    "byproducts": {},
+    "industries": ["Assembly Line S"],
+    "input": {
+      "Uncommon Screw": 6,
+      "Advanced Burner": 5,
+      "Advanced Ionic Chamber S": 1,
+      "Advanced Reinforced Frame S": 1
+    }
+  },
+  "Advanced Space Engine M":{ 
+    "tier": 3,
+    "type": "Space Engine",
+    "mass": 4090,
+    "volume": 562.4,
+    "outputQuantity": 1,
+    "time": 69120,
+    "skill": "Systems",
+    "byproducts": {},
+    "industries": ["Assembly Line L"],
+    "input": {
+      "Uncommon Screw": 216,
+      "Advanced Burner": 125,
+      "Advanced Ionic Chamber L": 1,
+      "Advanced Reinforced Frame L": 1
+    }
+  },
+  "Advanced Space Engine XL":{ 
+    "tier": 3,
+    "type": "Space Engine",
+    "mass": 126240,
+    "volume": 17150,
+    "outputQuantity": 1,
+    "time": 259500,
+    "skill": "Systems",
+    "byproducts": {},
+    "industries": ["Assembly Line XL"],
+    "input": {
+      "Uncommon Screw": 1296,
+      "Advanced Burner": 625,
+      "Advanced Ionic Chamber XL": 1,
+      "Advanced Reinforced Frame XL": 1
     }
   },
   "Repair Unit":{ 
