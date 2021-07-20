@@ -25386,7 +25386,7 @@
 		],
 		"input": {
 			"Advanced Quantum Alignment Unit": 1,
-			"Advanced Antimatter Core Unit": 1
+			"Advanced Antimatter Core": 1
 		}
 	},
 	"Warp Drive L": {
@@ -25405,7 +25405,7 @@
 			"Uncommon Screw": 216,
 			"Advanced Magnet": 125,
 			"Advanced Ionic Chamber L": 1,
-			"Advanced Antimatter Core Unit": 64,
+			"Advanced Antimatter Core": 64,
 			"Advanced Reinforced Frame L": 1
 		}
 	},
@@ -25502,7 +25502,7 @@
 			"Uncommon Component": 216,
 			"Advanced Hydraulics": 125,
 			"Advanced Magnetic Rail L": 1,
-			"Advanced Antimatter Core Unit": 64,
+			"Advanced Antimatter Core": 64,
 			"Advanced Reinforced Frame L": 1
 		}
 	},
