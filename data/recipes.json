@@ -9141,7 +9141,7 @@
 		],
 		"input": {
 			"Uncommon Pipe": 18,
-			"Rare Pipe": 18,
+			"Advanced Pipe": 18,
 			"Rare Burner": 25,
 			"Rare Power Transformer M": 1,
 			"Rare Reinforced Frame M": 1
@@ -25464,7 +25464,7 @@
 		"input": {
 			"Basic Screw": 36,
 			"Basic Power System": 25,
-			"Basic Electric Engine": 1,
+			"Basic Electric Engine M": 1,
 			"Basic Reinforced Frame M": 1
 		}
 	},

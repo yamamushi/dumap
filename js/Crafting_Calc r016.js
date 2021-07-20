@@ -77,6 +77,7 @@ function recipeCalc(data){
 		var cols;
 		var headers;
 		this.db={};
+		var unknownItems = new Set();
 		
 		var db=JSON.parse(db);
 		Object.keys(db).forEach(function(name,i){
@@ -92,12 +93,21 @@ function recipeCalc(data){
 			if(!fnd){
 				this.types.push(db[name].type);
 			}
-			this.db[name]=new itemRecipe(name,db[name]);
+			var item = new itemRecipe(name,db[name]);
+			item.getIngredients().forEach(function(ingredient) {
+				if (!this.db[ingredient.name]) {
+					unknownItems.add(ingredient.name);
+				}
+			}, this);
+			this.db[name]=item;
+			unknownItems.delete(name);
 			this.lang.english[name]=name;
 			this.langr.english[name]=name;
 		},this);
 				
-		
+		if (unknownItems.size>0) {
+			console.error("unknownItems: " + [...unknownItems]);
+		}
 		//console.log(JSON.stringify(this.types,null,2));
 		
 		
