@@ -3,13 +3,13 @@
 		"name": "Consumables",
 		"data": [
 			{
-				"name": "Ammo",
+				"name": "Ammunition",
 				"data": [
 					{
 						"name": "Cannon Ammo",
 						"data": [
 							{
-								"name": "Extra-Small Cannon Ammo",
+								"name": "Cannon Ammo XS",
 								"data": [
 									{
 										"name": "Kinetic Ammo",
@@ -27,14 +27,14 @@
 											"Cannon Agile Thermic Ammo XS",
 											"Cannon Defense Thermic Ammo XS",
 											"Cannon Heavy Thermic Ammo XS",
-											"Cannon Thermic Ammo XS",
-											"Cannon Precision Thermic Ammo XS"
+											"Cannon Precision Thermic Ammo XS",
+											"Cannon Thermic Ammo XS"
 										]
 									}
 								]
 							},
 							{
-								"name": "Small Cannon Ammo",
+								"name": "Cannon Ammo S",
 								"data": [
 									{
 										"name": "Kinetic Ammo",
@@ -52,14 +52,14 @@
 											"Cannon Agile Thermic Ammo S",
 											"Cannon Defense Thermic Ammo S",
 											"Cannon Heavy Thermic Ammo S",
-											"Cannon Thermic Ammo S",
-											"Cannon Precision Thermic Ammo S"
+											"Cannon Precision Thermic Ammo S",
+											"Cannon Thermic Ammo S"
 										]
 									}
 								]
 							},
 							{
-								"name": "Medium Cannon Ammo",
+								"name": "Cannon Ammo M",
 								"data": [
 									{
 										"name": "Kinetic Ammo",
@@ -77,14 +77,14 @@
 											"Cannon Agile Thermic Ammo M",
 											"Cannon Defense Thermic Ammo M",
 											"Cannon Heavy Thermic Ammo M",
-											"Cannon Thermic Ammo M",
-											"Cannon Precision Thermic Ammo M"
+											"Cannon Precision Thermic Ammo M",
+											"Cannon Thermic Ammo M"
 										]
 									}
 								]
 							},
 							{
-								"name": "Large Cannon Ammo",
+								"name": "Cannon Ammo L",
 								"data": [
 									{
 										"name": "Kinetic Ammo",
@@ -102,8 +102,8 @@
 											"Cannon Agile Thermic Ammo L",
 											"Cannon Defense Thermic Ammo L",
 											"Cannon Heavy Thermic Ammo L",
-											"Cannon Thermic Ammo L",
-											"Cannon Precision Thermic Ammo L"
+											"Cannon Precision Thermic Ammo L",
+											"Cannon Thermic Ammo L"
 										]
 									}
 								]
@@ -114,15 +114,15 @@
 						"name": "Laser Ammo",
 						"data": [
 							{
-								"name": "Extra-Small Laser Ammo",
+								"name": "Laser Ammo XS",
 								"data": [
 									{
 										"name": "Electromagnetic Ammo",
 										"data": [
 											"Laser Agile Electromagnetic Ammo XS",
 											"Laser Defense Electromagnetic Ammo XS",
-											"Laser Heavy Electromagnetic Ammo XS",
 											"Laser Electromagnetic Ammo XS",
+											"Laser Heavy Electromagnetic Ammo XS",
 											"Laser Precision Electromagnetic Ammo XS"
 										]
 									},
@@ -132,22 +132,22 @@
 											"Laser Agile Thermic Ammo XS",
 											"Laser Defense Thermic Ammo XS",
 											"Laser Heavy Thermic Ammo XS",
-											"Laser Thermic Ammo XS",
-											"Laser Precision Thermic Ammo XS"
+											"Laser Precision Thermic Ammo XS",
+											"Laser Thermic Ammo XS"
 										]
 									}
 								]
 							},
 							{
-								"name": "Small Laser Ammo",
+								"name": "Laser Ammo S",
 								"data": [
 									{
 										"name": "Electromagnetic Ammo",
 										"data": [
 											"Laser Agile Electromagnetic Ammo S",
 											"Laser Defense Electromagnetic Ammo S",
-											"Laser Heavy Electromagnetic Ammo S",
 											"Laser Electromagnetic Ammo S",
+											"Laser Heavy Electromagnetic Ammo S",
 											"Laser Precision Electromagnetic Ammo S"
 										]
 									},
@@ -157,22 +157,22 @@
 											"Laser Agile Thermic Ammo S",
 											"Laser Defense Thermic Ammo S",
 											"Laser Heavy Thermic Ammo S",
-											"Laser Thermic Ammo S",
-											"Laser Precision Thermic Ammo S"
+											"Laser Precision Thermic Ammo S",
+											"Laser Thermic Ammo S"
 										]
 									}
 								]
 							},
 							{
-								"name": "Medium Laser Ammo",
+								"name": "Laser Ammo M",
 								"data": [
 									{
 										"name": "Electromagnetic Ammo",
 										"data": [
 											"Laser Agile Electromagnetic Ammo M",
 											"Laser Defense Electromagnetic Ammo M",
-											"Laser Heavy Electromagnetic Ammo M",
 											"Laser Electromagnetic Ammo M",
+											"Laser Heavy Electromagnetic Ammo M",
 											"Laser Precision Electromagnetic Ammo M"
 										]
 									},
@@ -182,22 +182,22 @@
 											"Laser Agile Thermic Ammo M",
 											"Laser Defense Thermic Ammo M",
 											"Laser Heavy Thermic Ammo M",
-											"Laser Thermic Ammo M",
-											"Laser Precision Thermic Ammo M"
+											"Laser Precision Thermic Ammo M",
+											"Laser Thermic Ammo M"
 										]
 									}
 								]
 							},
 							{
-								"name": "Large Laser Ammo",
+								"name": "Laser Ammo L",
 								"data": [
 									{
 										"name": "Electromagnetic Ammo",
 										"data": [
 											"Laser Agile Electromagnetic Ammo L",
 											"Laser Defense Electromagnetic Ammo L",
-											"Laser Heavy Electromagnetic Ammo L",
 											"Laser Electromagnetic Ammo L",
+											"Laser Heavy Electromagnetic Ammo L",
 											"Laser Precision Electromagnetic Ammo L"
 										]
 									},
@@ -207,8 +207,8 @@
 											"Laser Agile Thermic Ammo L",
 											"Laser Defense Thermic Ammo L",
 											"Laser Heavy Thermic Ammo L",
-											"Laser Thermic Ammo L",
-											"Laser Precision Thermic Ammo L"
+											"Laser Precision Thermic Ammo L",
+											"Laser Thermic Ammo L"
 										]
 									}
 								]
@@ -216,18 +216,18 @@
 						]
 					},
 					{
-						"name": "Missile Pod Ammo",
+						"name": "Missile Ammo",
 						"data": [
 							{
-								"name": "Extra-Small Missile Ammo",
+								"name": "Missile Ammo XS",
 								"data": [
 									{
 										"name": "Antimatter Ammo",
 										"data": [
 											"Missile Agile Antimatter Ammo XS",
+											"Missile Antimatter Ammo XS",
 											"Missile Defense Antimatter Ammo XS",
 											"Missile Heavy Antimatter Ammo XS",
-											"Missile Antimatter Ammo XS",
 											"Missile Precision Antimatter Ammo XS"
 										]
 									},
@@ -244,15 +244,15 @@
 								]
 							},
 							{
-								"name": "Small Missile Ammo",
+								"name": "Missile Ammo S",
 								"data": [
 									{
 										"name": "Antimatter Ammo",
 										"data": [
 											"Missile Agile Antimatter Ammo S",
+											"Missile Antimatter Ammo S",
 											"Missile Defense Antimatter Ammo S",
 											"Missile Heavy Antimatter Ammo S",
-											"Missile Antimatter Ammo S",
 											"Missile Precision Antimatter Ammo S"
 										]
 									},
@@ -269,15 +269,15 @@
 								]
 							},
 							{
-								"name": "Medium Missile Ammo",
+								"name": "Missile Ammo M",
 								"data": [
 									{
 										"name": "Antimatter Ammo",
 										"data": [
 											"Missile Agile Antimatter Ammo M",
+											"Missile Antimatter Ammo M",
 											"Missile Defense Antimatter Ammo M",
 											"Missile Heavy Antimatter Ammo M",
-											"Missile Antimatter Ammo M",
 											"Missile Precision Antimatter Ammo M"
 										]
 									},
@@ -294,15 +294,15 @@
 								]
 							},
 							{
-								"name": "Large Missile Ammo",
+								"name": "Missile Ammo L",
 								"data": [
 									{
 										"name": "Antimatter Ammo",
 										"data": [
 											"Missile Agile Antimatter Ammo L",
+											"Missile Antimatter Ammo L",
 											"Missile Defense Antimatter Ammo L",
 											"Missile Heavy Antimatter Ammo L",
-											"Missile Antimatter Ammo L",
 											"Missile Precision Antimatter Ammo L"
 										]
 									},
@@ -321,18 +321,18 @@
 						]
 					},
 					{
-						"name": "Railgun Pod Ammo",
+						"name": "Railgun Ammo",
 						"data": [
 							{
-								"name": "Extra-Small Railgun Ammo",
+								"name": "Railgun Ammo XS",
 								"data": [
 									{
 										"name": "Antimatter Ammo",
 										"data": [
 											"Railgun Agile Antimatter Ammo XS",
+											"Railgun Antimatter Ammo XS",
 											"Railgun Defense Antimatter Ammo XS",
 											"Railgun Heavy Antimatter Ammo XS",
-											"Railgun Antimatter Ammo XS",
 											"Railgun Precision Antimatter Ammo XS"
 										]
 									},
@@ -340,24 +340,24 @@
 										"name": "Electromagnetic Ammo",
 										"data": [
 											"Railgun Agile Electromagnetic Ammo XS",
+											"Railgun Electromagnetic Ammo XS",
 											"Railgun Defense Electromagnetic Ammo XS",
 											"Railgun Heavy Electromagnetic Ammo XS",
-											"Railgun Electromagnetic Ammo XS",
 											"Railgun Precision Electromagnetic Ammo XS"
 										]
 									}
 								]
 							},
 							{
-								"name": "Small Railgun Ammo",
+								"name": "Railgun Ammo S",
 								"data": [
 									{
 										"name": "Antimatter Ammo",
 										"data": [
 											"Railgun Agile Antimatter Ammo S",
+											"Railgun Antimatter Ammo S",
 											"Railgun Defense Antimatter Ammo S",
 											"Railgun Heavy Antimatter Ammo S",
-											"Railgun Antimatter Ammo S",
 											"Railgun Precision Antimatter Ammo S"
 										]
 									},
@@ -366,23 +366,23 @@
 										"data": [
 											"Railgun Agile Electromagnetic Ammo S",
 											"Railgun Defense Electromagnetic Ammo S",
-											"Railgun Heavy Electromagnetic Ammo S",
 											"Railgun Electromagnetic Ammo S",
+											"Railgun Heavy Electromagnetic Ammo S",
 											"Railgun Precision Electromagnetic Ammo S"
 										]
 									}
 								]
 							},
 							{
-								"name": "Medium Railgun Ammo",
+								"name": "Railgun Ammo M",
 								"data": [
 									{
 										"name": "Antimatter Ammo",
 										"data": [
 											"Railgun Agile Antimatter Ammo M",
+											"Railgun Antimatter Ammo M",
 											"Railgun Defense Antimatter Ammo M",
 											"Railgun Heavy Antimatter Ammo M",
-											"Railgun Antimatter Ammo M",
 											"Railgun Precision Antimatter Ammo M"
 										]
 									},
@@ -391,23 +391,23 @@
 										"data": [
 											"Railgun Agile Electromagnetic Ammo M",
 											"Railgun Defense Electromagnetic Ammo M",
-											"Railgun Heavy Electromagnetic Ammo M",
 											"Railgun Electromagnetic Ammo M",
+											"Railgun Heavy Electromagnetic Ammo M",
 											"Railgun Precision Electromagnetic Ammo M"
 										]
 									}
 								]
 							},
 							{
-								"name": "Large Railgun Ammo",
+								"name": "Railgun Ammo L",
 								"data": [
 									{
 										"name": "Antimatter Ammo",
 										"data": [
 											"Railgun Agile Antimatter Ammo L",
+											"Railgun Antimatter Ammo L",
 											"Railgun Defense Antimatter Ammo L",
 											"Railgun Heavy Antimatter Ammo L",
-											"Railgun Antimatter Ammo L",
 											"Railgun Precision Antimatter Ammo L"
 										]
 									},
@@ -416,8 +416,8 @@
 										"data": [
 											"Railgun Agile Electromagnetic Ammo L",
 											"Railgun Defense Electromagnetic Ammo L",
-											"Railgun Heavy Electromagnetic Ammo L",
 											"Railgun Electromagnetic Ammo L",
+											"Railgun Heavy Electromagnetic Ammo L",
 											"Railgun Precision Electromagnetic Ammo L"
 										]
 									}
@@ -428,297 +428,701 @@
 				]
 			},
 			{
-				"name": "Elements",
+				"name": "Scraps",
 				"data": [
 					{
-						"name": "Construct Elements",
+						"name": "Basic Scraps",
+						"data": [
+							"Aluminium Scrap",
+							"Carbon Scrap",
+							"Iron Scrap",
+							"Silicon Scrap"
+						]
+					},
+					{
+						"name": "Uncommon Scraps",
+						"data": [
+							"Calcium Scrap",
+							"Chromium Scrap",
+							"Copper Scrap",
+							"Sodium Scrap"
+						]
+					},
+					{
+						"name": "Advanced Scraps",
+						"data": [
+							"Lithium Scrap",
+							"Nickel Scrap",
+							"Silver Scrap",
+							"Sulfur Scrap"
+						]
+					},
+					{
+						"name": "Rare Scraps",
+						"data": [
+							"Cobalt Scrap",
+							"Fluorine Scrap",
+							"Gold Scrap",
+							"Scandium Scrap"
+						]
+					},
+					{
+						"name": "Exotic Scraps",
+						"data": [
+							"Manganese Scrap",
+							"Niobium Scrap",
+							"Titanium Scrap",
+							"Vanadium Scrap"
+						]
+					}
+				]
+			},
+			{
+				"name": "Warp Cell",
+				"data": [
+					"Warp Cell"
+				]
+			}
+		]
+	},
+	{
+		"name": "Elements",
+		"data": [
+			{
+				"name": "Combat & Defense Elements",
+				"data": [
+					{
+						"name": "Radar",
 						"data": [
 							{
-								"name": "Decorative Element",
+								"name": "Atmospheric Radar",
 								"data": [
-									{
-										"name": "Adjuncts",
-										"data": [
-											"Vertical Wing",
-											"Wing Tip S",
-											"Wing Tip M",
-											"Wing Tip L"
-										]
-									},
-									{
-										"name": "Antennas",
-										"data": [
-											"Antenna S",
-											"Antenna M",
-											"Antenna L"
-										]
-									},
-									{
-										"name": "Barriers",
-										"data": [
-											"Barrier Corner",
-											"Barrier S",
-											"Barrier M"
-										]
-									},
-									{
-										"name": "Bathroom Elements",
-										"data": [
-											"Shower Unit",
-											"Sink Unit",
-											"Toilet Unit A",
-											"Toilet Unit B",
-											"Urinal Unit"
-										]
-									},
-									{
-										"name": "Decorative Cables",
-										"data": [
-											"Cable Model-A S",
-											"Cable Model-A M",
-											"Cable Model-B S",
-											"Cable Model-B M",
-											"Cable Model-C S",
-											"Cable Model-C M",
-											"Corner Cable Model-A",
-											"Corner Cable Model-B",
-											"Corner Cable Model-C"
-										]
-									},
-									{
-										"name": "Furnitures",
-										"data": [
-											"\"Eye Doll's Workshop\" - Artist Unknown",
-											"\"HMS Ajax33\" - Artist Unknown",
-											"\"Parrotos Sanctuary\" - Artist Unknown",
-											"Bed",
-											"Bench",
-											"Dresser",
-											"Nightstand",
-											"Round Carpet",
-											"Shelf Empty",
-											"Shelf Full",
-											"Shelf Half Full",
-											"Sofa",
-											"Square Carpet",
-											"Table",
-											"Trash",
-											"Wardrobe",
-											"Wooden Armchair",
-											"Wooden Chair",
-											"Wooden Dresser",
-											"Wooden Low Table",
-											"Wooden Sofa",
-											"Wooden Table L",
-											"Wooden Table M",
-											"Wooden Wardrobe",
-											"Navigator Chair",
-											"Office Chair",
-											"Encampment Chair"
-										]
-									},
-									{
-										"name": "Holograms",
-										"data": [
-											"Planet Hologram",
-											"Planet Hologram L",
-											"Spaceship Hologram S",
-											"Spaceship Hologram M",
-											"Spaceship Hologram L"
-										]
-									},
-									{
-										"name": "Hull Decoration",
-										"data": [
-											"Hull Decorative Element A",
-											"Hull Decorative Element B",
-											"Hull Decorative Element C",
-											"Steel Column",
-											"Steel Panel"
-										]
-									},
-									{
-										"name": "Pipes",
-										"data": [
-											"Pipe A M",
-											"Pipe B M",
-											"Pipe C M",
-											"Pipe D M",
-											"Pipe Connector M",
-											"Pipe Corner M"
-										]
-									},
-									{
-										"name": "Plants",
-										"data": [
-											"Suspended Plant A",
-											"Bagged Plant A",
-											"Bagged Plant B",
-											"Bonsai",
-											"Eggplant Plant Case",
-											"Ficus Plant A",
-											"Ficus Plant B",
-											"Foliage Plant Case A",
-											"Foliage Plant Case B",
-											"Plant",
-											"Plant Case A",
-											"Plant Case B",
-											"Plant Case C",
-											"Plant Case D",
-											"Plant Case E",
-											"Plant Case S",
-											"Plant Case M"
-										]
-									},
-									{
-										"name": "Windows",
-										"data": [
-											"Armored Window XS",
-											"Armored Window S",
-											"Armored Window M",
-											"Armored Window L",
-											"Bay Window XL",
-											"Glass Panel S",
-											"Glass Panel M",
-											"Glass Panel L",
-											"Window XS",
-											"Window S",
-											"Window M",
-											"Window L"
-										]
-									},
-									"Keyboard Unit"
+									"Atmospheric Radar S",
+									"Atmospheric Radar M",
+									"Atmospheric Radar L"
 								]
 							},
 							{
-								"name": "Industry",
-								"data": [
-									"Assembly Line XS",
-									"Assembly Line S",
-									"Assembly Line M",
-									"Assembly Line L",
-									"Assembly Line XL",
-									"3D Printer M",
-									"Chemical Industry M",
-									"Electronics Industry M",
-									"Glass Furnace M",
-									"Honeycomb Refinery M",
-									"Metalwork Industry M",
-									"Recycler M",
-									"Refiner M",
-									"Smelter M",
-									"Transfer Unit"
-								]
-							},
-							{
-								"name": "Anti-Gravity Generator",
-								"data": [
-									"Anti-Gravity Generator S",
-									"Anti-Gravity Generator M",
-									"Anti-Gravity Generator L"
-								]
-							},
-							{
-								"name": "Anti-Gravity Pulsors",
-								"data": [
-									"Anti-Gravity Pulsor"
-								]
-							},
-							{
-								"name": "Containers",
+								"name": "Space Radars",
 								"data": [
 									{
-										"name": "Dispensers",
+										"name": "Space Radar S",
 										"data": [
-											"Dispenser",
-											"Medium Dispenser",
-											"Heavy Dispenser"
+											"Space Radar S",
+											"Advanced Phased-Array Space Radar S",
+											"Advanced Protected Space Radar S",
+											"Advanced Quick-Wired Space Radar S",
+											"Rare Phased-Array Space Radar S",
+											"Rare Protected Space Radar S",
+											"Rare Quick-Wired Space Radar S",
+											"Exotic Phased-Array Space Radar S",
+											"Exotic Protected Space Radar S",
+											"Exotic Quick-Wired Space Radar S"
 										]
 									},
 									{
-										"name": "Fuel Tanks",
+										"name": "Space Radar M",
 										"data": [
-											{
-												"name": "Atmospheric Fuel Containers",
-												"data": [
-													"Atmospheric Fuel-Tank XS",
-													"Atmospheric Fuel-Tank S",
-													"Atmospheric Fuel-Tank M",
-													"Atmospheric Fuel-Tank L"
-												]
-											},
-											{
-												"name": "Rocket Fuel Containers",
-												"data": [
-													"Rocket Fuel-Tank XS",
-													"Rocket Fuel-Tank S",
-													"Rocket Fuel-Tank M",
-													"Rocket Fuel-Tank L"
-												]
-											},
-											{
-												"name": "Space Fuel Containers",
-												"data": [
-													"Space Fuel-Tank S",
-													"Space Fuel-Tank M",
-													"Space Fuel-Tank L"
-												]
-											}
+											"Space Radar M",
+											"Advanced Phased-Array Space Radar M",
+											"Advanced Protected Space Radar M",
+											"Advanced Quick-Wired Space Radar M",
+											"Rare Phased-Array Space Radar M",
+											"Rare Protected Space Radar M",
+											"Rare Quick-Wired Space Radar M",
+											"Exotic Phased-Array Space Radar M",
+											"Exotic Protected Space Radar M",
+											"Exotic Quick-Wired Space Radar M"
 										]
 									},
 									{
-										"name": "Item Containers",
+										"name": "Space Radars L",
 										"data": [
-											"Container Hub",
-											"Container XS",
-											"Container S",
-											"Container M",
-											"Container L"
+											"Space Radar L",
+											"Advanced Phased-Array Space Radar L",
+											"Advanced Protected Space Radar L",
+											"Advanced Quick-Wired Space Radar L",
+											"Rare Phased-Array Space Radar L",
+											"Rare Protected Space Radar L",
+											"Rare Quick-Wired Space Radar L",
+											"Exotic Phased-Array Space Radar L",
+											"Exotic Protected Space Radar L",
+											"Exotic Quick-Wired Space Radar L"
+										]
+									}
+								]
+							}
+						]
+					},
+					"Repair Unit",
+					"Transponder",
+					{
+						"name": "Weapon Unit",
+						"data": [
+							{
+								"name": "Cannons",
+								"data": [
+									{
+										"name": "Cannons XS",
+										"data": [
+											"Cannon XS",
+											"Advanced Agile Cannon XS",
+											"Advanced Defense Cannon XS",
+											"Advanced Heavy Cannon XS",
+											"Advanced Precision Cannon XS",
+											"Rare Agile Cannon XS",
+											"Rare Defense Cannon XS",
+											"Rare Heavy Cannon XS",
+											"Rare Precision Cannon XS",
+											"Exotic Agile Cannon XS",
+											"Exotic Defense Cannon XS",
+											"Exotic Heavy Cannon XS",
+											"Exotic Precision Cannon XS"
 										]
 									},
 									{
-										"name": "Ammo Containers",
+										"name": "Cannons S",
 										"data": [
-											"Ammo Container XS",
-											"Ammo Container S",
-											"Ammo Container M",
-											"Ammo Container L"
+											"Cannon S",
+											"Advanced Agile Cannon S",
+											"Advanced Defense Cannon S",
+											"Advanced Heavy Cannon S",
+											"Advanced Precision Cannon S",
+											"Rare Agile Cannon S",
+											"Rare Defense Cannon S",
+											"Rare Heavy Cannon S",
+											"Rare Precision Cannon S",
+											"Exotic Agile Cannon S",
+											"Exotic Defense Cannon S",
+											"Exotic Heavy Cannon S",
+											"Exotic Precision Cannon S"
+										]
+									},
+									{
+										"name": "Cannons M",
+										"data": [
+											"Cannon M",
+											"Advanced Agile Cannon M",
+											"Advanced Defense Cannon M",
+											"Advanced Heavy Cannon M",
+											"Advanced Precision Cannon M",
+											"Rare Agile Cannon M",
+											"Rare Defense Cannon M",
+											"Rare Heavy Cannon M",
+											"Rare Precision Cannon M",
+											"Exotic Agile Cannon M",
+											"Exotic Defense Cannon M",
+											"Exotic Heavy Cannon M",
+											"Exotic Precision Cannon M"
+										]
+									},
+									{
+										"name": "Cannons L",
+										"data": [
+											"Cannon L",
+											"Advanced Agile Cannon L",
+											"Advanced Defense Cannon L",
+											"Advanced Heavy Cannon L",
+											"Advanced Precision Cannon L",
+											"Rare Agile Cannon L",
+											"Rare Defense Cannon L",
+											"Rare Heavy Cannon L",
+											"Rare Precision Cannon L",
+											"Exotic Agile Cannon L",
+											"Exotic Defense Cannon L",
+											"Exotic Heavy Cannon L",
+											"Exotic Precision Cannon L"
 										]
 									}
 								]
 							},
 							{
-								"name": "Control Units",
+								"name": "Lasers",
 								"data": [
-									"Emergency Controller",
-									"Hovercraft Seat Controller",
-									"Cockpit Controller",
-									"Command Seat Controller",
-									"Programming Board",
-									"Remote Controller"
+									{
+										"name": "Lasers XS",
+										"data": [
+											"Laser XS",
+											"Advanced Agile Laser XS",
+											"Advanced Defense Laser XS",
+											"Advanced Heavy Laser XS",
+											"Advanced Precision Laser XS",
+											"Rare Agile Laser XS",
+											"Rare Defense Laser XS",
+											"Rare Heavy Laser XS",
+											"Rare Precision Laser XS",
+											"Exotic Agile Laser XS",
+											"Exotic Defense Laser XS",
+											"Exotic Heavy Laser XS",
+											"Exotic Precision Laser XS"
+										]
+									},
+									{
+										"name": "Lasers S",
+										"data": [
+											"Laser S",
+											"Advanced Agile Laser S",
+											"Advanced Defense Laser S",
+											"Advanced Heavy Laser S",
+											"Advanced Precision Laser S",
+											"Rare Agile Laser S",
+											"Rare Defense Laser S",
+											"Rare Heavy Laser S",
+											"Rare Precision Laser S",
+											"Exotic Agile Laser S",
+											"Exotic Defense Laser S",
+											"Exotic Heavy Laser S",
+											"Exotic Precision Laser S"
+										]
+									},
+									{
+										"name": "Lasers M",
+										"data": [
+											"Laser M",
+											"Advanced Agile Laser M",
+											"Advanced Defense Laser M",
+											"Advanced Heavy Laser M",
+											"Advanced Precision Laser M",
+											"Rare Agile Laser M",
+											"Rare Defense Laser M",
+											"Rare Heavy Laser M",
+											"Rare Precision Laser M",
+											"Exotic Agile Laser M",
+											"Exotic Defense Laser M",
+											"Exotic Heavy Laser M",
+											"Exotic Precision Laser M"
+										]
+									},
+									{
+										"name": "Lasers L",
+										"data": [
+											"Laser L",
+											"Advanced Agile Laser L",
+											"Advanced Defense Laser L",
+											"Advanced Heavy Laser L",
+											"Advanced Precision Laser L",
+											"Rare Agile Laser L",
+											"Rare Defense Laser L",
+											"Rare Heavy Laser L",
+											"Rare Precision Laser L",
+											"Exotic Agile Laser L",
+											"Exotic Defense Laser L",
+											"Exotic Heavy Laser L",
+											"Exotic Precision Laser L"
+										]
+									}
 								]
 							},
 							{
-								"name": "Electronics",
+								"name": "Missiles",
 								"data": [
 									{
-										"name": "AND Operators",
+										"name": "Missiles XS",
 										"data": [
-											"AND Operator"
+											"Missile XS",
+											"Advanced Agile Missile XS",
+											"Advanced Defense Missile XS",
+											"Advanced Heavy Missile XS",
+											"Advanced Precision Missile XS",
+											"Rare Agile Missile XS",
+											"Rare Defense Missile XS",
+											"Rare Heavy Missile XS",
+											"Rare Precision Missile XS",
+											"Exotic Agile Missile XS",
+											"Exotic Defense Missile XS",
+											"Exotic Heavy Missile XS",
+											"Exotic Precision Missile XS"
 										]
 									},
 									{
-										"name": "NOT Operators",
+										"name": "Missiles S",
 										"data": [
-											"NOT Operator"
+											"Missile S",
+											"Advanced Agile Missile S",
+											"Advanced Defense Missile S",
+											"Advanced Heavy Missile S",
+											"Advanced Precision Missile S",
+											"Rare Agile Missile S",
+											"Rare Defense Missile S",
+											"Rare Heavy Missile S",
+											"Rare Precision Missile S",
+											"Exotic Agile Missile S",
+											"Exotic Defense Missile S",
+											"Exotic Heavy Missile S",
+											"Exotic Precision Missile S"
 										]
 									},
 									{
-										"name": "OR Operators",
+										"name": "Missiles M",
 										"data": [
-											"OR Operator"
+											"Missile M",
+											"Advanced Agile Missile M",
+											"Advanced Defense Missile M",
+											"Advanced Heavy Missile M",
+											"Advanced Precision Missile M",
+											"Rare Agile Missile M",
+											"Rare Defense Missile M",
+											"Rare Heavy Missile M",
+											"Rare Precision Missile M",
+											"Exotic Agile Missile M",
+											"Exotic Defense Missile M",
+											"Exotic Heavy Missile M",
+											"Exotic Precision Missile M"
 										]
 									},
+									{
+										"name": "Missiles L",
+										"data": [
+											"Missile L",
+											"Advanced Agile Missile L",
+											"Advanced Defense Missile L",
+											"Advanced Heavy Missile L",
+											"Advanced Precision Missile L",
+											"Rare Agile Missile L",
+											"Rare Defense Missile L",
+											"Rare Heavy Missile L",
+											"Rare Precision Missile L",
+											"Exotic Agile Missile L",
+											"Exotic Defense Missile L",
+											"Exotic Heavy Missile L",
+											"Exotic Precision Missile L"
+										]
+									}
+								]
+							},
+							{
+								"name": "Railguns",
+								"data": [
+									{
+										"name": "Railguns XS",
+										"data": [
+											"Railgun XS",
+											"Advanced Agile Railgun XS",
+											"Advanced Defense Railgun XS",
+											"Advanced Heavy Railgun XS",
+											"Advanced Precision Railgun XS",
+											"Rare Agile Railgun XS",
+											"Rare Defense Railgun XS",
+											"Rare Heavy Railgun XS",
+											"Rare Precision Railgun XS",
+											"Exotic Agile Railgun XS",
+											"Exotic Defense Railgun XS",
+											"Exotic Heavy Railgun XS",
+											"Exotic Precision Railgun XS"
+										]
+									},
+									{
+										"name": "Railguns S",
+										"data": [
+											"Railgun S",
+											"Advanced Agile Railgun S",
+											"Advanced Defense Railgun S",
+											"Advanced Heavy Railgun S",
+											"Advanced Precision Railgun S",
+											"Rare Agile Railgun S",
+											"Rare Defense Railgun S",
+											"Rare Heavy Railgun S",
+											"Rare Precision Railgun S",
+											"Exotic Agile Railgun S",
+											"Exotic Defense Railgun S",
+											"Exotic Heavy Railgun S",
+											"Exotic Precision Railgun S"
+										]
+									},
+									{
+										"name": "Railguns M",
+										"data": [
+											"Railgun M",
+											"Advanced Agile Railgun M",
+											"Advanced Defense Railgun M",
+											"Advanced Heavy Railgun M",
+											"Advanced Precision Railgun M",
+											"Rare Agile Railgun M",
+											"Rare Defense Railgun M",
+											"Rare Heavy Railgun M",
+											"Rare Precision Railgun M",
+											"Exotic Agile Railgun M",
+											"Exotic Defense Railgun M",
+											"Exotic Heavy Railgun M",
+											"Exotic Precision Railgun M"
+										]
+									},
+									{
+										"name": "Railguns L",
+										"data": [
+											"Railgun L",
+											"Advanced Agile Railgun L",
+											"Advanced Defense Railgun L",
+											"Advanced Heavy Railgun L",
+											"Advanced Precision Railgun L",
+											"Rare Agile Railgun L",
+											"Rare Defense Railgun L",
+											"Rare Heavy Railgun L",
+											"Rare Precision Railgun L",
+											"Exotic Agile Railgun L",
+											"Exotic Defense Railgun L",
+											"Exotic Heavy Railgun L",
+											"Exotic Precision Railgun L"
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": "Furniture & Appliances",
+				"data": [
+					{
+						"name": "Chairs",
+						"data": [
+							"Bed",
+							"Bench",
+							"Encampment Chair",
+							"Navigator Chair",
+							"Office Chair",
+							"Shower Unit",
+							"Sofa",
+							"Toilet Unit A",
+							"Toilet Unit B",
+							"Urinal Unit",
+							"Wooden Armchair",
+							"Wooden Chair",
+							"Wooden Sofa"
+						]
+					},
+					{
+						"name": "Decorative Element",
+						"data": [
+							{
+								"name": "Adjuncts",
+								"data": [
+									"Vertical Wing",
+									"Wingtip S",
+									"Wingtip M",
+									"Wingtip L"
+								]
+							},
+							{
+								"name": "Antennas",
+								"data": [
+									"Antenna S",
+									"Antenna M",
+									"Antenna L"
+								]
+							},
+							{
+								"name": "Barriers",
+								"data": [
+									"Barrier Corner",
+									"Barrier S",
+									"Barrier M"
+								]
+							},
+							{
+								"name": "Bathroom Elements",
+								"data": [
+									"Sink Unit"
+								]
+							},
+							{
+								"name": "Board",
+								"data": [
+									"Keyboard Unit"
+								]
+							},
+							{
+								"name": "Decorative Cables",
+								"data": [
+									"Cable Model A S",
+									"Cable Model A M",
+									"Cable Model B S",
+									"Cable Model B M",
+									"Cable Model C S",
+									"Cable Model C M",
+									"Corner Cable Model A",
+									"Corner Cable Model B",
+									"Corner Cable Model C"
+								]
+							},
+							{
+								"name": "Furniture",
+								"data": [
+									"\"Eye Doll's Workshop\" - Artist Unknown",
+									"\"HMS Ajax33\" - Artist Unknown",
+									"\"Parrotos Sanctuary\" - Artist Unknown",
+									"Dresser",
+									"Nightstand",
+									"Round Carpet",
+									"Shelf Empty",
+									"Shelf Full",
+									"Shelf Half Full",
+									"Square Carpet",
+									"Table",
+									"Trash Can",
+									"Wardrobe",
+									"Wooden Dresser",
+									"Wooden Low Table",
+									"Wooden Table M",
+									"Wooden Table L",
+									"Wooden Wardrobe"
+								]
+							},
+							{
+								"name": "Holograms",
+								"data": [
+									"Planet Hologram",
+									"Planet Hologram L",
+									"Spaceship Hologram S",
+									"Spaceship Hologram M",
+									"Spaceship Hologram L"
+								]
+							},
+							{
+								"name": "Hull Decoration",
+								"data": [
+									"Canopy Metal Corner S",
+									"Canopy Metal Corner M",
+									"Canopy Metal Corner L",
+									"Canopy Metal Flat S",
+									"Canopy Metal Flat M",
+									"Canopy Metal Flat L",
+									"Canopy Metal Tilted S",
+									"Canopy Metal Tilted M",
+									"Canopy Metal Tilted L",
+									"Canopy Metal Triangle S",
+									"Canopy Metal Triangle M",
+									"Canopy Metal Triangle L",
+									"Hull Decorative Element A",
+									"Hull Decorative Element B",
+									"Hull Decorative Element C",
+									"Steel Column",
+									"Steel Panel"
+								]
+							},
+							{
+								"name": "Pipes",
+								"data": [
+									"Pipe A M",
+									"Pipe B M",
+									"Pipe C M",
+									"Pipe Connector M",
+									"Pipe Corner M",
+									"Pipe D M"
+								]
+							},
+							{
+								"name": "Plants",
+								"data": [
+									"Bagged Plant A",
+									"Bagged Plant B",
+									"Bonsai",
+									"Eggplant Plant Case",
+									"Ficus Plant A",
+									"Ficus Plant B",
+									"Foliage Plant Case A",
+									"Foliage Plant Case B",
+									"Plant",
+									"Plant Case S",
+									"Plant Case M",
+									"Plant Case A",
+									"Plant Case B",
+									"Plant Case C",
+									"Plant Case D",
+									"Plant Case E",
+									"Salad Plant Case",
+									"Squash Plant Case",
+									"Suspended Fruit Plant",
+									"Suspended Plant A",
+									"Suspended Plant B"
+								]
+							},
+							{
+								"name": "Windows",
+								"data": [
+									"Armored Window XS",
+									"Armored Window S",
+									"Armored Window M",
+									"Armored Window L",
+									"Bay Window XL",
+									"Canopy Windshield Corner S",
+									"Canopy Windshield Corner M",
+									"Canopy Windshield Corner L",
+									"Canopy Windshield Flat S",
+									"Canopy Windshield Flat M",
+									"Canopy Windshield Flat L",
+									"Canopy Windshield Tilted S",
+									"Canopy Windshield Tilted M",
+									"Canopy Windshield Tilted L",
+									"Canopy Windshield Triangle S",
+									"Canopy Windshield Triangle M",
+									"Canopy Windshield Triangle L",
+									"Glass Panel S",
+									"Glass Panel M",
+									"Glass Panel L",
+									"Window XS",
+									"Window S",
+									"Window M",
+									"Window L"
+								]
+							},
+							{
+								"name": "Displays",
+								"data": [
+									{
+										"name": "Info Buttons",
+										"data": [
+											"Info Button S"
+										]
+									},
+									{
+										"name": "Screens",
+										"data": [
+											"Screen XS",
+											"Screen S",
+											"Screen M",
+											"Screen XL",
+											{
+												"name": "Signs",
+												"data": [
+													"Sign XS",
+													"Sign S",
+													"Sign M",
+													"Sign L",
+													"Vertical Sign XS",
+													"Vertical Sign M",
+													"Vertical Sign L"
+												]
+											},
+											"Transparent Screen XS",
+											"Transparent Screen S",
+											"Transparent Screen M",
+											"Transparent Screen L"
+										]
+									}
+								]
+							},
+							{
+								"name": "Doors",
+								"data": [
+									"Airlock",
+									"Expanded Gate S",
+									"Expanded Gate L",
+									"Fuel Intake XS",
+									"Gate XS",
+									"Gate M",
+									"Gate XL",
+									"Hatch S",
+									"Interior door",
+									"Reinforced Sliding Door",
+									"Sliding Door S",
+									"Sliding Door M"
+								]
+							},
+							{
+								"name": "Electronic Elements",
+								"data": [
 									{
 										"name": "Counters",
 										"data": [
@@ -730,17 +1134,17 @@
 										]
 									},
 									{
-										"name": "Data Banks",
-										"data": [
-											"Databank"
-										]
-									},
-									{
 										"name": "Data Emitters",
 										"data": [
 											"Emitter XS",
 											"Emitter S",
 											"Emitter M"
+										]
+									},
+									{
+										"name": "Databanks",
+										"data": [
+											"Databank"
 										]
 									},
 									{
@@ -752,8 +1156,49 @@
 									{
 										"name": "Laser Emitters",
 										"data": [
-											"Infra-Red Laser Emitter",
+											"Infrared Laser Emitter",
 											"Laser Emitter"
+										]
+									},
+									{
+										"name": "Logic Operators",
+										"data": [
+											{
+												"name": "AND Operators",
+												"data": [
+													"AND Operator"
+												]
+											},
+											{
+												"name": "NAND Operators",
+												"data": [
+													"NAND Operator"
+												]
+											},
+											{
+												"name": "NOR Operators",
+												"data": [
+													"NOR Operator"
+												]
+											},
+											{
+												"name": "NOT Operators",
+												"data": [
+													"NOT Operator"
+												]
+											},
+											{
+												"name": "OR Operators",
+												"data": [
+													"OR Operator"
+												]
+											},
+											{
+												"name": "XOR Operators",
+												"data": [
+													"XOR Operator"
+												]
+											}
 										]
 									},
 									{
@@ -769,233 +1214,69 @@
 										"data": [
 											"Relay"
 										]
-									}
-								]
-							},
-							{
-								"name": "Engines",
-								"data": [
-									{
-										"name": "Adjustors",
-										"data": [
-											"Adjustor XS",
-											"Adjustor S",
-											"Adjustor M",
-											"Adjustor L"
-										]
 									},
 									{
-										"name": "Airbrakes",
-										"data": [
-											"Atmospheric Airbrake S",
-											"Atmospheric Airbrake M",
-											"Atmospheric Airbrake L"
-										]
-									},
-									{
-										"name": "Airfoil",
+										"name": "Sensors",
 										"data": [
 											{
-												"name": "Aileron",
+												"name": "Laser Detectors",
 												"data": [
-													"Aileron XS",
-													"Aileron S",
-													"Aileron M",
-													"Compact Aileron XS",
-													"Compact Aileron S",
-													"Compact Aileron M"
+													"Infrared Laser Receiver",
+													"Laser Receiver"
 												]
 											},
 											{
-												"name": "Stabilizer",
+												"name": "Telemeters",
 												"data": [
-													"Stabilizer XS",
-													"Stabilizer S",
-													"Stabilizer M",
-													"Stabilizer L"
+													"Telemeter"
 												]
 											},
 											{
-												"name": "Wing",
+												"name": "Zone Detectors",
 												"data": [
-													"Wing XS",
-													"Wing S",
-													"Wing M",
-													"Wing Variant M"
+													"Detection Zone XS",
+													"Detection Zone S",
+													"Detection Zone M",
+													"Detection Zone L"
 												]
 											}
 										]
 									},
 									{
-										"name": "Atmospheric Engines",
+										"name": "Triggers",
 										"data": [
 											{
-												"name": "Atmospheric Engines XS",
+												"name": "Manual Buttons",
 												"data": [
-													"Atmospheric Engine XS",
-													"Freight Atmospheric Engine XS",
-													"Maneuver Atmospheric Engine XS",
-													"Military Atmospheric Engine XS",
-													"Safe Atmospheric Engine XS"
+													"Manual Button XS",
+													"Manual Button S"
 												]
 											},
 											{
-												"name": "Atmospheric Engines S",
+												"name": "Manual Switches",
 												"data": [
-													"Atmospheric Engine S",
-													"Freight Atmospheric Engine S",
-													"Maneuver Atmospheric Engine S",
-													"Military Atmospheric Engine S",
-													"Safe Atmospheric Engine S"
+													"Manual Switch"
 												]
 											},
 											{
-												"name": "Atmospheric Engines M",
+												"name": "Pressure Tiles",
 												"data": [
-													"Atmospheric Engine M",
-													"Freight Atmospheric Engine M",
-													"Maneuver Atmospheric Engine M",
-													"Military Atmospheric Engine M",
-													"Safe Atmospheric Engine M"
-												]
-											},
-											{
-												"name": "Atmospheric Engines L",
-												"data": [
-													"Atmospheric Engine L",
-													"Freight Atmospheric Engine L",
-													"Maneuver Atmospheric Engine L",
-													"Military Atmospheric Engine L",
-													"Safe Atmospheric Engine L"
+													"Pressure Tile"
 												]
 											}
-										]
-									},
-									{
-										"name": "Hovercraft Engines",
-										"data": [
-											"Hover Engine S",
-											"Hover Engine M",
-											"Hover Engine L",
-											"Flat Hover Engine L"
-										]
-									},
-									{
-										"name": "Rocket Engines",
-										"data": [
-											"Rocket Engine S",
-											"Rocket Engine M",
-											"Rocket Engine L"
-										]
-									},
-									{
-										"name": "Space Brakes",
-										"data": [
-											"Retro-Rocket Brake S",
-											"Retro-Rocket Brake M",
-											"Retro-Rocket Brake L"
-										]
-									},
-									{
-										"name": "Space Engines",
-										"data": [
-											{
-												"name": "Space Engines XS",
-												"data": [
-													"Space Engine XS",
-													"Freight Space Engine XS",
-													"Maneuver Space Engine XS",
-													"Military Space Engine XS",
-													"Safe Space Engine XS"
-												]
-											},
-											{
-												"name": "Space Engines S",
-												"data": [
-													"Space Engine S",
-													"Freight Space Engine S",
-													"Maneuver Space Engine S",
-													"Military Space Engine S",
-													"Safe Space Engine S"
-												]
-											},
-											{
-												"name": "Space Engines M",
-												"data": [
-													"Space Engine M",
-													"Freight Space Engine M",
-													"Maneuver Space Engine M",
-													"Military Space Engine M",
-													"Safe Space Engine M"
-												]
-											},
-											{
-												"name": "Space Engines L",
-												"data": [
-													"Space Engine L",
-													"Freight Space Engine L",
-													"Maneuver Space Engine L",
-													"Military Space Engine L",
-													"Safe Space Engine L"
-												]
-											},
-											{
-												"name": "Space Engines XL",
-												"data": [
-													"Space Engine XL",
-													"Freight Space Engine XL",
-													"Maneuver Space Engine XL",
-													"Military Space Engine XL",
-													"Safe Space Engine XL"
-												]
-											}
-										]
-									},
-									{
-										"name": "Vertical Boosters",
-										"data": [
-											"Vertical Booster XS",
-											"Vertical Booster S",
-											"Vertical Booster M",
-											"Vertical Booster L"
 										]
 									}
 								]
 							},
 							{
-								"name": "Instruments",
+								"name": "Elevators",
 								"data": [
-									"Gyroscope",
-									"Telemeter",
-									"Territory Scanner"
+									"Elevator XS"
 								]
 							},
 							{
-								"name": "Interactive Elements",
+								"name": "High-Tech Furniture",
 								"data": [
-									{
-										"name": "Doors",
-										"data": [
-											"Airlock",
-											"Interior Door",
-											"Reinforced Sliding Door",
-											"Sliding Door S",
-											"Sliding Door M",
-											"Gate XS",
-											"Expanded Gate S",
-											"Gate M",
-											"Expanded Gate L",
-											"Gate XL",
-											"Hatch S",
-											"Fuel Intake XS"
-										]
-									},
-									{
-										"name": "Elevators",
-										"data": [
-											"Elevator XS"
-										]
-									},
 									{
 										"name": "Force Fields",
 										"data": [
@@ -1006,33 +1287,9 @@
 										]
 									},
 									{
-										"name": "Landing Gears",
+										"name": "Virtual Projectors",
 										"data": [
-											"Landing Gear XS",
-											"Landing Gear S",
-											"Landing Gear M",
-											"Landing Gear L"
-										]
-									},
-									{
-										"name": "Screens/Signs",
-										"data": [
-											"Screen XS",
-											"Screen S",
-											"Screen M",
-											"Screen XL",
-											"Transparent Screen XS",
-											"Transparent Screen S",
-											"Transparent Screen M",
-											"Transparent Screen L",
-											"Sign XS",
-											"Sign S",
-											"Sign M",
-											"Sign L",
-											"Sign Vertical XS",
-											"Sign Vertical M",
-											"Sign Vertical L",
-											"Sensors S"
+											"Virtual Scaffolding Projector"
 										]
 									}
 								]
@@ -1054,192 +1311,765 @@
 									"Vertical Light M",
 									"Vertical Light L"
 								]
-							},
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": "Industry & Infrastructure Elements",
+				"data": [
+					{
+						"name": "Containers",
+						"data": [
 							{
-								"name": "Resurrection Nodes",
+								"name": "Ammo Container",
 								"data": [
-									"Resurrection Node"
+									"Ammo Container XS",
+									"Ammo Container S",
+									"Ammo Container M",
+									"Ammo Container L"
 								]
 							},
 							{
-								"name": "Sensors",
+								"name": "Dispensers",
+								"data": [
+									"Deprecated Dispenser",
+									"Dispenser"
+								]
+							},
+							{
+								"name": "Fuel Tanks",
 								"data": [
 									{
-										"name": "Laser Detectors",
+										"name": "Atmospheric Fuel Containers",
 										"data": [
-											"Infra-Red Laser Receiver",
-											"Laser Receiver"
+											"Atmospheric Fuel Tank XS",
+											"Atmospheric Fuel Tank S",
+											"Atmospheric Fuel Tank M",
+											"Atmospheric Fuel Tank L"
 										]
 									},
 									{
-										"name": "Manual Buttons",
+										"name": "Rocket Fuel Containers",
 										"data": [
-											"Manual Button S",
-											"Manual Button XS"
+											"Rocket Fuel Tank XS",
+											"Rocket Fuel Tank S",
+											"Rocket Fuel Tank M",
+											"Rocket Fuel Tank L"
 										]
 									},
 									{
-										"name": "Manual Switches",
+										"name": "Space Fuel Containers",
 										"data": [
-											"Manual Switch"
-										]
-									},
-									{
-										"name": "Pressure Tiles",
-										"data": [
-											"Pressure Tile"
-										]
-									},
-									{
-										"name": "Radars",
-										"data": [
-											"Small Atmospheric Radar PvP S",
-											"Medium Atmospheric Radar PvP M",
-											"Large Atmospheric Radar PvP L",
-											"Space Radar S",
-											"Space Radar M",
-											"Space Radar L",
-											"Transponder"
-										]
-									},
-									{
-										"name": "Zone Detectors",
-										"data": [
-											"Detection Zone XS",
-											"Detection Zone S",
-											"Detection Zone M",
-											"Detection Zone L"
+											"Space Fuel Tank S",
+											"Space Fuel Tank M",
+											"Space Fuel Tank L"
 										]
 									}
 								]
 							},
 							{
-								"name": "Virtual Projectors",
+								"name": "Item Containers",
 								"data": [
-									"Virtual Scaffolding Projector"
+									"Container Hub",
+									"Container XS",
+									"Container S",
+									"Container M",
+									"Container L",
+									"Container XL",
+									"Expanded Container XL"
 								]
 							},
 							{
-								"name": "Combat Elements",
+								"name": "Parcel Container",
 								"data": [
-									{
-										"name": "Weapon Units",
-										"data": [
-											{
-												"name": "Cannons",
-												"data": [
-													"Cannon XS",
-													"Cannon S",
-													"Cannon M",
-													"Cannon L"
-												]
-											},
-											{
-												"name": "Lasers",
-												"data": [
-													"Laser XS",
-													"Laser S",
-													"Laser M",
-													"Laser L"
-												]
-											},
-											{
-												"name": "Missile Pods",
-												"data": [
-													"Missile XS",
-													"Missile S",
-													"Missile M",
-													"Missile L"
-												]
-											},
-											{
-												"name": "Railguns",
-												"data": [
-													"Railgun XS",
-													"Railgun S",
-													"Railgun M",
-													"Railgun L"
-												]
-											}
-										]
-									},
-									{
-										"name": "Gunner Seats",
-										"data": [
-											"Gunner Module S",
-											"Gunner Module M",
-											"Gunner Module L"
-										]
-									},
-									"Repair Unit"
-								]
-							},
-							{
-								"name": "Surrogate VR Elements",
-								"data": [
-									"Surrogate Pod Station",
-									"Surrogate VR Station"
-								]
-							},
-							{
-								"name": "Warp Drives",
-								"data": [
-									"Warp Drive L"
-								]
-							},
-							{
-								"name": "Warp Beacons",
-								"data": [
-									"Warp Beacon XL"
+									"Parcel Container XS",
+									"Parcel Container S",
+									"Parcel Container M",
+									"Parcel Container L",
+									"Parcel Container XL",
+									"Expanded Parcel Container XL"
 								]
 							}
 						]
 					},
 					{
-						"name": "Planet Elements",
+						"name": "Industry",
 						"data": [
 							{
-								"name": "Core Units",
+								"name": "Basic Industry",
 								"data": [
-									{
-										"name": "Dynamic Core Units",
-										"data": [
-											"Dynamic Core XS",
-											"Dynamic Core S",
-											"Dynamic Core M",
-											"Dynamic Core L"
-										]
-									},
-									{
-										"name": "Static Core Units",
-										"data": [
-											"Static Core XS",
-											"Static Core S",
-											"Static Core M",
-											"Static Core L"
-										]
-									},
-									{
-										"name": "Space Core Units",
-										"data": [
-											"Space Core XS",
-											"Space Core S",
-											"Space Core M",
-											"Space Core L"
-										]
-									}
+									"Basic 3D Printer M",
+									"Basic Assembly Line XS",
+									"Basic Assembly Line S",
+									"Basic Assembly Line M",
+									"Basic Assembly Line L",
+									"Basic Assembly Line XL",
+									"Basic Chemical Industry M",
+									"Basic Electronics Industry M",
+									"Basic Glass Furnace M",
+									"Basic Honeycomb Refinery M",
+									"Basic Metalwork Industry M",
+									"Basic Recycler M",
+									"Basic Refiner M",
+									"Basic Smelter M"
 								]
 							},
+							{
+								"name": "Uncommon Industry",
+								"data": [
+									"Uncommon 3D Printer M",
+									"Uncommon Assembly Line XS",
+									"Uncommon Assembly Line S",
+									"Uncommon Assembly Line M",
+									"Uncommon Assembly Line L",
+									"Uncommon Assembly Line XL",
+									"Uncommon Chemical Industry M",
+									"Uncommon Electronics Industry M",
+									"Uncommon Glass Furnace M",
+									"Uncommon Honeycomb Refinery M",
+									"Uncommon Metalwork Industry M",
+									"Uncommon Recycler M",
+									"Uncommon Refiner M",
+									"Uncommon Smelter M"
+								]
+							},
+							{
+								"name": "Advanced Industry",
+								"data": [
+									"Advanced 3D Printer M",
+									"Advanced Assembly Line XS",
+									"Advanced Assembly Line S",
+									"Advanced Assembly Line M",
+									"Advanced Assembly Line L",
+									"Advanced Assembly Line XL",
+									"Advanced Chemical Industry M",
+									"Advanced Electronics Industry M",
+									"Advanced Glass Furnace M",
+									"Advanced Honeycomb Refinery M",
+									"Advanced Metalwork Industry M",
+									"Advanced Recycler M",
+									"Advanced Refiner M",
+									"Advanced Smelter M"
+								]
+							},
+							{
+								"name": "Rare Industry",
+								"data": [
+									"Rare 3D Printer M",
+									"Rare Assembly Line XS",
+									"Rare Assembly Line S",
+									"Rare Assembly Line M",
+									"Rare Assembly Line L",
+									"Rare Assembly Line XL",
+									"Rare Chemical Industry M",
+									"Rare Electronics Industry M",
+									"Rare Glass Furnace M",
+									"Rare Honeycomb Refinery M",
+									"Rare Metalwork Industry M",
+									"Rare Recycler M",
+									"Rare Refiner M",
+									"Rare Smelter M"
+								]
+							},
+							"Transfer Unit"
+						]
+					}
+				]
+			},
+			{
+				"name": "Planet Elements",
+				"data": [
+					{
+						"name": "Core Units",
+						"data": [
+							{
+								"name": "Dynamic Core Units",
+								"data": [
+									"Dynamic Core Unit XS",
+									"Dynamic Core Unit S",
+									"Dynamic Core Unit M",
+									"Dynamic Core Unit L"
+								]
+							},
+							{
+								"name": "Space Core Units",
+								"data": [
+									"Space Core Unit XS",
+									"Space Core Unit S",
+									"Space Core Unit M",
+									"Space Core Unit L"
+								]
+							},
+							{
+								"name": "Static Core Units",
+								"data": [
+									"Static Core Unit XS",
+									"Static Core Unit S",
+									"Static Core Unit M",
+									"Static Core Unit L"
+								]
+							}
+						]
+					},
+					{
+						"name": "Territory Units",
+						"data": [
 							"Territory Unit"
 						]
 					}
 				]
 			},
 			{
-				"name": "Materials",
+				"name": "Systems",
 				"data": [
 					{
-						"name": "Catalysts",
+						"name": "Control Units",
+						"data": [
+							{
+								"name": "Emergency Controllers",
+								"data": [
+									"Emergency Controller"
+								]
+							},
+							{
+								"name": "Generic Control Units",
+								"data": [
+									"Programming Board"
+								]
+							},
+							{
+								"name": "Gunner Module",
+								"data": [
+									"Gunner Module S",
+									"Gunner Module M",
+									"Gunner Module L"
+								]
+							},
+							{
+								"name": "Piloting Control Units",
+								"data": [
+									{
+										"name": "Closed Cockpits",
+										"data": [
+											"Cockpit Controller"
+										]
+									},
+									{
+										"name": "Command Seat",
+										"data": [
+											"Command Seat Controller"
+										]
+									},
+									{
+										"name": "Hovercraft Cockpits",
+										"data": [
+											"Hovercraft Seat Controller"
+										]
+									},
+									{
+										"name": "Remote Controllers",
+										"data": [
+											"Remote Controller"
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"name": "Resurrection Nodes",
+						"data": [
+							"Resurrection Node"
+						]
+					},
+					{
+						"name": "Surrogate Station Equipment",
+						"data": [
+							"Surrogate Pod Station",
+							"Surrogate VR Station"
+						]
+					},
+					{
+						"name": "Territory Scanners",
+						"data": [
+							"Territory Scanner"
+						]
+					}
+				]
+			},
+			{
+				"name": "Transportation Elements",
+				"data": [
+					{
+						"name": "Airfoil",
+						"data": [
+							{
+								"name": "Aileron",
+								"data": [
+									"Aileron XS",
+									"Aileron S",
+									"Aileron M",
+									"Compact Aileron XS",
+									"Compact Aileron S",
+									"Compact Aileron M"
+								]
+							},
+							{
+								"name": "Stabilizer",
+								"data": [
+									"Stabilizer XS",
+									"Stabilizer S",
+									"Stabilizer M",
+									"Stabilizer L"
+								]
+							},
+							{
+								"name": "Wing",
+								"data": [
+									"Wing XS",
+									"Wing S",
+									"Wing M",
+									"Wing Variant M"
+								]
+							}
+						]
+					},
+					{
+						"name": "Atmospheric Brakes",
+						"data": [
+							{
+								"name": "Airbrakes",
+								"data": [
+									"Atmospheric Airbrake S",
+									"Atmospheric Airbrake M",
+									"Atmospheric Airbrake L"
+								]
+							},
+							{
+								"name": "Space Brakes",
+								"data": [
+									"Retro-Rocket Brake S",
+									"Retro-Rocket Brake M",
+									"Retro-Rocket Brake L"
+								]
+							}
+						]
+					},
+					{
+						"name": "Engines",
+						"data": [
+							{
+								"name": "Adjustors",
+								"data": [
+									"Adjustor XS",
+									"Adjustor S",
+									"Adjustor M",
+									"Adjustor L"
+								]
+							},
+							{
+								"name": "Atmospheric Engines",
+								"data": [
+									{
+										"name": "Atmospheric Engines XS",
+										"data": [
+											"Basic Atmospheric Engine XS",
+											"Uncommon Freight Atmospheric Engine XS",
+											"Uncommon Maneuver Atmospheric Engine XS",
+											"Uncommon Military Atmospheric Engine XS",
+											"Uncommon Safe Atmospheric Engine XS",
+											"Advanced Freight Atmospheric Engine XS",
+											"Advanced Maneuver Atmospheric Engine XS",
+											"Advanced Military Atmospheric Engine XS",
+											"Advanced Safe Atmospheric Engine XS",
+											"Rare Freight Atmospheric Engine XS",
+											"Rare Maneuver Atmospheric Engine XS",
+											"Rare Military Atmospheric Engine XS",
+											"Rare Safe Atmospheric Engine XS"
+										]
+									},
+									{
+										"name": "Atmospheric Engines S",
+										"data": [
+											"Basic Atmospheric Engine S",
+											"Uncommon Freight Atmospheric Engine S",
+											"Uncommon Maneuver Atmospheric Engine S",
+											"Uncommon Military Atmospheric Engine S",
+											"Uncommon Safe Atmospheric Engine S",
+											"Advanced Freight Atmospheric Engine S",
+											"Advanced Maneuver Atmospheric Engine S",
+											"Advanced Military Atmospheric Engine S",
+											"Advanced Safe Atmospheric Engine S",
+											"Rare Freight Atmospheric Engine S",
+											"Rare Maneuver Atmospheric Engine S",
+											"Rare Military Atmospheric Engine S",
+											"Rare Safe Atmospheric Engine S"
+										]
+									},
+									{
+										"name": "Atmospheric Engines M",
+										"data": [
+											"Basic Atmospheric Engine M",
+											"Uncommon Freight Atmospheric Engine M",
+											"Uncommon Maneuver Atmospheric Engine M",
+											"Uncommon Military Atmospheric Engine M",
+											"Uncommon Safe Atmospheric Engine M",
+											"Advanced Freight Atmospheric Engine M",
+											"Advanced Maneuver Atmospheric Engine M",
+											"Advanced Military Atmospheric Engine M",
+											"Advanced Safe Atmospheric Engine M",
+											"Rare Freight Atmospheric Engine M",
+											"Rare Maneuver Atmospheric Engine M",
+											"Rare Military Atmospheric Engine M",
+											"Rare Safe Atmospheric Engine M"
+										]
+									},
+									{
+										"name": "Atmospheric Engines L",
+										"data": [
+											"Basic Atmospheric Engine L",
+											"Uncommon Freight Atmospheric Engine L",
+											"Uncommon Maneuver Atmospheric Engine L",
+											"Uncommon Military Atmospheric Engine L",
+											"Uncommon Safe Atmospheric Engine L",
+											"Advanced Freight Atmospheric Engine L",
+											"Advanced Maneuver Atmospheric Engine L",
+											"Advanced Military Atmospheric Engine L",
+											"Advanced Safe Atmospheric Engine L",
+											"Rare Freight Atmospheric Engine L",
+											"Rare Maneuver Atmospheric Engine L",
+											"Rare Military Atmospheric Engine L",
+											"Rare Safe Atmospheric Engine L"
+										]
+									}
+								]
+							},
+							{
+								"name": "Ground Engines",
+								"data": [
+									{
+										"name": "Hovercraft Engines",
+										"data": [
+											"Flat Hover Engine L",
+											"Hover Engine S",
+											"Hover Engine M",
+											"Hover Engine L"
+										]
+									},
+									{
+										"name": "Vertical Boosters",
+										"data": [
+											"Vertical Booster XS",
+											"Vertical Booster S",
+											"Vertical Booster M",
+											"Vertical Booster L"
+										]
+									}
+								]
+							},
+							{
+								"name": "Rocket Engines",
+								"data": [
+									"Rocket Engine S",
+									"Rocket Engine M",
+									"Rocket Engine L"
+								]
+							},
+							{
+								"name": "Space Engines",
+								"data": [
+									{
+										"name": "Space Engines XS",
+										"data": [
+											"Basic Space Engine XS",
+											"Uncommon Freight Space Engine XS",
+											"Uncommon Maneuver Space Engine XS",
+											"Uncommon Military Space Engine XS",
+											"Uncommon Safe Space Engine XS",
+											"Advanced Freight Space Engine XS",
+											"Advanced Maneuver Space Engine XS",
+											"Advanced Military Space Engine XS",
+											"Advanced Safe Space Engine XS",
+											"Rare Freight Space Engine XS",
+											"Rare Maneuver Space Engine XS",
+											"Rare Military Space Engine XS",
+											"Rare Safe Space Engine XS"
+										]
+									},
+									{
+										"name": "Space Engines S",
+										"data": [
+											"Basic Space Engine S",
+											"Uncommon Freight Space Engine S",
+											"Uncommon Maneuver Space Engine S",
+											"Uncommon Military Space Engine S",
+											"Uncommon Safe Space Engine S",
+											"Advanced Freight Space Engine S",
+											"Advanced Maneuver Space Engine S",
+											"Advanced Military Space Engine S",
+											"Advanced Safe Space Engine S",
+											"Rare Freight Space Engine S",
+											"Rare Maneuver Space Engine S",
+											"Rare Military Space Engine S",
+											"Rare Safe Space Engine S"
+										]
+									},
+									{
+										"name": "Space Engines M",
+										"data": [
+											"Basic Space Engine M",
+											"Uncommon Freight Space Engine M",
+											"Uncommon Maneuver Space Engine M",
+											"Uncommon Military Space Engine M",
+											"Uncommon Safe Space Engine M",
+											"Advanced Freight Space Engine M",
+											"Advanced Maneuver Space Engine M",
+											"Advanced Military Space Engine M",
+											"Advanced Safe Space Engine M",
+											"Rare Freight Space Engine M",
+											"Rare Maneuver Space Engine M",
+											"Rare Military Space Engine M",
+											"Rare Safe Space Engine M"
+										]
+									},
+									{
+										"name": "Space Engines L",
+										"data": [
+											"Basic Space Engine L",
+											"Uncommon Freight Space Engine L",
+											"Uncommon Maneuver Space Engine L",
+											"Uncommon Military Space Engine L",
+											"Uncommon Safe Space Engine L",
+											"Advanced Freight Space Engine L",
+											"Advanced Maneuver Space Engine L",
+											"Advanced Military Space Engine L",
+											"Advanced Safe Space Engine L",
+											"Rare Freight Space Engine L",
+											"Rare Maneuver Space Engine L",
+											"Rare Military Space Engine L",
+											"Rare Safe Space Engine L"
+										]
+									},
+									{
+										"name": "Space Engines XL",
+										"data": [
+											"Basic Space Engine XL",
+											"Uncommon Freight Space Engine XL",
+											"Uncommon Maneuver Space Engine XL",
+											"Uncommon Military Space Engine XL",
+											"Uncommon Safe Space Engine XL",
+											"Advanced Freight Space Engine XL",
+											"Advanced Maneuver Space Engine XL",
+											"Advanced Military Space Engine XL",
+											"Advanced Safe Space Engine XL",
+											"Rare Freight Space Engine XL",
+											"Rare Maneuver Space Engine XL",
+											"Rare Military Space Engine XL",
+											"Rare Safe Space Engine XL"
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"name": "High-Tech Transportation",
+						"data": [
+							{
+								"name": "Anti-Gravity Generator",
+								"data": [
+									"Anti-Gravity Generator S",
+									"Anti-Gravity Generator M",
+									"Anti-Gravity Generator L"
+								]
+							},
+							{
+								"name": "Anti-Gravity Pulsor",
+								"data": [
+									"Anti-Gravity Pulsor"
+								]
+							},
+							{
+								"name": "Warp Beacon Units",
+								"data": [
+									"Warp Beacon XL"
+								]
+							},
+							{
+								"name": "Warp Drive Units",
+								"data": [
+									"Warp Drive L"
+								]
+							}
+						]
+					},
+					{
+						"name": "Support Tech",
+						"data": [
+							{
+								"name": "Gyroscopes",
+								"data": [
+									"Gyroscope"
+								]
+							},
+							{
+								"name": "Landing Gears",
+								"data": [
+									"Landing Gear XS",
+									"Landing Gear S",
+									"Landing Gear M",
+									"Landing Gear L"
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "Materials",
+		"data": [
+			{
+				"name": "Fuels",
+				"data": [
+					{
+						"name": "Atmospheric Fuels",
+						"data": [
+							"Nitron Fuel"
+						]
+					},
+					{
+						"name": "Rocket Fuels",
+						"data": [
+							"Xeron Fuel"
+						]
+					},
+					{
+						"name": "Space Fuels",
+						"data": [
+							"Kergon-X1 Fuel",
+							"Kergon-X2 Fuel",
+							"Kergon-X3 Fuel",
+							"Kergon-X4 Fuel"
+						]
+					}
+				]
+			},
+			{
+				"name": "Honeycomb Materials",
+				"data": [
+					{
+						"name": "Product Honeycomb Materials",
+						"data": [
+							"Al-Li Honeycomb",
+							"Brick Honeycomb",
+							"Carbon Fiber Honeycomb",
+							"Concrete Honeycomb",
+							"Duralumin Honeycomb",
+							"Grade 5 Titanium Honeycomb",
+							"Inconel Honeycomb",
+							"Luminescent White Glass",
+							"Mangalloy Honeycomb",
+							"Maraging Steel Honeycomb",
+							"Marble Honeycomb",
+							"Plastic Honeycomb",
+							"Sc-Al Honeycomb",
+							"Silumin Honeycomb",
+							"Stainless Steel Honeycomb",
+							"Steel Honeycomb",
+							"Wood Honeycomb"
+						]
+					},
+					{
+						"name": "Pure Honeycomb Materials",
+						"data": [
+							"Aluminium Honeycomb",
+							"Calcium Honeycomb",
+							"Chromium Honeycomb",
+							"Cobalt Honeycomb",
+							"Copper Honeycomb",
+							"Fluorine Honeycomb",
+							"Gold Honeycomb",
+							"Iron Honeycomb",
+							"Lithium Honeycomb",
+							"Manganese Honeycomb",
+							"Nickel Honeycomb",
+							"Niobium Honeycomb",
+							"Scandium Honeycomb",
+							"Silicon Honeycomb",
+							"Silver Honeycomb",
+							"Sodium Honeycomb",
+							"Sulfur Honeycomb",
+							"Titanium Honeycomb",
+							"Vanadium Honeycomb"
+						]
+					}
+				]
+			},
+			{
+				"name": "Minable Materials",
+				"data": [
+					{
+						"name": "Ores",
+						"data": [
+							{
+								"name": "Tier 1 Ores",
+								"data": [
+									"Bauxite",
+									"Coal",
+									"Hematite",
+									"Quartz"
+								]
+							},
+							{
+								"name": "Tier 2 Ores",
+								"data": [
+									"Chromite",
+									"Limestone",
+									"Malachite",
+									"Natron"
+								]
+							},
+							{
+								"name": "Tier 3 Ores",
+								"data": [
+									"Acanthite",
+									"Garnierite",
+									"Petalite",
+									"Pyrite"
+								]
+							},
+							{
+								"name": "Tier 4 Ores",
+								"data": [
+									"Cobaltite",
+									"Cryolite",
+									"Gold Nuggets",
+									"Kolbeckite"
+								]
+							},
+							{
+								"name": "Tier 5 Ores",
+								"data": [
+									"Columbite",
+									"Illmenite",
+									"Rhodonite",
+									"Thoramine",
+									"Vanadinite"
+								]
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": "Refined Materials",
+				"data": [
+					{
+						"name": "Catalyst",
 						"data": [
 							"Catalyst 3",
 							"Catalyst 4",
@@ -1247,187 +2077,118 @@
 						]
 					},
 					{
-						"name": "Fuels",
+						"name": "Products",
 						"data": [
-							{
-								"name": "Atmospheric Fuels",
-								"data": [
-									"Nitron Fuel"
-								]
-							},
-							{
-								"name": "Rocket Fuels",
-								"data": [
-									"Xeron Fuel"
-								]
-							},
-							{
-								"name": "Space Fuels",
-								"data": [
-									"Kergon-X1 Fuel",
-									"Kergon-X2 Fuel",
-									"Kergon-X3 Fuel",
-									"Kergon-X4 Fuel"
-								]
-							}
-						]
-					},
-					{
-						"name": "Honeycomb Materials",
-						"data": [
-							{
-								"name": "Product Honeycomb",
-								"data": [
-									"Brick Honeycomb",
-									"Carbonfiber Honeycomb",
-									"Concrete Honeycomb",
-									"Marble Honeycomb",
-									"Plastic Honeycomb",
-									"Steel Honeycomb",
-									"Wood Honeycomb",
-									"Luminescent White Glass"
-								]
-							},
-							{
-								"name": "Pure Honeycomb",
-								"data": [
-									"Aluminium Honeycomb",
-									"Carbon Honeycomb",
-									"Iron Honeycomb",
-									"Silicon Honeycomb",
-									"Calcium Honeycomb",
-									"Chromium Honeycomb",
-									"Copper Honeycomb",
-									"Sodium Honeycomb",
-									"Lithium Honeycomb",
-									"Nickel Honeycomb",
-									"Silver Honeycomb",
-									"Sulfur Honeycomb",
-									"Cobalt Honeycomb",
-									"Fluorine Honeycomb",
-									"Gold Honeycomb",
-									"Scandium Honeycomb",
-									"Manganese Honeycomb",
-									"Niobium Honeycomb",
-									"Titanium Honeycomb",
-									"Vanadium Honeycomb"
-								]
-							}
-						]
-					},
-					{
-						"name": "Product",
-						"data": [
-							"Advanced Glass",
-							"Ag-Li Reinforced Glass",
-							"Al-Fe Alloy",
-							"Al-Li Alloy",
 							"Biological Matter",
 							"Brick",
-							"Calcium Reinforced Copper",
 							"Carbon Fiber",
-							"Cu-Ag Alloy",
 							"Concrete",
-							"Duralumin",
-							"Fluoropolymer",
-							"Glass",
-							"Gold Coated Glass",
-							"Grade 5 Titanium Alloy",
-							"Inconel",
-							"Mangalloy",
-							"Manganese Reinforced Glass",
-							"Maraging Steel",
+							{
+								"name": "Conductor Metals",
+								"data": [
+									"Al-Fe Alloy",
+									"Calcium Reinforced Copper",
+									"Cu-Ag Alloy",
+									"Red Gold",
+									"Ti-Nb Supraconductor"
+								]
+							},
+							{
+								"name": "Glass Materials",
+								"data": [
+									"Glass",
+									"Advanced Glass",
+									"Ag-Li Reinforced Glass",
+									"Gold-Coated Glass",
+									"Manganese Reinforced Glass"
+								]
+							},
+							{
+								"name": "Heavy Metals",
+								"data": [
+									"Steel",
+									"Stainless Steel",
+									"Inconel",
+									"Maraging Steel",
+									"Mangalloy"
+								]
+							},
+							{
+								"name": "Light Metals",
+								"data": [
+									"Silumin",
+									"Duralumin",
+									"Al-Li Alloy",
+									"Sc-Al Alloy",
+									"Grade 5 Titanium Alloy"
+								]
+							},
 							"Marble",
-							"Polycalcite Plastic",
-							"Polycarbonate Plastic",
-							"Polysulfide Plastic",
-							"Red Gold",
-							"Sc-Al Alloy",
-							"Silumin",
-							"Stainless Steel",
-							"Steel",
-							"Ti-Nb Supraconductor",
-							"Vanamer",
+							{
+								"name": "Polymers",
+								"data": [
+									"Polycarbonate Plastic",
+									"Polycalcite Plastic",
+									"Polysulfide Plastic",
+									"Fluoropolymer",
+									"Vanamer"
+								]
+							},
 							"Wood"
 						]
 					},
 					{
-						"name": "Pure",
+						"name": "Pures",
 						"data": [
-							"Aluminium Pure",
-							"Calcium Pure",
-							"Carbon Pure",
-							"Chromium Pure",
-							"Cobalt Pure",
-							"Copper Pure",
-							"Gold Pure",
-							"Iron Pure",
-							"Fluorine Pure",
-							"Lithium Pure",
-							"Manganese Pure",
-							"Nickel Pure",
-							"Niobium Pure",
-							"Scandium Pure",
-							"Silicon Pure",
-							"Silver Pure",
-							"Sodium Pure",
-							"Sulfur Pure",
-							"Titanium Pure",
-							"Vanadium Pure"
-						]
-					},
-					{
-						"name": "Ore",
-						"data": [
-							"Acanthite",
-							"Bauxite",
-							"Chromite",
-							"Coal",
-							"Cobaltite",
-							"Columbite",
-							"Cryolite",
-							"Garnierite",
-							"Gold Nuggets",
-							"Hematite",
-							"Illmenite",
-							"Kolbeckite",
-							"Limestone",
-							"Malachite",
-							"Natron",
-							"Petalite",
-							"Pyrite",
-							"Quartz",
-							"Rhodonite",
-							"Vanadinite"
+							{
+								"name": "Basic Pure Materials",
+								"data": [
+									"Pure Aluminium",
+									"Pure Carbon",
+									"Pure Iron",
+									"Pure Silicon"
+								]
+							},
+							{
+								"name": "Uncommon Pure Materials",
+								"data": [
+									"Pure Calcium",
+									"Pure Chromium",
+									"Pure Copper",
+									"Pure Sodium"
+								]
+							},
+							{
+								"name": "Advanced Pure Materials",
+								"data": [
+									"Pure Lithium",
+									"Pure Nickel",
+									"Pure Silver",
+									"Pure Sulfur"
+								]
+							},
+							{
+								"name": "Rare Pure Materials",
+								"data": [
+									"Pure Cobalt",
+									"Pure Fluorine",
+									"Pure Gold",
+									"Pure Scandium"
+								]
+							},
+							{
+								"name": "Exotic Pure Materials",
+								"data": [
+									"Pure Manganese",
+									"Pure Niobium",
+									"Pure Titanium",
+									"Pure Vanadium"
+								]
+							},
+							"Pure Hydrogen",
+							"Pure Oxygen"
 						]
 					}
-				]
-			},
-			{
-				"name": "Scraps",
-				"data": [
-					"Aluminium Scrap",
-					"Calcium Scrap",
-					"Carbon Scrap",
-					"Chromium Scrap",
-					"Cobalt Scrap",
-					"Copper Scrap",
-					"Gold Scrap",
-					"Iron Scrap",
-					"Fluorine Scrap",
-					"Lithium Scrap",
-					"Nickel Scrap",
-					"Scandium Scrap",
-					"Silicon Scrap",
-					"Silver Scrap",
-					"Sodium Scrap",
-					"Sulfur Scrap"
-				]
-			},
-			{
-				"name": "Warp Cells",
-				"data": [
-					"Warp Cell"
 				]
 			}
 		]
@@ -1436,16 +2197,14 @@
 		"name": "Parts",
 		"data": [
 			{
-				"name": "Complex Parts",
+				"name": "Complex parts",
 				"data": [
 					{
-						"name": "Anti-Matter Capsules",
+						"name": "Antimatter Capsules",
 						"data": [
-							"Basic Anti-Matter Capsule",
-							"Uncommon Anti-Matter Capsule",
-							"Advanced Anti-Matter Capsule",
-							"Rare Anti-Matter Capsule",
-							"Exotic Anti-Matter Capsule"
+							"Basic Antimatter Capsule",
+							"Uncommon Antimatter Capsule",
+							"Advanced Antimatter Capsule"
 						]
 					},
 					{
@@ -1453,7 +2212,9 @@
 						"data": [
 							"Basic Burner",
 							"Uncommon Burner",
-							"Advanced Burner"
+							"Advanced Burner",
+							"Rare Burner",
+							"Exotic Burner"
 						]
 					},
 					{
@@ -1479,14 +2240,18 @@
 						"data": [
 							"Basic Hydraulics",
 							"Uncommon Hydraulics",
-							"Advanced Hydraulics"
+							"Advanced Hydraulics",
+							"Rare Hydraulics",
+							"Exotic Hydraulics"
 						]
 					},
 					{
 						"name": "Injectors",
 						"data": [
 							"Basic Injector",
-							"Advanced Injector"
+							"Uncommon Injector",
+							"Advanced Injector",
+							"Rare Injector"
 						]
 					},
 					{
@@ -1505,7 +2270,8 @@
 							"Basic Optics",
 							"Uncommon Optics",
 							"Advanced Optics",
-							"Rare Optics"
+							"Rare Optics",
+							"Exotic Optics"
 						]
 					},
 					{
@@ -1523,8 +2289,7 @@
 						"data": [
 							"Basic Processor",
 							"Uncommon Processor",
-							"Advanced Processor",
-							"Exotic Processor"
+							"Advanced Processor"
 						]
 					},
 					{
@@ -1548,7 +2313,7 @@
 						]
 					},
 					{
-						"name": "Solid Warhead",
+						"name": "Solid Warheads",
 						"data": [
 							"Uncommon Solid Warhead",
 							"Advanced Solid Warhead"
@@ -1568,10 +2333,9 @@
 						]
 					},
 					{
-						"name": "Anti-Matter Core Units",
+						"name": "Antimatter Cores",
 						"data": [
-							"Advanced Anti-Matter Core Unit",
-							"Exotic Anti-Matter Core Unit"
+							"Advanced Antimatter Core"
 						]
 					},
 					{
@@ -1585,6 +2349,291 @@
 						"name": "Quantum Barriers",
 						"data": [
 							"Advanced Quantum Barrier"
+						]
+					}
+				]
+			},
+			{
+				"name": "Functional Parts",
+				"data": [
+					{
+						"name": "Antennas",
+						"data": [
+							"Basic Antenna XS",
+							"Basic Antenna S",
+							"Uncommon Antenna S",
+							"Uncommon Antenna M",
+							"Uncommon Antenna L",
+							"Advanced Antenna S",
+							"Advanced Antenna M",
+							"Advanced Antenna L",
+							"Rare Antenna S",
+							"Rare Antenna M",
+							"Rare Antenna L",
+							"Exotic Antenna S",
+							"Exotic Antenna M",
+							"Exotic Antenna L",
+							"Exotic Antenna XL"
+						]
+					},
+					{
+						"name": "Chemical Containers",
+						"data": [
+							"Basic Chemical Container XS",
+							"Basic Chemical Container S",
+							"Basic Chemical Container M",
+							"Basic Chemical Container L",
+							"Basic Chemical Container XL",
+							"Uncommon Chemical Container M",
+							"Advanced Chemical Container S",
+							"Advanced Chemical Container M",
+							"Advanced Chemical Container L",
+							"Advanced Chemical Container XL",
+							"Rare Chemical Container M"
+						]
+					},
+					{
+						"name": "Combustion Chambers",
+						"data": [
+							"Basic Combustion Chamber XS",
+							"Basic Combustion Chamber S",
+							"Basic Combustion Chamber M",
+							"Basic Combustion Chamber L",
+							"Uncommon Combustion Chamber XS",
+							"Uncommon Combustion Chamber S",
+							"Uncommon Combustion Chamber M",
+							"Uncommon Combustion Chamber L",
+							"Advanced Combustion Chamber XS",
+							"Advanced Combustion Chamber S",
+							"Advanced Combustion Chamber M",
+							"Advanced Combustion Chamber L",
+							"Rare Combustion Chamber XS",
+							"Rare Combustion Chamber S",
+							"Rare Combustion Chamber M",
+							"Rare Combustion Chamber L"
+						]
+					},
+					{
+						"name": "Control Systems",
+						"data": [
+							"Basic Control System XS",
+							"Basic Control System S",
+							"Basic Control System M",
+							"Advanced Control System S",
+							"Advanced Control System M",
+							"Advanced Control System L"
+						]
+					},
+					{
+						"name": "Core Systems",
+						"data": [
+							"Basic Core System XS",
+							"Basic Core System S",
+							"Uncommon Core System S",
+							"Uncommon Core System M",
+							"Uncommon Core System L",
+							"Advanced Core System M",
+							"Rare Core System L",
+							"Exotic Core System S"
+						]
+					},
+					{
+						"name": "Electric Engines",
+						"data": [
+							"Basic Electric Engine S",
+							"Basic Electric Engine M",
+							"Uncommon Electric Engine XL"
+						]
+					},
+					{
+						"name": "Firing Systems",
+						"data": [
+							"Basic Firing System XS",
+							"Advanced Firing System XS",
+							"Advanced Firing System S",
+							"Advanced Firing System M",
+							"Advanced Firing System L",
+							"Rare Firing System XS",
+							"Rare Firing System S",
+							"Rare Firing System M",
+							"Rare Firing System L",
+							"Exotic Firing System XS",
+							"Exotic Firing System S",
+							"Exotic Firing System M",
+							"Exotic Firing System L"
+						]
+					},
+					{
+						"name": "Gas Cylinders",
+						"data": [
+							"Basic Gas Cylinder XS",
+							"Basic Gas Cylinder S",
+							"Basic Gas Cylinder M"
+						]
+					},
+					{
+						"name": "Ionic Chambers",
+						"data": [
+							"Basic Ionic Chamber XS",
+							"Basic Ionic Chamber S",
+							"Basic Ionic Chamber M",
+							"Basic Ionic Chamber L",
+							"Basic Ionic Chamber XL",
+							"Uncommon Ionic Chamber XS",
+							"Uncommon Ionic Chamber S",
+							"Uncommon Ionic Chamber M",
+							"Uncommon Ionic Chamber L",
+							"Uncommon Ionic Chamber XL",
+							"Advanced Ionic Chamber XS",
+							"Advanced Ionic Chamber S",
+							"Advanced Ionic Chamber M",
+							"Advanced Ionic Chamber L",
+							"Advanced Ionic Chamber XL",
+							"Rare Ionic Chamber XS",
+							"Rare Ionic Chamber S",
+							"Rare Ionic Chamber M",
+							"Rare Ionic Chamber L",
+							"Rare Ionic Chamber XL"
+						]
+					},
+					{
+						"name": "Laser Chambers",
+						"data": [
+							"Basic Laser Chamber S",
+							"Uncommon Laser Chamber XS",
+							"Advanced Laser Chamber XS",
+							"Advanced Laser Chamber S",
+							"Advanced Laser Chamber M",
+							"Advanced Laser Chamber L",
+							"Rare Laser Chamber XS",
+							"Rare Laser Chamber S",
+							"Rare Laser Chamber M",
+							"Rare Laser Chamber L",
+							"Exotic Laser Chamber XS",
+							"Exotic Laser Chamber S",
+							"Exotic Laser Chamber M",
+							"Exotic Laser Chamber L"
+						]
+					},
+					{
+						"name": "Lights",
+						"data": [
+							"Uncommon Light XS",
+							"Uncommon Light S"
+						]
+					},
+					{
+						"name": "Magnetic Rails",
+						"data": [
+							"Advanced Magnetic Rail XS",
+							"Advanced Magnetic Rail S",
+							"Advanced Magnetic Rail M",
+							"Advanced Magnetic Rail L",
+							"Rare Magnetic Rail XS",
+							"Rare Magnetic Rail S",
+							"Rare Magnetic Rail M",
+							"Rare Magnetic Rail L",
+							"Exotic Magnetic Rail XS",
+							"Exotic Magnetic Rail S",
+							"Exotic Magnetic Rail M",
+							"Exotic Magnetic Rail L"
+						]
+					},
+					{
+						"name": "Mechanical Sensors",
+						"data": [
+							"Basic Mechanical Sensor XS",
+							"Advanced Mechanical Sensor XS",
+							"Exotic Mechanical Sensor XS"
+						]
+					},
+					{
+						"name": "Missile Silos",
+						"data": [
+							"Advanced Missile Silo XS",
+							"Advanced Missile Silo S",
+							"Advanced Missile Silo M",
+							"Advanced Missile Silo L",
+							"Rare Missile Silo XS",
+							"Rare Missile Silo S",
+							"Rare Missile Silo M",
+							"Rare Missile Silo L",
+							"Exotic Missile Silo XS",
+							"Exotic Missile Silo S",
+							"Exotic Missile Silo M",
+							"Exotic Missile Silo L"
+						]
+					},
+					{
+						"name": "Mobile Panels",
+						"data": [
+							"Basic Mobile Panel XS",
+							"Basic Mobile Panel S",
+							"Basic Mobile Panel M",
+							"Basic Mobile Panel L",
+							"Basic Mobile Panel XL",
+							"Uncommon Mobile Panel XS",
+							"Uncommon Mobile Panel S",
+							"Uncommon Mobile Panel M",
+							"Uncommon Mobile Panel L",
+							"Uncommon Mobile Panel XL",
+							"Advanced Mobile Panel XS",
+							"Advanced Mobile Panel S",
+							"Advanced Mobile Panel M",
+							"Advanced Mobile Panel L",
+							"Advanced Mobile Panel XL",
+							"Rare Mobile Panel XS",
+							"Rare Mobile Panel S",
+							"Rare Mobile Panel M",
+							"Rare Mobile Panel L",
+							"Rare Mobile Panel XL"
+						]
+					},
+					{
+						"name": "Motherboards",
+						"data": [
+							"Advanced Motherboard M"
+						]
+					},
+					{
+						"name": "Ore Scanners",
+						"data": [
+							"Uncommon Ore Scanner XL"
+						]
+					},
+					{
+						"name": "Power Transformer",
+						"data": [
+							"Basic Power Transformer M",
+							"Uncommon Power Transformer S",
+							"Uncommon Power Transformer M",
+							"Advanced Power Transformer M",
+							"Rare Power Transformer M",
+							"Rare Power Transformer L",
+							"Rare Power Transformer XL"
+						]
+					},
+					{
+						"name": "Robotic Arms",
+						"data": [
+							"Basic Robotic Arm M",
+							"Basic Robotic Arm L",
+							"Basic Robotic Arm XL",
+							"Uncommon Robotic Arm M",
+							"Advanced Robotic Arm M",
+							"Rare Robotic Arm M"
+						]
+					},
+					{
+						"name": "Screens",
+						"data": [
+							"Basic Screen S",
+							"Basic Screen M",
+							"Uncommon Screen XS",
+							"Uncommon Screen L",
+							"Uncommon Screen XL",
+							"Advanced Screen XS",
+							"Advanced Screen XL"
 						]
 					}
 				]
@@ -1643,212 +2692,6 @@
 				]
 			},
 			{
-				"name": "Functional Parts",
-				"data": [
-					{
-						"name": "Antennas",
-						"data": [
-							"Basic Antenna XS",
-							"Basic Antenna S",
-							"Uncommon Antenna XS",
-							"Uncommon Antenna S",
-							"Uncommon Antenna M",
-							"Uncommon Antenna L",
-							"Exotic Antenna M",
-							"Exotic Antenna L",
-							"Exotic Antenna XL"
-						]
-					},
-					{
-						"name": "Chemical Containers",
-						"data": [
-							"Basic Chemical Container XS",
-							"Basic Chemical Container S",
-							"Basic Chemical Container M",
-							"Basic Chemical Container L",
-							"Basic Chemical Container XL",
-							"Advanced Chemical Container S",
-							"Advanced Chemical Container M",
-							"Advanced Chemical Container L",
-							"Advanced Chemical Container XL"
-						]
-					},
-					{
-						"name": "Combustion Chambers",
-						"data": [
-							"Basic Combustion Chamber XS",
-							"Basic Combustion Chamber S",
-							"Basic Combustion Chamber M",
-							"Basic Combustion Chamber L",
-							"Advanced Combustion Chamber XS",
-							"Advanced Combustion Chamber S",
-							"Advanced Combustion Chamber M"
-						]
-					},
-					{
-						"name": "Control Systems",
-						"data": [
-							"Basic Control System XS",
-							"Basic Control System S",
-							"Basic Control System M",
-							"Advanced Control System S",
-							"Advanced Control System M",
-							"Advanced Control System L"
-						]
-					},
-					{
-						"name": "Core Systems",
-						"data": [
-							"Basic Core System XS",
-							"Basic Core System S",
-							"Uncommon Core System S",
-							"Uncommon Core System M",
-							"Uncommon Core System L",
-							"Advanced Core System M",
-							"Rare Core System L",
-							"Exotic Core System S"
-						]
-					},
-					{
-						"name": "Electric Engines",
-						"data": [
-							"Basic Electric Engine S",
-							"Basic Electric Engine M",
-							"Uncommon Electric Engine XL"
-						]
-					},
-					{
-						"name": "Firing Systems",
-						"data": [
-							"Basic Firing System XS",
-							"Advanced Firing System XS",
-							"Advanced Firing System S",
-							"Advanced Firing System M",
-							"Advanced Firing System L"
-						]
-					},
-					{
-						"name": "Gas Cylinders",
-						"data": [
-							"Basic Gas Cylinder XS",
-							"Basic Gas Cylinder S",
-							"Basic Gas Cylinder M"
-						]
-					},
-					{
-						"name": "Ionic Chambers",
-						"data": [
-							"Basic Ionic Chamber XS",
-							"Basic Ionic Chamber S",
-							"Basic Ionic Chamber M",
-							"Basic Ionic Chamber L",
-							"Basic Ionic Chamber XL",
-							"Uncommon Ionic Chamber XS",
-							"Uncommon Ionic Chamber S",
-							"Uncommon Ionic Chamber M",
-							"Uncommon Ionic Chamber L",
-							"Uncommon Ionic Chamber XL",
-							"Advanced Ionic Chamber M",
-							"Advanced Ionic Chamber L"
-						]
-					},
-					{
-						"name": "Laser Chambers",
-						"data": [
-							"Uncommon Laser Chamber XS",
-							"Advanced Laser Chamber XS",
-							"Advanced Laser Chamber S",
-							"Advanced Laser Chamber M",
-							"Advanced Laser Chamber L",
-							"Rare Laser Chamber S"
-						]
-					},
-					{
-						"name": "Lights",
-						"data": [
-							"Uncommon Light XS",
-							"Uncommon Light S"
-						]
-					},
-					{
-						"name": "Magnetic Rails",
-						"data": [
-							"Advanced Magnetic Rail XS",
-							"Advanced Magnetic Rail S",
-							"Advanced Magnetic Rail M",
-							"Advanced Magnetic Rail L"
-						]
-					},
-					{
-						"name": "Mechanical Sensors",
-						"data": [
-							"Basic Mechanical Sensor XS",
-							"Advanced Mechanical Sensor XS",
-							"Exotic Mechanical Sensor XS"
-						]
-					},
-					{
-						"name": "Missile Silos",
-						"data": [
-							"Advanced Missile Silo XS",
-							"Advanced Missile Silo S",
-							"Advanced Missile Silo M",
-							"Advanced Missile Silo L"
-						]
-					},
-					{
-						"name": "Mobile Panels",
-						"data": [
-							"Basic Mobile Panel XS",
-							"Basic Mobile Panel S",
-							"Basic Mobile Panel M",
-							"Basic Mobile Panel L",
-							"Basic Mobile Panel XL"
-						]
-					},
-					{
-						"name": "Motherboards",
-						"data": [
-							"Advanced Motherboard M"
-						]
-					},
-					{
-						"name": "Ore Scanners",
-						"data": [
-							"Uncommon Ore Scanner XL"
-						]
-					},
-					{
-						"name": "Power Transformers",
-						"data": [
-							"Basic Power Transformer M",
-							"Uncommon Power Transformer S",
-							"Uncommon Power Transformer M",
-							"Rare Power Transformer L",
-							"Rare Power Transformer XL",
-							"Exotic Power Transformer L"
-						]
-					},
-					{
-						"name": "Robotic Arms",
-						"data": [
-							"Basic Robotic Arm M",
-							"Basic Robotic Arm L",
-							"Basic Robotic Arm XL"
-						]
-					},
-					{
-						"name": "Screens",
-						"data": [
-							"Basic Screen M",
-							"Uncommon Screen XS",
-							"Uncommon Screen XL",
-							"Advanced Screen XS"
-						]
-					}
-				]
-			},
-			{
 				"name": "Structural Parts",
 				"data": [
 					{
@@ -1866,7 +2709,6 @@
 							"Advanced Casing L",
 							"Advanced Casing XL",
 							"Rare Casing XS",
-							"Rare Casing S",
 							"Exotic Casing S"
 						]
 					},
@@ -1887,8 +2729,14 @@
 							"Advanced Reinforced Frame S",
 							"Advanced Reinforced Frame M",
 							"Advanced Reinforced Frame L",
+							"Advanced Reinforced Frame XL",
+							"Rare Reinforced Frame XS",
+							"Rare Reinforced Frame S",
+							"Rare Reinforced Frame M",
 							"Rare Reinforced Frame L",
 							"Rare Reinforced Frame XL",
+							"Exotic Reinforced Frame XS",
+							"Exotic Reinforced Frame S",
 							"Exotic Reinforced Frame M",
 							"Exotic Reinforced Frame L",
 							"Exotic Reinforced Frame XL"
@@ -1909,8 +2757,13 @@
 							"Advanced Standard Frame S",
 							"Advanced Standard Frame M",
 							"Advanced Standard Frame L",
+							"Advanced Standard Frame XL",
+							"Rare Standard Frame S",
+							"Rare Standard Frame M",
 							"Rare Standard Frame L",
 							"Exotic Standard Frame XS",
+							"Exotic Standard Frame S",
+							"Exotic Standard Frame M",
 							"Exotic Standard Frame L"
 						]
 					}
